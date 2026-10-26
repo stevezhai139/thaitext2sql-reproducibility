@@ -1,0 +1,20 @@
+paper numbers: arm base; items 60; graded graded_rc1.csv
+frontier failed runs 138, silent (executed) 131 = 94.9%
+  silent non-empty 103 (74.6% of failed runs), silent empty 28
+API: grade-unanimous cells 340/360
+   claude-sonnet    en unanimity 55/60 = 91.7%
+   claude-sonnet    th unanimity 56/60 = 93.3%
+   gemini-flash     en unanimity 56/60 = 93.3%
+   gemini-flash     th unanimity 56/60 = 93.3%
+   gpt-mini         en unanimity 60/60 = 100.0%
+   gpt-mini         th unanimity 57/60 = 95.0%
+local: grade-unanimous cells 359/360
+   llama31-8b       en unanimity 59/60 = 98.3%
+   llama31-8b       th unanimity 60/60 = 100.0%
+   qwen25-coder-7b  en unanimity 60/60 = 100.0%
+   qwen25-coder-7b  th unanimity 60/60 = 100.0%
+   typhoon2-8b      en unanimity 60/60 = 100.0%
+   typhoon2-8b      th unanimity 60/60 = 100.0%
+API mean single-run acc 92.3% vs majority 93.1%
+flagged 7: gap +2.4 pts | rest 53: gap +12.3 pts
+Q13 correct for all 6 models in both languages: True

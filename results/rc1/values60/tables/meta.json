@@ -1,0 +1,100 @@
+{
+ "arm": "values",
+ "keep_excluded": false,
+ "n_items": 60,
+ "producers": {
+  "analyze.py": {
+   "excluded_models": [],
+   "files": [
+    "accuracy.csv",
+    "cross_lingual.csv",
+    "stability_parse.csv",
+    "value_translated.csv"
+   ],
+   "inputs": {
+    "graded": {
+     "arms_in_file": [
+      "base",
+      "values"
+     ],
+     "basename": "graded_rc1.csv",
+     "session_fp": {
+      "Q01": "edb2e01e6d4b31c3",
+      "Q02": "e1a5e6316be4b6ad",
+      "Q03": "bded0f96cac2fe4a",
+      "Q04": "da0395b64e526a07",
+      "Q05": "f243f42051225d52",
+      "Q06": "dab5f94b3ab3faa4",
+      "Q07": "26fe0e5d95a30881",
+      "Q08": "1883b6693b805137",
+      "Q09": "adaa961b4dfe7d97",
+      "Q10": "142b2dbbe019eaaf",
+      "Q11": "625894b79ce3cd85",
+      "Q12": "77187557891281d5",
+      "Q13": "3f35d5e3313a1438",
+      "Q14": "2d0927582fa0db53",
+      "Q15": "0a498af12ad5faa8",
+      "Q16": "c72c899f025d53fb",
+      "Q17": "43af0db387bfede0",
+      "Q18": "71552b96d566895b",
+      "Q19": "2aa74c11abffb6cd",
+      "Q20": "ab7e03b54e2aefa2",
+      "Q21": "9ea764ed2c94d971",
+      "Q22": "8fce440d485b0682",
+      "Q23": "85b6965e5d8fc971",
+      "Q24": "0a8c307530f048ea",
+      "Q25": "0c82581a25ef3b1d",
+      "Q26": "17fe69b80f2bbf6a",
+      "Q27": "37919aa4876d7653",
+      "Q28": "39d8bcb24a02130b",
+      "Q29": "a88d74ec1808c1be",
+      "Q30": "a0a1bda9581653a0",
+      "Q31": "f2da54ed866f1b8b",
+      "Q32": "29d0490e2bba8821",
+      "Q33": "fb1186426690e6a4",
+      "Q34": "b21e2e8b0120e580",
+      "Q35": "b6dce8ce6e037458",
+      "Q36": "a6908d512d39357c",
+      "Q37": "3d4f74dd64842b32",
+      "Q38": "5530031ad5cd34b1",
+      "Q39": "e352849aad320e99",
+      "Q40": "7f53a9fe0891c137",
+      "Q41": "38bb09e57582752a",
+      "Q42": "40507c7e8b8f7129",
+      "Q43": "389b5d3f27a4b9cc",
+      "Q44": "93933fd631416165",
+      "Q45": "d37c040abac9454c",
+      "Q46": "b54bb6abb765d766",
+      "Q47": "e4bea69485b7e785",
+      "Q48": "5ebd681c888761d7",
+      "Q49": "9fcb0c043e124119",
+      "Q50": "391f0da22cfe752e",
+      "Q51": "9b2c650e240caa8b",
+      "Q52": "e975606e237e2ab4",
+      "Q53": "e95699eb15679920",
+      "Q54": "e9faeaee48ce551c",
+      "Q55": "b8e4ec1804f08e6b",
+      "Q56": "53c55a33b7dc2d8d",
+      "Q57": "6310af55f769c5f1",
+      "Q58": "97ab394a0e773fd4",
+      "Q59": "4600b7eabf21f7e2",
+      "Q60": "22fa3d1d12d29d13"
+     },
+     "sha256": "74c5e9a63a70665172740da8beeb7352e2dc3664271b63c85d28f1716a2f03c1"
+    }
+   },
+   "models": [
+    "claude-sonnet",
+    "gemini-flash",
+    "gpt-mini",
+    "llama31-8b",
+    "qwen25-coder-7b",
+    "typhoon2-8b"
+   ],
+   "runs": 5,
+   "vg_set": "vg_rule.is_value_grounding"
+  }
+ },
+ "suite_session": "october",
+ "suite_sha256": "96b8e9f2e48398111aa6b2d555995a2b726a54e62efe1474668477dda7eed46b"
+}

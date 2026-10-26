@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{Paired EN$-$TH contrast per model under the schema-only prompt: discordant items (EN-only correct $b$, TH-only correct $c$), accuracy difference in points with a 95\% Newcombe hybrid-score interval without the paired correlation correction (conservative), exact McNemar $p$, and Holm-corrected $p$ across six models ($^{*}$: $p_{\text{Holm}}<0.05$). Last column ($\Delta_V$): the same difference when the prompt also lists each text column's stored values (concurrent re-run, Amendment~7; Section~V-B); descriptive, no interval or test. Pooled frontier EN$-$TH gap: 9$\to$4 items, share 0.44 (item-bootstrap 95\% CI [$-$0.30, 2.00]; resamples with no positive schema-only gap: 22 of 10,000, 147 without claude-sonnet-5, 1,622 without gpt-5.4-mini). Local models (\textsuperscript{\dag}) are exploratory.}
+\label{tab:crosslingual}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccccc}
+\toprule
+Model & $b$ & $c$ & $\Delta$ pts [CI] & $p$ & $p_{\text{Holm}}$ & $\Delta_V$ \\
+\midrule
+claude-sonnet-5 & 3 & 0 & +5.0 [-4.3,+15.0] & 0.2500 & 0.7500 & +6.7 \\
+gpt-5.4-mini & 6 & 0 & +10.0 [-1.1,+21.6] & 0.0312 & 0.1250 & +0.0 \\
+gemini-3.6-flash & 1 & 1 & +0.0 [-9.3,+9.3] & 1.0000 & 1.0000 & +0.0 \\
+qwen2.5-coder 7B\textsuperscript{\dag} & 14 & 0 & +23.3 [+5.5,+39.2] & 0.0001 & 0.0007$^{*}$ & +15.0 \\
+llama3.1 8B\textsuperscript{\dag} & 15 & 3 & +20.0 [+2.1,+36.2] & 0.0075 & 0.0377$^{*}$ & +18.3 \\
+typhoon2 8B (Thai)\textsuperscript{\dag} & 9 & 4 & +8.3 [-8.3,+24.4] & 0.2668 & 0.7500 & +13.3 \\
+\bottomrule
+\end{tabular}
+\end{table}

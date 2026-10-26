@@ -1,0 +1,7 @@
+model,n_items,both_correct,en_only,th_only,both_wrong,phi,zero_margin,ci_label,all_rows_nonnegative,all_rows_positive,zero_margin_rule
+claude-sonnet,59,53,5,0,1,0.3903,no,Newcombe hybrid-score interval without the paired correlation correction (conservative),True,True,set_zero
+gemini-flash,59,52,4,1,2,0.4326,no,Newcombe hybrid-score interval without the paired correlation correction (conservative),True,True,set_zero
+gpt-mini,59,47,8,1,3,0.3902,no,Newcombe hybrid-score interval without the paired correlation correction (conservative),True,True,set_zero
+llama31-8b,59,20,12,3,24,0.5249,no,Newcombe hybrid-score interval without the paired correlation correction (conservative),True,True,set_zero
+qwen25-coder-7b,59,25,13,0,21,0.6375,no,Newcombe hybrid-score interval without the paired correlation correction (conservative),True,True,set_zero
+typhoon2-8b,59,12,9,5,33,0.4650,no,Newcombe hybrid-score interval without the paired correlation correction (conservative),True,True,set_zero

@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{Paired EN$-$TH contrast per model: discordant items (EN-only
+correct $b$, TH-only correct $c$), accuracy difference in points with a
+95\% Newcombe hybrid-score interval without the paired correlation correction (conservative), exact McNemar $p$, and Holm-corrected $p$ across six
+models ($^{*}$: significant at 0.05 after correction).}
+\label{tab:crosslingual}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lccccc}
+\toprule
+Model & $b$ & $c$ & $\Delta$ pts [CI] & $p$ & $p_{\text{Holm}}$ \\
+\midrule
+claude-sonnet-5 & 5 & 0 & +8.5 [-0.6,+18.9] & 0.0625 & 0.1875 \\
+gpt-5.4-mini & 8 & 1 & +11.9 [-0.4,+24.3] & 0.0391 & 0.1758 \\
+gemini-3.6-flash & 4 & 1 & +5.1 [-5.3,+15.9] & 0.3750 & 0.7500 \\
+qwen2.5-coder 7B & 13 & 0 & +22.0 [+4.0,+38.1] & 0.0002 & 0.0015$^{*}$ \\
+llama3.1 8B & 12 & 3 & +15.3 [-2.7,+31.9] & 0.0352 & 0.1758 \\
+typhoon2 8B (Thai) & 9 & 5 & +6.8 [-9.9,+23.0] & 0.4240 & 0.7500 \\
+\bottomrule
+\end{tabular}
+\end{table}

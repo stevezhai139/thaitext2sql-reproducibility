@@ -1,0 +1,38 @@
+captured_at	2026-10-22 05:30:52.820198+07		
+pg_postmaster_start_time	2026-10-12 21:49:47.110037+07		
+pg_conf_load_time	2026-10-12 21:49:46.595905+07		
+application_name	psql		client
+bgwriter_lru_maxpages	1000		configuration file
+client_encoding	UTF8		client
+config_file	/opt/homebrew/var/postgresql@16/postgresql.conf		override
+cpu_index_tuple_cost	0.005		default
+cpu_operator_cost	0.0025		default
+cpu_tuple_cost	0.01		default
+data_directory	/opt/homebrew/var/postgresql@16		override
+DateStyle	ISO, MDY		configuration file
+default_statistics_target	100		default
+default_text_search_config	pg_catalog.english		configuration file
+dynamic_shared_memory_type	posix		configuration file
+effective_cache_size	2359296	8kB	configuration file
+hba_file	/opt/homebrew/var/postgresql@16/pg_hba.conf		override
+ident_file	/opt/homebrew/var/postgresql@16/pg_ident.conf		override
+jit	on		default
+lc_messages	C		configuration file
+lc_monetary	C		configuration file
+lc_numeric	C		configuration file
+lc_time	C		configuration file
+log_timezone	Asia/Bangkok		configuration file
+maintenance_work_mem	2097152	kB	configuration file
+max_connections	100		configuration file
+max_parallel_workers_per_gather	4		configuration file
+max_wal_size	1024	MB	configuration file
+min_wal_size	80	MB	configuration file
+random_page_cost	1.1		configuration file
+seq_page_cost	1		default
+server_version	16.9 (Homebrew)		default
+shared_buffers	786432	8kB	configuration file
+TimeZone	Asia/Bangkok		configuration file
+transaction_deferrable	off		override
+transaction_isolation	read committed		override
+transaction_read_only	off		override
+work_mem	262144	kB	configuration file

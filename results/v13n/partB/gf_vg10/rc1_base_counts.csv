@@ -1,0 +1,8 @@
+model,arm,vg_set_n,a,N,g,contrast,exploratory
+claude-sonnet,base,10,1,6,1,1,False
+gpt-mini,base,10,5,11,3,5,False
+gemini-flash,base,10,4,6,4,4,False
+qwen25-coder-7b,base,10,7,34,4,3,True
+llama31-8b,base,10,6,36,2,3,True
+typhoon2-8b,base,10,5,42,4,2,True
+frontier_total,base,10,10,23,8,10,False

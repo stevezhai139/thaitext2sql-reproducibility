@@ -1,0 +1,13 @@
+lang,model,items,base_only,values_only,p_exact,p_holm_frontier_th,role,exploratory
+th,claude-sonnet,60,3,3,1.0000,1.0000,H4,False
+th,gpt-mini,60,2,7,0.1797,0.5391,H4,False
+th,gemini-flash,60,0,2,0.5000,1.0000,H4,False
+th,qwen25-coder-7b,60,0,8,0.0078,,descriptive,True
+th,llama31-8b,60,4,6,0.7539,,descriptive,True
+th,typhoon2-8b,60,4,4,1.0000,,descriptive,True
+en,claude-sonnet,60,1,2,1.0000,,descriptive,True
+en,gpt-mini,60,1,0,1.0000,,descriptive,True
+en,gemini-flash,60,0,2,0.5000,,descriptive,True
+en,qwen25-coder-7b,60,1,4,0.3750,,descriptive,True
+en,llama31-8b,60,7,8,1.0000,,descriptive,True
+en,typhoon2-8b,60,2,5,0.4531,,descriptive,True

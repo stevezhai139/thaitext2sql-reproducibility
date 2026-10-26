@@ -1,0 +1,30 @@
+{
+ "script": "harness/rev_numbers.py",
+ "script_sha256": "28a555c531df4b8246b5e8399428e669b243f25687628ea073730e621a587101",
+ "inputs": {
+  "graded_rc1": {
+   "path": "../results/rc1/graded_rc1.csv",
+   "sha256": "74c5e9a63a70665172740da8beeb7352e2dc3664271b63c85d28f1716a2f03c1"
+  },
+  "graded_ext": {
+   "path": "../results/ext/graded_ext.csv",
+   "sha256": "37320992c87160bfe5679360db9502117826062765b2a21609f77e2f70bb77c4"
+  },
+  "results_ext_api": {
+   "path": "../results/ext/results_ext_api.jsonl",
+   "sha256": "07567ba68ad72e363fbd51a5f0f0985ebc534ddd86e9ea5f3b0b77e373d6d407"
+  },
+  "acc_v12": {
+   "path": "../results/tables/accuracy.csv",
+   "sha256": "ec733bdf2a92900d608f7c9c6937b29fefa832d39ff3ff039d775f5d233c31ba"
+  },
+  "acc_v13n": {
+   "path": "../results/v13n/tables/accuracy.csv",
+   "sha256": "b8d19c0c5e8ba294b9704f3eef45bd5567eaca11cc47fe324c18bd384a21cb03"
+  },
+  "acc_oct": {
+   "path": "../results/rc1/base60/tables/accuracy.csv",
+   "sha256": "dc0b9d2f4f8e6a994da5cda70a037e70894aaf6a2ca4cc5e0802788209dbfad9"
+  }
+ }
+}

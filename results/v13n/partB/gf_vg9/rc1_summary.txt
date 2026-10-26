@@ -1,0 +1,16 @@
+mode base-only; items 59; VG10 ['Q01', 'Q07', 'Q09', 'Q13', 'Q14', 'Q15', 'Q21', 'Q30', 'Q42', 'Q48']; VG set ['Q01', 'Q07', 'Q09', 'Q13', 'Q14', 'Q15', 'Q21', 'Q30', 'Q42']
+VG_cov (hint-covered) ['Q01', 'Q07', 'Q09', 'Q13', 'Q14', 'Q15', 'Q21', 'Q30', 'Q42']; PLACEBO 49 items; hints sha256 2ea5efb41318...; source_db k3n; Q48 vocabulary rule keep
+models ['claude-sonnet', 'gpt-mini', 'gemini-flash', 'qwen25-coder-7b', 'llama31-8b', 'typhoon2-8b']; frontier for H1-H4 ['claude-sonnet', 'gpt-mini', 'gemini-flash']
+A7-39 (OQ6): Q48 runs whose SQL uses the literal 'None' (gold literal not stored on k3n): 0 of 60 runs (every analysed model, arm and language, any grade); compared with runnerup: 0; by arm|language base|en=0, base|th=0
+OQ6 diagnostic: no failing TH run is INVENTED only because of a non-stored gold literal
+
+B2 counts (TH, VG set; per model a of N, g of N, contrast):
+  claude-sonnet    base   a=1 of N=6; g=1 of N=6; contrast=1
+  gpt-mini         base   a=4 of N=11; g=3 of N=11; contrast=4
+  gemini-flash     base   a=4 of N=6; g=4 of N=6; contrast=4
+  qwen25-coder-7b  base   a=6 of N=34; g=4 of N=34; contrast=3
+  llama31-8b       base   a=5 of N=36; g=2 of N=36; contrast=3
+  typhoon2-8b      base   a=4 of N=42; g=4 of N=42; contrast=2
+  frontier_total   base   a=9 of N=23; g=8 of N=23; contrast=9
+
+audit rows (failing TH runs on VG items, scope all): 114

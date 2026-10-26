@@ -1,0 +1,13 @@
+model,lang,unanimity_rate,parse_rate,parse_ci_lo,parse_ci_hi
+claude-sonnet,en,0.950,1.000,0.987,1.000
+claude-sonnet,th,0.900,1.000,0.987,1.000
+gemini-flash,en,0.933,1.000,0.987,1.000
+gemini-flash,th,0.883,1.000,0.987,1.000
+gpt-mini,en,0.950,1.000,0.987,1.000
+gpt-mini,th,0.917,1.000,0.987,1.000
+llama31-8b,en,1.000,0.987,0.966,0.995
+llama31-8b,th,1.000,1.000,0.987,1.000
+qwen25-coder-7b,en,1.000,1.000,0.987,1.000
+qwen25-coder-7b,th,1.000,1.000,0.987,1.000
+typhoon2-8b,en,1.000,1.000,0.987,1.000
+typhoon2-8b,th,1.000,1.000,0.987,1.000

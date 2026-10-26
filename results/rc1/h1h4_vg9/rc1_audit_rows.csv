@@ -1,0 +1,321 @@
+row_key,model,arm,lang,qid,run,in_vg_cov,in_vg_set,cell_majority_wrong,cell_n_fail,question_th,targets,sql,classifier_class
+claude-sonnet|base|th|Q14|2,claude-sonnet,base,th,Q14,2,True,True,True,4,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No'
+  AND ProductRating >= 4.5",INVENTED
+claude-sonnet|base|th|Q14|3,claude-sonnet,base,th,Q14,3,True,True,True,4,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No'
+  AND ProductRating >= 4.5",INVENTED
+claude-sonnet|base|th|Q14|4,claude-sonnet,base,th,Q14,4,True,True,True,4,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No'
+  AND ProductRating >= 4.5",INVENTED
+claude-sonnet|base|th|Q14|5,claude-sonnet,base,th,Q14,5,True,True,True,4,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'None'
+  AND ProductRating >= 4.5",INVENTED
+claude-sonnet|base|th|Q42|1,claude-sonnet,base,th,Q42,1,True,True,True,4,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT
+    Brand,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NOT NULL AND ReturnStatus NOT ILIKE 'none') AS ReturnedOrCount,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NULL OR ReturnStatus ILIKE 'none') AS NoReturnCount
+FROM Ecommerce
+GROUP BY Brand
+ORDER BY Brand",INVENTED
+claude-sonnet|base|th|Q42|3,claude-sonnet,base,th,Q42,3,True,True,True,4,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT
+    Brand,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NOT NULL AND ReturnStatus NOT IN ('None', 'No')) AS ReturnedOrExchangedCount,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NULL OR ReturnStatus IN ('None', 'No')) AS NoReturnCount
+FROM Ecommerce
+GROUP BY Brand
+ORDER BY Brand",INVENTED
+claude-sonnet|base|th|Q42|4,claude-sonnet,base,th,Q42,4,True,True,True,4,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT
+    Brand,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NOT NULL AND ReturnStatus NOT ILIKE 'none') AS ReturnedOrCount,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NULL OR ReturnStatus ILIKE 'none') AS NoReturnCount
+FROM Ecommerce
+GROUP BY Brand
+ORDER BY Brand",INVENTED
+claude-sonnet|base|th|Q42|5,claude-sonnet,base,th,Q42,5,True,True,True,4,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT
+    Brand,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NOT NULL AND ReturnStatus <> 'None') AS ReturnedOrExchangedCount,
+    COUNT(*) FILTER (WHERE ReturnStatus IS NULL OR ReturnStatus = 'None') AS NoReturnCount
+FROM Ecommerce
+GROUP BY Brand
+ORDER BY Brand",INVENTED
+gpt-mini|base|th|Q07|1,gpt-mini,base,th,Q07,1,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT SpouseName
+FROM PresidentMarriage
+WHERE MarriageStatus = 'หม้าย'",THAI_COPY
+gpt-mini|base|th|Q07|2,gpt-mini,base,th,Q07,2,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT SpouseName
+FROM PresidentMarriage
+WHERE MarriageStatus = 'หม้าย'",THAI_COPY
+gpt-mini|base|th|Q07|3,gpt-mini,base,th,Q07,3,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT SpouseName
+FROM PresidentMarriage
+WHERE MarriageStatus = 'หม้าย'",THAI_COPY
+gpt-mini|base|th|Q07|4,gpt-mini,base,th,Q07,4,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT SpouseName
+FROM PresidentMarriage
+WHERE MarriageStatus = 'หม้าย'",THAI_COPY
+gpt-mini|base|th|Q07|5,gpt-mini,base,th,Q07,5,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT SpouseName
+FROM PresidentMarriage
+WHERE MarriageStatus = 'หม้าย'",THAI_COPY
+gpt-mini|base|th|Q15|1,gpt-mini,base,th,Q15,1,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'เครื่องแต่งกาย' AND CustomerGender = 'หญิง'",THAI_COPY
+gpt-mini|base|th|Q15|2,gpt-mini,base,th,Q15,2,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'เครื่องแต่งกาย' AND CustomerGender = 'หญิง'",THAI_COPY
+gpt-mini|base|th|Q15|3,gpt-mini,base,th,Q15,3,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'เครื่องแต่งกาย' AND CustomerGender = 'หญิง'",THAI_COPY
+gpt-mini|base|th|Q15|4,gpt-mini,base,th,Q15,4,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'เครื่องแต่งกาย' AND CustomerGender = 'หญิง'",THAI_COPY
+gpt-mini|base|th|Q15|5,gpt-mini,base,th,Q15,5,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'เครื่องแต่งกาย' AND CustomerGender = 'หญิง'",THAI_COPY
+gpt-mini|base|th|Q21|1,gpt-mini,base,th,Q21,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',"SELECT PresidentName
+FROM PresidentHolding ph
+JOIN President p ON ph.PresidentName = p.PresidentName
+WHERE p.StateBorn = 'Virginia'
+  AND ph.YearHolding < 1850",GROUNDED
+gpt-mini|base|th|Q21|2,gpt-mini,base,th,Q21,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',"SELECT PresidentName
+FROM PresidentHolding ph
+JOIN President p ON ph.PresidentName = p.PresidentName
+WHERE p.StateBorn = 'Virginia'
+  AND ph.YearHolding < 1850",GROUNDED
+gpt-mini|base|th|Q21|3,gpt-mini,base,th,Q21,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',"SELECT PresidentName
+FROM PresidentHolding ph
+JOIN President p ON ph.PresidentName = p.PresidentName
+WHERE p.StateBorn = 'Virginia'
+  AND ph.YearHolding < 1850",GROUNDED
+gpt-mini|base|th|Q21|4,gpt-mini,base,th,Q21,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',"SELECT PresidentName
+FROM PresidentHolding ph
+JOIN President p ON ph.PresidentName = p.PresidentName
+WHERE p.StateBorn = 'Virginia'
+  AND ph.YearHolding < 1850",GROUNDED
+gpt-mini|base|th|Q21|5,gpt-mini,base,th,Q21,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',"SELECT PresidentName
+FROM PresidentHolding ph
+JOIN President p ON ph.PresidentName = p.PresidentName
+WHERE p.StateBorn = 'Virginia'
+  AND ph.YearHolding < 1850",GROUNDED
+gpt-mini|base|th|Q30|1,gpt-mini,base,th,Q30,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT p.PresidentName
+FROM President p
+JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName
+WHERE p.PartyName = 'Democratic-Republican'
+  AND pm.MarriageStatus = 'widower'",INVENTED
+gpt-mini|base|th|Q30|2,gpt-mini,base,th,Q30,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT p.PresidentName
+FROM President p
+JOIN Party pa ON p.PartyName = pa.PartyName
+JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName
+WHERE p.PartyName = 'Democratic-Republican'
+  AND pm.MarriageStatus = 'widowed'",INVENTED
+gpt-mini|base|th|Q30|3,gpt-mini,base,th,Q30,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT p.PresidentName
+FROM President p
+JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName
+WHERE p.PartyName = 'Democratic-Republican'
+  AND pm.MarriageStatus = 'widowed'",INVENTED
+gpt-mini|base|th|Q30|4,gpt-mini,base,th,Q30,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT p.PresidentName
+FROM President p
+JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName
+WHERE p.PartyName = 'Democratic-Republican'
+  AND pm.MarriageStatus = 'widowed'",INVENTED
+gpt-mini|base|th|Q30|5,gpt-mini,base,th,Q30,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT DISTINCT p.PresidentName
+FROM President p
+JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName
+WHERE p.PartyName = 'Democratic-Republican'
+  AND pm.MarriageStatus = 'หม้าย'",THAI_COPY
+gemini-flash|base|th|Q14|1,gemini-flash,base,th,Q14,1,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE ProductRating >= 4.5 AND (ReturnStatus = 'No' OR ReturnStatus = 'None')",INVENTED
+gemini-flash|base|th|Q14|2,gemini-flash,base,th,Q14,2,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE ReturnStatus = 'Not Returned' AND ProductRating >= 4.5",INVENTED
+gemini-flash|base|th|Q14|3,gemini-flash,base,th,Q14,3,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE ReturnStatus = 'Not Returned' AND ProductRating >= 4.5",INVENTED
+gemini-flash|base|th|Q14|4,gemini-flash,base,th,Q14,4,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'Not Returned' AND ProductRating >= 4.5",INVENTED
+gemini-flash|base|th|Q14|5,gemini-flash,base,th,Q14,5,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+gemini-flash|base|th|Q15|3,gemini-flash,base,th,Q15,3,True,True,False,2,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName FROM Ecommerce WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+gemini-flash|base|th|Q15|4,gemini-flash,base,th,Q15,4,True,True,False,2,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName FROM Ecommerce WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+gemini-flash|base|th|Q30|4,gemini-flash,base,th,Q30,4,True,True,False,1,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT DISTINCT President.PresidentName FROM President JOIN PresidentMarriage ON President.PresidentName = PresidentMarriage.PresidentName WHERE President.PartyName = 'Democratic-Republican' AND PresidentMarriage.MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q07|1,qwen25-coder-7b,base,th,Q07,1,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q07|2,qwen25-coder-7b,base,th,Q07,2,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q07|3,qwen25-coder-7b,base,th,Q07,3,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q07|4,qwen25-coder-7b,base,th,Q07,4,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q07|5,qwen25-coder-7b,base,th,Q07,5,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q09|1,qwen25-coder-7b,base,th,Q09,1,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCity = 'โตเกียว'",THAI_COPY
+qwen25-coder-7b|base|th|Q09|2,qwen25-coder-7b,base,th,Q09,2,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCity = 'โตเกียว'",THAI_COPY
+qwen25-coder-7b|base|th|Q09|3,qwen25-coder-7b,base,th,Q09,3,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCity = 'โตเกียว'",THAI_COPY
+qwen25-coder-7b|base|th|Q09|4,qwen25-coder-7b,base,th,Q09,4,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCity = 'โตเกียว'",THAI_COPY
+qwen25-coder-7b|base|th|Q09|5,qwen25-coder-7b,base,th,Q09,5,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCity = 'โตเกียว'",THAI_COPY
+qwen25-coder-7b|base|th|Q14|1,qwen25-coder-7b,base,th,Q14,1,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating 
+FROM Ecommerce 
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+qwen25-coder-7b|base|th|Q14|2,qwen25-coder-7b,base,th,Q14,2,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating 
+FROM Ecommerce 
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+qwen25-coder-7b|base|th|Q14|3,qwen25-coder-7b,base,th,Q14,3,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating 
+FROM Ecommerce 
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+qwen25-coder-7b|base|th|Q14|4,qwen25-coder-7b,base,th,Q14,4,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating 
+FROM Ecommerce 
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+qwen25-coder-7b|base|th|Q14|5,qwen25-coder-7b,base,th,Q14,5,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating 
+FROM Ecommerce 
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+qwen25-coder-7b|base|th|Q21|1,qwen25-coder-7b,base,th,Q21,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|base|th|Q21|2,qwen25-coder-7b,base,th,Q21,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|base|th|Q21|3,qwen25-coder-7b,base,th,Q21,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|base|th|Q21|4,qwen25-coder-7b,base,th,Q21,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|base|th|Q21|5,qwen25-coder-7b,base,th,Q21,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|base|th|Q30|1,qwen25-coder-7b,base,th,Q30,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT p.PresidentName FROM President p JOIN Party pa ON p.PartyName = pa.PartyName JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName WHERE pa.PartyName = 'Democratic-Republican' AND pm.MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q30|2,qwen25-coder-7b,base,th,Q30,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT p.PresidentName FROM President p JOIN Party pa ON p.PartyName = pa.PartyName JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName WHERE pa.PartyName = 'Democratic-Republican' AND pm.MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q30|3,qwen25-coder-7b,base,th,Q30,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT p.PresidentName FROM President p JOIN Party pa ON p.PartyName = pa.PartyName JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName WHERE pa.PartyName = 'Democratic-Republican' AND pm.MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q30|4,qwen25-coder-7b,base,th,Q30,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT p.PresidentName FROM President p JOIN Party pa ON p.PartyName = pa.PartyName JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName WHERE pa.PartyName = 'Democratic-Republican' AND pm.MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q30|5,qwen25-coder-7b,base,th,Q30,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT p.PresidentName FROM President p JOIN Party pa ON p.PartyName = pa.PartyName JOIN PresidentMarriage pm ON p.PresidentName = pm.PresidentName WHERE pa.PartyName = 'Democratic-Republican' AND pm.MarriageStatus = 'หม้าย',THAI_COPY
+qwen25-coder-7b|base|th|Q42|1,qwen25-coder-7b,base,th,Q42,1,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, 
+       COUNT(CASE WHEN ReturnStatus = 'Returned' THEN OrderID ELSE NULL END) AS ReturnedOrders,
+       COUNT(CASE WHEN ReturnStatus != 'Returned' THEN OrderID ELSE NULL END) AS NonReturnedOrders
+FROM Ecommerce
+GROUP BY Brand",STORED
+qwen25-coder-7b|base|th|Q42|2,qwen25-coder-7b,base,th,Q42,2,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, 
+       COUNT(CASE WHEN ReturnStatus = 'Returned' THEN OrderID ELSE NULL END) AS ReturnedOrders,
+       COUNT(CASE WHEN ReturnStatus != 'Returned' THEN OrderID ELSE NULL END) AS NonReturnedOrders
+FROM Ecommerce
+GROUP BY Brand",STORED
+qwen25-coder-7b|base|th|Q42|3,qwen25-coder-7b,base,th,Q42,3,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, 
+       COUNT(CASE WHEN ReturnStatus = 'Returned' THEN OrderID ELSE NULL END) AS ReturnedOrders,
+       COUNT(CASE WHEN ReturnStatus != 'Returned' THEN OrderID ELSE NULL END) AS NonReturnedOrders
+FROM Ecommerce
+GROUP BY Brand",STORED
+qwen25-coder-7b|base|th|Q42|4,qwen25-coder-7b,base,th,Q42,4,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, 
+       COUNT(CASE WHEN ReturnStatus = 'Returned' THEN OrderID ELSE NULL END) AS ReturnedOrders,
+       COUNT(CASE WHEN ReturnStatus != 'Returned' THEN OrderID ELSE NULL END) AS NonReturnedOrders
+FROM Ecommerce
+GROUP BY Brand",STORED
+qwen25-coder-7b|base|th|Q42|5,qwen25-coder-7b,base,th,Q42,5,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, 
+       COUNT(CASE WHEN ReturnStatus = 'Returned' THEN OrderID ELSE NULL END) AS ReturnedOrders,
+       COUNT(CASE WHEN ReturnStatus != 'Returned' THEN OrderID ELSE NULL END) AS NonReturnedOrders
+FROM Ecommerce
+GROUP BY Brand",STORED
+qwen25-coder-7b|values|th|Q09|1,qwen25-coder-7b,values,th,Q09,1,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce",NO_PRED
+qwen25-coder-7b|values|th|Q09|2,qwen25-coder-7b,values,th,Q09,2,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce",NO_PRED
+qwen25-coder-7b|values|th|Q09|3,qwen25-coder-7b,values,th,Q09,3,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce",NO_PRED
+qwen25-coder-7b|values|th|Q09|4,qwen25-coder-7b,values,th,Q09,4,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce",NO_PRED
+qwen25-coder-7b|values|th|Q09|5,qwen25-coder-7b,values,th,Q09,5,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce",NO_PRED
+qwen25-coder-7b|values|th|Q21|1,qwen25-coder-7b,values,th,Q21,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|values|th|Q21|2,qwen25-coder-7b,values,th,Q21,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|values|th|Q21|3,qwen25-coder-7b,values,th,Q21,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|values|th|Q21|4,qwen25-coder-7b,values,th,Q21,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+qwen25-coder-7b|values|th|Q21|5,qwen25-coder-7b,values,th,Q21,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|base|th|Q07|1,llama31-8b,base,th,Q07,1,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'Widow',INVENTED
+llama31-8b|base|th|Q07|2,llama31-8b,base,th,Q07,2,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'Widow',INVENTED
+llama31-8b|base|th|Q07|3,llama31-8b,base,th,Q07,3,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'Widow',INVENTED
+llama31-8b|base|th|Q07|4,llama31-8b,base,th,Q07,4,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'Widow',INVENTED
+llama31-8b|base|th|Q07|5,llama31-8b,base,th,Q07,5,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'Widow',INVENTED
+llama31-8b|base|th|Q09|1,llama31-8b,base,th,Q09,1,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|base|th|Q09|2,llama31-8b,base,th,Q09,2,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|base|th|Q09|3,llama31-8b,base,th,Q09,3,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|base|th|Q09|4,llama31-8b,base,th,Q09,4,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|base|th|Q09|5,llama31-8b,base,th,Q09,5,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|base|th|Q21|1,llama31-8b,base,th,Q21,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|base|th|Q21|2,llama31-8b,base,th,Q21,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|base|th|Q21|3,llama31-8b,base,th,Q21,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|base|th|Q21|4,llama31-8b,base,th,Q21,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|base|th|Q21|5,llama31-8b,base,th,Q21,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|base|th|Q30|1,llama31-8b,base,th,Q30,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName IN ( SELECT PartyName FROM Party WHERE PartyName = 'Democratic-Republican' ),GROUNDED
+llama31-8b|base|th|Q30|2,llama31-8b,base,th,Q30,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName IN ( SELECT PartyName FROM Party WHERE PartyName = 'Democratic-Republican' ),GROUNDED
+llama31-8b|base|th|Q30|3,llama31-8b,base,th,Q30,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName IN ( SELECT PartyName FROM Party WHERE PartyName = 'Democratic-Republican' ),GROUNDED
+llama31-8b|base|th|Q30|4,llama31-8b,base,th,Q30,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName IN ( SELECT PartyName FROM Party WHERE PartyName = 'Democratic-Republican' ),GROUNDED
+llama31-8b|base|th|Q30|5,llama31-8b,base,th,Q30,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName IN ( SELECT PartyName FROM Party WHERE PartyName = 'Democratic-Republican' ),GROUNDED
+llama31-8b|base|th|Q42|1,llama31-8b,base,th,Q42,1,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Return' THEN 1 END) AS ReturnCount, COUNT(CASE WHEN ReturnStatus != 'Return' THEN 1 END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",INVENTED
+llama31-8b|base|th|Q42|2,llama31-8b,base,th,Q42,2,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Return' THEN 1 END) AS ReturnCount, COUNT(CASE WHEN ReturnStatus != 'Return' THEN 1 END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",INVENTED
+llama31-8b|base|th|Q42|3,llama31-8b,base,th,Q42,3,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Return' THEN 1 END) AS ReturnCount, COUNT(CASE WHEN ReturnStatus != 'Return' THEN 1 END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",INVENTED
+llama31-8b|base|th|Q42|4,llama31-8b,base,th,Q42,4,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Return' THEN 1 END) AS ReturnCount, COUNT(CASE WHEN ReturnStatus != 'Return' THEN 1 END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",INVENTED
+llama31-8b|base|th|Q42|5,llama31-8b,base,th,Q42,5,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Return' THEN 1 END) AS ReturnCount, COUNT(CASE WHEN ReturnStatus != 'Return' THEN 1 END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",INVENTED
+llama31-8b|values|th|Q09|1,llama31-8b,values,th,Q09,1,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|values|th|Q09|2,llama31-8b,values,th,Q09,2,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|values|th|Q09|3,llama31-8b,values,th,Q09,3,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|values|th|Q09|4,llama31-8b,values,th,Q09,4,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|values|th|Q09|5,llama31-8b,values,th,Q09,5,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+llama31-8b|values|th|Q21|1,llama31-8b,values,th,Q21,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|values|th|Q21|2,llama31-8b,values,th,Q21,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|values|th|Q21|3,llama31-8b,values,th,Q21,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|values|th|Q21|4,llama31-8b,values,th,Q21,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|values|th|Q21|5,llama31-8b,values,th,Q21,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850,stateborn = 'Virginia',SELECT PresidentName FROM President WHERE StateBorn = 'Virginia' AND YearHolding < 1850,GROUNDED
+llama31-8b|values|th|Q30|1,llama31-8b,values,th,Q30,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName = 'Democratic-Republican',GROUNDED
+llama31-8b|values|th|Q30|2,llama31-8b,values,th,Q30,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName = 'Democratic-Republican',GROUNDED
+llama31-8b|values|th|Q30|3,llama31-8b,values,th,Q30,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName = 'Democratic-Republican',GROUNDED
+llama31-8b|values|th|Q30|4,llama31-8b,values,th,Q30,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName = 'Democratic-Republican',GROUNDED
+llama31-8b|values|th|Q30|5,llama31-8b,values,th,Q30,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed' AND PartyName = 'Democratic-Republican',GROUNDED
+llama31-8b|values|th|Q42|1,llama31-8b,values,th,Q42,1,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Exchanged' THEN 1 ELSE NULL END) AS ExchangedCount, COUNT(CASE WHEN ReturnStatus = 'No Return' THEN 1 ELSE NULL END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",GROUNDED
+llama31-8b|values|th|Q42|2,llama31-8b,values,th,Q42,2,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Exchanged' THEN 1 ELSE NULL END) AS ExchangedCount, COUNT(CASE WHEN ReturnStatus = 'No Return' THEN 1 ELSE NULL END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",GROUNDED
+llama31-8b|values|th|Q42|3,llama31-8b,values,th,Q42,3,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Exchanged' THEN 1 ELSE NULL END) AS ExchangedCount, COUNT(CASE WHEN ReturnStatus = 'No Return' THEN 1 ELSE NULL END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",GROUNDED
+llama31-8b|values|th|Q42|4,llama31-8b,values,th,Q42,4,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Exchanged' THEN 1 ELSE NULL END) AS ExchangedCount, COUNT(CASE WHEN ReturnStatus = 'No Return' THEN 1 ELSE NULL END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",GROUNDED
+llama31-8b|values|th|Q42|5,llama31-8b,values,th,Q42,5,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Exchanged' THEN 1 ELSE NULL END) AS ExchangedCount, COUNT(CASE WHEN ReturnStatus = 'No Return' THEN 1 ELSE NULL END) AS NoReturnCount FROM Ecommerce GROUP BY Brand",GROUNDED
+typhoon2-8b|base|th|Q07|1,typhoon2-8b,base,th,Q07,1,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'widow',INVENTED
+typhoon2-8b|base|th|Q07|2,typhoon2-8b,base,th,Q07,2,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'widow',INVENTED
+typhoon2-8b|base|th|Q07|3,typhoon2-8b,base,th,Q07,3,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'widow',INVENTED
+typhoon2-8b|base|th|Q07|4,typhoon2-8b,base,th,Q07,4,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'widow',INVENTED
+typhoon2-8b|base|th|Q07|5,typhoon2-8b,base,th,Q07,5,True,True,True,5,จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'widow',INVENTED
+typhoon2-8b|base|th|Q14|1,typhoon2-8b,base,th,Q14,1,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+typhoon2-8b|base|th|Q14|2,typhoon2-8b,base,th,Q14,2,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+typhoon2-8b|base|th|Q14|3,typhoon2-8b,base,th,Q14,3,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+typhoon2-8b|base|th|Q14|4,typhoon2-8b,base,th,Q14,4,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+typhoon2-8b|base|th|Q14|5,typhoon2-8b,base,th,Q14,5,True,True,True,5,"แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)",returnstatus = 'No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'No' AND ProductRating >= 4.5",INVENTED
+typhoon2-8b|base|th|Q15|1,typhoon2-8b,base,th,Q15,1,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+typhoon2-8b|base|th|Q15|2,typhoon2-8b,base,th,Q15,2,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+typhoon2-8b|base|th|Q15|3,typhoon2-8b,base,th,Q15,3,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+typhoon2-8b|base|th|Q15|4,typhoon2-8b,base,th,Q15,4,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+typhoon2-8b|base|th|Q15|5,typhoon2-8b,base,th,Q15,5,True,True,True,5,"แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)",category = 'Clothing'; customergender = 'Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+typhoon2-8b|base|th|Q30|1,typhoon2-8b,base,th,Q30,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE PartyName = 'Democratic-Republican' AND MarriageStatus = 'widowed',INVENTED
+typhoon2-8b|base|th|Q30|2,typhoon2-8b,base,th,Q30,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE PartyName = 'Democratic-Republican' AND MarriageStatus = 'widowed',INVENTED
+typhoon2-8b|base|th|Q30|3,typhoon2-8b,base,th,Q30,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE PartyName = 'Democratic-Republican' AND MarriageStatus = 'widowed',INVENTED
+typhoon2-8b|base|th|Q30|4,typhoon2-8b,base,th,Q30,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE PartyName = 'Democratic-Republican' AND MarriageStatus = 'widowed',INVENTED
+typhoon2-8b|base|th|Q30|5,typhoon2-8b,base,th,Q30,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',SELECT PresidentName FROM PresidentMarriage WHERE PartyName = 'Democratic-Republican' AND MarriageStatus = 'widowed',INVENTED
+typhoon2-8b|values|th|Q09|1,typhoon2-8b,values,th,Q09,1,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+typhoon2-8b|values|th|Q09|2,typhoon2-8b,values,th,Q09,2,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+typhoon2-8b|values|th|Q09|3,typhoon2-8b,values,th,Q09,3,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+typhoon2-8b|values|th|Q09|4,typhoon2-8b,values,th,Q09,4,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+typhoon2-8b|values|th|Q09|5,typhoon2-8b,values,th,Q09,5,True,True,True,5,"แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)",customercity = 'Tokyo',"SELECT OrderID, ProductName, CustomerCity FROM Ecommerce WHERE CustomerCountry = 'Japan'",NO_PRED
+typhoon2-8b|values|th|Q30|1,typhoon2-8b,values,th,Q30,1,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT PresidentName
+FROM PresidentMarriage
+WHERE PartyName = 'Democratic-Republican'
+AND MarriageStatus = 'Widowed'",GROUNDED
+typhoon2-8b|values|th|Q30|2,typhoon2-8b,values,th,Q30,2,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT PresidentName
+FROM PresidentMarriage
+WHERE PartyName = 'Democratic-Republican'
+AND MarriageStatus = 'Widowed'",GROUNDED
+typhoon2-8b|values|th|Q30|3,typhoon2-8b,values,th,Q30,3,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT PresidentName
+FROM PresidentMarriage
+WHERE PartyName = 'Democratic-Republican'
+AND MarriageStatus = 'Widowed'",GROUNDED
+typhoon2-8b|values|th|Q30|4,typhoon2-8b,values,th,Q30,4,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT PresidentName
+FROM PresidentMarriage
+WHERE PartyName = 'Democratic-Republican'
+AND MarriageStatus = 'Widowed'",GROUNDED
+typhoon2-8b|values|th|Q30|5,typhoon2-8b,values,th,Q30,5,True,True,True,5,แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย,marriagestatus = 'Widowed',"SELECT PresidentName
+FROM PresidentMarriage
+WHERE PartyName = 'Democratic-Republican'
+AND MarriageStatus = 'Widowed'",GROUNDED
+typhoon2-8b|values|th|Q42|1,typhoon2-8b,values,th,Q42,1,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Returned' OR ReturnStatus = 'Exchanged' THEN 1 END) AS Returned_Exchange_Count, COUNT(*) AS Total_Count FROM Ecommerce GROUP BY Brand",STORED
+typhoon2-8b|values|th|Q42|2,typhoon2-8b,values,th,Q42,2,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Returned' OR ReturnStatus = 'Exchanged' THEN 1 END) AS Returned_Exchange_Count, COUNT(*) AS Total_Count FROM Ecommerce GROUP BY Brand",STORED
+typhoon2-8b|values|th|Q42|3,typhoon2-8b,values,th,Q42,3,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Returned' OR ReturnStatus = 'Exchanged' THEN 1 END) AS Returned_Exchange_Count, COUNT(*) AS Total_Count FROM Ecommerce GROUP BY Brand",STORED
+typhoon2-8b|values|th|Q42|4,typhoon2-8b,values,th,Q42,4,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Returned' OR ReturnStatus = 'Exchanged' THEN 1 END) AS Returned_Exchange_Count, COUNT(*) AS Total_Count FROM Ecommerce GROUP BY Brand",STORED
+typhoon2-8b|values|th|Q42|5,typhoon2-8b,values,th,Q42,5,True,True,True,5,นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ,returnstatus = 'No Return',"SELECT Brand, COUNT(CASE WHEN ReturnStatus = 'Returned' OR ReturnStatus = 'Exchanged' THEN 1 END) AS Returned_Exchange_Count, COUNT(*) AS Total_Count FROM Ecommerce GROUP BY Brand",STORED

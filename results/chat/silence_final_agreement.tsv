@@ -1,0 +1,14 @@
+metric	value
+n	54
+agree	49
+percent_agreement	0.9074
+cohen_kappa	0.7761
+round1=FLAGGED;round2=FLAGGED	13
+round1=FLAGGED;round2=ASKED	0
+round1=FLAGGED;round2=SILENT	5
+round1=ASKED;round2=FLAGGED	0
+round1=ASKED;round2=ASKED	0
+round1=ASKED;round2=SILENT	0
+round1=SILENT;round2=FLAGGED	0
+round1=SILENT;round2=ASKED	0
+round1=SILENT;round2=SILENT	36

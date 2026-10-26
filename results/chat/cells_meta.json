@@ -1,0 +1,17 @@
+{
+ "tool": "make_chat_cells.py",
+ "tool_sha256": "5d3e00d3747456d501266a34f423c3bfdcc108df7b744ccdfdf8ff83c379f00e",
+ "items_file": "chat_items_v13.json",
+ "items_file_sha256": "95f8742f1ad0c2e12440e16d655a7540274649b9473d99e7eb7cc31844cec6aa",
+ "items_sha256": "262b3d240057a47039c781a57a3a5338e767658adea08b5350cf3dd8112fff05",
+ "suite_file": "k3n_suite_v1.3n.tsv",
+ "suite_sha256": "195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366",
+ "runner_sha256": "ed0c562adda217e0bb8e1706d33fda28769b329802cd4a8455b7c7daae62192f",
+ "seed": 20261012,
+ "n_cells": 28,
+ "pre_shuffle_sha256": "6f358b2d0f6a329eb9859462649cc5c07d5f9bed9fef6fdb5bcc55bb7691d3cf",
+ "cells_tsv_sha256": "ec805ee0a21e972da8fbeb8b1d63f73f4f810f9896dcd9b14b937b1b4ab0ff50",
+ "prompts_manifest_sha256": "5fb190c74de980f4127e991efad8b4c1a8fedcf79cff98e3c4619259cb60563a",
+ "turn2_sha256": "c220925a94346625b3c1510d7114fd55c1e18bc9793359fe512dc5c70fddbfc7",
+ "created_at_ict": "2026-10-19T19:13:02"
+}

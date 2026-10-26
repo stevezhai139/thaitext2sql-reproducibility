@@ -1,0 +1,1 @@
+SELECT OrderID, ProductName FROM Ecommerce WHERE Category ILIKE '%apparel%' AND CustomerGender ILIKE 'female';

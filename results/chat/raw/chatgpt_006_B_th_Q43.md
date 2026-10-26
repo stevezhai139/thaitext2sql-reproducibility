@@ -1,0 +1,1 @@
+SELECT     PaymentMethod,     MAX(Revenue) AS MaxRevenue FROM Ecommerce GROUP BY PaymentMethod ORDER BY PaymentMethod;

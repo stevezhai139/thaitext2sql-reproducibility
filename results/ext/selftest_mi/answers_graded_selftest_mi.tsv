@@ -1,0 +1,67 @@
+# per-instance results in manifest order; EN shown (TH graded the same)
+item	answer	kind	origin	brief_category	observed	prediction	MI-1b	fails_on	label
+PK1	a1	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	COUNT(*) = COUNT(DISTINCT row) and COUNT(col) = COUNT(*) for both columns
+PK1	a2	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	COUNT(DISTINCT row) plus a FILTER count of NULL keys = 0
+PK1	a3	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	SUM(CASE ... IS NULL) = 0 and COUNT(*) against SELECT DISTINCT
+PK1	a4	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	NOT EXISTS (duplicate keys) AND NOT EXISTS (NULL keys)
+PK1	a5	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	EXCEPT ALL for duplicates, EXCEPT for rows with a NULL key
+PK1	a6	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	bool_and(row IS NOT NULL) plus COUNT(DISTINCT row)
+PK1	a7	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	statistics in a CTE, verdict in the outer SELECT
+PK1	b1	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	uniqueness only: EXISTS (GROUP BY ... HAVING COUNT(*) > 1)
+PK1	b2	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	uniqueness only: COUNT(*) against COUNT of SELECT DISTINCT
+PK1	b3	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	uniqueness only: COUNT(DISTINCT CONCAT(...)) (CONCAT skips NULL)
+PK1	c1	foil	assistant-devised		YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	uniqueness + nullity written as '= NULL' (EXISTS form)
+PK1	c2	foil	assistant-devised		YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	uniqueness + nullity written as '= NULL' (SUM CASE form)
+PK1	d1	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	COUNT(DISTINCT (PresidentName, SpouseName)) = COUNT(*) only
+PK1	e1	foil	assistant-devised		YES | YES | NO | NO | YES	hit	wrong	k3n	uniqueness + nullity of PresidentName only
+PK1	f1	foil	assistant-devised loophole foil	constant	NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	constant 'NO'
+PK1	f2	foil	assistant-devised loophole foil	constant	YES | YES | YES | YES | YES	hit	wrong	k3n,k3_pk_n_dup,k3_pk_n_pnull	constant 'YES'
+PK1	g1	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	COUNT(DISTINCT a || '|' || b) = COUNT(*) ('||' turns a NULL key into NULL; accepted, OQ21)
+PK1	h1	foil	assistant-devised		YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	row-constructor IS NULL (true only when every field is NULL) + uniqueness
+PK1	i1	foil	assistant-devised loophole foil	catalog	NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	declared PRIMARY KEY lookup in information_schema.table_constraints
+PK1	i2	foil	assistant-devised loophole foil	catalog	NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	is_nullable lookup in information_schema.columns
+PK1	j1	foil	assistant-devised		NO | NO | NO | NO | YES	hit	wrong	k3_pk_n_named	uniqueness + nullity + minimality (minimality is not asked)
+PK1	k1	foil	assistant-devised		<49x1> | <49x1> | <49x1> | <49x1> | <49x1>	hit	wrong	k3n,k3_pk_n_named,k3_pk_n_dup,k3_pk_n_pnull,k3_pk_n_spdup	one verdict per key group (many rows)
+PK1	k2	foil	assistant-devised		False | True | False | False | True	hit	wrong	k3n,k3_pk_n_named,k3_pk_n_dup,k3_pk_n_pnull,k3_pk_n_spdup	right logic, boolean instead of 'YES'/'NO'
+PK1	k3	foil	assistant-devised		<error> | <error> | <error> | <error> | <error>	hit	wrong	k3n,k3_pk_n_named,k3_pk_n_dup,k3_pk_n_pnull,k3_pk_n_spdup	MySQL-style COUNT(DISTINCT a, b) (error in PostgreSQL)
+PK1	l1	foil	classroom	nullity-only	NO | YES | YES | NO | YES	hit	wrong	k3_pk_n_dup	nullity only (no uniqueness test)
+PK1	m1	foil	assistant-devised		NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	reads the pair as two single-column keys
+PK1	pk_full	gold	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	gold: uniqueness + nullity
+PK1	pk_full_agg	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	full check, aggregate form
+PK1	pk_uniq_only	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	uniqueness only (classroom partial, verdict form)
+PK1	pk_null_only	foil	classroom	nullity-only	NO | YES | YES | NO | YES	hit	wrong	k3_pk_n_dup	nullity only (classroom partial, verdict form)
+PK1	pk_uniq_raw	foil	classroom	uniqueness-only	"<0 rows> | <0 rows> | [[""Grover Cleveland"", ""Frances Cleveland"", ""2""]] | <0 rows> | <0 rows>"	hit	wrong	k3n,k3_pk_n_named,k3_pk_n_dup,k3_pk_n_pnull,k3_pk_n_spdup	uniqueness only, classroom shape (list duplicated keys)
+PK1	pk_null_raw	foil	classroom	nullity-only	"[[""James Buchanan"", ""\\N""]] | <0 rows> | <0 rows> | [[""\\N"", ""Planted Spouse""]] | <0 rows>"	hit	wrong	k3n,k3_pk_n_named,k3_pk_n_dup,k3_pk_n_pnull,k3_pk_n_spdup	nullity only, classroom shape (list NULL keys)
+PK1	pk_eq_null	foil	assistant-devised		YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	full check but '= NULL' instead of IS NULL
+PK1	pk_countdistinct_row	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	COUNT(DISTINCT (a, b)) = COUNT(*) only
+PK1	pk_const_yes	foil	assistant-devised loophole foil	constant	YES | YES | YES | YES | YES	hit	wrong	k3n,k3_pk_n_dup,k3_pk_n_pnull	constant YES
+PK1	pk_const_no	foil	assistant-devised loophole foil	constant	NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	constant NO
+PK1	pk_wholerow_dup	foil	assistant-devised		NO | YES | YES | NO | YES	hit	wrong	k3_pk_n_dup	nullity + duplicate WHOLE rows (not key values)
+PK1	pk_null_one_col	foil	assistant-devised		YES | YES | NO | NO | YES	hit	wrong	k3n	uniqueness + NULL test on PresidentName only
+PK1	pk_concat_distinct	foil	classroom	uniqueness-only	YES | YES | NO | YES | YES	hit	wrong	k3n,k3_pk_n_pnull	COUNT(DISTINCT CONCAT(a, '|', b)) = COUNT(*) (CONCAT turns NULL into '')
+PK1	pk_minimality	foil	assistant-devised		NO | NO | NO | NO | YES	hit	wrong	k3_pk_n_named	full check + minimality (minimality is not asked)
+PK1	pk_catalog	foil	assistant-devised loophole foil	catalog	NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	declared PRIMARY KEY lookup in information_schema
+PK1	pk_pipe_distinct	correct	assistant-devised		NO | YES | NO | NO | YES	hit	correct	-	COUNT(DISTINCT a || '|' || b) = COUNT(*) (accepted, OQ21)
+PK1	ph_null_spouse_only	foil	assistant-devised		NO | YES | NO | YES | YES	hit	wrong	k3_pk_n_pnull	uniqueness + NULL test on SpouseName only
+PK1	ph_uniq_spouse_alone	foil	assistant-devised		NO | YES | NO | NO | NO	hit	wrong	k3_pk_n_spdup	nullity + uniqueness of SpouseName alone
+PK1	ph_uniq_president_alone	foil	assistant-devised		NO | NO | NO | NO | NO	hit	wrong	k3_pk_n_named,k3_pk_n_spdup	nullity + uniqueness of PresidentName alone
+FK1	fk1_gold	gold	assistant-devised		"<0 rows> | <0 rows> | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	correct	-	gold: non-NULL PartyName with no Party row
+FK1	fk1_notin	correct	assistant-devised		"<0 rows> | <0 rows> | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	correct	-	NOT IN (Party.PartyName has no NULL; a NULL PartyName gives UNKNOWN)
+FK1	fk1_leftjoin_guarded	correct	assistant-devised		"<0 rows> | <0 rows> | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	correct	-	LEFT JOIN anti-join with the NULL guard
+FK1	fk1_except_rows	correct	assistant-devised		"<0 rows> | <0 rows> | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	correct	-	EXCEPT of the joined rows, NULL removed first
+FK1	fk1_leftjoin_noguard	foil	derived from the instructor's answer key		"<0 rows> | [[""Planted President NoParty"", ""\\N""]] | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	wrong	k3_fk_i_null	LEFT JOIN anti-join without the NULL guard (the NULL row is listed)
+FK1	fk1_notexists_noguard	foil	derived from the instructor's answer key		"<0 rows> | [[""Planted President NoParty"", ""\\N""]] | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	wrong	k3_fk_i_null	NOT EXISTS without the NULL guard
+FK1	fk1_coalesce_notin	foil	assistant-devised		"<0 rows> | [[""Planted President NoParty"", ""\\N""]] | [[""Planted President Orphan"", ""Know Nothing""]]"	hit	wrong	k3_fk_i_null	COALESCE(PartyName, '') NOT IN Party (NULL becomes a violation)
+FK1	fk1_nullity_only	foil	assistant-devised		"<0 rows> | [[""Planted President NoParty"", ""\\N""]] | <0 rows>"	hit	wrong	k3_fk_i_null,k3_fk_i_orphan	nullity only (PK-style NULL test applied to the FK)
+FK1	fk1_wrong_direction	foil	assistant-devised		"[[""Union""], [""Progressive""]] | [[""Union""], [""Progressive""]] | [[""Union""], [""Progressive""]]"	hit	wrong	k3n,k3_fk_i_null,k3_fk_i_orphan	wrong direction: parties that no president refers to
+FK1	fk1_const_empty	foil	assistant-devised		<0 rows> | <0 rows> | <0 rows>	hit	wrong	k3_fk_i_orphan	constant empty answer (right on the clean instances only)
+FK1	fk1_select_star	foil	assistant-devised		"<0 rows> | <0 rows> | [[""Planted President Orphan"", ""1950"", ""Ohio"", ""Know Nothing""]]"	hit	wrong	k3_fk_i_orphan	right rows, every column of President (wrong projection)
+FK1	fk1_dangling_values	foil	assistant-devised		<0 rows> | <0 rows> | Know Nothing	hit	wrong	k3_fk_i_orphan	dangling PartyName values only (one column)
+FK1	fk1_except_values	foil	assistant-devised		<0 rows> | \N | Know Nothing	hit	wrong	k3_fk_i_null,k3_fk_i_orphan	EXCEPT on values (keeps the NULL, one column)
+FK2	fk2_gold	gold	assistant-devised		"[[""Union""], [""Progressive""]] | [[""Union""], [""Progressive""]]"	hit	correct	-	gold: parties with no president
+FK2	fk2_except	correct	assistant-devised		"[[""Progressive""], [""Union""]] | [[""Progressive""], [""Union""]]"	hit	correct	-	set difference (a NULL on the right removes nothing)
+FK2	fk2_notin_guarded	correct	assistant-devised		"[[""Union""], [""Progressive""]] | [[""Union""], [""Progressive""]]"	hit	correct	-	NOT IN with the NULL guard in the subquery
+FK2	fk2_leftjoin	correct	assistant-devised		"[[""Union""], [""Progressive""]] | [[""Union""], [""Progressive""]]"	hit	correct	-	LEFT JOIN anti-join from Party
+FK2	fk2_notin_trap	foil	derived from the instructor's answer key		"[[""Union""], [""Progressive""]] | <0 rows>"	hit	wrong	k3_fk_i_null	NOT IN trap: one NULL PartyName makes every NOT IN unknown
+FK2	fk2_fulljoin_trap	foil	assistant-devised		"[[""Union""], [""Progressive""]] | <3x1>"	hit	wrong	k3_fk_i_null	FULL JOIN anti-join (the president with a NULL PartyName adds a NULL row)
+FK2	fk2_inverted	foil	assistant-devised		<7x1> | <7x1>	hit	wrong	k3n,k3_fk_i_null	inverted: the parties that RESTRICT protects

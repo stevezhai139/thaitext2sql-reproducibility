@@ -1,0 +1,6 @@
+model,n_items,status,decision,en_correct,en_acc,en_ci_lo,en_ci_hi,th_correct,th_acc,th_ci_lo,th_ci_hi,b_en_only,c_th_only,p_exact
+claude-sonnet,100,sensitivity,OQ29.2 answered by the author on 14 Oct 2026: option (a) = 'sensitivity',94,0.940,0.875,0.972,86,0.860,0.779,0.915,8,0,0.0078
+gpt-mini,100,sensitivity,OQ29.2 answered by the author on 14 Oct 2026: option (a) = 'sensitivity',88,0.880,0.802,0.930,80,0.800,0.711,0.867,11,3,0.0574
+gemini-flash,100,sensitivity,OQ29.2 answered by the author on 14 Oct 2026: option (a) = 'sensitivity',95,0.950,0.888,0.978,94,0.940,0.875,0.972,3,2,1.0000
+qwen25-coder-7b,100,sensitivity,OQ29.2 answered by the author on 14 Oct 2026: option (a) = 'sensitivity',46,0.460,0.366,0.557,29,0.290,0.210,0.385,19,2,0.0002
+llama31-8b,100,sensitivity,OQ29.2 answered by the author on 14 Oct 2026: option (a) = 'sensitivity',39,0.390,0.300,0.488,26,0.260,0.184,0.354,18,5,0.0106

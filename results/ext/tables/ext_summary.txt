@@ -1,0 +1,5 @@
+extension: 40 items, models ['claude-sonnet', 'gpt-mini', 'gemini-flash', 'qwen25-coder-7b', 'llama31-8b']; MI ['PK1', 'FK1', 'FK2']; directional ['F7C-6', 'X34', 'X37']
+families: F1=5, F2=4, F3=4, F4=5, F5=3, F6=4, F7=5, F8=4, F9=2, F10=4 (sum 40)
+MI-1b verdicts recomputed from the sidecar agree with the graded file (150 MI runs)
+VG classes written for 6 VG items (descriptive, OQ29.3)
+pooled 100 items written as 'sensitivity' (OQ29.2 answered by the author on 14 Oct 2026: option (a) = 'sensitivity')

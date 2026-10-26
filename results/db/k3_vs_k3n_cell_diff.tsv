@@ -1,0 +1,7 @@
+table	row_ordinal	csv_line	ctid_k3	ctid_k3n	row_id	column	type	k3_value	k3n_value	csv_field	explained_by_rule
+presidentholding	1		(0,1)	(0,1)	'George Washington' | '1789'	runnerup	text	'None'	NULL		yes
+presidentholding	10		(0,10)	(0,10)	'John Tyler' | '1841'	vicepresidentname	text	'None'	NULL		yes
+presidentholding	13		(0,13)	(0,13)	'Millard Fillmore' | '1850'	vicepresidentname	text	'None'	NULL		yes
+presidentholding	18		(0,18)	(0,18)	'Andrew Johnson' | '1865'	vicepresidentname	text	'None'	NULL		yes
+presidentholding	22		(0,22)	(0,22)	'Chester A Arthur' | '1881'	vicepresidentname	text	'None'	NULL		yes
+presidentmarriage	16		(0,16)	(0,16)	'James Buchanan'	spousename	text	'None'	NULL		yes

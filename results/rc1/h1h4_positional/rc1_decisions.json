@@ -1,0 +1,200 @@
+{
+ "a9_slots": {
+  "GF_B": 6,
+  "GF_V": 0,
+  "M1_models": [],
+  "N": 17,
+  "N1": 9,
+  "N2": 3,
+  "N3": 5,
+  "VG_n": 10,
+  "a": 8,
+  "a1": 5,
+  "a2": 1,
+  "a3": 2,
+  "g1": 3,
+  "g2": 1,
+  "g3": 2,
+  "hi": 2.0,
+  "k": 15,
+  "lo": -0.3,
+  "most|all": "all",
+  "s": 0.44,
+  "x1": 2.0,
+  "x2": -2.0,
+  "x3": 2.0
+ },
+ "abstract_h2_clause": {
+  "include_in_abstract": true,
+  "include_in_rq2": true,
+  "rule": "all_but_Gd",
+  "status": "OQ18.1 answered by the author on 14 Oct 2026: option (b) = 'all_but_Gd'"
+ },
+ "descriptive_only_fewer_than_two_frontier": false,
+ "frontier": [
+  "claude-sonnet",
+  "gpt-mini",
+  "gemini-flash"
+ ],
+ "h1": {
+  "gf_b": 6,
+  "gf_max": 27,
+  "gf_v": 0,
+  "h1_band": "S1",
+  "h1_most_or_all": "all"
+ },
+ "h1_h2_without_failing_placebo_models": {
+  "without_claude-sonnet": {
+   "ci_hi": 1.25,
+   "ci_hi_unbounded": false,
+   "ci_lo": -1.25,
+   "frontier": [
+    "gpt-mini",
+    "gemini-flash"
+   ],
+   "gf_b": 4,
+   "gf_max": 18,
+   "gf_v": 0,
+   "h1_band": "S1",
+   "h1_most_or_all": "all",
+   "h2_band": "G-a",
+   "model_items_without_all_four_cells": 0,
+   "n_boot": 10000,
+   "n_resample_den_le0": 147,
+   "seed": 20261012,
+   "share": 0.0,
+   "share_fraction": "0/1",
+   "sum_gap_b": 6,
+   "sum_gap_v": 0
+  },
+  "without_claude-sonnet+gpt-mini": {
+   "ci_hi": null,
+   "ci_hi_unbounded": true,
+   "ci_lo": -1.0,
+   "frontier": [
+    "gemini-flash"
+   ],
+   "gf_b": 1,
+   "gf_max": 9,
+   "gf_v": 0,
+   "h1_band": "S0",
+   "h1_most_or_all": null,
+   "h2_band": "G-d",
+   "model_items_without_all_four_cells": 0,
+   "n_boot": 10000,
+   "n_resample_den_le0": 6546,
+   "seed": 20261012,
+   "share": null,
+   "share_fraction": null,
+   "sum_gap_b": 0,
+   "sum_gap_v": 0
+  },
+  "without_gpt-mini": {
+   "ci_hi": null,
+   "ci_hi_unbounded": true,
+   "ci_lo": 0.0,
+   "frontier": [
+    "claude-sonnet",
+    "gemini-flash"
+   ],
+   "gf_b": 3,
+   "gf_max": 18,
+   "gf_v": 0,
+   "h1_band": "S0",
+   "h1_most_or_all": null,
+   "h2_band": "G-c",
+   "model_items_without_all_four_cells": 0,
+   "n_boot": 10000,
+   "n_resample_den_le0": 1622,
+   "seed": 20261012,
+   "share": 1.3333333333333333,
+   "share_fraction": "4/3",
+   "sum_gap_b": 3,
+   "sum_gap_v": 4
+  }
+ },
+ "h2": {
+  "ci_hi": 2.0,
+  "ci_hi_unbounded": false,
+  "ci_lo": -0.3,
+  "h2_band": "G-a",
+  "n_boot": 10000,
+  "n_resample_den_le0": 22,
+  "seed": 20261012,
+  "share": 0.4444444444444444,
+  "share_fraction": "4/9",
+  "sum_gap_b": 9,
+  "sum_gap_v": 4
+ },
+ "h3": {
+  "failing_frontier_models": [
+   "claude-sonnet",
+   "gpt-mini"
+  ],
+  "flips": {
+   "claude-sonnet|en": 3,
+   "claude-sonnet|th": 4,
+   "gemini-flash|en": 2,
+   "gemini-flash|th": 1,
+   "gpt-mini|en": 1,
+   "gpt-mini|th": 4,
+   "llama31-8b|en": 11,
+   "llama31-8b|th": 8,
+   "qwen25-coder-7b|en": 4,
+   "qwen25-coder-7b|th": 3,
+   "typhoon2-8b|en": 6,
+   "typhoon2-8b|th": 3
+  },
+  "max_flips": 2,
+  "pass": false
+ },
+ "h4": {
+  "alpha": 0.05,
+  "holm_over": 3,
+  "rows": [
+   {
+    "base_only": 3,
+    "exploratory": false,
+    "items": 60,
+    "lang": "th",
+    "model": "claude-sonnet",
+    "p_exact": "1.0000",
+    "p_holm_frontier_th": "1.0000",
+    "role": "H4",
+    "values_only": 3
+   },
+   {
+    "base_only": 2,
+    "exploratory": false,
+    "items": 60,
+    "lang": "th",
+    "model": "gpt-mini",
+    "p_exact": "0.1797",
+    "p_holm_frontier_th": "0.5391",
+    "role": "H4",
+    "values_only": 7
+   },
+   {
+    "base_only": 0,
+    "exploratory": false,
+    "items": 60,
+    "lang": "th",
+    "model": "gemini-flash",
+    "p_exact": "0.5000",
+    "p_holm_frontier_th": "1.0000",
+    "role": "H4",
+    "values_only": 2
+   }
+  ]
+ },
+ "m1": {
+  "active": false,
+  "models": [],
+  "significant_loss_models": []
+ },
+ "m2": {
+  "active": true,
+  "k": 15
+ },
+ "q48_vocab_rule": "keep"
+}

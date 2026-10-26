@@ -1,0 +1,59 @@
+app,form,qid,targets,sql,classifier_class
+chatgpt,A,Q14,returnstatus='No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE ReturnStatus = 'Not Returned'   AND ProductRating >= 4.5",INVENTED
+chatgpt,A,Q42,returnstatus='No Return',"SELECT     Brand,     COUNT(\*) FILTER (         WHERE ReturnStatus IN ('Returned', 'Exchanged', 'Return', 'Exchange')     ) AS returned_or_exchanged_orders,     COUNT(\*) FILTER (         WHERE ReturnStatus IN ('Not Returned', 'No Return', 'Not Exchanged', 'None')            OR ReturnStatus IS NULL     ) AS non_returned_orders FROM Ecommerce GROUP BY Brand ORDER BY Brand",INVENTED
+chatgpt,A,Q48,runnerup='None',SELECT DISTINCT p.PresidentName FROM President p WHERE NOT EXISTS (     SELECT 1     FROM PresidentHolding ph     WHERE ph.PresidentName = p.PresidentName       AND ph.RunnerUp IS NOT NULL ),NO_PRED
+chatgpt,B,Q14,returnstatus='No Return',"SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'Not Returned'
+  AND ProductRating >= 4.5",INVENTED
+gemini,A,Q14,returnstatus='No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE ReturnStatus = 'Not Returned' AND ProductRating >= 4.5",INVENTED
+gemini,A,Q15,category='Clothing'; customergender='Female',"SELECT OrderID, ProductName FROM Ecommerce WHERE Category = 'Apparel' AND CustomerGender = 'Female'",INVENTED
+gemini,B,Q15,category='Clothing'; customergender='Female',"SELECT OrderID, ProductName
+FROM Ecommerce
+WHERE Category = 'Apparel' 
+  AND CustomerGender = 'Female'",INVENTED
+gemini,B,Q42,returnstatus='No Return',"SELECT 
+    Brand,
+    -- นับจำนวนคำสั่งซื้อที่มีการคืน หรือเปลี่ยนสินค้า
+    COUNT(CASE 
+        WHEN ReturnStatus ILIKE '%return%' OR ReturnStatus ILIKE '%exchange%' 
+        THEN 1 
+    END) AS ReturnOrExchangeCount,
+    
+    -- นับจำนวนคำสั่งซื้อที่ไม่มีการคืนสินค้า
+    COUNT(CASE 
+        WHEN ReturnStatus NOT ILIKE '%return%' 
+         AND ReturnStatus NOT ILIKE '%exchange%' 
+         OR ReturnStatus IS NULL 
+        THEN 1 
+    END) AS NoReturnCount,
+    
+    -- จำนวนคำสั่งซื้อทั้งหมดของแต่ละแบรนด์ (เผื่อไว้เปรียบเทียบภาพรวม)
+    COUNT(*) AS TotalOrders
+FROM 
+    Ecommerce
+GROUP BY 
+    Brand
+ORDER BY 
+    Brand",GROUNDED
+claude,A,Q07,marriagestatus='Widowed',SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'หม้าย',THAI_COPY
+claude,A,Q14,returnstatus='No Return',"SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE (ReturnStatus IS NULL OR LOWER(ReturnStatus) IN ('no', 'none', 'not returned', 'n/a', '')) AND ProductRating >= 4.5",NO_PRED
+claude,A,Q15,category='Clothing'; customergender='Female',"SELECT OrderID, ProductName FROM Ecommerce WHERE Category ILIKE '%apparel%' AND CustomerGender ILIKE 'female'",INVENTED
+claude,A,Q42,returnstatus='No Return',"SELECT Brand,
+       COUNT(DISTINCT OrderID) FILTER (WHERE ReturnStatus IS NOT NULL AND TRIM(ReturnStatus) <> '' AND LOWER(TRIM(ReturnStatus)) NOT IN ('none','no','not returned','n/a')) AS returned_or_exchanged_orders,
+       COUNT(DISTINCT OrderID) FILTER (WHERE ReturnStatus IS NULL OR TRIM(ReturnStatus) = '' OR LOWER(TRIM(ReturnStatus)) IN ('none','no','not returned','n/a')) AS no_return_orders
+FROM Ecommerce
+GROUP BY Brand
+ORDER BY Brand",NO_PRED
+claude,B,Q14,returnstatus='No Return',"SELECT
+    OrderID,
+    ProductName,
+    ProductRating
+FROM Ecommerce
+WHERE ProductRating >= 4.5
+  AND (
+        ReturnStatus IS NULL
+        OR TRIM(ReturnStatus) = ''
+        OR LOWER(TRIM(ReturnStatus)) IN ('not returned', 'no', 'none', 'n/a')
+      )",NO_PRED
+claude,B,Q42,returnstatus='No Return',SELECT DISTINCT ReturnStatus FROM Ecommerce,NO_PRED

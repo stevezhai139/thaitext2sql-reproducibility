@@ -1,0 +1,1 @@
+Table II typhoon2 8B (Thai) col4: 28.3 [18,41] -> 28.3 [19,41]

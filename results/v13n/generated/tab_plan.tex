@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Plan quality on the million-row table: planner-cost ratio of
+each model's majority-correct SQL versus gold (1.00 = plan-equivalent;
+$n$ = measurable cells). EXPLAIN only --- nothing is executed.}
+\label{tab:plan}
+\centering\small
+\begin{tabular}{lccccc}
+\toprule
+ & & \multicolumn{2}{c}{Indexed} & \multicolumn{2}{c}{No index} \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+Model & $n$ & med & max & med & max \\
+\midrule
+claude-sonnet-5 & 20 & 1.00 & 1.50 & 1.00 & 1.00 \\
+gpt-5.4-mini & 18 & 1.00 & 13.14 & 1.00 & 3.60 \\
+gemini-3.6-flash & 19 & 1.00 & 13.14 & 1.00 & 3.60 \\
+qwen2.5-coder 7B & 8 & 1.00 & 3.65 & 1.00 & 1.00 \\
+llama3.1 8B & 9 & 1.00 & 3.65 & 1.00 & 1.00 \\
+typhoon2 8B (Thai) & 5 & 1.00 & 1.00 & 1.00 & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{table}

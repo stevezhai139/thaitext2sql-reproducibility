@@ -1,0 +1,103 @@
+{
+ "arm": "base",
+ "keep_excluded": false,
+ "n_items": 59,
+ "producers": {
+  "analyze_log_v13.py": {
+   "excluded_models": [],
+   "files": [
+    "b1_runs.csv",
+    "b1_items.csv",
+    "b3_gap_nonvg.csv",
+    "b4_text_variability.csv",
+    "b5_q51.csv",
+    "b6_typhoon_llama.csv",
+    "partB_summary.txt"
+   ],
+   "inputs": {
+    "graded": {
+     "arms_in_file": [
+      "base"
+     ],
+     "basename": "graded_v13n.csv",
+     "session_fp": {
+      "Q01": "713059fbf688b056",
+      "Q02": "af217fbe9390cee2",
+      "Q03": "5b5bbc0dccd2bb4e",
+      "Q04": "bd41f6984b490c02",
+      "Q05": "3a29200575533051",
+      "Q06": "735f927d54454703",
+      "Q07": "ea7221efc682d928",
+      "Q08": "ff5e8336559798a8",
+      "Q09": "e60682e4844d8a3a",
+      "Q10": "227294f46884c984",
+      "Q11": "281524acc556fe65",
+      "Q12": "9f012d8fd7e02370",
+      "Q13": "b8fcab685dbfc19b",
+      "Q14": "3673e1b5a17046bf",
+      "Q15": "b054f78f0fd67313",
+      "Q16": "8e7e69fe5a8145f4",
+      "Q17": "498cdb4c7dc4b8ca",
+      "Q18": "e768210a858bf98e",
+      "Q19": "517ba8ae93bce091",
+      "Q20": "4803ee134e3d96b8",
+      "Q21": "b58fb2e763256d98",
+      "Q22": "c9d2d81a658e484f",
+      "Q23": "aa2734c0d58963b3",
+      "Q24": "6c2d89c5a0562908",
+      "Q25": "46a14fa4c279caf4",
+      "Q26": "31ec1fa87826ab92",
+      "Q28": "40087ced6983822b",
+      "Q29": "cd8ace09f242a646",
+      "Q30": "f8b90ae301db2f41",
+      "Q31": "54ef1dfce66633d5",
+      "Q32": "648f30fd94fd18bc",
+      "Q33": "c884885f03258258",
+      "Q34": "2aa7437d29490d68",
+      "Q35": "fa1d7e5243ad134d",
+      "Q36": "32de020004ab4556",
+      "Q37": "5c18348a32eeda50",
+      "Q38": "68ad920f860a8c19",
+      "Q39": "b9531cbc13cd3cd7",
+      "Q40": "b321bbae67219965",
+      "Q41": "590952f173c6a566",
+      "Q42": "20edd64c93e610d3",
+      "Q43": "d55e02e189ab85e1",
+      "Q44": "0b5aaa8b57121899",
+      "Q45": "987adcd1676a7c24",
+      "Q46": "73489f6b0b563817",
+      "Q47": "897bb83746e4434b",
+      "Q48": "b2c33666e960325c",
+      "Q49": "54010e6d15455ee4",
+      "Q50": "dfb6f2cb60a80ac9",
+      "Q51": "969affed0d3c249e",
+      "Q52": "400ddb916c711b05",
+      "Q53": "edd71c8f3562215b",
+      "Q54": "33f8a084745a2a11",
+      "Q55": "c7c8914d47bdde8e",
+      "Q56": "87c7881ec07ae5de",
+      "Q57": "3b21157efdaa28ba",
+      "Q58": "903f1f84e73c5b23",
+      "Q59": "8d523d6affa21dfb",
+      "Q60": "e111adfdf1678b4d"
+     },
+     "sha256": "30d29a826b57fcf3ff56e05241ad5c67656a1966b3538b16d4236bd7c54e46f8"
+    },
+    "results": [
+     {
+      "basename": "results.jsonl",
+      "sha256": "7a68349dcdc7a0c913bfc73ebd93c456fb66ca489fcb32a1f59dd94d79c81365"
+     }
+    ],
+    "vg_set": {
+     "basename": "vg_set_v13n.txt",
+     "sha256": "4685db6e818efd1bb2fb5447210f7085d385270cb91008edd84a2a7426bc6188"
+    }
+   },
+   "mi_items_out": [],
+   "runs": 5
+  }
+ },
+ "suite_session": "august",
+ "suite_sha256": "195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366"
+}

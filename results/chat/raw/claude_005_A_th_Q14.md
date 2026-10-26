@@ -1,0 +1,1 @@
+SELECT OrderID, ProductName, ProductRating FROM Ecommerce WHERE (ReturnStatus IS NULL OR LOWER(ReturnStatus) IN ('no', 'none', 'not returned', 'n/a', '')) AND ProductRating >= 4.5;

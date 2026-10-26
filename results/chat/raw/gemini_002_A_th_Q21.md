@@ -1,0 +1,4 @@
+SELECT DISTINCT p.PresidentName
+FROM President p
+JOIN PresidentHolding ph ON p.PresidentName = ph.PresidentName
+WHERE p.StateBorn = 'Virginia' AND ph.YearHolding < 1850;

@@ -1,0 +1,9 @@
+model_key,lang,qid,run,arm,instance,executed,n_rows,keys_matched,keys_matched_positional,v12_match,reason,rows,perms_by_label
+syn_drift,en,ZZ-DRIFT,1,base,k3n,True,1,primary,primary,True,,"[[""45"", ""46""]]","{""primary"": [[0, 1]]}"
+syn_drift,en,ZZ-DRIFT,1,base,k3_fk_i_null,True,1,primary,,False,,"[[""47"", ""46""]]","{""primary"": [[1, 0]]}"
+syn_swap_both,en,ZZ-DRIFT,1,base,k3n,True,1,primary,,False,,"[[""46"", ""45""]]","{""primary"": [[1, 0]]}"
+syn_swap_both,en,ZZ-DRIFT,1,base,k3_fk_i_null,True,1,primary,,False,,"[[""47"", ""46""]]","{""primary"": [[1, 0]]}"
+syn_mixed_keys,en,ZZ-MIX,1,base,k3n,True,1,primary,primary,True,,"[[""45""]]","{""primary"": [[0]], ""alt1"": []}"
+syn_mixed_keys,en,ZZ-MIX,1,base,k3_fk_i_null,True,1,alt1,alt1,False,,"[[""45""]]","{""primary"": [], ""alt1"": [[0]]}"
+syn_alt_both,en,ZZ-MIX,1,base,k3n,True,1,alt1,alt1,False,,"[[""44""]]","{""primary"": [], ""alt1"": [[0]]}"
+syn_alt_both,en,ZZ-MIX,1,base,k3_fk_i_null,True,1,alt1,alt1,False,,"[[""45""]]","{""primary"": [], ""alt1"": [[0]]}"

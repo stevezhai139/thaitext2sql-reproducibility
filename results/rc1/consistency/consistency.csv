@@ -1,0 +1,13 @@
+n,model,lang,status,items,aug_correct,oct_correct,aug_correct_oct_wrong,aug_wrong_oct_correct,aug_unanimity,oct_unanimity,exploratory
+59,claude-sonnet,en,ok,59,58,57,1,0,0.966,0.915,False
+59,claude-sonnet,th,ok,59,53,54,1,2,0.898,0.932,False
+59,gpt-mini,en,ok,59,55,56,0,1,0.983,1.000,False
+59,gpt-mini,th,ok,59,48,50,0,2,0.932,0.949,False
+59,gemini-flash,en,ok,59,56,56,0,0,0.915,0.932,False
+59,gemini-flash,th,ok,59,53,56,0,3,0.915,0.932,False
+59,qwen25-coder-7b,en,ok,59,38,39,0,1,0.983,1.000,True
+59,qwen25-coder-7b,th,ok,59,25,25,0,0,1.000,1.000,True
+59,llama31-8b,en,ok,59,32,34,0,2,1.000,0.983,True
+59,llama31-8b,th,ok,59,23,23,0,0,1.000,1.000,True
+59,typhoon2-8b,en,ok,59,21,22,1,2,1.000,1.000,True
+59,typhoon2-8b,th,ok,59,17,17,0,0,1.000,1.000,True

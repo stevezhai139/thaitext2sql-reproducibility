@@ -1,0 +1,11 @@
+model,lang,primary,positional,no_col_roles,n
+claude-sonnet,en,36,36,36,40
+claude-sonnet,th,31,31,31,40
+gpt-mini,en,31,31,31,40
+gpt-mini,th,29,29,29,40
+gemini-flash,en,38,38,38,40
+gemini-flash,th,37,37,37,40
+qwen25-coder-7b,en,7,7,7,40
+qwen25-coder-7b,th,4,4,4,40
+llama31-8b,en,4,4,4,40
+llama31-8b,th,3,3,3,40

@@ -1,0 +1,6 @@
+(1) graded generations: rc1 {'base': 3600, 'values': 3600} + ext 2398 = 9598
+(2) extension, free-tier proxies, single-instance items: failed 191 = loud 24 (truncated 14) + silent-empty 11 + silent-non-empty 156; silent 167/191 = 87.4%; failed multi-instance runs 4
+(3) typhoon2-8b extension en: 1/40 items (runs 200; Wilson 0.4–12.9%; cells < 5 runs: none)
+(3) typhoon2-8b extension th: 1/40 items (runs 198; Wilson 0.4–12.9%; cells < 5 runs: X28:3)
+(4) claude-sonnet truncated graded runs (final record tok_out = 1024): 14 in 6 cells; majority depends on truncated runs: th X07, th X17, th X37
+(5) decomposition written (submitted v1.2 n=60 -> August regrade v1.3n n=59 -> October n=60)

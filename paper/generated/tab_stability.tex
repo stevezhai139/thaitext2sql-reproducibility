@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Five-run unanimity and parse rate (\%). Local models are run
+at temperature 0 with fixed seed; API models at their pinned or
+provider-default sampling (Section IV, Protocol).}
+\label{tab:stability}
+\centering\small
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Unanimity} & \multicolumn{2}{c}{Parse} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Model & EN & TH & EN & TH \\
+\midrule
+claude-sonnet-5 & 91.7 & 93.3 & 100.0 & 100.0 \\
+gpt-5.4-mini & 100.0 & 95.0 & 100.0 & 100.0 \\
+gemini-3.6-flash & 93.3 & 93.3 & 100.0 & 100.0 \\
+qwen2.5-coder 7B & 100.0 & 100.0 & 100.0 & 100.0 \\
+llama3.1 8B & 98.3 & 100.0 & 100.0 & 100.0 \\
+typhoon2 8B (Thai) & 100.0 & 100.0 & 100.0 & 100.0 \\
+\bottomrule
+\end{tabular}
+\end{table}

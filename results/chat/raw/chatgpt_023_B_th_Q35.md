@@ -1,0 +1,1 @@
+SELECT     PresidentName,     MIN(YearHolding) AS EarliestStartYear,     MAX(YearEnd) AS LatestEndYear FROM PresidentHolding GROUP BY PresidentName ORDER BY PresidentName;

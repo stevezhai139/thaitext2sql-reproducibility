@@ -1,0 +1,19 @@
+# freeze manifest ของ commit Gate 2 (AMENDMENT-8 FREEZE STAMP และ addendum ของ commit Gate 1b)
+# results/v13n/ และ results/v13/ คือข้อมูลรองตาม D10 (regrade log ส.ค.); ฐานการสุ่มข้อ chat ตาม OQ36 (ก)
+# แถว pinned ของ harness/chatapp/ ต้องมีค่าคาด: ผู้ช่วยคัดลอกจากผลขั้น 1a.74 (RUNBOOK 1a.74b) ก่อนขั้น 2.29
+path	amendment	gate	expected_sha256	label	stage
+prereg/preregistration_FROZEN.md	PREREG	2	record		add-nostamp
+results/v13n/graded_v13n.csv	AM-8	2	record		add
+suite/k3n_suite_v1.3n.tsv	AM-8	2	195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366		pinned
+results/chat/chat_items_v13.json	AM-8	2	record		add
+results/chat/cells.tsv	AM-8	2	record		add
+results/chat/cells_meta.json	AM-8	2	record		add
+results/chat/prompts/	AM-8	2	record		add
+results/chat/prompts/TURN2.txt	AM-8	2	record		add
+results/chat/CHAT_LOG.xlsx	AM-8	2	record		add
+harness/chatapp/draw_chat_items_v13.py	AM-8	2	12632f46b26904c909d538746135c17df333a4b6f212e92124da925306a0f9e5		pinned
+harness/chatapp/make_chat_cells.py	AM-8	2	5d3e00d3747456d501266a34f423c3bfdcc108df7b744ccdfdf8ff83c379f00e		pinned
+harness/chatapp/chatapp_to_results.py	AM-8	2	f70be7fb86e75bdc554f7b3f9847954b98bd63e47fe7cc8156e9b22f6ff6eb67		pinned
+harness/chatapp/vg_outcome.py	AM-8	2	659dff5696df68a0fa4a7f673f5fce3d78b6bcebae07d13c0e7408298da7fc0d		pinned
+results/v13n/	ADDENDUM	2	record		add
+results/v13/	ADDENDUM	2	record		add

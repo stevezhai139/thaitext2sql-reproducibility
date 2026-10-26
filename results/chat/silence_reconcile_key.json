@@ -1,0 +1,29 @@
+{
+ "meta": {
+  "kind": "silence_reconcile",
+  "created_at_ict": "2026-10-24T23:26:52",
+  "pairs_sha256": "37dbd6ce18c7027eb362989bdd8d20607467c576c14cc9004aaae447e1f7441c",
+  "sanitised_control_chars": 0,
+  "workbook": "silence_reconcile.xlsx"
+ },
+ "key_header": [
+  "code_id"
+ ],
+ "key_rows": [
+  [
+   "S03"
+  ],
+  [
+   "S19"
+  ],
+  [
+   "S32"
+  ],
+  [
+   "S50"
+  ],
+  [
+   "S53"
+  ]
+ ]
+}

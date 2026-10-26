@@ -1,0 +1,1 @@
+SELECT OrderID, ProductName, Quantity FROM Ecommerce WHERE PaymentMethod = 'Credit Card'   AND Quantity >= 5;

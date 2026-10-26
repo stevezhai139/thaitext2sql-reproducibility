@@ -1,0 +1,1350 @@
+"""
+grade_v13n.py -- execute-and-compare grader of ONE record at a time, for answer
+key v1.3n on database k3n (Gate 0 of the KST revision; AMENDMENT-7 Part C and
+AMENDMENT-9). Used for the re-grade of the August log (secondary data), the
+October session (core base and values arms), the 40-item extension and the
+chat check. The reference grader grade_v13.py (sha256 aed86b26...) is kept
+unchanged next to this file; parity_grader.py proves that both give the same
+bytes wherever nothing is meant to change.
+
+Execution semantics are identical to grade.py (run-of-record grader):
+  PostgreSQL via psycopg2, read-only session, SET LOCAL statement_timeout 20s
+  + 20 s SIGALRM per candidate, rollback after every query, error records
+  skipped, parse_ok False -> wrong ('parse'), non-SELECT/WITH -> wrong.
+
+Comparison under rule R-v1.3 (answer key v1.3 / v1.3n, dated amendment):
+  G1 column order is not graded (column COUNT must still match), EXCEPT the
+     columns that the question gives distinct roles (issue 11): suite column
+     col_roles, or, for the core suite which has no such column, the
+     core_directional registry of suite_columns.json (OQ35: the choice is made
+     only in that entry -- apply true/false -- and its status text is printed
+     from there; this file never changes with the decision)
+       ''        G1 for this item
+       '*'       the order of the whole projection is graded
+       'i,j;k,l' groups of gold column indexes (from 0); inside each group the
+                 answer must keep the gold order (other columns stay free)
+  G2 numbers compare by value; G3 a date equals a midnight timestamp;
+  G4 row order only where the question asks (order_en / order_th, sort_keys)
+  item-scoped acceptance sets: norm, alt_gold_en, alt_gold_th (answer's
+  language only), v13_status (primary | excluded; excluded items come from
+  the suite ONLY -- an empty gold does not exclude an item, e.g. FK1)
+
+Multi-instance rule MI-1b (brief 1.3; manifest format kst-mi-2)
+  An answer to an item listed in --mi-manifest is correct only if ONE accepted
+  key (the primary gold, or one alternative of the answer's language) matches
+  on EVERY instance listed for the item, with the SAME column permutation on
+  every instance. An instance on which both the key and the answer are empty
+  does not constrain the permutation. correct_positional: the identity
+  permutation is in that intersection. Using different keys on different
+  instances is wrong. Before grading, the base (--pg) and every instance must
+  match the fingerprint recorded in the manifest, and the gold must give the
+  manifest's expected_gold on every instance.
+  For a manifest item: exec_ok = ran on every instance; n_rows refers to the
+  base; matched_gold is the MI-1b label, i.e. the key that matches on every
+  instance with one common permutation ('' when there is none, so
+  matched_gold is non-empty exactly when the answer is correct, as for every
+  other item; the label of each instance is in the --mi-log sidecar). This
+  differs from design 3.9, which had the base label in matched_gold.
+  fail_reason comes from the first instance (manifest order) on which no key
+  matches, else 'wrong-result' (mixed keys or permutation drift).
+
+Modes
+  default            v1.3 rules + col_roles, excluded items skipped
+  --keep-excluded    also grade excluded items (n=60 sensitivity)
+  --colperm off      positional columns for every item (sensitivity)
+  --no-col-roles     pure G1 for every item (sensitivity)
+  --core-directional on|off
+                     sensitivity only: override core_directional.apply of
+                     suite_columns.json for this run (OQ35 option (c) grades
+                     its sensitivity with 'on'); the primary choice stays in
+                     that file
+  --skip-mi-items    drop the multi-instance items (suite mi_instances, or
+                     mi_items of suite_columns.json) and their records, and
+                     grade every other item on --pg alone (OQ28.3: the
+                     extension on k3); cannot be combined with --mi-manifest
+  --overwrite        replace an existing --out / --mi-log (without it an
+                     existing output is refused)
+  --legacy           exact grade.py v1.2 comparison with gold_sql_v12
+                     (parity: must reproduce results/graded.csv on k3)
+  --arms LIST        arms allowed in the input (default base,values; the
+                     chat check passes chat); a record without arm is base
+
+Guards (exit 2, nothing written): --db-fingerprint is required in every mode
+and the 5 tables on --pg must match it; manifest fingerprints / expected_gold;
+a manifest whose status is not the recorded status of build_instances.py
+--record (MI_STATUS_RECORDED; a DRAFT or TEST-ONLY manifest is accepted only
+with --allow-draft-testonly); --legacy with a manifest; an excluded manifest
+item; a suite with multi-instance items (non-empty mi_instances, or an item
+of mi_items of suite_columns.json) but no manifest, an item of mi_items that
+the manifest does not grade, or mi_instances different from the manifest;
+manifest gold_sql different from the suite gold after normalising
+whitespace and a trailing ';'; manifest instances that share a database
+name, or an instance whose recorded fingerprint equals that of the base or
+of its derived_from parent (a table named in its delta must differ from the
+parent); col_roles beyond the column count of any accepted key (primary and
+every alternative, each language, each instance); a suite header that does
+not follow suite_columns.json; a results line that is not a JSON object;
+unknown qid, lang or arm in the input; a record without error that lacks
+model_key, lang, qid, tier, schema or run, or has parse_ok true and no SQL
+text; a repeated (model_key, lang, qid, run, arm) among records without
+error (run compared as text, so 1 and "1" are the same run); the same
+--results file given twice; --out or --mi-log naming an input file, a
+directory, each other, a file in a folder that does not exist, or an
+existing file (unless --overwrite); --out or --mi-log naming results/graded.csv
+or a results*.jsonl log (never, even with --overwrite); a DRAFT suite
+(build_status or file name) unless --allow-draft-testonly AND every output
+outside any results/ folder (any letter case; tests only).
+The CSV and the sidecar are written to '<file>.partial' and renamed when
+grading has finished, so a crash leaves no partial output behind.
+
+Input records are read with a hook that keeps only the fields the grader
+needs and turns 'error' into a boolean (its text is never kept or printed).
+
+Output columns (16, unchanged): model_key, lang, qid, tier, schema, run,
+parse_ok, exec_ok, correct, latency_s, fail_reason, arm, n_rows,
+matched_gold, correct_positional, correct_v12.
+stdout: run-level counts per (model, arm, lang); the arm is printed only when
+it is not base, so the stdout of the August log is unchanged. stderr ends
+with the number of graded rows and of stdout lines (one header line plus one
+line per model x arm x language), so a pasted output can be checked whole.
+--mi-log: per-instance sidecar (model_key, lang, qid, run, arm, instance,
+executed, n_rows, keys_matched, keys_matched_positional, v12_match, reason,
+rows, perms_by_label).
+
+Usage: the official commands are the RUNBOOK steps (run from harness/, one
+command per step, every path in double quotes): 1a.36 (--legacy on k3),
+2.1-2.5 (August log), 3.23-3.25c (October core), 3.26-3.28 (extension with
+--mi-manifest, --mi-log and --arms base), C.4-C.5c (chat check, --arms chat).
+The extension on k3 (OQ28.3, single-instance items only) adds --skip-mi-items
+to the extension command with --pg "dbname=k3" and the k3 fingerprint.
+"""
+import argparse
+import csv
+import datetime as dt
+import itertools
+import json
+import os
+import re
+import signal
+import sys
+from decimal import Decimal, ROUND_HALF_UP, InvalidOperation
+
+ORDER_RE = re.compile(r"order\s+by", re.I)
+SIX_DP = Decimal("0.000001")
+TWO_DP = Decimal("0.01")
+MONTHS = {m: i for i, m in enumerate(
+    ["january", "february", "march", "april", "may", "june", "july",
+     "august", "september", "october", "november", "december"], 1)}
+MONTHS.update({k[:3]: v for k, v in list(MONTHS.items())})
+
+
+# ---------------------------------------------------------------- v1.2 (frozen)
+def has_toplevel_order(sql):
+    out, depth = [], 0
+    for ch in sql:
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth = max(0, depth - 1)
+        elif depth == 0:
+            out.append(ch)
+    return bool(ORDER_RE.search("".join(out)))
+
+
+def canon_v12(rows, ordered):
+    def cv(v):
+        if v is None:
+            return "\\N"
+        if isinstance(v, float):
+            return f"{v:.6g}"
+        return str(v)
+    out = [tuple(cv(v) for v in r) for r in rows]
+    return out if ordered else sorted(out)
+
+
+# ---------------------------------------------------------------- v1.3 values
+def _num(v):
+    """int / Decimal / float -> Decimal, else None"""
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, int):
+        return Decimal(v)
+    if isinstance(v, Decimal):
+        return v if v.is_finite() else None
+    if isinstance(v, float):
+        if v != v or v in (float("inf"), float("-inf")):
+            return None
+        return Decimal(repr(v))
+    return None
+
+
+def _fmt(d):
+    d = d.quantize(SIX_DP, rounding=ROUND_HALF_UP).normalize()
+    s = format(d, "f")
+    return "0" if s in ("-0", "0", "-0.0") else s
+
+
+def _num_from_str(s):
+    try:
+        return Decimal(s.strip())
+    except (InvalidOperation, AttributeError):
+        return None
+
+
+def apply_norm(v, norm):
+    if v is None or not norm:
+        return v
+    if norm == "round2":
+        d = _num(v)
+        return d.quantize(TWO_DP, rounding=ROUND_HALF_UP) if d is not None else v
+    if norm == "abs":
+        d = _num(v)
+        return abs(d) if d is not None else v
+    if norm == "decade":
+        d = _num(v)
+        if d is None and isinstance(v, str):
+            m = re.fullmatch(r"\s*(\d{3,4})\s*'?s?\s*", v)
+            d = Decimal(m.group(1)) if m else None
+        return d if d is not None else v
+    if norm.startswith("month"):
+        year = int(norm[5:])
+        if isinstance(v, (dt.datetime, dt.date)):
+            return f"{v.year:04d}-{v.month:02d}"
+        d = _num(v)
+        if d is None and isinstance(v, str):
+            s = v.strip()
+            m = re.match(r"^(\d{4})-(\d{2})", s)
+            if m:
+                return f"{m.group(1)}-{m.group(2)}"
+            if s.lower() in MONTHS:
+                return f"{year:04d}-{MONTHS[s.lower()]:02d}"
+            d = _num_from_str(s)
+        if d is not None and d == d.to_integral_value() and 1 <= d <= 12:
+            return f"{year:04d}-{int(d):02d}"
+        return v
+    raise ValueError("unknown norm " + norm)
+
+
+def cv13(v, norm=None):
+    v = apply_norm(v, norm)
+    if v is None:
+        return "\\N"
+    d = _num(v)
+    if d is not None:
+        return _fmt(d)
+    if isinstance(v, dt.datetime):
+        if (v.hour, v.minute, v.second, v.microsecond) == (0, 0, 0, 0):
+            return v.date().isoformat()
+        return str(v)
+    if isinstance(v, dt.date):
+        return v.isoformat()
+    return str(v)
+
+
+def parse_norms(spec):
+    out = {}
+    for part in (spec or "").split(";"):
+        part = part.strip()
+        if part:
+            col, kind = part.split(":", 1)
+            out[int(col)] = kind.strip()
+    return out
+
+
+def parse_keys(spec):
+    spec = (spec or "").strip()
+    return tuple(int(x) for x in spec.split(",")) if spec else None
+
+
+def match_v13(ans, gold, ordered, sort_keys, norms, colperm=True):
+    """ans, gold: lists of raw row tuples. Returns True iff equal under R-v1.3."""
+    if len(ans) != len(gold):
+        return False
+    if not gold:
+        return True
+    k = len(gold[0])
+    if len(ans[0]) != k:
+        return False
+    G = [tuple(cv13(r[j], norms.get(j)) for j in range(k)) for r in gold]
+    gcol = [sorted(row[j] for row in G) for j in range(k)]
+    cand = []
+    for j in range(k):
+        cj = []
+        for c in (range(k) if colperm else [j]):
+            if sorted(cv13(r[c], norms.get(j)) for r in ans) == gcol[j]:
+                cj.append(c)
+        if not cj:
+            return False
+        cand.append(cj)
+    if ordered:
+        bounds, start = [], 0
+        if sort_keys:
+            for i in range(1, len(G) + 1):
+                if i == len(G) or tuple(G[i][x] for x in sort_keys) != \
+                        tuple(G[start][x] for x in sort_keys):
+                    bounds.append((start, i))
+                    start = i
+    gsorted = sorted(G)
+    for perm in itertools.product(*cand):
+        if len(set(perm)) != k:
+            continue
+        A = [tuple(cv13(r[perm[j]], norms.get(j)) for j in range(k)) for r in ans]
+        if not ordered:
+            if sorted(A) == gsorted:
+                return True
+        elif sort_keys is None:
+            if A == G:
+                return True
+        elif all(sorted(A[s:e]) == sorted(G[s:e]) for s, e in bounds):
+            return True
+    return False
+
+
+# ---------------------------------------------------------------- engine
+class Timeout(Exception):
+    pass
+
+
+def run_with_timeout(fn, seconds=20):
+    def handler(sig, frm):
+        raise Timeout()
+    old = signal.signal(signal.SIGALRM, handler)
+    signal.alarm(seconds)
+    try:
+        return fn()
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old)
+
+
+def make_engine(dsn):
+    import psycopg2
+    conn = psycopg2.connect(dsn)
+    conn.set_session(readonly=True, autocommit=False)
+
+    def q(sql):
+        try:
+            with conn.cursor() as cur:
+                cur.execute("SET LOCAL statement_timeout = '20s'")
+                cur.execute(sql)
+                return cur.fetchall()
+        finally:
+            conn.rollback()
+    return q
+
+
+def load_suite(path):
+    return {r["id"]: r for r in csv.DictReader(open(path, encoding="utf-8"), delimiter="\t")}
+
+
+def item_keys(q, item, lang):
+    """list of (label, raw gold rows) accepted for this item and language"""
+    sql = item["gold_sql_draft"].strip().rstrip(";")
+    keys = [("primary", q(sql))]
+    alts = json.loads(item.get(f"alt_gold_{lang}") or "[]")
+    for i, a in enumerate(alts, 1):
+        keys.append((f"alt{i}", q(a.strip().rstrip(";"))))
+    return keys
+
+
+# ======================================================================== v1.3n additions
+HERE = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_COLUMNS = os.path.join(HERE, "suite_columns.json")
+FP_TABLES = ("party", "president", "presidentholding", "presidentmarriage", "ecommerce")
+MI_FORMAT = "kst-mi-2"
+MI_RULE = "MI-1b"
+# the status build_instances.py --record writes (db component, RECORDED_STATUS);
+# any other manifest status is for tests only (--allow-draft-testonly)
+MI_STATUS_RECORDED = "RECORDED on run-of-record server (not frozen)"
+MI_TABLE_RE = re.compile(r"^[a-z_][a-z0-9_]*$")
+BASE_COLUMNS = ("id", "tier", "schema", "gold_sql_draft", "gold_sql_v12")
+RECORD_FIELDS = ("model_key", "lang", "qid", "tier", "schema", "run", "parse_ok", "sql",
+                 "latency_s", "arm")
+REQUIRED_RECORD = ("model_key", "lang", "qid", "tier", "schema", "run")
+LANGS = ("en", "th")
+OUT_HEADER = ["model_key", "lang", "qid", "tier", "schema", "run",
+              "parse_ok", "exec_ok", "correct", "latency_s", "fail_reason",
+              "arm", "n_rows", "matched_gold", "correct_positional", "correct_v12"]
+MI_LOG_HEADER = ["model_key", "lang", "qid", "run", "arm", "instance", "executed",
+                 "n_rows", "keys_matched", "keys_matched_positional",
+                 "v12_match", "reason", "rows", "perms_by_label"]
+
+
+class Refuse(Exception):
+    """a guard refused the input; main() prints the message and exits 2"""
+
+
+def refuse(msg):
+    raise Refuse(msg)
+
+
+# ------------------------------------------------------------------ input records
+def record_hook(pairs):
+    """json object_pairs_hook for result records: keep only the fields the grader
+    needs; 'error' becomes a boolean (True = the record carries an error), so its
+    text is never kept in memory or printed"""
+    out = {}
+    for k, v in pairs:
+        if k == "error":
+            out[k] = v is not None
+        elif k in RECORD_FIELDS:
+            out[k] = v
+    return out
+
+
+def same_file(a, b):
+    """True when two paths name the same file: os.path.samefile when both exist,
+    otherwise the resolved paths compared without letter case (conservative on
+    the case-insensitive project disk)"""
+    if not a or not b:
+        return False
+    try:
+        if os.path.exists(a) and os.path.exists(b):
+            return os.path.samefile(a, b)
+    except OSError:
+        pass
+    return os.path.realpath(a).casefold() == os.path.realpath(b).casefold()
+
+
+def read_records(paths):
+    """records of every --results file, in the order given; the same file given
+    twice is refused"""
+    for i, p in enumerate(paths):
+        if any(same_file(p, x) for x in paths[:i]):
+            refuse(f"results: {os.path.basename(p)} is given twice (its records would be "
+                   "graded and counted twice)")
+    recs = []
+    for p in paths:
+        with open(p, encoding="utf-8") as f:
+            for n, line in enumerate(f, 1):
+                if not line.strip():
+                    continue
+                try:
+                    obj = json.loads(line, object_pairs_hook=record_hook)
+                except ValueError:
+                    refuse(f"results: {os.path.basename(p)} line {n} is not JSON")
+                if not isinstance(obj, dict):
+                    refuse(f"results: {os.path.basename(p)} line {n} is not a JSON object")
+                recs.append(obj)
+    return recs
+
+
+def record_key(r):
+    """(model_key, lang, qid, run, arm) of a record; a record without arm is base;
+    run is compared as text, so 1 and "1" are the same run"""
+    run = r.get("run")
+    return (r.get("model_key"), r.get("lang"), r.get("qid"), None if run is None else str(run),
+            r.get("arm", "base"))
+
+
+def check_records(recs, suite, arms):
+    """refuse, before anything is written, input the grading loop cannot grade
+    once: unknown qid / lang / arm (every record), and among the records without
+    error a missing grader field, parse_ok true without SQL text, or a repeated
+    (model_key, lang, qid, run, arm)"""
+    unknown_q = sum(1 for r in recs if r.get("qid") not in suite)
+    bad_lang = sum(1 for r in recs if r.get("lang") not in LANGS)
+    bad_arm = sum(1 for r in recs if r.get("arm", "base") not in arms)
+    if unknown_q or bad_lang or bad_arm:
+        refuse(f"results: {unknown_q} record(s) with a qid not in the suite, {bad_lang} with "
+               f"a lang other than en/th, {bad_arm} with an arm not in --arms {arms}")
+    ok = [r for r in recs if not r.get("error")]
+    missing = sum(1 for r in ok if any(r.get(k) is None for k in REQUIRED_RECORD))
+    no_sql = sum(1 for r in ok if r.get("parse_ok", False) and not isinstance(r.get("sql"), str))
+    if missing or no_sql:
+        refuse(f"results: {missing} record(s) without error lack one of {list(REQUIRED_RECORD)}; "
+               f"{no_sql} have parse_ok true but no SQL text")
+    seen, dup = set(), 0
+    for r in ok:
+        k = record_key(r)
+        dup += k in seen
+        seen.add(k)
+    if dup:
+        refuse(f"results: {dup} record(s) without error repeat a (model_key, lang, qid, run, arm) "
+               "that is already in the input (a file given twice, or overlapping logs?)")
+
+
+RUN_OF_RECORD_LOG_RE = re.compile(r"results.*\.jsonl")
+
+
+def protected_output(path):
+    """True for the files of the run of record that the grader never writes, even
+    with --overwrite: graded.csv directly in a folder named results (any letter
+    case) and any results*.jsonl log"""
+    full = os.path.realpath(os.path.abspath(path))
+    name = os.path.basename(full).casefold()
+    parent = os.path.basename(os.path.dirname(full)).casefold()
+    return (parent == "results" and name == "graded.csv") or \
+        bool(RUN_OF_RECORD_LOG_RE.fullmatch(name))
+
+
+def check_outputs(a):
+    """--out and --mi-log must not name an input file, a directory, each other, a
+    file in a folder that does not exist, a run-of-record file, or an existing
+    file unless --overwrite (messages give base names only)"""
+    outs = [("--out", a.out)] + ([("--mi-log", a.mi_log)] if a.mi_log else [])
+    ins = [("--results", p) for p in a.results] + [("--suite", a.suite), ("--columns", a.columns),
+                                                   ("--db-fingerprint", a.db_fingerprint)]
+    if a.mi_manifest:
+        ins.append(("--mi-manifest", a.mi_manifest))
+    for fo, o in outs:
+        if os.path.isdir(o):
+            refuse(f"{fo} {os.path.basename(o)} is a directory")
+        for fi, i in ins:
+            if same_file(o, i):
+                refuse(f"{fo} names the input file of {fi} ({os.path.basename(i)}); "
+                       "it would be overwritten")
+    if a.mi_log and same_file(a.out, a.mi_log):
+        refuse("--out and --mi-log name the same file")
+    for fo, o in outs:
+        if protected_output(o):
+            refuse(f"{fo} {os.path.basename(o)} names a file of the run of record "
+                   "(results/graded.csv or a results*.jsonl log); the grader never writes it")
+        folder = os.path.dirname(os.path.abspath(o))
+        if not os.path.isdir(folder):
+            refuse(f"{fo} {os.path.basename(o)}: its folder {os.path.basename(folder)} does not "
+                   "exist (create it first)")
+        if os.path.lexists(o) and not getattr(a, "overwrite", False):
+            refuse(f"{fo} {os.path.basename(o)} exists; the grader does not replace an existing "
+                   "file unless --overwrite is given")
+
+
+# ------------------------------------------------------------------ suite
+def normalize_sql(s):
+    """collapse runs of whitespace, trim, drop trailing ';' (C32 comparison)"""
+    s = re.sub(r"\s+", " ", s or "").strip()
+    while s.endswith(";"):
+        s = s[:-1].rstrip()
+    return s
+
+
+def parse_col_roles(spec):
+    """'' -> None (G1); '*' -> '*' (whole projection ordered);
+    'i,j;k,l' -> ((i, j), (k, l)) (order kept inside each group). ValueError if bad"""
+    spec = (spec or "").strip()
+    if not spec:
+        return None
+    if spec == "*":
+        return "*"
+    groups = []
+    for part in spec.split(";"):
+        idx = tuple(int(x) for x in part.split(","))
+        if len(idx) < 2 or len(set(idx)) != len(idx) or min(idx) < 0:
+            raise ValueError(f"col_roles group {part!r} needs >= 2 distinct indexes >= 0")
+        groups.append(idx)
+    flat = [i for g in groups for i in g]
+    if len(set(flat)) != len(flat):
+        raise ValueError(f"col_roles {spec!r}: an index is in two groups")
+    return tuple(groups)
+
+
+def parse_mi_instances(item):
+    raw = (item.get("mi_instances") or "").strip()
+    if not raw:
+        return []
+    v = json.loads(raw)
+    if not isinstance(v, list) or not all(isinstance(x, str) for x in v):
+        raise ValueError("mi_instances must be a JSON list of database names")
+    return v
+
+
+def load_columns(path):
+    cols = json.load(open(path, encoding="utf-8"))
+    for k in ("required", "optional", "ext_required", "legal", "directional",
+              "reserve_directional", "mi_items", "core_directional"):
+        if k not in cols:
+            refuse(f"columns file {os.path.basename(path)}: key {k!r} missing")
+    return cols
+
+
+def core_apply(cols, override=None):
+    """whether the core items of core_directional grade their column order:
+    core_directional.apply of suite_columns.json (OQ35; the one place of the
+    choice), unless a sensitivity run overrides it (--core-directional on/off)"""
+    if override is not None:
+        return bool(override)
+    return bool(cols["core_directional"].get("apply"))
+
+
+def directional_registry(cols, override=None):
+    """{item id: col_roles text} -- the ONE registry of directional items:
+    extension (directional), reserves (reserve_directional) and, while
+    core_directional.apply is true (or a sensitivity run overrides it to on),
+    the core items of OQ35"""
+    reg = {}
+    reg.update(cols["directional"])
+    reg.update(cols["reserve_directional"])
+    core = cols["core_directional"]
+    if core_apply(cols, override):
+        reg.update(core.get("items") or {})
+    for qid, spec in reg.items():
+        try:
+            parse_col_roles(spec)
+        except ValueError as e:
+            refuse(f"columns file: directional entry {qid}={spec!r}: {e}")
+    return reg
+
+
+def load_suite_checked(path, cols):
+    """suite as {id: row} (file order) after the strict header and value checks of
+    suite_columns.json. Returns (suite, header, is_ext)."""
+    with open(path, encoding="utf-8") as f:
+        rd = csv.DictReader(f, delimiter="\t")
+        header = list(rd.fieldnames or [])
+        rows = list(rd)
+    missing = [c for c in list(BASE_COLUMNS) + list(cols["required"]) if c not in header]
+    if missing:
+        refuse(f"suite {os.path.basename(path)}: required columns missing {missing}")
+    ext_only = [c for c in cols["ext_required"] if c not in cols["optional"]]
+    is_ext = any(c in header for c in ext_only)
+    if is_ext:
+        miss = [c for c in cols["ext_required"] if c not in header]
+        if miss:
+            refuse(f"suite {os.path.basename(path)}: extension columns missing {miss}")
+    suite = {}
+    for r in rows:
+        qid = r.get("id") or ""
+        if not qid or qid in suite:
+            refuse(f"suite {os.path.basename(path)}: empty or duplicate id {qid!r}")
+        for c, legal in cols["legal"].items():
+            if c in header and (r.get(c) or "").strip() not in legal:
+                refuse(f"suite {os.path.basename(path)}: {qid} column {c} = {r.get(c)!r}, "
+                       f"allowed {legal}")
+        if "col_roles" in header:
+            try:
+                parse_col_roles(r.get("col_roles"))
+            except ValueError as e:
+                refuse(f"suite: {qid} col_roles: {e}")
+        if "mi_instances" in header:
+            try:
+                parse_mi_instances(r)
+            except ValueError as e:
+                refuse(f"suite: {qid} mi_instances: {e}")
+        suite[qid] = r
+    return suite, header, is_ext
+
+
+def suite_is_draft(path, suite, header):
+    if "DRAFT" in os.path.basename(path).upper():
+        return True
+    if "build_status" in header:
+        return any("DRAFT" in (r.get("build_status") or "") for r in suite.values())
+    return False
+
+
+def under_results(path):
+    """True when any folder of the resolved path (symlinks followed) is named
+    results in any letter case: the project disk is case-insensitive, so
+    Results/ and RESULTS/ are the results folder"""
+    parts = os.path.realpath(os.path.abspath(path)).split(os.sep)[:-1]
+    return any(p.casefold() == "results" for p in parts)
+
+
+def draft_guard(suite_path, suite, header, allow, outs):
+    """refuse a DRAFT suite unless --allow-draft-testonly and every output is
+    outside results/; refuse --allow-draft-testonly with an output under results/"""
+    draft = suite_is_draft(suite_path, suite, header)
+    if allow and any(o and under_results(o) for o in outs):
+        refuse("--allow-draft-testonly is for tests only: the output must be outside results/")
+    if draft and not allow:
+        refuse(f"suite {os.path.basename(suite_path)} is a DRAFT (build_status or file name); "
+               "official steps use the frozen suite")
+    return draft
+
+
+def roles_by_item(suite, header, cols, no_col_roles, core_override=None):
+    """{qid: parsed col_roles} of the items whose column order is graded
+    (core_override: --core-directional of a sensitivity run, else None)"""
+    reg = directional_registry(cols, core_override)
+    out = {}
+    for qid, item in suite.items():
+        if "col_roles" in header:
+            spec = (item.get("col_roles") or "").strip()
+            want = (reg.get(qid) or "").strip()
+            if spec != want:
+                refuse(f"suite: {qid} col_roles {spec!r} differs from the registry of "
+                       f"suite_columns.json ({want!r})")
+        else:
+            spec = (reg.get(qid) or "").strip()
+        roles = parse_col_roles(spec)
+        if roles and not no_col_roles:
+            out[qid] = roles
+    return out
+
+
+def key_sqls(item, lang):
+    """(label, sql) of the accepted keys, in the order and with the labels of
+    item_keys"""
+    out = [("primary", item["gold_sql_draft"].strip().rstrip(";"))]
+    for i, s in enumerate(json.loads(item.get(f"alt_gold_{lang}") or "[]"), 1):
+        out.append((f"alt{i}", s.strip().rstrip(";")))
+    return out
+
+
+def check_roles_width(roles, suite, keys, mi, describe):
+    """refuse col_roles that reach beyond the column count of ANY accepted key:
+    the primary and every alternative, in each language, on the base and (for a
+    manifest item) on every instance; an empty result is described with
+    LIMIT 0 (describe: sql -> column count)"""
+    for qid, r in roles.items():
+        if r == "*":
+            continue
+        need = max(i for g in r for i in g)
+        for lang in LANGS:
+            for (label, sql), (_, grows) in zip(key_sqls(suite[qid], lang), keys[(qid, lang)]):
+                widths = {"base": len(grows[0])} if grows else {}
+                if mi is not None and qid in mi["items"]:
+                    for n in mi["items"][qid][1:]:
+                        g_n = dict(mi["keys_i"][(qid, lang, n)]).get(label)
+                        if g_n:
+                            widths[n] = len(g_n[0])
+                if not widths:
+                    widths = {"base (no row)": describe(sql)}
+                where, k = min(widths.items(), key=lambda t: t[1])
+                if need >= k:
+                    refuse(f"suite: {qid} col_roles {r} reaches beyond the {k} column(s) of its "
+                           f"{label} key ({lang}, {where})")
+
+
+def mi_item_ids(suite, cols):
+    """items graded under MI-1b: a non-empty suite mi_instances, or listed in
+    mi_items of suite_columns.json"""
+    return {qid for qid, it in suite.items()
+            if parse_mi_instances(it) or qid in (cols.get("mi_items") or [])}
+
+
+# ------------------------------------------------------------------ comparison
+def match_perms(ans, gold, ordered, sort_keys, norms, colperm=True, roles=None):
+    """set of column permutations under which ans equals gold under R-v1.3
+    (perm[j] = answer column that matches gold column j).
+    None  = no constraint (key and answer both empty);  set() = no match.
+    roles: None / () = G1; '*' = identity only; ((i, j), ...) = inside each group
+    the answer keeps the gold column order. With roles None,
+    (p is None or bool(p)) == match_v13(...) (TEST-ONLY: 7,600/7,600)."""
+    if len(ans) != len(gold):
+        return set()
+    if not gold:
+        return None
+    k = len(gold[0])
+    if len(ans[0]) != k:
+        return set()
+    groups = (tuple(range(k)),) if roles == "*" else tuple(roles or ())
+    for grp in groups:
+        if max(grp) >= k:
+            raise ValueError(f"col_roles index {max(grp)} >= column count {k}")
+    G = [tuple(cv13(r[j], norms.get(j)) for j in range(k)) for r in gold]
+    gcol = [sorted(row[j] for row in G) for j in range(k)]
+    cand = []
+    for j in range(k):
+        cj = [c for c in (range(k) if colperm else [j])
+              if sorted(cv13(r[c], norms.get(j)) for r in ans) == gcol[j]]
+        if not cj:
+            return set()
+        cand.append(cj)
+    bounds = []
+    if ordered and sort_keys:
+        start = 0
+        for i in range(1, len(G) + 1):
+            if i == len(G) or tuple(G[i][x] for x in sort_keys) != \
+                    tuple(G[start][x] for x in sort_keys):
+                bounds.append((start, i))
+                start = i
+    gsorted = sorted(G)
+    out = set()
+    for perm in itertools.product(*cand):
+        if len(set(perm)) != k:
+            continue
+        if any(perm[g[i]] > perm[g[i + 1]] for g in groups for i in range(len(g) - 1)):
+            continue
+        A = [tuple(cv13(r[perm[j]], norms.get(j)) for j in range(k)) for r in ans]
+        if not ordered:
+            ok = sorted(A) == gsorted
+        elif sort_keys is None:
+            ok = A == G
+        else:
+            ok = all(sorted(A[s:e]) == sorted(G[s:e]) for s, e in bounds)
+        if ok:
+            out.add(perm)
+    return out
+
+
+def perms_ok(p):
+    """a match_perms result means 'matches'"""
+    return p is None or bool(p)
+
+
+def positional_ok(p):
+    """the identity permutation is allowed"""
+    return p is None or any(t == tuple(range(len(t))) for t in p)
+
+
+# ------------------------------------------------------------------ fingerprints
+def mi_fingerprint(q, tables):
+    """{table: [rows, md5]} with md5 over to_jsonb(row)::text sorted in C order
+    (independent of DateStyle, collation and physical row order). Public: used by
+    build_instances.py and db_fingerprint.py (mi_md5)."""
+    out = {}
+    for t in tables:
+        if not MI_TABLE_RE.match(t):
+            refuse(f"fingerprint: bad table name {t!r}")
+        n, h = q(f'SELECT COUNT(*), md5(COALESCE(string_agg(to_jsonb(r)::text, '
+                 f'E\'\\n\' ORDER BY to_jsonb(r)::text COLLATE "C"), \'\')) '
+                 f'FROM public."{t}" r')[0]
+        out[t] = [n, h]
+    return out
+
+
+def fp_norm(v):
+    """[rows, md5] | (rows, md5) | {'rows': .., 'md5': ..} -> (int, str); None -> None"""
+    if v is None:
+        return None
+    if isinstance(v, dict):
+        return int(v["rows"]), str(v["md5"])
+    return int(v[0]), str(v[1])
+
+
+def fp_map(m):
+    if not m:
+        return None
+    return {t: fp_norm(v) for t, v in m.items()}
+
+
+def read_db_fingerprint(path):
+    """{table: (rows, mi_md5)} from a db_fingerprint.py TSV (section 3.5:
+    '#meta' line, header 'table rows columns md5_order_free mi_md5 ...')"""
+    with open(path, encoding="utf-8") as f:
+        lines = [x.rstrip("\r\n") for x in f if x.strip() and not x.startswith("#")]
+    if not lines:
+        refuse(f"db fingerprint {os.path.basename(path)}: empty")
+    head = lines[0].split("\t")
+    if "table" not in head or "rows" not in head or "mi_md5" not in head:
+        refuse(f"db fingerprint {os.path.basename(path)}: header needs table, rows, mi_md5")
+    out = {}
+    for ln in lines[1:]:
+        r = dict(zip(head, ln.split("\t")))
+        if r.get("mi_md5") and r["mi_md5"] != "-":
+            out[r["table"]] = (int(r["rows"]), r["mi_md5"])
+    miss = [t for t in FP_TABLES if t not in out]
+    if miss:
+        refuse(f"db fingerprint {os.path.basename(path)}: no mi_md5 for {miss}")
+    return out
+
+
+def check_db_fingerprint(q, path):
+    want = read_db_fingerprint(path)
+    got = {t: fp_norm(v) for t, v in mi_fingerprint(q, FP_TABLES).items()}
+    bad = [t for t in FP_TABLES if got[t] != want[t]]
+    if bad:
+        refuse(f"the database of --pg does not match {os.path.basename(path)} "
+               f"(tables {bad}); grading needs the recorded database")
+    print(f"db fingerprint: --pg matches {os.path.basename(path)} on {len(FP_TABLES)} tables",
+          file=sys.stderr)
+
+
+def make_describer(dsn):
+    """column count of a query even when it returns no row"""
+    import psycopg2
+    conn = psycopg2.connect(dsn)
+    conn.set_session(readonly=True, autocommit=False)
+
+    def d(sql):
+        try:
+            with conn.cursor() as cur:
+                cur.execute("SET LOCAL statement_timeout = '20s'")
+                cur.execute(f"SELECT * FROM ({sql}) AS g0_describe LIMIT 0")
+                return len(cur.description)
+        finally:
+            conn.rollback()
+    return d
+
+
+# ------------------------------------------------------------------ multi-instance (MI-1b)
+def mi_distinct(inst, base):
+    """every instance is a database of its own that differs from the base and
+    from its parent: database names are distinct; a recorded fingerprint differs
+    from the base's and from its derived_from parent's; a table named in the
+    instance's delta differs from the parent's (checked on the recorded values;
+    the live databases are then checked against them)"""
+    by_db = {}
+    for n, x in inst.items():
+        d = x["dbname"]
+        if d in by_db:
+            refuse(f"manifest: instances {by_db[d]} and {n} point at the same database {d}")
+        by_db[d] = n
+    fps = {n: fp_map(x.get("fingerprint")) for n, x in inst.items()}
+    for n, x in inst.items():
+        if n == base:
+            continue
+        par = x.get("derived_from")
+        if par is not None and par not in inst:
+            refuse(f"manifest: instance {n} is derived from {par!r}, which is not an instance")
+        if fps[n] is None:
+            continue
+        if fps[base] is not None and fps[n] == fps[base]:
+            refuse(f"manifest: instance {n} has the recorded fingerprint of the base {base}")
+        if par is None or fps[par] is None:
+            continue
+        if fps[n] == fps[par]:
+            refuse(f"manifest: instance {n} has the recorded fingerprint of its parent {par}")
+        same = [t for t in (x.get("delta") or {})
+                if t in fps[n] and t in fps[par] and fps[n][t] == fps[par][t]]
+        if same:
+            refuse(f"manifest: instance {n}: table(s) {same} of its delta have the recorded "
+                   f"fingerprint of its parent {par}")
+
+
+def check_mi_status(man, allow_test):
+    """the manifest must be the one build_instances.py --record wrote on this
+    server (status MI_STATUS_RECORDED); a DRAFT, TEST-ONLY or fixture manifest
+    is accepted only by a test run (--allow-draft-testonly). Returns the status."""
+    status = str(man.get("status", ""))
+    if status != MI_STATUS_RECORDED and not allow_test:
+        refuse(f"manifest: status {status!r} is not {MI_STATUS_RECORDED!r}; official grading "
+               "uses the manifest recorded by build_instances.py --record (a DRAFT or TEST-ONLY "
+               "manifest is for tests only, --allow-draft-testonly)")
+    return status
+
+
+def mi_setup(path, pg, q, suite, header, allow_test=False):
+    """load + verify the kst-mi-2 manifest. Returns a dict with base, items
+    {qid: [instance names, base first]}, engines, keys_i, v12_i.
+    An instance object may carry "name" (the name used by items and by the suite
+    column mi_instances); without it the name is its "dbname". The base is the
+    database of --pg; every other instance is --pg with dbname replaced.
+    allow_test (--allow-draft-testonly) accepts a manifest that is not recorded."""
+    from psycopg2.extensions import make_dsn
+    try:
+        man = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        refuse(f"manifest: cannot read {os.path.basename(path)} ({type(e).__name__})")
+    if not isinstance(man, dict):
+        refuse(f"manifest: {os.path.basename(path)} is not a JSON object")
+    if man.get("format") == "kst-mi-1":
+        refuse("manifest: format kst-mi-1 (base k3, rule MI-1) is retired; "
+               "use the kst-mi-2 manifest built from k3n")
+    if man.get("format") != MI_FORMAT or man.get("rule") != MI_RULE:
+        refuse(f"manifest: need format {MI_FORMAT} and rule {MI_RULE}")
+    status = check_mi_status(man, allow_test)
+    base, tables = man.get("base"), man.get("fingerprint_tables") or []
+    if not tables:
+        refuse("manifest: fingerprint_tables is empty")
+    inst = {}
+    for x in man.get("instances") or []:
+        n = x.get("name") or x.get("dbname")
+        if not n or not x.get("dbname") or n in inst:
+            refuse(f"manifest: instance without dbname or listed twice ({n!r})")
+        inst[n] = x
+    if base not in inst:
+        refuse(f"manifest: base {base!r} is not among the instances")
+    mi_distinct(inst, base)
+
+    def recorded(n):
+        fp = fp_map(inst[n].get("fingerprint"))
+        if fp is None:
+            refuse(f"manifest: instance {n} has no recorded fingerprint "
+                   "(record the manifest with build_instances.py --record first)")
+        return fp
+
+    def check(n, eng):
+        got = fp_map(mi_fingerprint(eng, tables))
+        if got != recorded(n):
+            refuse(f"manifest: database {n} does not match its recorded fingerprint")
+    try:
+        check(base, q)
+    except Refuse as e:
+        refuse(f"{e} (is --pg the base {base}?)")
+    engines = {base: q}
+    items, keys_i, v12_i, absent = {}, {}, {}, []
+    for qid, spec in (man.get("items") or {}).items():
+        names = spec.get("instances") or []
+        if len(names) < 2 or names[0] != base or len(set(names)) != len(names) \
+                or any(n not in inst for n in names):
+            refuse(f"manifest: {qid} must list the base {base} first, then >= 1 other "
+                   "distinct registered instance")
+        exp = spec.get("expected_gold")
+        if not isinstance(exp, dict) or set(exp) != set(names):
+            refuse(f"manifest: {qid} needs expected_gold for exactly {names}")
+        if qid not in suite:
+            absent.append(qid)
+            continue
+        item = suite[qid]
+        if (item.get("v13_status") or "").strip() == "excluded":
+            refuse(f"manifest item {qid} is excluded in the suite; a multi-instance item is "
+                   "never excluded (an empty gold on the base is expected for FK1)")
+        if parse_mi_instances(item) != names:
+            refuse(f"suite: {qid} mi_instances {parse_mi_instances(item)} differ from the "
+                   f"manifest {names}")
+        if not spec.get("gold_sql") or \
+                normalize_sql(spec["gold_sql"]) != normalize_sql(item["gold_sql_draft"]):
+            refuse(f"{qid}: manifest gold_sql differs from the suite gold_sql_draft "
+                   "(after normalising whitespace and a trailing ';')")
+        for n in names[1:]:
+            if n not in engines:
+                try:
+                    engines[n] = make_engine(make_dsn(pg, dbname=inst[n]["dbname"]))
+                except Exception as e:
+                    refuse(f"manifest: cannot connect to instance {n} "
+                           f"(database {inst[n]['dbname']}; {type(e).__name__})")
+                check(n, engines[n])
+        gold = item["gold_sql_draft"].strip().rstrip(";")
+        for n in names:
+            got = engines[n](gold)
+            if not match_v13(got, [tuple(r) for r in exp[n]], False, None, {}, False):
+                refuse(f"manifest: {qid} gold on {n} gives {len(got)} row(s), not the "
+                       "registered expected_gold")
+        sql12 = (item.get("gold_sql_v12") or item["gold_sql_draft"]).strip().rstrip(";")
+        o12 = has_toplevel_order(sql12)
+        for n in names[1:]:
+            v12_i[(qid, n)] = (canon_v12(engines[n](sql12), o12), o12)
+            for lang in LANGS:
+                keys_i[(qid, lang, n)] = item_keys(engines[n], item, lang)
+        items[qid] = names
+    for qid, item in suite.items():
+        if parse_mi_instances(item) and qid not in items:
+            refuse(f"suite: {qid} lists mi_instances but the manifest has no such item")
+    print(f"MI-1b: manifest status {status!r}; base {base}; multi-instance items in this suite: "
+          f"{items}; manifest items not in this suite: {absent}", file=sys.stderr)
+    return {"base": base, "items": items, "engines": engines, "keys_i": keys_i,
+            "v12_i": v12_i, "instances": inst, "manifest": man}
+
+
+def mi_show(rows):
+    if rows is None:
+        return ""
+    return json.dumps([[cv13(v) for v in x] for x in rows], ensure_ascii=False) \
+        if len(rows) <= 3 else f"<{len(rows)} rows>"
+
+
+def mi_intersection(per, label):
+    """(ok, perms): ok = the key 'label' matches on every instance with ONE common
+    column permutation; perms = that common set (None = unconstrained)"""
+    inter = None
+    for x in per:
+        if not x["ran"]:
+            return False, set()
+        p = x["perms"].get(label, set())
+        if p is None:
+            continue
+        if not p:
+            return False, set()
+        inter = set(p) if inter is None else inter & p
+        if not inter:
+            return False, set()
+    return True, inter
+
+
+def mi_decide(per, labels):
+    """MI-1b verdict: (matched label or '', correct_positional)"""
+    matched, c_pos = "", False
+    for lb in labels:
+        ok, inter = mi_intersection(per, lb)
+        if not ok:
+            continue
+        matched = matched or lb
+        if positional_ok(inter):
+            c_pos = True
+    return matched, c_pos
+
+
+def mi1_decide(per, labels):
+    """the retired MI-1 verdict (same key on every instance, the permutation may
+    differ between instances); kept for the self-test contrast only"""
+    return next((lb for lb in labels
+                 if all(x["ran"] and perms_ok(x["perms"].get(lb, set())) for x in per)), "")
+
+
+def mi_grade_b(mi, rec, qid, lang, sql, rows, ordered, sk, norms, colperm, roles,
+               base_keys, c12_base, log):
+    """grade one manifest-item answer on every instance (base rows already run).
+    returns exec_ok, correct, matched, c_pos, c12, reason"""
+    labels = [lb for lb, _ in base_keys]
+
+    def perms(r, ks):
+        return {lb: match_perms(r, g, ordered, sk, norms, colperm, roles) for lb, g in ks}
+    per = [{"name": mi["base"], "ran": True, "reason": "", "perms": perms(rows, base_keys),
+            "c12": c12_base, "n": len(rows), "rows": rows}]
+    for n in mi["items"][qid][1:]:
+        eng = mi["engines"][n]
+        try:
+            r = run_with_timeout(lambda: eng(sql))
+        except Timeout:
+            per.append({"name": n, "ran": False, "reason": "timeout", "perms": {},
+                        "c12": False, "n": "", "rows": None})
+            continue
+        except Exception as e:
+            per.append({"name": n, "ran": False,
+                        "reason": "exec-error: " + str(e).split("\n")[0][:120], "perms": {},
+                        "c12": False, "n": "", "rows": None})
+            continue
+        g12, o12 = mi["v12_i"][(qid, n)]
+        per.append({"name": n, "ran": True, "reason": "", "perms": perms(r, mi["keys_i"][(qid, lang, n)]),
+                    "c12": canon_v12(r, o12) == g12, "n": len(r), "rows": r})
+    exec_ok = all(x["ran"] for x in per)
+    matched, c_pos = mi_decide(per, labels)
+    c12 = all(x["c12"] for x in per)
+    reason = ""
+    if not matched:
+        bad = next((x for x in per
+                    if not x["ran"] or not any(perms_ok(p) for p in x["perms"].values())), None)
+        reason = (bad["reason"] or "wrong-result") if bad else "wrong-result"
+    if log is not None:
+        for x in per:
+            any_ok = x["ran"] and any(perms_ok(p) for p in x["perms"].values())
+            log.writerow([rec["model_key"], lang, qid, rec["run"], rec.get("arm", "base"),
+                          x["name"], x["ran"], x["n"],
+                          "|".join(lb for lb in labels if x["ran"] and perms_ok(x["perms"].get(lb, set()))),
+                          "|".join(lb for lb in labels
+                                   if x["ran"] and positional_ok(x["perms"].get(lb, set()))),
+                          x["c12"], x["reason"] or ("" if any_ok else "wrong-result"),
+                          mi_show(x["rows"]),
+                          json.dumps({lb: ("any" if p is None else sorted(list(t) for t in p))
+                                      for lb, p in x["perms"].items()})])
+    return exec_ok, bool(matched), matched, c_pos, c12, reason
+
+
+# ------------------------------------------------------------------ main
+def build_parser():
+    ap = argparse.ArgumentParser(description="grader v1.3n (k3n; G1-G4, col_roles, MI-1b)")
+    ap.add_argument("--results", required=True, action="append",
+                    help="results jsonl; repeat to read several files in order")
+    ap.add_argument("--suite", required=True)
+    ap.add_argument("--pg", required=True, help="libpq DSN of the grading database (base)")
+    ap.add_argument("--db-fingerprint", required=True,
+                    help="db_fingerprint.py TSV of the grading database (k3n or k3)")
+    ap.add_argument("--out", required=True)
+    ap.add_argument("--colperm", choices=["on", "off"], default="on")
+    ap.add_argument("--keep-excluded", action="store_true")
+    ap.add_argument("--legacy", action="store_true",
+                    help="frozen v1.2 comparison with gold_sql_v12 only")
+    ap.add_argument("--no-col-roles", action="store_true",
+                    help="pure G1 for every item (sensitivity)")
+    ap.add_argument("--core-directional", choices=["on", "off"], default=None,
+                    help="sensitivity only: override core_directional.apply of suite_columns.json "
+                         "for this run (OQ35 option (c) grades its sensitivity with 'on')")
+    ap.add_argument("--skip-mi-items", action="store_true",
+                    help="drop the multi-instance items and their records and grade the other "
+                         "items on --pg alone (OQ28.3, the extension on k3); no --mi-manifest")
+    ap.add_argument("--mi-manifest", default=None, help="kst-mi-2 manifest (MI-1b)")
+    ap.add_argument("--mi-log", default=None, help="CSV sidecar of per-instance outcomes")
+    ap.add_argument("--arms", default="base,values",
+                    help="comma list of arms allowed in the input (chat check: chat)")
+    ap.add_argument("--columns", default=DEFAULT_COLUMNS,
+                    help="suite_columns.json (default: next to this file)")
+    ap.add_argument("--allow-draft-testonly", action="store_true",
+                    help="tests only: grade a DRAFT suite and accept a manifest that is not "
+                         "recorded; every output must be outside results/")
+    ap.add_argument("--overwrite", action="store_true",
+                    help="replace an existing --out / --mi-log (never results/graded.csv or a "
+                         "results*.jsonl log)")
+    return ap
+
+
+def run(a):
+    if a.mi_manifest and a.legacy:
+        refuse("--mi-manifest cannot be combined with --legacy (parity mode)")
+    if a.mi_log and not a.mi_manifest:
+        refuse("--mi-log needs --mi-manifest")
+    if a.skip_mi_items and a.mi_manifest:
+        refuse("--skip-mi-items grades the single-instance items only; it cannot be combined "
+               "with --mi-manifest")
+    if a.core_directional and (a.legacy or a.no_col_roles):
+        refuse("--core-directional cannot be combined with --legacy or --no-col-roles")
+    arms = [x.strip() for x in a.arms.split(",") if x.strip()]
+    if not arms:
+        refuse("--arms is empty")
+    cols = load_columns(a.columns)
+    suite, header, is_ext = load_suite_checked(a.suite, cols)
+    draft_guard(a.suite, suite, header, a.allow_draft_testonly, [a.out, a.mi_log])
+    check_outputs(a)
+    recs = read_records(a.results)
+    if a.skip_mi_items:
+        drop = mi_item_ids(suite, cols)
+        n_all = sum(1 for r in recs if r.get("qid") in drop)
+        n_ok = sum(1 for r in recs if r.get("qid") in drop and not r.get("error"))
+        suite = {qid: it for qid, it in suite.items() if qid not in drop}
+        recs = [r for r in recs if r.get("qid") not in drop]
+        print(f"--skip-mi-items: multi-instance items {sorted(drop)} left out of the suite; "
+              f"{n_all} record(s) of them dropped ({n_ok} without error); {len(suite)} item(s) "
+              "graded on --pg alone", file=sys.stderr)
+    mi_ids = mi_item_ids(suite, cols)
+    if not a.mi_manifest and mi_ids:
+        refuse(f"suite has multi-instance items {sorted(mi_ids)} (suite mi_instances or mi_items "
+               "of the columns file): grade it with --mi-manifest (or leave the multi-instance "
+               "items out with --skip-mi-items)")
+    core_override = None if a.core_directional is None else a.core_directional == "on"
+    roles = {} if a.legacy else roles_by_item(suite, header, cols, a.no_col_roles, core_override)
+    check_records(recs, suite, arms)
+
+    q = make_engine(a.pg)
+    check_db_fingerprint(q, a.db_fingerprint)
+    colperm = a.colperm == "on"
+
+    v12 = {}
+    for qid, item in suite.items():
+        sql = (item.get("gold_sql_v12") or item["gold_sql_draft"]).strip().rstrip(";")
+        o = has_toplevel_order(sql)
+        v12[qid] = (canon_v12(q(sql), o), o)
+
+    keys = {}
+    if not a.legacy:
+        for qid, item in suite.items():
+            for lang in LANGS:
+                keys[(qid, lang)] = item_keys(q, item, lang)
+    mi = mi_setup(a.mi_manifest, a.pg, q, suite, header, a.allow_draft_testonly) \
+        if a.mi_manifest else None
+    if mi is not None:
+        ungraded = sorted(x for x in mi_ids if x not in mi["items"])
+        if ungraded:
+            refuse(f"suite: multi-instance item(s) {ungraded} (mi_items of the columns file) are "
+                   "not graded under the manifest (blank mi_instances or no manifest item); "
+                   "they would be graded on the base alone")
+    lazy = {}
+
+    def describe(sql):
+        if "d" not in lazy:
+            lazy["d"] = make_describer(a.pg)
+        return lazy["d"](sql)
+    check_roles_width(roles, suite, keys, mi, describe)
+    if not a.legacy and "col_roles" not in header:
+        core = cols["core_directional"]
+        print(f"core_directional ({os.path.basename(a.columns)}): apply "
+              f"{str(core_apply(cols)).lower()}"
+              + (f", overridden to {a.core_directional} by --core-directional (sensitivity run)"
+                 if a.core_directional else "")
+              + f"; status: {core.get('status') or '(none)'}", file=sys.stderr)
+    if roles:
+        src = "suite column col_roles" if "col_roles" in header else \
+            f"core_directional registry of {os.path.basename(a.columns)}"
+        print(f"col_roles ({src}): column order graded for {sorted(roles)}", file=sys.stderr)
+
+    parts = [a.out + ".partial"] + ([a.mi_log + ".partial"] if mi is not None and a.mi_log else [])
+    try:
+        with open(parts[0], "w", newline="", encoding="utf-8") as fo:
+            lo = open(parts[1], "w", newline="", encoding="utf-8") if len(parts) > 1 else None
+            try:
+                stats, n_out = grade_records(a, recs, suite, roles, keys, v12, q, mi, colperm,
+                                             csv.writer(fo),
+                                             None if lo is None else csv.writer(lo))
+            finally:
+                if lo is not None:
+                    lo.close()
+        os.replace(parts[0], a.out)
+        if len(parts) > 1:
+            os.replace(parts[1], a.mi_log)
+    except BaseException:
+        for p in parts:
+            if os.path.exists(p):
+                os.remove(p)
+        raise
+    print("run-level accuracy (raw, before majority):")
+    for (mk, arm, lang), (c, t) in sorted(stats.items()):
+        print(stat_line(mk, arm, lang, c, t))
+    sys.stdout.flush()
+    print(f"grade_v13n: {n_out} graded row(s) written to {os.path.basename(a.out)}; "
+          f"stdout above: {1 + len(stats)} line(s)", file=sys.stderr)
+
+
+def grade_records(a, recs, suite, roles, keys, v12, q, mi, colperm, out, mi_log):
+    """the grading loop (unchanged semantics): writes the CSV rows and the sidecar
+    rows; returns ({(model, arm, lang): [correct, total]}, number of CSV rows)"""
+    out.writerow(OUT_HEADER)
+    if mi_log is not None:
+        mi_log.writerow(MI_LOG_HEADER)
+    stats, n_out = {}, 0
+    for rec in recs:
+        if rec.get("error"):
+            continue
+        qid, lang = rec["qid"], rec["lang"]
+        item = suite[qid]
+        excluded = (item.get("v13_status") or "primary").strip() == "excluded"
+        if excluded and not (a.keep_excluded or a.legacy):
+            continue
+        is_mi = mi is not None and qid in mi["items"]
+        parse_ok = rec.get("parse_ok", False)
+        exec_ok, correct, reason = False, False, ""
+        n_rows, matched, c_pos, c12 = "", "", False, False
+        mi_reason = ""
+        if not parse_ok:
+            reason = "parse"
+        else:
+            sql = rec["sql"]
+            if not sql.lower().lstrip().startswith(("select", "with")):
+                reason = "non-select"
+            else:
+                try:
+                    rows = run_with_timeout(lambda: q(sql))
+                    exec_ok = True
+                    n_rows = len(rows)
+                    g12, o12 = v12[qid]
+                    c12 = canon_v12(rows, o12) == g12
+                    if a.legacy:
+                        correct = c12
+                    else:
+                        ordered = (item.get(f"order_{lang}") or "no").strip() == "yes"
+                        sk = parse_keys(item.get("sort_keys"))
+                        norms = parse_norms(item.get("norm"))
+                        r_roles = roles.get(qid)
+                        if is_mi:
+                            exec_ok, correct, matched, c_pos, c12, mi_reason = mi_grade_b(
+                                mi, rec, qid, lang, sql, rows, ordered, sk, norms, colperm,
+                                r_roles, keys[(qid, lang)], c12, mi_log)
+                        elif r_roles:
+                            for label, grows in keys[(qid, lang)]:
+                                if perms_ok(match_perms(rows, grows, ordered, sk, norms,
+                                                        colperm, r_roles)):
+                                    correct, matched = True, label
+                                    break
+                            for label, grows in keys[(qid, lang)]:
+                                if match_v13(rows, grows, ordered, sk, norms, False):
+                                    c_pos = True
+                                    break
+                        else:
+                            for label, grows in keys[(qid, lang)]:
+                                if match_v13(rows, grows, ordered, sk, norms, colperm):
+                                    correct, matched = True, label
+                                    break
+                            for label, grows in keys[(qid, lang)]:
+                                if match_v13(rows, grows, ordered, sk, norms, False):
+                                    c_pos = True
+                                    break
+                    if not correct:
+                        reason = "wrong-result"
+                    if mi_reason:
+                        reason = mi_reason
+                except Timeout:
+                    reason = "timeout"
+                except Exception as e:
+                    reason = "exec-error: " + str(e).split("\n")[0][:120]
+                if is_mi and mi_log is not None and not exec_ok and n_rows == "":
+                    mi_log.writerow([rec["model_key"], lang, qid, rec["run"],
+                                     rec.get("arm", "base"), mi["base"], False, "", "", "",
+                                     False, reason, "", "{}"])
+        arm = rec.get("arm", "base")
+        out.writerow([rec["model_key"], lang, qid, rec["tier"], rec["schema"],
+                      rec["run"], parse_ok, exec_ok, correct, rec.get("latency_s"),
+                      reason, arm, n_rows, matched, c_pos, c12])
+        n_out += 1
+        s = stats.setdefault((rec["model_key"], arm, lang), [0, 0])
+        s[1] += 1
+        s[0] += 1 if correct else 0
+    return stats, n_out
+
+
+def stat_line(mk, arm, lang, c, t):
+    """one stdout line per (model, arm, lang); the arm is shown only when it is not
+    base, so the stdout of a base-only log equals that of grade_v13.py"""
+    tag = lang if arm == "base" else f"{lang} [{arm}]"
+    return f"  {mk:22s} {tag}: {c}/{t} = {c/t:.3f}"
+
+
+def main(argv=None):
+    a = build_parser().parse_args(argv)
+    try:
+        run(a)
+    except Refuse as e:
+        print(f"grade_v13n: REFUSED: {e}", file=sys.stderr)
+        sys.exit(2)
+
+
+if __name__ == "__main__":
+    main()

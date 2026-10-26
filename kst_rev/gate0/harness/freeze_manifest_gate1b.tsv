@@ -1,0 +1,120 @@
+# freeze manifest ของ commit Gate 1b (รวม AMENDMENT-9 ของ Gate 1c เดิม) — GATE0_DESIGN หัวข้อ 3.12 และ 4.8
+# stage: add = stage ใน commit นี้ (gate1b_paths.txt); add-nostamp = stage แต่ไม่ hash (prereg ทั้งไฟล์);
+#        pinned = ไฟล์ใน git ที่ไม่เปลี่ยน hash อย่างเดียว;
+#        external = ไฟล์นอก git ใต้ kst_rev/ บันทึกเฉพาะ hash พร้อม label กลาง
+# expected_sha256: ค่าที่ pin มาจากไฟล์ที่คัดลอกโดยไม่แก้ (TEST-ONLY 14 ต.ค. 2026); record = บันทึกค่าที่ได้ตอนรัน
+# ext_decisions_2026-10-14.json: ผู้เขียนอนุมัติในแชตแล้ว 14 ต.ค.; หลังผู้ช่วยตั้ง author_approved ให้เปลี่ยน record เป็น sha256 ของไฟล์นั้น (GATES_CHECKLIST หัวข้อ 2)
+# D11: suite/k3n_suite_v1.3n_oct.tsv (suite ของรอบ ต.ค.) pin จาก suite_tools/out; ตัวสร้างและไฟล์ซ่อม Q27 เป็นแถว external
+path	amendment	gate	expected_sha256	label	stage
+prereg/preregistration_FROZEN.md#L1-115	PREREG	1b	269e5f0996627419154ef9c032e36a92dbecb6f5b7e8f7394f1002b279a375d0		pinned
+prereg/preregistration_FROZEN.md	PREREG	1b	record		add-nostamp
+suite/AMENDMENT3_VG_RULE.md	AM-6	1b	256dc532f5ed698e08360c91b56742f629f7010b8e0c922b7a8493e9a21a7d6f		pinned
+harness/setup_db.sql	DATA	1b	80a8058f6f29a896f998fc28a34408e2b3e1b46a8742ca2e606caef2b2f19825		pinned
+harness/db/build_k3n.sh	DATA	1b	record		add
+harness/db/db_fingerprint.py	DATA	1b	record		add
+harness/db/build_instances.py	AM-9	1b	record		add
+harness/db/mi_manifest_k3n.json	AM-9	1b	record		add
+harness/db/rq3_drop_indexes.sql	AM-7	1b	record		add
+harness/db/k3n_inputs.sha256	DATA	1b	record		add
+harness/db/diffs/k3_pk_n_named.sql	DATA	1b	record		add
+harness/db/diffs/k3_pk_n_dup.sql	DATA	1b	record		add
+harness/db/diffs/k3_pk_n_pnull.sql	DATA	1b	record		add
+harness/db/diffs/k3_pk_n_spdup.sql	DATA	1b	record		add
+harness/db/diffs/k3_fk_i_null.sql	DATA	1b	record		add
+harness/db/diffs/k3_fk_i_orphan.sql	DATA	1b	record		add
+harness/db/expected/k3_fp_scratch_TESTONLY.tsv	DATA	1b	record		add
+harness/db/expected/k3n_fp_scratch_TESTONLY.tsv	DATA	1b	record		add
+harness/db/expected/mi_scratch_TESTONLY.json	AM-9	1b	record		add
+results/db/k3_fp_before.tsv	DATA	1b	record		add
+results/db/k3_fp_after.tsv	DATA	1b	record		add
+results/db/k3n_fp_run1.tsv	DATA	1b	record		add
+results/db/k3n_fp_run2.tsv	DATA	1b	record		add
+results/db/k3_vs_k3n_cell_diff.tsv	DATA	1b	record		add
+results/db/k3_vs_k3n_verify.txt	DATA	1b	record		add
+suite/k3n_suite_v1.3n.tsv	AM-7	1b	195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366		add
+suite/k3n_suite_v1.3n_oct.tsv	AM-7	1b	96b8e9f2e48398111aa6b2d555995a2b726a54e62efe1474668477dda7eed46b		add
+suite/k3_suite_v1.3.tsv	AM-7	1b	7e46649c2bc65a22a7471bf1db3e8494d8354bda2e1f26fafe45d90434b96121		add
+suite/CHANGELOG_v1.2_to_v1.3.md	AM-7	1b	a2aa583d4b5825f525dd321478471234c4ce3187ce500f8a9e34a77d8e8973aa		add
+suite/CHANGELOG_v1.3_to_v1.3n.md	AM-7	1b	record		add
+harness/grade_v13.py	AM-7	1b	aed86b26bd83548a215ee1999bd9c47d524558af1ca34b03909bc1144518e038		add
+harness/selftest_v13.py	AM-7	1b	f67fc516dfe7b498e8b73f2a7a7949d9968283619871d45af34e3b9e33cafef4		add
+harness/grade_v13n.py	AM-7	1b	record		add
+harness/selftest_v13n.py	AM-7	1b	record		add
+harness/parity_grader.py	AM-7	1b	record		add
+harness/parity_check_v13.py	AM-7	1b	85d575b43a99d50ef9bc93c444380fed28b428ba1fc03a4a603c8b1755b9e8a2		add
+harness/suite_columns.json	AM-7	1b	record		add
+kst_rev/gate0/harness/grade_v13n.diff	AM-7	1b	record	grade_v13n.diff	external
+kst_rev/gate0/suite_tools/build_oct_core_suite.py	AM-7	1b	14d76c3d38733409126470fb0c1c27905e655f44fd0b3e4225bf108bef68b6d8	build_oct_core_suite.py	external
+kst_rev/gate0/suite_tools/Q27_REPAIR_2026-10-14.tsv	AM-7	1b	229ea98ac5744b89b8b39a1e4f6a78ee2419163fa44a3a185d965d738509ae3b	Q27_REPAIR_2026-10-14.tsv	external
+suite/k3_suite_v1.2.tsv	AM-7	1b	c4ed472e7c15fac2461dd6ddbd85f3b4519351e820516017a49910d8a2338021		pinned
+suite/value_hints_v1.json	AM-7	1b	record		add
+results/rc1/prompts_rc1.jsonl	AM-7	1b	record		add
+harness/runner.py	AM-7	1b	record		add
+harness/make_value_hints.py	AM-7	1b	record		add
+harness/check_prompts_rc1.py	AM-7	1b	record		add
+harness/provenance_rc1.py	AM-7	1b	record		add
+results/rc1/provenance_gate1a.json	AM-7	1b	record		add
+kst_rev/gate0/harness/runner_rc1.diff	AM-7	1b	record	runner_rc1.diff	external
+harness/models.json	AM-7	1b	019ec1785ae857d4fd798048145c7453911dc43a9255f6f13fb70c060ce7b099		pinned
+kst_rev/gate0/evidence/scan/scan.py	AM-7	1b	a85917967a816d4f649f9f84817655fb0dab4e32e97d4829ecb2e4a3a102acac	scan.py	external
+kst_rev/gate0/evidence/scan/old/vg_classifier.py	AM-7	1b	b28f3737904f599248d23ac203a78496b79f390d57e7eaee4d6b336f3174e8e7	scan_old_vg_classifier.py	external
+kst_rev/gate0/evidence/scan/new/vg_classifier.py	AM-7	1b	7debc50a85507f0192cc2c4a5ee2e8750a22709006198620b82880a894594925	scan_new_vg_classifier.py	external
+harness/vg_classifier.py	AM-7	1b	record		add
+harness/analyze_rc1.py	AM-7	1b	record		add
+harness/make_audit_sheet_rc1.py	AM-7	1b	record		add
+harness/audit_agreement_rc1.py	AM-7	1b	record		add
+harness/check_rc1_log.py	AM-7	1b	record		add
+harness/make_table_rc1.py	AM-7	1b	record		add
+harness/analyze_log_v13.py	AM-7	1b	record		add
+harness/empty_split_v13.py	AM-7	1b	record		add
+harness/phi_tableiv.py	AM-7	1b	record		add
+harness/analyze.py	AM-7	1b	record		add
+harness/analyze_typhoon.py	AM-7	1b	record		add
+harness/make_tables.py	AM-7	1b	record		add
+harness/make_figures.py	AM-7	1b	record		add
+harness/plan_quality.py	AM-7	1b	record		add
+harness/consistency_aug_oct.py	AM-7	1b	record		add
+harness/cost_rc1.py	AM-7	1b	record		add
+harness/transitions_v13n.py	AM-7	1b	record		add
+harness/paper_numbers_v13n.py	AM-7	1b	record		add
+harness/make_vg_sets.py	AM-7	1b	record		add
+harness/vg_rule.py	AM-7	1b	1fd1e28e7fb47806f789e536ba5bd40c537f3b40c0dadcf4719ebdf9c38423f3		pinned
+harness/indexes.sql	AM-7	1b	3e1d62076cb72a07974253600abe9eac9d041650e54bebcb93b04eeacb1ad6a1		pinned
+suite/vg_set_v13n.txt	AM-7	1b	record		add
+suite/vg_set_v13n_VG9.txt	AM-7	1b	record		add
+harness/chatapp/draw_chat_items_v13.py	AM-8	1b	record		add
+harness/chatapp/make_chat_cells.py	AM-8	1b	record		add
+harness/chatapp/make_chat_log_xlsx.py	AM-8	1b	record		add
+harness/chatapp/chat_log_export.py	AM-8	1b	record		add
+harness/chatapp/chatapp_to_results.py	AM-8	1b	record		add
+harness/chatapp/vg_outcome.py	AM-8	1b	record		add
+harness/chatapp/chat_silence_sheet.py	AM-8	1b	record		add
+harness/chatapp/chat_report.py	AM-8	1b	record		add
+kst_rev/gate0/tests/fixtures_chat/extract_cases.json	AM-8	1b	3fe0ddfe305ceaad4772601729b1ac70f358867598a33ce06170250a98f28bb4	extract_cases.json	external
+suite/k3n_ext_suite_v1.0.tsv	AM-9	1b	record		add
+suite/k3n_ext_reserves_v1.0.tsv	AM-9	1b	record		add
+suite/ITEM_CHANGES_ext_v1.0.tsv	AM-9	1b	record		add
+suite/ext_inputs/ext_decisions_2026-10-14.json	AM-9	1b	8c333fac7dec3201e84b86dedb150f0a5c8a12cf6088931e0f36a1b0860091d2		add
+suite/ext_inputs/ITEM_CHANGES_2026-10-14_ADD.tsv	AM-9	1b	record		add
+suite/ext_inputs/ext_metadata_refresh_2026-10-14.tsv	AM-9	1b	record		add
+harness/build_ext_suite.py	AM-9	1b	record		add
+results/ext/build/ext_build_report.md	AM-9	1b	record		add
+results/ext/build/ext_inputs.sha256	AM-9	1b	record		add
+harness/answers_mi_PREREG_v2_frozen.py	AM-9	1b	record		add
+harness/selftest_mi.py	AM-9	1b	record		add
+results/ext/prompts_ext.jsonl	AM-9	1b	record		add
+harness/analyze_ext.py	AM-9	1b	record		add
+harness/make_table_ext.py	AM-9	1b	record		add
+kst_rev/wf_q100/translation_check/TRANSLATION_FIXES_2026-10-13.xlsx	AM-9	1b	fd6ffe00a3d81f5d25d68e255abafde43b2f5d33bc394be76e7193489f1125dc	translation_fixes_xlsx	external
+kst_rev/wf_q100/selection/EXTENSION_v2_*_FILLED_2026-10-13_2233.xlsx	AM-9	1b	63a7bbe058e25647e4c612be08b1fd549563191d83fd6424814d443d0e16a667	selection_xlsx	external
+kst_rev/wf_q100/translation_check/TYPO_FIXES_APPLIED_2026-10-14.tsv	AM-9	1b	d9f8c8673daf70169fb357534dc63dac3c0fdccb4516338b54f19be1ff86c2be	typo_fixes	external
+kst_rev/wf_q100/selection/ITEM_CHANGES_2026-10-13.tsv	AM-9	1b	115efabdcfe1006c6e091b3bd03b9d33f5679441dea3b21e6e46db565c5087ba	item_changes	external
+kst_rev/wf_q100/translation_check/items.json	AM-9	1b	ca89abb17651c59c4a1baeb7d93141a8411fe8356cc324ff9571732f0ae7ce60	items_json	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/	AM-9	1b	record	sql_TESTONLY	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/F7C-1__alt_whig_excluded.sql	AM-9	1b	7ddda6c143bd8794e1f2a77f33fc69c800ed79964f5c5c6e34b510eab0267c42	sql_TESTONLY/F7C-1__alt_whig_excluded.sql	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/FK1__new_format_DRAFT.sql	AM-9	1b	f13960c067198c358d3e0015890272fbce55abbf21c638bcf9fc71db8eb84ad3	sql_TESTONLY/FK1__new_format_DRAFT.sql	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/X02__weak_every_own_term_longest.sql	AM-9	1b	19b5bffe24070365229fce782807dfee3ddab8d3dd0032a49a6d51619f5d90e9	sql_TESTONLY/X02__weak_every_own_term_longest.sql	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/X04__weak_every_own_term_shortest.sql	AM-9	1b	92ab1b09f5408dcfe3d247dbe13d6c3114ac36f45f3443da434ff4ed888180e2	sql_TESTONLY/X04__weak_every_own_term_shortest.sql	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/X07__weak_every_own_term_shorter.sql	AM-9	1b	47ff392fc5099ab704337ce50496d790bc1359d49ff058150f2202089d631ed8	sql_TESTONLY/X07__weak_every_own_term_shorter.sql	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/X20__alt_exclude_self.sql	AM-9	1b	e5ab15d478adbe8bb8d74b2c4f2f778864d30a062a5747e56bd263952b8f89b2	sql_TESTONLY/X20__alt_exclude_self.sql	external
+kst_rev/wf_q100/translation_check/sql_TESTONLY/X33__alt_runnerup_and_president.sql	AM-9	1b	4b03855ab0024de2e8c3454b181bd0c6ae632680b1fd8ef404f8d29189de0bd4	sql_TESTONLY/X33__alt_runnerup_and_president.sql	external

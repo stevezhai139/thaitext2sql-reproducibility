@@ -1,0 +1,1 @@
+SELECT OrderID, ProductName, Quantity FROM Ecommerce WHERE PaymentMethod ILIKE '%credit%' AND Quantity >= 5;

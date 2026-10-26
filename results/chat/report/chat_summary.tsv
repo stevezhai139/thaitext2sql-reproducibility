@@ -1,0 +1,16 @@
+app	form	subset	n_cells	correct	wrong	no_sql	loud	silent_empty	silent_non_empty	gf	clean	concord_exec	concord_gf	silence_flagged	silence_asked	silence_silent	turn2_cells	turn2_correct	correct_turn2_substituted	tagsens_changed	tagsens_gf_changed
+chatgpt	A	ALL	10	7	3	0	1	1	1	2	7	4/10	5/10				0	0	7	0	0
+chatgpt	A	VG	10	7	3	0	1	1	1	2	7	4/10	5/10				0	0	7	0	0
+chatgpt	B	ALL	18	17	1	0	0	1	0	1	9	10/18	6/10	0	0	1	0	0	17	0	0
+chatgpt	B	VG	10	9	1	0	0	1	0	1	9	4/10	6/10	0	0	1	0	0	9	0	0
+chatgpt	B	NONVG	8	8	0	0	0	0	0			6/8		0	0	0	0	0	8	0	
+gemini	A	ALL	10	8	2	0	0	2	0	2	8	9/10	9/10				0	0	8	0	0
+gemini	A	VG	10	8	2	0	0	2	0	2	8	9/10	9/10				0	0	8	0	0
+gemini	B	ALL	18	15	3	0	0	1	2	1	9	13/18	8/10	1	0	2	0	0	15	0	0
+gemini	B	VG	10	8	2	0	0	1	1	1	9	7/10	8/10	1	0	1	0	0	8	0	0
+gemini	B	NONVG	8	7	1	0	0	0	1			6/8		0	0	1	0	0	7	0	
+claude	A	ALL	10	6	4	0	0	3	1	2	6	8/10	6/10				0	0	6	0	0
+claude	A	VG	10	6	4	0	0	3	1	2	6	8/10	6/10				0	0	6	0	0
+claude	B	ALL	18	15	3	0	0	1	2	0	8	18/18	8/10	2	0	1	0	0	15	0	0
+claude	B	VG	10	8	2	0	0	1	1	0	8	10/10	8/10	2	0	0	0	0	8	0	0
+claude	B	NONVG	8	7	1	0	0	0	1			8/8		0	0	1	0	0	7	0	

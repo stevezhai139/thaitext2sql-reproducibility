@@ -1,0 +1,129 @@
+{
+ "phase": "before",
+ "taken_at_ict": "2026-10-19T19:43:36+07:00",
+ "python": "3.14.8",
+ "platform": "macOS-26.7.1-arm64-arm-64bit-Mach-O",
+ "macos": "26.7.1",
+ "runner_path": "harness/runner.py",
+ "runner_sha256": "ed0c562adda217e0bb8e1706d33fda28769b329802cd4a8455b7c7daae62192f",
+ "models_path": "harness/models.json",
+ "models_sha256": "019ec1785ae857d4fd798048145c7453911dc43a9255f6f13fb70c060ce7b099",
+ "api": {
+  "gpt-mini": {
+   "status": 200,
+   "id": "gpt-5.4-mini-2026-03-17",
+   "created": 1773451076
+  },
+  "gemini-flash": {
+   "status": 200,
+   "name": "models/gemini-3.6-flash",
+   "version": "3.6-flash-07-2026",
+   "input_token_limit": 1048576,
+   "output_token_limit": 65536
+  },
+  "claude-sonnet": {
+   "status": 200,
+   "id": "claude-sonnet-5",
+   "display_name": "Claude Sonnet 5",
+   "created_at": "2026-06-29T00:00:00Z"
+  }
+ },
+ "ollama": {
+  "version": "0.32.5",
+  "models": {
+   "llama3.1:8b": {
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "size": 4920753328,
+    "quantization": "Q4_K_M",
+    "manifest_relpath": "manifests/registry.ollama.ai/library/llama3.1/8b",
+    "manifest_sha256": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "list_id": "46e0c10c039e",
+    "config_digest": "sha256:455f34728c9b5dd3376378bfb809ee166c145b0b4c1f1a6feca069055066ef9a",
+    "layers": [
+     {
+      "mediaType": "application/vnd.ollama.image.model",
+      "digest": "sha256:667b0c1932bc6ffc593ed1d03f895bf2dc8dc6df21db3042284a6f4416b06a29",
+      "size": 4920738944
+     },
+     {
+      "mediaType": "application/vnd.ollama.image.template",
+      "digest": "sha256:948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85",
+      "size": 1481
+     },
+     {
+      "mediaType": "application/vnd.ollama.image.license",
+      "digest": "sha256:0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177",
+      "size": 12320
+     },
+     {
+      "mediaType": "application/vnd.ollama.image.params",
+      "digest": "sha256:56bb8bd477a519ffa694fc449c2413c6f0e1d3b1c88fa7e3c9d88d3ae49d4dcb",
+      "size": 96
+     }
+    ],
+    "template_sha256": "948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85",
+    "params_sha256": "2801e61a8848e505a6e20beeaea63cca1600200f6720e5f916ba7d6da5c3ba39",
+    "modelfile_sha256": "7ed2c9ed9e17ba215ebb025548e7f77bc73c5c70a6bfc7ac7cc7207c4274baeb"
+   },
+   "qwen2.5-coder:7b": {
+    "digest": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "size": 4683087561,
+    "quantization": "Q4_K_M",
+    "manifest_relpath": "manifests/registry.ollama.ai/library/qwen2.5-coder/7b",
+    "manifest_sha256": "dae161e27b0e90dd1856c8bb3209201fd6736d8eb66298e75ed87571486f4364",
+    "list_id": "dae161e27b0e",
+    "config_digest": "sha256:d9bb33f2786931fea42f50936a2424818aa2f14500638af2f01861eb2c8fb446",
+    "layers": [
+     {
+      "mediaType": "application/vnd.ollama.image.model",
+      "digest": "sha256:60e05f2100071479f596b964f89f510f057ce397ea22f2833a0cfe029bfc2463",
+      "size": 4683074048
+     },
+     {
+      "mediaType": "application/vnd.ollama.image.system",
+      "digest": "sha256:66b9ea09bd5b7099cbb4fc820f31b575c0366fa439b08245566692c6784e281e",
+      "size": 68
+     },
+     {
+      "mediaType": "application/vnd.ollama.image.template",
+      "digest": "sha256:1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+      "size": 1615
+     },
+     {
+      "mediaType": "application/vnd.ollama.image.license",
+      "digest": "sha256:832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e",
+      "size": 11343
+     }
+    ],
+    "template_sha256": "1e65450c30670713aa47fe23e8b9662bdf4065e81cc8e3cbfaa98924fcc0d320",
+    "params_sha256": null,
+    "modelfile_sha256": "82d682c864273cf86326211f03135b40b1f05fc7ff3a4479efeb43ebaa434c08"
+   },
+   "typhoon2-8b": {
+    "digest": "b3768487ef30c179e5c395fdf8ae508057446de3cbb0e5b8169859d3b4d41c39",
+    "size": 4920737257,
+    "quantization": "Q4_K_M",
+    "manifest_relpath": "manifests/registry.ollama.ai/library/typhoon2-8b/latest",
+    "manifest_sha256": "b3768487ef30c179e5c395fdf8ae508057446de3cbb0e5b8169859d3b4d41c39",
+    "list_id": "b3768487ef30",
+    "config_digest": "sha256:d30dc9af469925b9881ffb5b00056f85d51bfaafa6ef24072f1f1144e839fcf8",
+    "layers": [
+     {
+      "mediaType": "application/vnd.ollama.image.model",
+      "digest": "sha256:d5b2115cfca70c8cab1b827954046ae568bd3056ed8e5e1faea45df73c31446b",
+      "size": 4920736992
+     }
+    ],
+    "template_sha256": "27215e3766e995115d6ef325728cc8e5243e85840890e4a66a1152bb7de5bc47",
+    "params_sha256": null,
+    "modelfile_sha256": "13d6540ad0773d5018a655ff145cb3fe518e25b69cb3e613d16e98cd51c44808"
+   }
+  }
+ },
+ "gguf": {
+  "basename": "llama3.1-typhoon2-8b-instruct.Q4_K_M.gguf",
+  "sha256": "63a0e0730cc131abbd2d2ab7ddde27bf9aac530143e4b1f824d03399c4567770",
+  "size": 4920736992
+ },
+ "errors": []
+}

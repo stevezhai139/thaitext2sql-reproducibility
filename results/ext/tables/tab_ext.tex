@@ -1,0 +1,20 @@
+\begin{table}[t]
+\caption{Extension of 40 items (Amendment 9; DDL-only prompt, base arm, 5 runs;
+exploratory and descriptive): correct items $n$ out of 40 per language
+(item majority). Brackets: Wilson 95\% CI (\%).}
+\label{tab:extension}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{English} & \multicolumn{2}{c}{Thai} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Model & $n$ & \% [CI] & $n$ & \% [CI] \\
+\midrule
+claude-sonnet-5 & 36 & 90.0 [77,96] & 31 & 77.5 [62,88] \\
+gpt-5.4-mini & 31 & 77.5 [62,88] & 29 & 72.5 [57,84] \\
+gemini-3.6-flash & 38 & 95.0 [84,99] & 37 & 92.5 [80,97] \\
+qwen2.5-coder 7B & 7 & 17.5 [9,32] & 4 & 10.0 [4,23] \\
+llama3.1 8B & 4 & 10.0 [4,23] & 3 & 7.5 [3,20] \\
+\bottomrule
+\end{tabular}
+\end{table}

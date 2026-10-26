@@ -1,0 +1,10 @@
+measure,value
+runs_audited,186
+percent_agreement,64.5
+cohen_kappa,0.542
+cells_audited,39
+cells_gf_verdict_differs,8
+frontier_gf_in_vg_cov_base_author,5
+frontier_gf_in_vg_cov_base_classifier,6
+frontier_gf_in_vg_set_base_author,5
+frontier_gf_in_vg_set_base_classifier,6

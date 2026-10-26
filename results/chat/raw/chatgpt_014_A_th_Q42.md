@@ -1,0 +1,1 @@
+SELECT     Brand,     COUNT(\*) FILTER (         WHERE ReturnStatus IN ('Returned', 'Exchanged', 'Return', 'Exchange')     ) AS returned_or_exchanged_orders,     COUNT(\*) FILTER (         WHERE ReturnStatus IN ('Not Returned', 'No Return', 'Not Exchanged', 'None')            OR ReturnStatus IS NULL     ) AS non_returned_orders FROM Ecommerce GROUP BY Brand ORDER BY Brand;

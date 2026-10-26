@@ -1,0 +1,9 @@
+ช่วยเขียนคำสั่ง SQL (PostgreSQL) ให้หน่อย
+
+โครงสร้างตาราง:
+CREATE TABLE President(PresidentName TEXT, YearBorn INT, StateBorn TEXT, PartyName TEXT);
+CREATE TABLE Party(PartyName TEXT);
+CREATE TABLE PresidentMarriage(PresidentName TEXT, SpouseName TEXT, SpouseBirthDay DATE, MarriageYear INT, MarriageStatus TEXT);
+CREATE TABLE PresidentHolding(PresidentName TEXT, YearHolding INT, YearEnd INT, VicePresidentName TEXT, RunnerUp TEXT);
+
+โจทย์: จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย

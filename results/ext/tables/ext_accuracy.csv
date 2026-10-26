@@ -1,0 +1,11 @@
+model,lang,correct,n,acc,ci_lo,ci_hi,exploratory
+claude-sonnet,en,36,40,0.900,0.769,0.960,True
+claude-sonnet,th,31,40,0.775,0.625,0.877,True
+gpt-mini,en,31,40,0.775,0.625,0.877,True
+gpt-mini,th,29,40,0.725,0.572,0.839,True
+gemini-flash,en,38,40,0.950,0.835,0.986,True
+gemini-flash,th,37,40,0.925,0.801,0.974,True
+qwen25-coder-7b,en,7,40,0.175,0.087,0.320,True
+qwen25-coder-7b,th,4,40,0.100,0.040,0.231,True
+llama31-8b,en,4,40,0.100,0.040,0.231,True
+llama31-8b,th,3,40,0.075,0.026,0.199,True

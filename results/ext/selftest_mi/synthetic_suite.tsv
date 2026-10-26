@@ -1,0 +1,3 @@
+id	tier	schema	eff	question_en	question_th	gold_sql_draft	notes	gold_sql_v12	v13_status	order_en	order_th	sort_keys	norm	alt_gold_en	alt_gold_th	v13_rule	v13_rationale	family	col_roles	mi_instances	vg	vg_literals	source	author_class	ai_drafted	fallback_rank	build_status
+ZZ-DRIFT	4	P	no	synthetic	synthetic	SELECT COUNT(*) AS n_presidents, COUNT(*) + 1 AS n_plus_one FROM President			primary	no	no			[]	[]			F1		"[""k3n"", ""k3_fk_i_null""]"	no	[]	#179	author	yes	1	FROZEN
+ZZ-MIX	4	P	no	synthetic	synthetic	SELECT COUNT(*) AS n_presidents FROM President			primary	no	no			"[""SELECT COUNT(*) - 1 AS n_presidents FROM President""]"	"[""SELECT COUNT(*) - 1 AS n_presidents FROM President""]"			F1		"[""k3n"", ""k3_fk_i_null""]"	no	[]	#179	author	yes	1	FROZEN

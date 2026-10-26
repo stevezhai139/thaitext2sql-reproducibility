@@ -1,0 +1,13 @@
+August (k3n, v1.3n) vs October base arm on the 59 shared items -- descriptive, no test (D10, D11)
+  n=59 claude-sonnet    en: Aug 58 / Oct 57; Aug->Oct correct->wrong 1, wrong->correct 0; unanimity 0.966 / 0.915
+  n=59 claude-sonnet    th: Aug 53 / Oct 54; Aug->Oct correct->wrong 1, wrong->correct 2; unanimity 0.898 / 0.932
+  n=59 gpt-mini         en: Aug 55 / Oct 56; Aug->Oct correct->wrong 0, wrong->correct 1; unanimity 0.983 / 1.000
+  n=59 gpt-mini         th: Aug 48 / Oct 50; Aug->Oct correct->wrong 0, wrong->correct 2; unanimity 0.932 / 0.949
+  n=59 gemini-flash     en: Aug 56 / Oct 56; Aug->Oct correct->wrong 0, wrong->correct 0; unanimity 0.915 / 0.932
+  n=59 gemini-flash     th: Aug 53 / Oct 56; Aug->Oct correct->wrong 0, wrong->correct 3; unanimity 0.915 / 0.932
+  n=59 qwen25-coder-7b  en: Aug 38 / Oct 39; Aug->Oct correct->wrong 0, wrong->correct 1; unanimity 0.983 / 1.000 (exploratory)
+  n=59 qwen25-coder-7b  th: Aug 25 / Oct 25; Aug->Oct correct->wrong 0, wrong->correct 0; unanimity 1.000 / 1.000 (exploratory)
+  n=59 llama31-8b       en: Aug 32 / Oct 34; Aug->Oct correct->wrong 0, wrong->correct 2; unanimity 1.000 / 0.983 (exploratory)
+  n=59 llama31-8b       th: Aug 23 / Oct 23; Aug->Oct correct->wrong 0, wrong->correct 0; unanimity 1.000 / 1.000 (exploratory)
+  n=59 typhoon2-8b      en: Aug 21 / Oct 22; Aug->Oct correct->wrong 1, wrong->correct 2; unanimity 1.000 / 1.000 (exploratory)
+  n=59 typhoon2-8b      th: Aug 17 / Oct 17; Aug->Oct correct->wrong 0, wrong->correct 0; unanimity 1.000 / 1.000 (exploratory)

@@ -1,0 +1,34 @@
+{
+ "source": "provider pricing page",
+ "accessed": "2026-10-13",
+ "currency": "USD",
+ "unit": "per_1M_tokens",
+ "label": "list-price estimate",
+ "models": {
+  "gpt-mini": {
+   "in": 0.75,
+   "out": 4.5
+  },
+  "claude-sonnet": {
+   "in": 2.0,
+   "out": 10.0
+  },
+  "gemini-flash": {
+   "in": 0.75,
+   "out": 3.75,
+   "thinking_billed_as": "out"
+  },
+  "llama31-8b": {
+   "in": 0,
+   "out": 0
+  },
+  "qwen25-coder-7b": {
+   "in": 0,
+   "out": 0
+  },
+  "typhoon2-8b": {
+   "in": 0,
+   "out": 0
+  }
+ }
+}

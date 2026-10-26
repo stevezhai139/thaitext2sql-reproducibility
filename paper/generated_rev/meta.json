@@ -1,0 +1,38 @@
+{
+ "script": "harness/make_tables_rev.py",
+ "script_sha256": "521f8228270ca3afba0e02a9d33c8341c2d3624f570176ec7f53020a35834b32",
+ "inputs": {
+  "tab_headline": {
+   "path": "../paper/generated/tab_headline.tex",
+   "sha256": "9157f792ea13fdd6154b7aa9809e2843f1f9033168ce5998b634c96e44b65283"
+  },
+  "tab_tiers": {
+   "path": "../paper/generated/tab_tiers.tex",
+   "sha256": "391db8e422394e8b00c3dce4c832ba7c7531fbde54cb2d53861cf0398c8bd224"
+  },
+  "tab_crosslingual": {
+   "path": "../paper/generated/tab_crosslingual.tex",
+   "sha256": "ada7e41d7cb03713ada1292a06e81feb184735bb5f274b87259f740b50e2490b"
+  },
+  "tab_stability": {
+   "path": "../paper/generated/tab_stability.tex",
+   "sha256": "118aa51f9204dfd90d7d6f737c957afd062f14b9a5bae0d6a15ae9ca308f5501"
+  },
+  "acc_core": {
+   "path": "../results/rc1/base60/tables/accuracy.csv",
+   "sha256": "dc0b9d2f4f8e6a994da5cda70a037e70894aaf6a2ca4cc5e0802788209dbfad9"
+  },
+  "ext_acc": {
+   "path": "../results/ext/tables/ext_accuracy.csv",
+   "sha256": "f2e3c01ac8c5979869c32dfcde91a263ca658746cbfe05b901fd6e61073ee329"
+  },
+  "typhoon_ext": {
+   "path": "../results/rc1/rev_numbers/ext_typhoon_descriptive.csv",
+   "sha256": "a803250f1c211132e1e5894de9d418a0e5fd09a1f95a3ea588a34d429f00eaca"
+  },
+  "gap": {
+   "path": "../results/rc1/h1h4/rc1_gap.csv",
+   "sha256": "b62d68d3f602360a8c865a3f15ee7e4e69bd2ce3eefdae5503a44089b827e541"
+  }
+ }
+}

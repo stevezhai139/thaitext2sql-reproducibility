@@ -1,0 +1,1 @@
+SELECT     MarketingChannel,     SUM(Revenue) AS TotalRevenue FROM Ecommerce GROUP BY MarketingChannel HAVING COUNT(DISTINCT OrderID) > 100 ORDER BY TotalRevenue DESC;

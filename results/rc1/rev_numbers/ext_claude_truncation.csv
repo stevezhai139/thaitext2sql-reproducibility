@@ -1,0 +1,7 @@
+model,lang,qid,truncated_runs,runs,majority_all_runs,majority_untruncated_runs,majority_depends_on_truncation
+claude-sonnet,en,X07,3,5,False,False,False
+claude-sonnet,en,X08,3,5,True,True,False
+claude-sonnet,th,X05,1 3,5,False,False,False
+claude-sonnet,th,X07,1 3 4,5,False,True,True
+claude-sonnet,th,X17,2 3 4 5,5,False,True,True
+claude-sonnet,th,X37,1 3 5,5,False,True,True

@@ -1,0 +1,13 @@
+model,lang,cells,text_unanimous,byte_unanimous,grade_unanimous,text_unanimous_pct,byte_unanimous_pct,grade_unanimous_pct,exploratory,distinct_1,distinct_2,distinct_3,distinct_4,distinct_5
+claude-sonnet,en,59,32,28,57,54.2,47.5,96.6,no,32,17,5,4,1
+claude-sonnet,th,59,28,25,53,47.5,42.4,89.8,no,28,13,12,4,2
+gemini-flash,en,59,28,23,54,47.5,39.0,91.5,no,28,11,7,8,5
+gemini-flash,th,59,20,15,54,33.9,25.4,91.5,no,20,16,10,6,7
+gpt-mini,en,59,35,34,58,59.3,57.6,98.3,no,35,17,5,2,0
+gpt-mini,th,59,30,29,55,50.8,49.2,93.2,no,30,16,8,4,1
+llama31-8b,en,59,57,57,59,96.6,96.6,100.0,yes,57,2,0,0,0
+llama31-8b,th,59,57,57,59,96.6,96.6,100.0,yes,57,2,0,0,0
+qwen25-coder-7b,en,59,57,57,58,96.6,96.6,98.3,yes,57,2,0,0,0
+qwen25-coder-7b,th,59,59,59,59,100.0,100.0,100.0,yes,59,0,0,0,0
+typhoon2-8b,en,59,59,59,59,100.0,100.0,100.0,yes,59,0,0,0,0
+typhoon2-8b,th,59,59,59,59,100.0,100.0,100.0,yes,59,0,0,0,0

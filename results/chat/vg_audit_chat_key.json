@@ -1,0 +1,118 @@
+{
+ "meta": {
+  "kind": "vg_audit",
+  "created_at_ict": "2026-10-21T14:07:26",
+  "seed": 20261012,
+  "rows_sha256": "b07bf9bb4c7901ec758ff4e23f459d19c73eeae2842426075a300827b5b7dd63",
+  "n_rows": 14,
+  "sanitised_control_chars": 0,
+  "workbook": "vg_audit_chat.xlsx"
+ },
+ "key_header": [
+  "audit_id",
+  "app",
+  "form",
+  "qid",
+  "classifier_class"
+ ],
+ "key_rows": [
+  [
+   "V01",
+   "gemini",
+   "A",
+   "Q15",
+   "INVENTED"
+  ],
+  [
+   "V02",
+   "chatgpt",
+   "A",
+   "Q48",
+   "NO_PRED"
+  ],
+  [
+   "V03",
+   "gemini",
+   "A",
+   "Q14",
+   "INVENTED"
+  ],
+  [
+   "V04",
+   "claude",
+   "B",
+   "Q42",
+   "NO_PRED"
+  ],
+  [
+   "V05",
+   "claude",
+   "A",
+   "Q14",
+   "NO_PRED"
+  ],
+  [
+   "V06",
+   "chatgpt",
+   "B",
+   "Q14",
+   "INVENTED"
+  ],
+  [
+   "V07",
+   "gemini",
+   "B",
+   "Q42",
+   "GROUNDED"
+  ],
+  [
+   "V08",
+   "chatgpt",
+   "A",
+   "Q42",
+   "INVENTED"
+  ],
+  [
+   "V09",
+   "claude",
+   "A",
+   "Q07",
+   "THAI_COPY"
+  ],
+  [
+   "V10",
+   "claude",
+   "A",
+   "Q15",
+   "INVENTED"
+  ],
+  [
+   "V11",
+   "claude",
+   "A",
+   "Q42",
+   "NO_PRED"
+  ],
+  [
+   "V12",
+   "claude",
+   "B",
+   "Q14",
+   "NO_PRED"
+  ],
+  [
+   "V13",
+   "chatgpt",
+   "A",
+   "Q14",
+   "INVENTED"
+  ],
+  [
+   "V14",
+   "gemini",
+   "B",
+   "Q15",
+   "INVENTED"
+  ]
+ ]
+}

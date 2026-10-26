@@ -1,0 +1,62 @@
+{
+ "arm": "base",
+ "cell_major_breaches": {
+  "after_orders": [],
+  "count": 0
+ },
+ "comparator": {
+  "chatgpt": "concurrent B arm",
+  "claude": "concurrent B arm",
+  "gemini": "concurrent B arm"
+ },
+ "comparator_source": {
+  "chatgpt": "October base arm",
+  "claude": "October base arm",
+  "gemini": "October base arm"
+ },
+ "hints_sha256": "2ea5efb413182b7929310f30bb312175776e63ea18eec0616ac7bbd0cc38919c",
+ "inputs": {
+  "graded_chat_k3n.csv": "89ae8444752a2edc41b91800b26e22b417039d8a813989c8732901a8ed198f92",
+  "graded_chat_tagsens_k3n.csv": "89ae8444752a2edc41b91800b26e22b417039d8a813989c8732901a8ed198f92",
+  "graded_chat_turn2_k3n.csv": "c4e884f4f01e199f242f39eb37a5e0342e579aaf2b90c08ff6ad9cf6b331eae7",
+  "graded_rc1.csv": "74c5e9a63a70665172740da8beeb7352e2dc3664271b63c85d28f1716a2f03c1",
+  "k3n_suite_v1.3n.tsv": "195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366",
+  "log_index.tsv": "7d3fd2b745094f7b517be7dd018a36612693f835f1dc267a774180b2511d201a",
+  "raw_manifest.tsv": "d7a6068bdd48962bb3c06b25911c61f87a70025671c9b9be30779db530faed8b",
+  "results_chat_tagsens.jsonl": "ed8af4992567142eee708fa5f34b3ffb8ff6d5e4643041c4e38a0343ca476581",
+  "results_rc1_api.jsonl": "18f88552513125ed970b3859977be21f820410cdd99331776c3bd84666fe448b",
+  "silence_final.tsv": "79224e2209e6a2646a4bdc28a0b331626307c7114f2b2ee6b51caf540dd9c6e8",
+  "value_hints_v1.json": "2ea5efb413182b7929310f30bb312175776e63ea18eec0616ac7bbd0cc38919c",
+  "vg_codes_chat.tsv": "71958ceb40035a3296e5994060ef1552edff35341cabc1f3c390f44276961a77",
+  "vg_codes_chat_meta.json": "d084bd8db28fb6c05ea396cd33ce0f96fc5c919aaa746de4bb2d9bf2643b4ac3"
+ },
+ "k": 10,
+ "levels": {
+  "chatgpt": "reproduced",
+  "claude": "reproduced",
+  "gemini": "reproduced"
+ },
+ "levels_tagsens": {
+  "chatgpt": "reproduced",
+  "claude": "reproduced",
+  "gemini": "reproduced"
+ },
+ "rc1_dropped_rows_by_arm": {
+  "values": 3540
+ },
+ "silence_overrides_am8_sec6": [],
+ "switches": {
+  "CELL_MAJOR_BREACH": "note",
+  "EXTRACT_DETAILS": {
+   "fences": "commonmark",
+   "prose_case": "upper-or-lower"
+  },
+  "FALLBACK_WINDOW_FAIL": "oct-base",
+  "SILENCE_MOSTLY_SILENT_COUNT": "s"
+ },
+ "test_only": false,
+ "turn2_deviations": [],
+ "unusable_models": [],
+ "vg_set": "VG10",
+ "vocab_db": "k3n"
+}

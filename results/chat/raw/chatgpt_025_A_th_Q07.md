@@ -1,0 +1,1 @@
+SELECT SpouseName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed';

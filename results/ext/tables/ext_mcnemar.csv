@@ -1,0 +1,6 @@
+model,en_correct,th_correct,b_en_only,c_th_only,p_exact,holm
+claude-sonnet,36,31,5,0,0.0625,not applied (exploratory)
+gpt-mini,31,29,5,3,0.7266,not applied (exploratory)
+gemini-flash,38,37,2,1,1.0000,not applied (exploratory)
+qwen25-coder-7b,7,4,5,2,0.4531,not applied (exploratory)
+llama31-8b,4,3,3,2,1.0000,not applied (exploratory)

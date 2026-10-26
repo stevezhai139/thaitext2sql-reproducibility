@@ -1,0 +1,7 @@
+#meta	{"source": "manifest base fingerprint", "base": "k3n"}
+table	rows	columns	md5_order_free	mi_md5	rowhash_md5	md5_physical_order	md5_ctids	dml_counters
+ecommerce	2390	-	-	0779fea2d57b82e6d9c15b046411bbe8	-	-	-	-
+party	9	-	-	6250b7aa843028f85553bdb9ff168a84	-	-	-	-
+president	45	-	-	e1acee981170d87378b3734b209d5302	-	-	-	-
+presidentholding	49	-	-	dc9cf90624f53415a14b4bb6af82edc0	-	-	-	-
+presidentmarriage	49	-	-	97efe4cd845f5d56d1dbfff276761b40	-	-	-	-

@@ -1,0 +1,341 @@
+event	ts_ict	app	order	prompt_id	attempt	file
+go	2026-10-21 10:41:41	chatgpt	1	001_B_th_Q48	1	prompts/001_B_th_Q48.txt
+sent	2026-10-21 10:43:23	chatgpt	1	001_B_th_Q48	1	
+save	2026-10-21 10:49:20	chatgpt	1	001_B_th_Q48	1	raw/chatgpt_001_B_th_Q48.md
+shot	2026-10-21 10:55:28	chatgpt	1	001_B_th_Q48	1	shots/chatgpt_001_B_th_Q48.png
+go	2026-10-21 10:59:52	gemini	1	001_B_th_Q48	1	prompts/001_B_th_Q48.txt
+sent	2026-10-21 11:00:09	gemini	1	001_B_th_Q48	1	
+save	2026-10-21 11:00:33	gemini	1	001_B_th_Q48	1	raw/gemini_001_B_th_Q48.md
+shot	2026-10-21 11:08:45	gemini	1	001_B_th_Q48	1	shots/gemini_001_B_th_Q48.png
+go	2026-10-21 11:10:15	claude	1	001_B_th_Q48	1	prompts/001_B_th_Q48.txt
+sent	2026-10-21 11:10:52	claude	1	001_B_th_Q48	1	
+save	2026-10-21 11:11:09	claude	1	001_B_th_Q48	1	raw/claude_001_B_th_Q48.md
+shot	2026-10-21 11:14:43	claude	1	001_B_th_Q48	1	shots/claude_001_B_th_Q48.png
+go	2026-10-21 11:22:45	chatgpt	2	002_A_th_Q21	1	prompts/002_A_th_Q21.txt
+sent	2026-10-21 11:23:47	chatgpt	2	002_A_th_Q21	1	
+save	2026-10-21 11:23:56	chatgpt	2	002_A_th_Q21	1	raw/chatgpt_002_A_th_Q21.md
+shot	2026-10-21 11:28:20	chatgpt	2	002_A_th_Q21	1	shots/chatgpt_002_A_th_Q21.png
+go	2026-10-21 11:29:46	chatgpt	2	002_A_th_Q21	2	prompts/002_A_th_Q21.txt
+sent	2026-10-21 11:31:03	chatgpt	2	002_A_th_Q21	2	
+save	2026-10-21 11:31:12	chatgpt	2	002_A_th_Q21	2	raw/chatgpt_002_A_th_Q21_a2.md
+shot	2026-10-21 11:37:48	chatgpt	2	002_A_th_Q21	2	shots/chatgpt_002_A_th_Q21_a2.png
+go	2026-10-21 11:39:59	gemini	2	002_A_th_Q21	1	prompts/002_A_th_Q21.txt
+sent	2026-10-21 11:40:16	gemini	2	002_A_th_Q21	1	
+save	2026-10-21 11:40:23	gemini	2	002_A_th_Q21	1	raw/gemini_002_A_th_Q21.md
+shot	2026-10-21 11:41:18	gemini	2	002_A_th_Q21	1	shots/gemini_002_A_th_Q21.png
+go	2026-10-21 11:41:36	claude	2	002_A_th_Q21	1	prompts/002_A_th_Q21.txt
+sent	2026-10-21 11:41:49	claude	2	002_A_th_Q21	1	
+save	2026-10-21 11:41:59	claude	2	002_A_th_Q21	1	raw/claude_002_A_th_Q21.md
+shot	2026-10-21 11:42:38	claude	2	002_A_th_Q21	1	shots/claude_002_A_th_Q21.png
+go	2026-10-21 11:42:57	chatgpt	3	003_B_th_Q42	1	prompts/003_B_th_Q42.txt
+sent	2026-10-21 11:43:18	chatgpt	3	003_B_th_Q42	1	
+save	2026-10-21 11:43:24	chatgpt	3	003_B_th_Q42	1	raw/chatgpt_003_B_th_Q42.md
+shot	2026-10-21 11:44:16	chatgpt	3	003_B_th_Q42	1	shots/chatgpt_003_B_th_Q42.png
+go	2026-10-21 11:44:32	gemini	3	003_B_th_Q42	1	prompts/003_B_th_Q42.txt
+sent	2026-10-21 11:44:57	gemini	3	003_B_th_Q42	1	
+save	2026-10-21 11:45:05	gemini	3	003_B_th_Q42	1	raw/gemini_003_B_th_Q42.md
+shot	2026-10-21 11:47:56	gemini	3	003_B_th_Q42	1	shots/gemini_003_B_th_Q42.png
+go	2026-10-21 11:48:24	claude	3	003_B_th_Q42	1	prompts/003_B_th_Q42.txt
+sent	2026-10-21 11:48:43	claude	3	003_B_th_Q42	1	
+save	2026-10-21 11:50:11	claude	3	003_B_th_Q42	1	raw/claude_003_B_th_Q42.md
+shot	2026-10-21 11:50:27	claude	3	003_B_th_Q42	1	shots/claude_003_B_th_Q42.png
+go	2026-10-21 11:51:06	chatgpt	4	004_B_th_Q01	1	prompts/004_B_th_Q01.txt
+sent	2026-10-21 11:51:21	chatgpt	4	004_B_th_Q01	1	
+save	2026-10-21 11:51:30	chatgpt	4	004_B_th_Q01	1	raw/chatgpt_004_B_th_Q01.md
+shot	2026-10-21 11:52:01	chatgpt	4	004_B_th_Q01	1	shots/chatgpt_004_B_th_Q01.png
+go	2026-10-21 11:52:18	gemini	4	004_B_th_Q01	1	prompts/004_B_th_Q01.txt
+sent	2026-10-21 11:52:27	gemini	4	004_B_th_Q01	1	
+save	2026-10-21 11:52:45	gemini	4	004_B_th_Q01	1	raw/gemini_004_B_th_Q01.md
+shot	2026-10-21 11:53:19	gemini	4	004_B_th_Q01	1	shots/gemini_004_B_th_Q01.png
+go	2026-10-21 11:53:31	claude	4	004_B_th_Q01	1	prompts/004_B_th_Q01.txt
+sent	2026-10-21 11:53:43	claude	4	004_B_th_Q01	1	
+save	2026-10-21 11:53:52	claude	4	004_B_th_Q01	1	raw/claude_004_B_th_Q01.md
+shot	2026-10-21 11:54:23	claude	4	004_B_th_Q01	1	shots/claude_004_B_th_Q01.png
+go	2026-10-21 11:54:39	chatgpt	5	005_A_th_Q14	1	prompts/005_A_th_Q14.txt
+sent	2026-10-21 11:54:48	chatgpt	5	005_A_th_Q14	1	
+save	2026-10-21 11:54:56	chatgpt	5	005_A_th_Q14	1	raw/chatgpt_005_A_th_Q14.md
+shot	2026-10-21 11:55:53	chatgpt	5	005_A_th_Q14	1	shots/chatgpt_005_A_th_Q14.png
+go	2026-10-21 11:56:01	gemini	5	005_A_th_Q14	1	prompts/005_A_th_Q14.txt
+sent	2026-10-21 11:56:16	gemini	5	005_A_th_Q14	1	
+save	2026-10-21 11:56:49	gemini	5	005_A_th_Q14	1	raw/gemini_005_A_th_Q14.md
+shot	2026-10-21 11:57:17	gemini	5	005_A_th_Q14	1	shots/gemini_005_A_th_Q14.png
+go	2026-10-21 11:57:31	claude	5	005_A_th_Q14	1	prompts/005_A_th_Q14.txt
+sent	2026-10-21 11:57:43	claude	5	005_A_th_Q14	1	
+save	2026-10-21 11:57:49	claude	5	005_A_th_Q14	1	raw/claude_005_A_th_Q14.md
+shot	2026-10-21 11:58:14	claude	5	005_A_th_Q14	1	shots/claude_005_A_th_Q14.png
+go	2026-10-21 12:14:51	chatgpt	6	006_B_th_Q43	1	prompts/006_B_th_Q43.txt
+sent	2026-10-21 12:14:58	chatgpt	6	006_B_th_Q43	1	
+save	2026-10-21 12:15:05	chatgpt	6	006_B_th_Q43	1	raw/chatgpt_006_B_th_Q43.md
+shot	2026-10-21 12:15:38	chatgpt	6	006_B_th_Q43	1	shots/chatgpt_006_B_th_Q43.png
+go	2026-10-21 12:15:49	gemini	6	006_B_th_Q43	1	prompts/006_B_th_Q43.txt
+sent	2026-10-21 12:15:58	gemini	6	006_B_th_Q43	1	
+save	2026-10-21 12:16:25	gemini	6	006_B_th_Q43	1	raw/gemini_006_B_th_Q43.md
+shot	2026-10-21 12:16:54	gemini	6	006_B_th_Q43	1	shots/gemini_006_B_th_Q43.png
+go	2026-10-21 12:17:06	claude	6	006_B_th_Q43	1	prompts/006_B_th_Q43.txt
+sent	2026-10-21 12:17:24	claude	6	006_B_th_Q43	1	
+save	2026-10-21 12:17:31	claude	6	006_B_th_Q43	1	raw/claude_006_B_th_Q43.md
+shot	2026-10-21 12:18:01	claude	6	006_B_th_Q43	1	shots/claude_006_B_th_Q43.png
+go	2026-10-21 12:18:18	chatgpt	7	007_B_th_Q07	1	prompts/007_B_th_Q07.txt
+sent	2026-10-21 12:18:28	chatgpt	7	007_B_th_Q07	1	
+save	2026-10-21 12:18:47	chatgpt	7	007_B_th_Q07	1	raw/chatgpt_007_B_th_Q07.md
+shot	2026-10-21 12:19:21	chatgpt	7	007_B_th_Q07	1	shots/chatgpt_007_B_th_Q07.png
+go	2026-10-21 12:19:29	gemini	7	007_B_th_Q07	1	prompts/007_B_th_Q07.txt
+sent	2026-10-21 12:19:36	gemini	7	007_B_th_Q07	1	
+save	2026-10-21 12:19:48	gemini	7	007_B_th_Q07	1	raw/gemini_007_B_th_Q07.md
+shot	2026-10-21 12:20:17	gemini	7	007_B_th_Q07	1	shots/gemini_007_B_th_Q07.png
+go	2026-10-21 12:20:42	claude	7	007_B_th_Q07	1	prompts/007_B_th_Q07.txt
+sent	2026-10-21 12:21:12	claude	7	007_B_th_Q07	1	
+save	2026-10-21 12:21:15	claude	7	007_B_th_Q07	1	raw/claude_007_B_th_Q07.md
+shot	2026-10-21 12:21:38	claude	7	007_B_th_Q07	1	shots/claude_007_B_th_Q07.png
+go	2026-10-21 12:21:51	chatgpt	8	008_B_th_Q15	1	prompts/008_B_th_Q15.txt
+sent	2026-10-21 12:21:57	chatgpt	8	008_B_th_Q15	1	
+save	2026-10-21 12:22:07	chatgpt	8	008_B_th_Q15	1	raw/chatgpt_008_B_th_Q15.md
+shot	2026-10-21 12:22:31	chatgpt	8	008_B_th_Q15	1	shots/chatgpt_008_B_th_Q15.png
+go	2026-10-21 12:22:39	gemini	8	008_B_th_Q15	1	prompts/008_B_th_Q15.txt
+sent	2026-10-21 12:22:53	gemini	8	008_B_th_Q15	1	
+save	2026-10-21 12:23:00	gemini	8	008_B_th_Q15	1	raw/gemini_008_B_th_Q15.md
+shot	2026-10-21 12:23:26	gemini	8	008_B_th_Q15	1	shots/gemini_008_B_th_Q15.png
+go	2026-10-21 12:23:35	claude	8	008_B_th_Q15	1	prompts/008_B_th_Q15.txt
+sent	2026-10-21 12:23:41	claude	8	008_B_th_Q15	1	
+save	2026-10-21 12:23:49	claude	8	008_B_th_Q15	1	raw/claude_008_B_th_Q15.md
+shot	2026-10-21 12:24:10	claude	8	008_B_th_Q15	1	shots/claude_008_B_th_Q15.png
+go	2026-10-21 12:24:22	chatgpt	9	009_B_th_Q50	1	prompts/009_B_th_Q50.txt
+sent	2026-10-21 12:24:36	chatgpt	9	009_B_th_Q50	1	
+save	2026-10-21 12:24:39	chatgpt	9	009_B_th_Q50	1	raw/chatgpt_009_B_th_Q50.md
+shot	2026-10-21 12:25:04	chatgpt	9	009_B_th_Q50	1	shots/chatgpt_009_B_th_Q50.png
+go	2026-10-21 12:25:13	gemini	9	009_B_th_Q50	1	prompts/009_B_th_Q50.txt
+sent	2026-10-21 12:25:19	gemini	9	009_B_th_Q50	1	
+save	2026-10-21 12:25:30	gemini	9	009_B_th_Q50	1	raw/gemini_009_B_th_Q50.md
+shot	2026-10-21 12:25:59	gemini	9	009_B_th_Q50	1	shots/gemini_009_B_th_Q50.png
+go	2026-10-21 12:26:09	claude	9	009_B_th_Q50	1	prompts/009_B_th_Q50.txt
+sent	2026-10-21 12:26:14	claude	9	009_B_th_Q50	1	
+save	2026-10-21 12:26:25	claude	9	009_B_th_Q50	1	raw/claude_009_B_th_Q50.md
+shot	2026-10-21 12:29:13	claude	9	009_B_th_Q50	1	shots/claude_009_B_th_Q50.png
+go	2026-10-21 12:30:08	chatgpt	10	010_A_th_Q48	1	prompts/010_A_th_Q48.txt
+sent	2026-10-21 12:30:25	chatgpt	10	010_A_th_Q48	1	
+save	2026-10-21 12:30:48	chatgpt	10	010_A_th_Q48	1	raw/chatgpt_010_A_th_Q48.md
+shot	2026-10-21 12:31:08	chatgpt	10	010_A_th_Q48	1	shots/chatgpt_010_A_th_Q48.png
+go	2026-10-21 12:31:18	gemini	10	010_A_th_Q48	1	prompts/010_A_th_Q48.txt
+sent	2026-10-21 12:31:24	gemini	10	010_A_th_Q48	1	
+save	2026-10-21 12:31:32	gemini	10	010_A_th_Q48	1	raw/gemini_010_A_th_Q48.md
+shot	2026-10-21 12:31:58	gemini	10	010_A_th_Q48	1	shots/gemini_010_A_th_Q48.png
+go	2026-10-21 12:32:07	claude	10	010_A_th_Q48	1	prompts/010_A_th_Q48.txt
+sent	2026-10-21 12:32:15	claude	10	010_A_th_Q48	1	
+save	2026-10-21 12:32:22	claude	10	010_A_th_Q48	1	raw/claude_010_A_th_Q48.md
+shot	2026-10-21 12:32:51	claude	10	010_A_th_Q48	1	shots/claude_010_A_th_Q48.png
+go	2026-10-21 12:36:07	chatgpt	11	011_B_th_Q41	1	prompts/011_B_th_Q41.txt
+sent	2026-10-21 12:36:20	chatgpt	11	011_B_th_Q41	1	
+save	2026-10-21 12:36:26	chatgpt	11	011_B_th_Q41	1	raw/chatgpt_011_B_th_Q41.md
+shot	2026-10-21 12:36:55	chatgpt	11	011_B_th_Q41	1	shots/chatgpt_011_B_th_Q41.png
+go	2026-10-21 12:37:05	gemini	11	011_B_th_Q41	1	prompts/011_B_th_Q41.txt
+sent	2026-10-21 12:37:14	gemini	11	011_B_th_Q41	1	
+save	2026-10-21 12:37:27	gemini	11	011_B_th_Q41	1	raw/gemini_011_B_th_Q41.md
+shot	2026-10-21 12:37:57	gemini	11	011_B_th_Q41	1	shots/gemini_011_B_th_Q41.png
+go	2026-10-21 12:38:05	claude	11	011_B_th_Q41	1	prompts/011_B_th_Q41.txt
+sent	2026-10-21 12:38:11	claude	11	011_B_th_Q41	1	
+save	2026-10-21 12:38:17	claude	11	011_B_th_Q41	1	raw/claude_011_B_th_Q41.md
+shot	2026-10-21 12:39:22	claude	11	011_B_th_Q41	1	shots/claude_011_B_th_Q41.png
+go	2026-10-21 12:39:35	chatgpt	12	012_B_th_Q14	1	prompts/012_B_th_Q14.txt
+sent	2026-10-21 12:39:47	chatgpt	12	012_B_th_Q14	1	
+save	2026-10-21 12:39:52	chatgpt	12	012_B_th_Q14	1	raw/chatgpt_012_B_th_Q14.md
+shot	2026-10-21 12:40:09	chatgpt	12	012_B_th_Q14	1	shots/chatgpt_012_B_th_Q14.png
+go	2026-10-21 12:40:18	gemini	12	012_B_th_Q14	1	prompts/012_B_th_Q14.txt
+sent	2026-10-21 12:40:24	gemini	12	012_B_th_Q14	1	
+save	2026-10-21 12:40:32	gemini	12	012_B_th_Q14	1	raw/gemini_012_B_th_Q14.md
+shot	2026-10-21 12:40:54	gemini	12	012_B_th_Q14	1	shots/gemini_012_B_th_Q14.png
+go	2026-10-21 12:41:03	claude	12	012_B_th_Q14	1	prompts/012_B_th_Q14.txt
+sent	2026-10-21 12:41:12	claude	12	012_B_th_Q14	1	
+save	2026-10-21 12:41:20	claude	12	012_B_th_Q14	1	raw/claude_012_B_th_Q14.md
+shot	2026-10-21 12:41:55	claude	12	012_B_th_Q14	1	shots/claude_012_B_th_Q14.png
+go	2026-10-21 12:42:10	chatgpt	13	013_B_th_Q55	1	prompts/013_B_th_Q55.txt
+sent	2026-10-21 12:42:17	chatgpt	13	013_B_th_Q55	1	
+save	2026-10-21 12:42:26	chatgpt	13	013_B_th_Q55	1	raw/chatgpt_013_B_th_Q55.md
+shot	2026-10-21 12:42:45	chatgpt	13	013_B_th_Q55	1	shots/chatgpt_013_B_th_Q55.png
+go	2026-10-21 12:42:59	gemini	13	013_B_th_Q55	1	prompts/013_B_th_Q55.txt
+sent	2026-10-21 12:43:06	gemini	13	013_B_th_Q55	1	
+save	2026-10-21 12:43:17	gemini	13	013_B_th_Q55	1	raw/gemini_013_B_th_Q55.md
+shot	2026-10-21 12:43:37	gemini	13	013_B_th_Q55	1	shots/gemini_013_B_th_Q55.png
+go	2026-10-21 12:44:07	claude	13	013_B_th_Q55	1	prompts/013_B_th_Q55.txt
+sent	2026-10-21 12:44:15	claude	13	013_B_th_Q55	1	
+save	2026-10-21 12:44:31	claude	13	013_B_th_Q55	1	raw/claude_013_B_th_Q55.md
+shot	2026-10-21 12:44:45	claude	13	013_B_th_Q55	1	shots/claude_013_B_th_Q55.png
+go	2026-10-21 12:45:05	chatgpt	14	014_A_th_Q42	1	prompts/014_A_th_Q42.txt
+sent	2026-10-21 12:45:15	chatgpt	14	014_A_th_Q42	1	
+save	2026-10-21 12:45:22	chatgpt	14	014_A_th_Q42	1	raw/chatgpt_014_A_th_Q42.md
+shot	2026-10-21 12:45:38	chatgpt	14	014_A_th_Q42	1	shots/chatgpt_014_A_th_Q42.png
+go	2026-10-21 12:45:49	gemini	14	014_A_th_Q42	1	prompts/014_A_th_Q42.txt
+sent	2026-10-21 12:46:02	gemini	14	014_A_th_Q42	1	
+save	2026-10-21 12:46:13	gemini	14	014_A_th_Q42	1	raw/gemini_014_A_th_Q42.md
+shot	2026-10-21 12:46:40	gemini	14	014_A_th_Q42	1	shots/gemini_014_A_th_Q42.png
+go	2026-10-21 12:46:53	claude	14	014_A_th_Q42	1	prompts/014_A_th_Q42.txt
+sent	2026-10-21 12:47:02	claude	14	014_A_th_Q42	1	
+save	2026-10-21 12:47:13	claude	14	014_A_th_Q42	1	raw/claude_014_A_th_Q42.md
+shot	2026-10-21 12:47:34	claude	14	014_A_th_Q42	1	shots/claude_014_A_th_Q42.png
+go	2026-10-21 12:47:47	chatgpt	15	015_A_th_Q13	1	prompts/015_A_th_Q13.txt
+sent	2026-10-21 12:48:02	chatgpt	15	015_A_th_Q13	1	
+save	2026-10-21 12:48:11	chatgpt	15	015_A_th_Q13	1	raw/chatgpt_015_A_th_Q13.md
+shot	2026-10-21 12:48:29	chatgpt	15	015_A_th_Q13	1	shots/chatgpt_015_A_th_Q13.png
+go	2026-10-21 12:48:40	gemini	15	015_A_th_Q13	1	prompts/015_A_th_Q13.txt
+sent	2026-10-21 12:48:47	gemini	15	015_A_th_Q13	1	
+save	2026-10-21 12:48:53	gemini	15	015_A_th_Q13	1	raw/gemini_015_A_th_Q13.md
+shot	2026-10-21 12:49:06	gemini	15	015_A_th_Q13	1	shots/gemini_015_A_th_Q13.png
+go	2026-10-21 12:49:16	claude	15	015_A_th_Q13	1	prompts/015_A_th_Q13.txt
+sent	2026-10-21 12:49:23	claude	15	015_A_th_Q13	1	
+save	2026-10-21 12:49:29	claude	15	015_A_th_Q13	1	raw/claude_015_A_th_Q13.md
+shot	2026-10-21 12:49:52	claude	15	015_A_th_Q13	1	shots/claude_015_A_th_Q13.png
+go	2026-10-21 12:50:53	chatgpt	16	016_A_th_Q15	1	prompts/016_A_th_Q15.txt
+sent	2026-10-21 12:51:04	chatgpt	16	016_A_th_Q15	1	
+save	2026-10-21 12:51:10	chatgpt	16	016_A_th_Q15	1	raw/chatgpt_016_A_th_Q15.md
+shot	2026-10-21 12:51:25	chatgpt	16	016_A_th_Q15	1	shots/chatgpt_016_A_th_Q15.png
+go	2026-10-21 12:51:41	gemini	16	016_A_th_Q15	1	prompts/016_A_th_Q15.txt
+sent	2026-10-21 12:51:58	gemini	16	016_A_th_Q15	1	
+save	2026-10-21 12:52:05	gemini	16	016_A_th_Q15	1	raw/gemini_016_A_th_Q15.md
+shot	2026-10-21 12:52:20	gemini	16	016_A_th_Q15	1	shots/gemini_016_A_th_Q15.png
+go	2026-10-21 12:52:27	claude	16	016_A_th_Q15	1	prompts/016_A_th_Q15.txt
+sent	2026-10-21 12:52:34	claude	16	016_A_th_Q15	1	
+save	2026-10-21 12:52:40	claude	16	016_A_th_Q15	1	raw/claude_016_A_th_Q15.md
+shot	2026-10-21 12:52:57	claude	16	016_A_th_Q15	1	shots/claude_016_A_th_Q15.png
+go	2026-10-21 12:53:07	chatgpt	17	017_B_th_Q25	1	prompts/017_B_th_Q25.txt
+sent	2026-10-21 12:53:14	chatgpt	17	017_B_th_Q25	1	
+save	2026-10-21 12:53:20	chatgpt	17	017_B_th_Q25	1	raw/chatgpt_017_B_th_Q25.md
+shot	2026-10-21 12:53:46	chatgpt	17	017_B_th_Q25	1	shots/chatgpt_017_B_th_Q25.png
+go	2026-10-21 12:53:52	gemini	17	017_B_th_Q25	1	prompts/017_B_th_Q25.txt
+sent	2026-10-21 12:54:07	gemini	17	017_B_th_Q25	1	
+save	2026-10-21 12:54:24	gemini	17	017_B_th_Q25	1	raw/gemini_017_B_th_Q25.md
+shot	2026-10-21 12:54:39	gemini	17	017_B_th_Q25	1	shots/gemini_017_B_th_Q25.png
+go	2026-10-21 12:54:53	claude	17	017_B_th_Q25	1	prompts/017_B_th_Q25.txt
+sent	2026-10-21 12:54:57	claude	17	017_B_th_Q25	1	
+save	2026-10-21 12:55:10	claude	17	017_B_th_Q25	1	raw/claude_017_B_th_Q25.md
+shot	2026-10-21 12:55:26	claude	17	017_B_th_Q25	1	shots/claude_017_B_th_Q25.png
+go	2026-10-21 12:55:36	chatgpt	18	018_B_th_Q09	1	prompts/018_B_th_Q09.txt
+sent	2026-10-21 12:55:41	chatgpt	18	018_B_th_Q09	1	
+save	2026-10-21 12:55:50	chatgpt	18	018_B_th_Q09	1	raw/chatgpt_018_B_th_Q09.md
+shot	2026-10-21 12:56:05	chatgpt	18	018_B_th_Q09	1	shots/chatgpt_018_B_th_Q09.png
+go	2026-10-21 12:56:15	gemini	18	018_B_th_Q09	1	prompts/018_B_th_Q09.txt
+sent	2026-10-21 12:56:21	gemini	18	018_B_th_Q09	1	
+save	2026-10-21 12:56:30	gemini	18	018_B_th_Q09	1	raw/gemini_018_B_th_Q09.md
+shot	2026-10-21 12:56:49	gemini	18	018_B_th_Q09	1	shots/gemini_018_B_th_Q09.png
+go	2026-10-21 12:56:58	claude	18	018_B_th_Q09	1	prompts/018_B_th_Q09.txt
+sent	2026-10-21 12:57:07	claude	18	018_B_th_Q09	1	
+save	2026-10-21 12:57:16	claude	18	018_B_th_Q09	1	raw/claude_018_B_th_Q09.md
+shot	2026-10-21 12:57:35	claude	18	018_B_th_Q09	1	shots/claude_018_B_th_Q09.png
+go	2026-10-21 12:57:44	chatgpt	19	019_A_th_Q30	1	prompts/019_A_th_Q30.txt
+sent	2026-10-21 12:57:49	chatgpt	19	019_A_th_Q30	1	
+save	2026-10-21 12:57:58	chatgpt	19	019_A_th_Q30	1	raw/chatgpt_019_A_th_Q30.md
+shot	2026-10-21 12:58:14	chatgpt	19	019_A_th_Q30	1	shots/chatgpt_019_A_th_Q30.png
+go	2026-10-21 12:58:20	gemini	19	019_A_th_Q30	1	prompts/019_A_th_Q30.txt
+sent	2026-10-21 12:59:05	gemini	19	019_A_th_Q30	1	
+save	2026-10-21 12:59:18	gemini	19	019_A_th_Q30	1	raw/gemini_019_A_th_Q30.md
+shot	2026-10-21 12:59:34	gemini	19	019_A_th_Q30	1	shots/gemini_019_A_th_Q30.png
+go	2026-10-21 12:59:44	claude	19	019_A_th_Q30	1	prompts/019_A_th_Q30.txt
+sent	2026-10-21 12:59:51	claude	19	019_A_th_Q30	1	
+save	2026-10-21 12:59:56	claude	19	019_A_th_Q30	1	raw/claude_019_A_th_Q30.md
+shot	2026-10-21 13:00:14	claude	19	019_A_th_Q30	1	shots/claude_019_A_th_Q30.png
+go	2026-10-21 13:00:24	chatgpt	20	020_A_th_Q09	1	prompts/020_A_th_Q09.txt
+sent	2026-10-21 13:00:33	chatgpt	20	020_A_th_Q09	1	
+save	2026-10-21 13:00:40	chatgpt	20	020_A_th_Q09	1	raw/chatgpt_020_A_th_Q09.md
+shot	2026-10-21 13:00:58	chatgpt	20	020_A_th_Q09	1	shots/chatgpt_020_A_th_Q09.png
+go	2026-10-21 13:01:08	gemini	20	020_A_th_Q09	1	prompts/020_A_th_Q09.txt
+sent	2026-10-21 13:01:13	gemini	20	020_A_th_Q09	1	
+save	2026-10-21 13:01:23	gemini	20	020_A_th_Q09	1	raw/gemini_020_A_th_Q09.md
+shot	2026-10-21 13:01:45	gemini	20	020_A_th_Q09	1	shots/gemini_020_A_th_Q09.png
+go	2026-10-21 13:01:52	claude	20	020_A_th_Q09	1	prompts/020_A_th_Q09.txt
+sent	2026-10-21 13:03:05	claude	20	020_A_th_Q09	1	
+save	2026-10-21 13:03:15	claude	20	020_A_th_Q09	1	raw/claude_020_A_th_Q09.md
+shot	2026-10-21 13:03:38	claude	20	020_A_th_Q09	1	shots/claude_020_A_th_Q09.png
+go	2026-10-21 13:04:50	chatgpt	21	021_B_th_Q21	1	prompts/021_B_th_Q21.txt
+sent	2026-10-21 13:04:58	chatgpt	21	021_B_th_Q21	1	
+save	2026-10-21 13:05:05	chatgpt	21	021_B_th_Q21	1	raw/chatgpt_021_B_th_Q21.md
+shot	2026-10-21 13:05:28	chatgpt	21	021_B_th_Q21	1	shots/chatgpt_021_B_th_Q21.png
+go	2026-10-21 13:05:40	gemini	21	021_B_th_Q21	1	prompts/021_B_th_Q21.txt
+sent	2026-10-21 13:05:50	gemini	21	021_B_th_Q21	1	
+save	2026-10-21 13:05:59	gemini	21	021_B_th_Q21	1	raw/gemini_021_B_th_Q21.md
+shot	2026-10-21 13:06:21	gemini	21	021_B_th_Q21	1	shots/gemini_021_B_th_Q21.png
+go	2026-10-21 13:06:31	claude	21	021_B_th_Q21	1	prompts/021_B_th_Q21.txt
+sent	2026-10-21 13:06:37	claude	21	021_B_th_Q21	1	
+save	2026-10-21 13:06:43	claude	21	021_B_th_Q21	1	raw/claude_021_B_th_Q21.md
+shot	2026-10-21 13:07:09	claude	21	021_B_th_Q21	1	shots/claude_021_B_th_Q21.png
+go	2026-10-21 13:07:19	chatgpt	22	022_B_th_Q30	1	prompts/022_B_th_Q30.txt
+sent	2026-10-21 13:07:31	chatgpt	22	022_B_th_Q30	1	
+save	2026-10-21 13:07:33	chatgpt	22	022_B_th_Q30	1	raw/chatgpt_022_B_th_Q30.md
+shot	2026-10-21 13:07:47	chatgpt	22	022_B_th_Q30	1	shots/chatgpt_022_B_th_Q30.png
+go	2026-10-21 13:07:56	gemini	22	022_B_th_Q30	1	prompts/022_B_th_Q30.txt
+sent	2026-10-21 13:08:01	gemini	22	022_B_th_Q30	1	
+save	2026-10-21 13:08:10	gemini	22	022_B_th_Q30	1	raw/gemini_022_B_th_Q30.md
+shot	2026-10-21 13:08:33	gemini	22	022_B_th_Q30	1	shots/gemini_022_B_th_Q30.png
+go	2026-10-21 13:08:43	claude	22	022_B_th_Q30	1	prompts/022_B_th_Q30.txt
+sent	2026-10-21 13:08:51	claude	22	022_B_th_Q30	1	
+save	2026-10-21 13:09:03	claude	22	022_B_th_Q30	1	raw/claude_022_B_th_Q30.md
+shot	2026-10-21 13:09:27	claude	22	022_B_th_Q30	1	shots/claude_022_B_th_Q30.png
+go	2026-10-21 13:09:36	chatgpt	23	023_B_th_Q35	1	prompts/023_B_th_Q35.txt
+sent	2026-10-21 13:09:42	chatgpt	23	023_B_th_Q35	1	
+save	2026-10-21 13:09:49	chatgpt	23	023_B_th_Q35	1	raw/chatgpt_023_B_th_Q35.md
+shot	2026-10-21 13:10:06	chatgpt	23	023_B_th_Q35	1	shots/chatgpt_023_B_th_Q35.png
+go	2026-10-21 13:10:25	gemini	23	023_B_th_Q35	1	prompts/023_B_th_Q35.txt
+sent	2026-10-21 13:10:41	gemini	23	023_B_th_Q35	1	
+save	2026-10-21 13:10:43	gemini	23	023_B_th_Q35	1	raw/gemini_023_B_th_Q35.md
+shot	2026-10-21 13:11:02	gemini	23	023_B_th_Q35	1	shots/gemini_023_B_th_Q35.png
+go	2026-10-21 13:11:10	claude	23	023_B_th_Q35	1	prompts/023_B_th_Q35.txt
+sent	2026-10-21 13:11:17	claude	23	023_B_th_Q35	1	
+save	2026-10-21 13:11:26	claude	23	023_B_th_Q35	1	raw/claude_023_B_th_Q35.md
+shot	2026-10-21 13:11:42	claude	23	023_B_th_Q35	1	shots/claude_023_B_th_Q35.png
+go	2026-10-21 13:11:52	chatgpt	24	024_B_th_Q02	1	prompts/024_B_th_Q02.txt
+sent	2026-10-21 13:11:57	chatgpt	24	024_B_th_Q02	1	
+save	2026-10-21 13:12:03	chatgpt	24	024_B_th_Q02	1	raw/chatgpt_024_B_th_Q02.md
+shot	2026-10-21 13:12:20	chatgpt	24	024_B_th_Q02	1	shots/chatgpt_024_B_th_Q02.png
+go	2026-10-21 13:12:31	gemini	24	024_B_th_Q02	1	prompts/024_B_th_Q02.txt
+sent	2026-10-21 13:12:40	gemini	24	024_B_th_Q02	1	
+save	2026-10-21 13:12:51	gemini	24	024_B_th_Q02	1	raw/gemini_024_B_th_Q02.md
+shot	2026-10-21 13:13:13	gemini	24	024_B_th_Q02	1	shots/gemini_024_B_th_Q02.png
+go	2026-10-21 13:13:23	claude	24	024_B_th_Q02	1	prompts/024_B_th_Q02.txt
+sent	2026-10-21 13:13:38	claude	24	024_B_th_Q02	1	
+save	2026-10-21 13:13:40	claude	24	024_B_th_Q02	1	raw/claude_024_B_th_Q02.md
+shot	2026-10-21 13:14:03	claude	24	024_B_th_Q02	1	shots/claude_024_B_th_Q02.png
+go	2026-10-21 13:14:10	chatgpt	25	025_A_th_Q07	1	prompts/025_A_th_Q07.txt
+sent	2026-10-21 13:14:16	chatgpt	25	025_A_th_Q07	1	
+save	2026-10-21 13:14:21	chatgpt	25	025_A_th_Q07	1	raw/chatgpt_025_A_th_Q07.md
+shot	2026-10-21 13:14:42	chatgpt	25	025_A_th_Q07	1	shots/chatgpt_025_A_th_Q07.png
+go	2026-10-21 13:14:51	gemini	25	025_A_th_Q07	1	prompts/025_A_th_Q07.txt
+sent	2026-10-21 13:14:58	gemini	25	025_A_th_Q07	1	
+save	2026-10-21 13:15:08	gemini	25	025_A_th_Q07	1	raw/gemini_025_A_th_Q07.md
+shot	2026-10-21 13:15:25	gemini	25	025_A_th_Q07	1	shots/gemini_025_A_th_Q07.png
+go	2026-10-21 13:15:34	claude	25	025_A_th_Q07	1	prompts/025_A_th_Q07.txt
+sent	2026-10-21 13:15:44	claude	25	025_A_th_Q07	1	
+save	2026-10-21 13:15:49	claude	25	025_A_th_Q07	1	raw/claude_025_A_th_Q07.md
+shot	2026-10-21 13:16:21	claude	25	025_A_th_Q07	1	shots/claude_025_A_th_Q07.png
+go	2026-10-21 13:16:29	chatgpt	26	026_B_th_Q18	1	prompts/026_B_th_Q18.txt
+sent	2026-10-21 13:16:33	chatgpt	26	026_B_th_Q18	1	
+save	2026-10-21 13:16:39	chatgpt	26	026_B_th_Q18	1	raw/chatgpt_026_B_th_Q18.md
+shot	2026-10-21 13:16:54	chatgpt	26	026_B_th_Q18	1	shots/chatgpt_026_B_th_Q18.png
+go	2026-10-21 13:17:05	gemini	26	026_B_th_Q18	1	prompts/026_B_th_Q18.txt
+sent	2026-10-21 13:17:12	gemini	26	026_B_th_Q18	1	
+save	2026-10-21 13:17:20	gemini	26	026_B_th_Q18	1	raw/gemini_026_B_th_Q18.md
+shot	2026-10-21 13:17:38	gemini	26	026_B_th_Q18	1	shots/gemini_026_B_th_Q18.png
+go	2026-10-21 13:17:47	claude	26	026_B_th_Q18	1	prompts/026_B_th_Q18.txt
+sent	2026-10-21 13:17:53	claude	26	026_B_th_Q18	1	
+save	2026-10-21 13:18:00	claude	26	026_B_th_Q18	1	raw/claude_026_B_th_Q18.md
+shot	2026-10-21 13:18:16	claude	26	026_B_th_Q18	1	shots/claude_026_B_th_Q18.png
+go	2026-10-21 13:18:26	chatgpt	27	027_A_th_Q01	1	prompts/027_A_th_Q01.txt
+sent	2026-10-21 13:18:32	chatgpt	27	027_A_th_Q01	1	
+save	2026-10-21 13:18:37	chatgpt	27	027_A_th_Q01	1	raw/chatgpt_027_A_th_Q01.md
+shot	2026-10-21 13:18:54	chatgpt	27	027_A_th_Q01	1	shots/chatgpt_027_A_th_Q01.png
+go	2026-10-21 13:19:03	gemini	27	027_A_th_Q01	1	prompts/027_A_th_Q01.txt
+sent	2026-10-21 13:19:08	gemini	27	027_A_th_Q01	1	
+save	2026-10-21 13:19:17	gemini	27	027_A_th_Q01	1	raw/gemini_027_A_th_Q01.md
+shot	2026-10-21 13:19:36	gemini	27	027_A_th_Q01	1	shots/gemini_027_A_th_Q01.png
+go	2026-10-21 13:19:45	claude	27	027_A_th_Q01	1	prompts/027_A_th_Q01.txt
+sent	2026-10-21 13:19:50	claude	27	027_A_th_Q01	1	
+save	2026-10-21 13:19:57	claude	27	027_A_th_Q01	1	raw/claude_027_A_th_Q01.md
+shot	2026-10-21 13:20:11	claude	27	027_A_th_Q01	1	shots/claude_027_A_th_Q01.png
+go	2026-10-21 13:20:21	chatgpt	28	028_B_th_Q13	1	prompts/028_B_th_Q13.txt
+sent	2026-10-21 13:20:26	chatgpt	28	028_B_th_Q13	1	
+save	2026-10-21 13:20:33	chatgpt	28	028_B_th_Q13	1	raw/chatgpt_028_B_th_Q13.md
+shot	2026-10-21 13:20:50	chatgpt	28	028_B_th_Q13	1	shots/chatgpt_028_B_th_Q13.png
+go	2026-10-21 13:21:01	gemini	28	028_B_th_Q13	1	prompts/028_B_th_Q13.txt
+sent	2026-10-21 13:21:04	gemini	28	028_B_th_Q13	1	
+save	2026-10-21 13:21:15	gemini	28	028_B_th_Q13	1	raw/gemini_028_B_th_Q13.md
+shot	2026-10-21 13:21:30	gemini	28	028_B_th_Q13	1	shots/gemini_028_B_th_Q13.png
+go	2026-10-21 13:21:38	claude	28	028_B_th_Q13	1	prompts/028_B_th_Q13.txt
+sent	2026-10-21 13:21:43	claude	28	028_B_th_Q13	1	
+save	2026-10-21 13:21:48	claude	28	028_B_th_Q13	1	raw/claude_028_B_th_Q13.md
+shot	2026-10-21 13:22:08	claude	28	028_B_th_Q13	1	shots/claude_028_B_th_Q13.png

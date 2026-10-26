@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Correct items per tier, shown as EN/TH out of 15 (T2: 14). T1
+single-table, T2 joins, T3 aggregation, T4 windows/subqueries/CTE.
+At $n{=}14$--$15$ per cell, a Wilson 95\% interval spans up to
+$\pm23$ points;
+tier-level contrasts are indicative only.}
+\label{tab:tiers}
+\centering\small
+\begin{tabular}{lcccc}
+\toprule
+Model & T1 & T2 & T3 & T4 \\
+\midrule
+claude-sonnet-5 & 15/14 & 14/14 & 15/14 & 14/11 \\
+gpt-5.4-mini & 15/13 & 14/11 & 15/14 & 11/10 \\
+gemini-3.6-flash & 15/12 & 14/13 & 15/15 & 12/13 \\
+qwen2.5-coder 7B & 14/10 & 8/4 & 12/9 & 4/2 \\
+llama3.1 8B & 11/9 & 6/4 & 12/9 & 3/1 \\
+typhoon2 8B (Thai) & 9/8 & 4/4 & 7/5 & 1/0 \\
+\bottomrule
+\end{tabular}
+\end{table}

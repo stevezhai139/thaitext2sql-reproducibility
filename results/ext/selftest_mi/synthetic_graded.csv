@@ -1,0 +1,5 @@
+model_key,lang,qid,tier,schema,run,parse_ok,exec_ok,correct,latency_s,fail_reason,arm,n_rows,matched_gold,correct_positional,correct_v12
+syn_drift,en,ZZ-DRIFT,4,P,1,True,True,False,0.0,wrong-result,base,1,,False,False
+syn_swap_both,en,ZZ-DRIFT,4,P,1,True,True,True,0.0,,base,1,primary,False,False
+syn_mixed_keys,en,ZZ-MIX,4,P,1,True,True,False,0.0,wrong-result,base,1,,False,False
+syn_alt_both,en,ZZ-MIX,4,P,1,True,True,True,0.0,,base,1,alt1,True,False

@@ -1,0 +1,85 @@
+app	form	qid	vg	tier	correct	exec_class	n_rows	fail_reason	sql_present	vg_code	gf	clean	lit_elsewhere	class_extracted	silence_code	silence_code_coded	silence_source	proxy	comparator	comparator_source	proxy_majority_correct	proxy_gf	concord_exec	concord_gf	turn2_sent	turn2_deviation	turn2_correct	tagsens_correct	tagsens_vg_code	tagsens_gf	tagsens_clean
+chatgpt	A	Q01	yes	1	Y	correct	8		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	A	Q07	yes	1	Y	correct	18		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	N	Y	N	N	N	N					
+chatgpt	A	Q09	yes	1	Y	correct	187		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	A	Q13	yes	1	Y	correct	155		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	A	Q14	yes	1	N	silent-empty	0	wrong-result	Y	INVENTED	Y	N	N	INVENTED				gpt-mini	concurrent B arm	October base arm	Y	N	N	N	N	N					
+chatgpt	A	Q15	yes	1	Y	correct	76		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	N	Y	N	N	N	N					
+chatgpt	A	Q21	yes	2	Y	correct	7		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	N	N	N	Y	N	N					
+chatgpt	A	Q30	yes	2	Y	correct	2		Y	CORRECT	N	Y	N					gpt-mini	concurrent B arm	October base arm	N	Y	N	N	N	N					
+chatgpt	A	Q42	yes	3	N	loud		"exec-error: syntax error at or near ""\"""	Y	INVENTED	Y	N	N	INVENTED				gpt-mini	concurrent B arm	October base arm	Y	N	N	N	N	N					
+chatgpt	A	Q48	yes	4	N	silent-empty	0	wrong-result	Y	NO_PRED	N	N	N	NO_PRED				gpt-mini	concurrent B arm	October base arm	N	N	Y	Y	N	N					
+chatgpt	B	Q01	yes	1	Y	correct	8		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	B	Q02	no	1	Y	correct	21		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y		Y		N	N					
+chatgpt	B	Q07	yes	1	Y	correct	18		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	gpt-mini	concurrent B arm	October base arm	N	Y	N	N	N	N					
+chatgpt	B	Q09	yes	1	Y	correct	187		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	B	Q13	yes	1	Y	correct	155		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	B	Q14	yes	1	N	silent-empty	0	wrong-result	Y	INVENTED	Y	N	N	INVENTED	SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y	N	N	N	N	N					
+chatgpt	B	Q15	yes	1	Y	correct	76		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	N	Y	N	N	N	N					
+chatgpt	B	Q18	no	2	Y	correct	4		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y		Y		N	N					
+chatgpt	B	Q21	yes	2	Y	correct	7		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	N	N	N	Y	N	N					
+chatgpt	B	Q25	no	2	Y	correct	2		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	N		N		N	N					
+chatgpt	B	Q30	yes	2	Y	correct	2		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	N	Y	N	N	N	N					
+chatgpt	B	Q35	no	3	Y	correct	45		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y		Y		N	N					
+chatgpt	B	Q41	no	3	Y	correct	8		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y		Y		N	N					
+chatgpt	B	Q42	yes	3	Y	correct	15		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+chatgpt	B	Q43	no	3	Y	correct	5		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y		Y		N	N					
+chatgpt	B	Q48	yes	4	Y	correct	29		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	N	N	N	Y	N	N					
+chatgpt	B	Q50	no	4	Y	correct	3		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	N		N		N	N					
+chatgpt	B	Q55	no	4	Y	correct	30		Y	NA					SILENT	SILENT	coded	gpt-mini	concurrent B arm	October base arm	Y		Y		N	N					
+gemini	A	Q01	yes	1	Y	correct	8		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q07	yes	1	Y	correct	18		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q09	yes	1	Y	correct	187		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q13	yes	1	Y	correct	155		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q14	yes	1	N	silent-empty	0	wrong-result	Y	INVENTED	Y	N	N	INVENTED				gemini-flash	concurrent B arm	October base arm	N	Y	Y	Y	N	N					
+gemini	A	Q15	yes	1	N	silent-empty	0	wrong-result	Y	INVENTED	Y	N	N	INVENTED				gemini-flash	concurrent B arm	October base arm	Y	N	N	N	N	N					
+gemini	A	Q21	yes	2	Y	correct	7		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q30	yes	2	Y	correct	2		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q42	yes	3	Y	correct	15		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	A	Q48	yes	4	Y	correct	29		Y	CORRECT	N	Y	N					gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q01	yes	1	Y	correct	8		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q02	no	1	Y	correct	21		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		Y		N	N					
+gemini	B	Q07	yes	1	Y	correct	18		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q09	yes	1	Y	correct	187		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q13	yes	1	Y	correct	155		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q14	yes	1	Y	correct	126		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	gemini-flash	concurrent B arm	October base arm	N	Y	N	N	N	N					
+gemini	B	Q15	yes	1	N	silent-empty	0	wrong-result	Y	INVENTED	Y	N	Y	INVENTED	FLAGGED	FLAGGED	coded	gemini-flash	concurrent B arm	October base arm	Y	N	N	N	N	N					
+gemini	B	Q18	no	2	Y	correct	4		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		Y		N	N					
+gemini	B	Q21	yes	2	Y	correct	7		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q25	no	2	Y	correct	2		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		Y		N	N					
+gemini	B	Q30	yes	2	Y	correct	2		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q35	no	3	Y	correct	45		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		Y		N	N					
+gemini	B	Q41	no	3	N	silent-non-empty	8	wrong-result	Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		N		N	N					
+gemini	B	Q42	yes	3	N	silent-non-empty	15	wrong-result	Y	GROUNDED	N	Y	N	GROUNDED	SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y	N	N	Y	N	N					
+gemini	B	Q43	no	3	Y	correct	5		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		Y		N	N					
+gemini	B	Q48	yes	4	Y	correct	29		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+gemini	B	Q50	no	4	Y	correct	3		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	N		N		N	N					
+gemini	B	Q55	no	4	Y	correct	30		Y	NA					SILENT	SILENT	coded	gemini-flash	concurrent B arm	October base arm	Y		Y		N	N					
+claude	A	Q01	yes	1	Y	correct	8		Y	CORRECT	N	Y	N					claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	A	Q07	yes	1	N	silent-empty	0	wrong-result	Y	THAI_COPY	Y	N	N	THAI_COPY				claude-sonnet	concurrent B arm	October base arm	Y	N	N	N	N	N					
+claude	A	Q09	yes	1	Y	correct	187		Y	CORRECT	N	Y	N					claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	A	Q13	yes	1	Y	correct	155		Y	CORRECT	N	Y	N					claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	A	Q14	yes	1	N	silent-empty	0	wrong-result	Y	NO_PRED	N	N	N	NO_PRED				claude-sonnet	concurrent B arm	October base arm	N	Y	Y	N	N	N					
+claude	A	Q15	yes	1	N	silent-empty	0	wrong-result	Y	INVENTED	Y	N	N	INVENTED				claude-sonnet	concurrent B arm	October base arm	Y	N	N	N	N	N					
+claude	A	Q21	yes	2	Y	correct	7		Y	CORRECT	N	Y	N					claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	A	Q30	yes	2	Y	correct	2		Y	CORRECT	N	Y	N					claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	A	Q42	yes	3	N	silent-non-empty	15	wrong-result	Y	NO_PRED	N	N	N	NO_PRED				claude-sonnet	concurrent B arm	October base arm	N	Y	Y	N	N	N					
+claude	A	Q48	yes	4	Y	correct	29		Y	CORRECT	N	Y	N					claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q01	yes	1	Y	correct	8		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q02	no	1	Y	correct	21		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					
+claude	B	Q07	yes	1	Y	correct	18		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q09	yes	1	Y	correct	187		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q13	yes	1	Y	correct	155		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q14	yes	1	N	silent-empty	0	wrong-result	Y	NO_PRED	N	N	N	NO_PRED	FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	N	Y	Y	N	N	N					
+claude	B	Q15	yes	1	Y	correct	76		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q18	no	2	Y	correct	4		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					
+claude	B	Q21	yes	2	Y	correct	7		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q25	no	2	Y	correct	2		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					
+claude	B	Q30	yes	2	Y	correct	2		Y	CORRECT	N	Y	N		FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q35	no	3	Y	correct	45		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					
+claude	B	Q41	no	3	Y	correct	8		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					
+claude	B	Q42	yes	3	N	silent-non-empty	3	wrong-result	Y	NO_PRED	N	N	N	NO_PRED	FLAGGED	FLAGGED	coded	claude-sonnet	concurrent B arm	October base arm	N	Y	Y	N	N	N					
+claude	B	Q43	no	3	Y	correct	5		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					
+claude	B	Q48	yes	4	Y	correct	29		Y	CORRECT	N	Y	N		SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y	N	Y	Y	N	N					
+claude	B	Q50	no	4	N	silent-non-empty	3	wrong-result	Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	N		Y		N	N					
+claude	B	Q55	no	4	Y	correct	30		Y	NA					SILENT	SILENT	coded	claude-sonnet	concurrent B arm	October base arm	Y		Y		N	N					

@@ -1,0 +1,13 @@
+model,arm,lang,wrong_runs,loud,silent_empty,silent_nonempty,exploratory
+claude-sonnet,base,en,8,0,0,8,False
+claude-sonnet,base,th,29,0,5,24,False
+gpt-mini,base,en,18,7,0,11,False
+gpt-mini,base,th,53,6,17,30,False
+gemini-flash,base,en,17,0,0,17,False
+gemini-flash,base,th,26,0,14,12,False
+qwen25-coder-7b,base,en,104,60,10,34,True
+qwen25-coder-7b,base,th,170,70,25,75,True
+llama31-8b,base,en,135,54,15,66,True
+llama31-8b,base,th,180,85,30,65,True
+typhoon2-8b,base,en,190,100,15,75,True
+typhoon2-8b,base,th,210,110,30,70,True

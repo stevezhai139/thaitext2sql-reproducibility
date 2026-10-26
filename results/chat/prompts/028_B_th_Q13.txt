@@ -1,0 +1,6 @@
+ช่วยเขียนคำสั่ง SQL (PostgreSQL) ให้หน่อย
+
+โครงสร้างตาราง:
+CREATE TABLE Ecommerce(OrderID TEXT, CustomerID TEXT, OrderDate DATE, ProductSKU TEXT, ProductName TEXT, Category TEXT, Brand TEXT, BasePrice NUMERIC, DiscountPercent NUMERIC, FinalPrice NUMERIC, Quantity INT, Revenue NUMERIC, Currency TEXT, CustomerAge INT, CustomerGender TEXT, CustomerCity TEXT, CustomerCountry TEXT, Region TEXT, MembershipTier TEXT, MarketingChannel TEXT, WebsiteVisits INT, TimeOnSite NUMERIC, CartAbandonment TEXT, ProductRating NUMERIC, CustomerSatisfaction NUMERIC, ShippingCost NUMERIC, DeliveryDays INT, ReturnStatus TEXT, RepeatCustomer TEXT, PurchaseFrequency INT, IsHighValue TEXT, SeasonalFactor NUMERIC, InventoryLevel INT, ConversionRate NUMERIC, CustomerLTV NUMERIC, AcquisitionCost NUMERIC, IsWeekendOrder TEXT, PaymentMethod TEXT);
+
+โจทย์: แสดงรายการสั่งซื้อที่จ่ายเงินด้วยบัตรเครดิตและมีจำนวนอย่างน้อย 5 (แสดง OrderID, ProductName, Quantity)

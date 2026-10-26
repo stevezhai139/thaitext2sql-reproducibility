@@ -1,0 +1,287 @@
+{
+ "label": "TEST-ONLY: scratch cluster PostgreSQL 16.9; instances built as g0_dbq4_ copies with build_instances.py --test-prefix (base = scratch k3n); not registered values. The registered values are written by build_instances.py --record on the run-of-record server (Gate 1a step 42). diff_sha256, manifest_sha256, builder_sha256, db_fingerprint_sha256 and grader_sha256_at_generation are those of the files at generation, after the OQ4 approval of 2026-10-14 (the four PK1 diffs carry the approval line; their literal values and the data of every instance are unchanged). A later change of one of these files changes its sha256 only, and this file is then generated again.",
+ "taken_at_ict": "2026-10-14T12:16:57+07:00",
+ "server_version": "16.9 (Homebrew)",
+ "datcollate": "en_US.UTF-8",
+ "datctype": "en_US.UTF-8",
+ "provider": "libc",
+ "manifest_sha256": "bab727a21de744267d4bf9cb1c204eeb440c68cd8fe581d13eb3ce69f6b1f6da",
+ "builder_sha256": "49550be85f53ad5362ed68b39fa4aed46e75913f2287732e63ef72247bd4e692",
+ "db_fingerprint_sha256": "2cd25051ebd1f019181bb0db1cec69b09d2b2aa6cf9a7a7ab32e8b151c1d3d11",
+ "grader_sha256_at_generation": "e1dedbdced9035ecc1326339b3a1564e250fa746fda75dba79571d3c15d8b511",
+ "base": "k3n",
+ "fingerprint_tables": [
+  "party",
+  "president",
+  "presidentholding",
+  "presidentmarriage",
+  "ecommerce"
+ ],
+ "fingerprints": {
+  "k3n": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    45,
+    "e1acee981170d87378b3734b209d5302"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    49,
+    "97efe4cd845f5d56d1dbfff276761b40"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  },
+  "k3_pk_n_named": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    45,
+    "e1acee981170d87378b3734b209d5302"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    49,
+    "3f8174168b949b9e1614c80295f92c5c"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  },
+  "k3_pk_n_dup": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    45,
+    "e1acee981170d87378b3734b209d5302"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    50,
+    "5469afc0962e2d1ef2510db501de8c6e"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  },
+  "k3_pk_n_pnull": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    45,
+    "e1acee981170d87378b3734b209d5302"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    49,
+    "4f81bc09f9cc3a21b4a470f622ceab35"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  },
+  "k3_pk_n_spdup": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    45,
+    "e1acee981170d87378b3734b209d5302"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    49,
+    "39fcbf18a4a9bd2b4494fe38e4de08d5"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  },
+  "k3_fk_i_null": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    46,
+    "242ecf0bae4e5cd17bea77711b8a2d64"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    49,
+    "97efe4cd845f5d56d1dbfff276761b40"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  },
+  "k3_fk_i_orphan": {
+   "party": [
+    9,
+    "6250b7aa843028f85553bdb9ff168a84"
+   ],
+   "president": [
+    46,
+    "558fcaba2a3ad35a56709893d74d3e18"
+   ],
+   "presidentholding": [
+    49,
+    "dc9cf90624f53415a14b4bb6af82edc0"
+   ],
+   "presidentmarriage": [
+    49,
+    "97efe4cd845f5d56d1dbfff276761b40"
+   ],
+   "ecommerce": [
+    2390,
+    "0779fea2d57b82e6d9c15b046411bbe8"
+   ]
+  }
+ },
+ "schema_md5": {
+  "k3n": "d09e8cf9210a8857e057582c4f094761",
+  "k3_pk_n_named": "d09e8cf9210a8857e057582c4f094761",
+  "k3_pk_n_dup": "d09e8cf9210a8857e057582c4f094761",
+  "k3_pk_n_pnull": "d09e8cf9210a8857e057582c4f094761",
+  "k3_pk_n_spdup": "d09e8cf9210a8857e057582c4f094761",
+  "k3_fk_i_null": "d09e8cf9210a8857e057582c4f094761",
+  "k3_fk_i_orphan": "d09e8cf9210a8857e057582c4f094761"
+ },
+ "derived_from": {
+  "k3_pk_n_named": "k3n",
+  "k3_pk_n_dup": "k3_pk_n_named",
+  "k3_pk_n_pnull": "k3_pk_n_named",
+  "k3_pk_n_spdup": "k3n",
+  "k3_fk_i_null": "k3n",
+  "k3_fk_i_orphan": "k3n"
+ },
+ "diff_sha256": {
+  "k3_pk_n_named": "2a74cda2e8ca97f0aeda779da13fe361058da0a24863d7fab0e5a16c224ab69f",
+  "k3_pk_n_dup": "499e7bc3c3ea2c31d1d16fa4de686e71226e1134ab3f77a74cbc50e6540d29e8",
+  "k3_pk_n_pnull": "583b1badb46794c930bff1cf7f0949589bb4f5b7bd62f61770af505eb21000d9",
+  "k3_pk_n_spdup": "d30d99356a70cbb94b785a02cef77e75b5c21c8e07fdcd4f6ecbe3e4e14e8d34",
+  "k3_fk_i_null": "50f8193c1ba21ca4be938d1acf8cf6dff07791216841bfd7332e6c46b3263c58",
+  "k3_fk_i_orphan": "6b1f47f4c1f490dbd5b464170d3be10ab84f82922639f50e4adf77bef464f3c9"
+ },
+ "base_build": {
+  "build_k3n_sh_sha256": "e64eaa4bb1f5d88273eab6c94734bcfa0b1c335360744fc8767541cd2ef811f9",
+  "setup_db_sql_sha256": null,
+  "inputs_sha256_file_sha256": "4de6dec6a00628d2240cb2d3af5a0b3e4f173054a2502577b65a8494101631d6",
+  "k3n_fingerprint_file": "results/db/k3n_fp_run1.tsv",
+  "k3n_fingerprint_sha256": null
+ },
+ "gold": {
+  "PK1": {
+   "k3n": [
+    [
+     "NO"
+    ]
+   ],
+   "k3_pk_n_named": [
+    [
+     "YES"
+    ]
+   ],
+   "k3_pk_n_dup": [
+    [
+     "NO"
+    ]
+   ],
+   "k3_pk_n_pnull": [
+    [
+     "NO"
+    ]
+   ],
+   "k3_pk_n_spdup": [
+    [
+     "YES"
+    ]
+   ]
+  },
+  "FK1": {
+   "k3n": [],
+   "k3_fk_i_null": [],
+   "k3_fk_i_orphan": [
+    [
+     "Planted President Orphan",
+     "Know Nothing"
+    ]
+   ]
+  },
+  "FK2": {
+   "k3n": [
+    [
+     "Progressive"
+    ],
+    [
+     "Union"
+    ]
+   ],
+   "k3_fk_i_null": [
+    [
+     "Progressive"
+    ],
+    [
+     "Union"
+    ]
+   ]
+  }
+ },
+ "single_instance_gold": {
+  "FK3": {
+   "k3n": [
+    [
+     "Party",
+     1
+    ],
+    [
+     "President",
+     4
+    ],
+    [
+     "PresidentHolding",
+     4
+    ],
+    [
+     "PresidentMarriage",
+     5
+    ]
+   ]
+  }
+ }
+}

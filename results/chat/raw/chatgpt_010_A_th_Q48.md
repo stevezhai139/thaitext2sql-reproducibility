@@ -1,0 +1,1 @@
+SELECT DISTINCT p.PresidentName FROM President p WHERE NOT EXISTS (     SELECT 1     FROM PresidentHolding ph     WHERE ph.PresidentName = p.PresidentName       AND ph.RunnerUp IS NOT NULL );

@@ -1,0 +1,21 @@
+id	column	before	after	kind	ref
+X37	gold_shape_k3n	15 rows (stale workbook column, renaming gold)	11x2	assert	TRANSLATION_CHECK_2026-10-13 section 9: X37 rows 15 -> 11
+X37	vg_literals	eight VP name variants (renaming gold)	[]	assert	TRANSLATION_CHECK_2026-10-13 section 9: X37 literals removed with the renaming
+X13	vg_literals	'None' sentinel	[]	assert	TRANSLATION_CHECK_2026-10-13 section 9: X13 'None' sentinel -> no literal
+X14	vg_literals	'None' sentinel	[]	assert	TRANSLATION_CHECK_2026-10-13 section 9: X14 'None' sentinel -> no literal
+X26	vg_literals	'Widowed'; 'None'	"[""Widowed""]"	assert	TRANSLATION_CHECK_2026-10-13 section 9: X26 'None' no longer in the gold
+X26	gold_shape_k3n	1 row	1x1	assert	TRANSLATION_CHECK_2026-10-13 section 9: X26 scalar count
+X26	notes	gate text: COUNT(*) = 18 on k3	k3n: COUNT(*) without DISTINCT returns 19 (gold COUNT(DISTINCT RunnerUp) = 16)	note	TRANSLATION_CHECK_2026-10-13 section 9: X26 COUNT(*) 18 -> 19
+X34	notes	gate G8 without the 1841 tie	reversing the tie-break on YearEnd changes two rows on k3n (1841 W. H. Harrison / Tyler and 1865-1869 Lincoln / Grant)	note	TRANSLATION_CHECK_2026-10-13 section 9: X34 tie note
+X34	order_en	unset	no	assert	TRANSLATION_CHECK_2026-10-13 section 9: X34 order no
+X34	order_th	unset	no	assert	TRANSLATION_CHECK_2026-10-13 section 9: X34 order no
+X36	order_en	unset	no	assert	TRANSLATION_CHECK_2026-10-13 section 9: X36 order no
+X36	order_th	unset	no	assert	TRANSLATION_CHECK_2026-10-13 section 9: X36 order no
+F7C-6	col_roles	none (G1 grades the swapped pair correct)	<directional>	assert	TRANSLATION_CHECK_2026-10-13 section 9: F7C-6 under the rule of issue 11
+X34	col_roles	none (G1 grades the swapped pair correct)	<directional>	assert	brief 1.2: directional items
+X37	col_roles	none (G1 grades the swapped pair correct)	<directional>	assert	brief 1.2: directional items
+PK1	mi_instances	3 instances built from k3	<manifest:5>	assert	TRANSLATION_CHECK_2026-10-13 section 9: PK1 five k3n instances (issues 13-14)
+FK1	mi_instances	instances built from k3	<manifest:3>	assert	TRANSLATION_CHECK_2026-10-13 section 9: FK1 instances rebuilt from k3n
+FK2	mi_instances	single instance	<manifest:2>	assert	TRANSLATION_CHECK_2026-10-13 section 9: FK2 k3n and k3_fk_i_null
+FK1	v13_status	excluded when gold is empty on the run DB (core rule)	primary	assert	TRANSLATION_CHECK_2026-10-13 section 9: FK1 must not be excluded
+FK1	gold_shape_k3n	1 row x 3 (old format)	0x2	assert	decision #6: list the violating rows

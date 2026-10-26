@@ -1,0 +1,3 @@
+phase,qid,models_with_cell,models_beating_gold,which,min_ratio,beats_gold_by_pct
+indexed,Q51,3,2,claude-sonnet gemini-flash,0.76,24
+noindex,Q51,3,2,claude-sonnet gemini-flash,0.84,16

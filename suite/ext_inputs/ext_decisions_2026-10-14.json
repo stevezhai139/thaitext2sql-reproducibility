@@ -1,0 +1,465 @@
+{
+ "format": "kst-ext-decisions-1",
+ "title": "Decisions of the extension suite (AMENDMENT-9, k3n_ext_suite_v1.0)",
+ "date_ict": "2026-10-14",
+ "author_approved": true,
+ "approval": {
+  "approved_at_ict": "2026-10-14, before 09:36 ICT (author approved in chat; content sha256 03144a34d6f197db8e18ba13fc4689a6d8150b85447e5c6ab2e4a7b571f73c7d)",
+  "master_log_ref": "KST_REVISION_2026-10-12.md, entry of 14 Oct 2026: author approval of ext_decisions_2026-10-14.json (sha256 03144a34...)",
+  "procedure": "the author approves this file in chat; the assistant then sets author_approved to true with the time and the master log reference; --freeze also needs the sha256 of the approved file typed by the author (Gate 1a steps 58-59)"
+ },
+ "inputs": {
+  "selection_xlsx": "63a7bbe058e25647e4c612be08b1fd549563191d83fd6424814d443d0e16a667",
+  "translation_fixes_xlsx": "fd6ffe00a3d81f5d25d68e255abafde43b2f5d33bc394be76e7193489f1125dc",
+  "typo_fixes": "d9f8c8673daf70169fb357534dc63dac3c0fdccb4516338b54f19be1ff86c2be",
+  "item_changes": "115efabdcfe1006c6e091b3bd03b9d33f5679441dea3b21e6e46db565c5087ba",
+  "item_changes_add": "a38d8103a1156f17bc74b4a2ba8f9b16161a12e87c7c2ccbf0510710e5b48920",
+  "metadata_refresh": "26724a108a08aee3f5a73ca6cef2c9765d66e9ace0f4d609b81436e3418d988a",
+  "items_json": "ca89abb17651c59c4a1baeb7d93141a8411fe8356cc324ff9571732f0ae7ce60",
+  "sql_TESTONLY/FK1__new_format_DRAFT.sql": "f13960c067198c358d3e0015890272fbce55abbf21c638bcf9fc71db8eb84ad3",
+  "sql_TESTONLY/X02__weak_every_own_term_longest.sql": "19b5bffe24070365229fce782807dfee3ddab8d3dd0032a49a6d51619f5d90e9",
+  "sql_TESTONLY/X04__weak_every_own_term_shortest.sql": "92ab1b09f5408dcfe3d247dbe13d6c3114ac36f45f3443da434ff4ed888180e2",
+  "sql_TESTONLY/X07__weak_every_own_term_shorter.sql": "47ff392fc5099ab704337ce50496d790bc1359d49ff058150f2202089d631ed8",
+  "sql_TESTONLY/X20__alt_exclude_self.sql": "e5ab15d478adbe8bb8d74b2c4f2f778864d30a062a5747e56bd263952b8f89b2",
+  "sql_TESTONLY/X33__alt_runnerup_and_president.sql": "4b03855ab0024de2e8c3454b181bd0c6ae632680b1fd8ef404f8d29189de0bd4",
+  "sql_TESTONLY/F7C-1__alt_whig_excluded.sql": "7ddda6c143bd8794e1f2a77f33fc69c800ed79964f5c5c6e34b510eab0267c42",
+  "lib/grade_v13.py": "aed86b26bd83548a215ee1999bd9c47d524558af1ca34b03909bc1144518e038",
+  "lib/vg_rule.py": "1fd1e28e7fb47806f789e536ba5bd40c537f3b40c0dadcf4719ebdf9c38423f3"
+ },
+ "final40": [
+  "X01",
+  "X02",
+  "X03",
+  "X04",
+  "X05",
+  "X07",
+  "X08",
+  "X09",
+  "X10",
+  "X11",
+  "X12",
+  "X13",
+  "X14",
+  "X17",
+  "X18",
+  "X19",
+  "X20",
+  "X21",
+  "X23",
+  "X24",
+  "X25",
+  "X26",
+  "X27",
+  "X28",
+  "R5",
+  "F7C-6",
+  "F7C-2",
+  "F7C-8",
+  "F7C-1",
+  "F7C-3",
+  "X33",
+  "X34",
+  "X35",
+  "X36",
+  "X37",
+  "X38",
+  "PK1",
+  "FK1",
+  "FK2",
+  "FK3"
+ ],
+ "run_order_note": "final40 is the run order: family order F1 to F10 as listed in brief 1.4 (OQ34.3)",
+ "reserves": [
+  "F7C-7",
+  "F7C-5",
+  "F7C-4",
+  "FK4"
+ ],
+ "reserve_rule": "กฎข้อสำรองของ AMENDMENT-9: (1) ค่าตั้งต้นคือไม่ใช้ข้อสำรอง และไฟล์ข้อสำรองติดป้าย DRAFT ทุกแถว (2) ข้อสำรองแทนข้อในชุด 40 ข้อได้เฉพาะก่อน call แรกของชุดขยาย และเฉพาะเมื่อผู้เขียนยืนยันว่าข้อนั้นมีข้อบกพร่องของคำแปลที่ทำให้ EN และ TH ถามคนละคำถาม โดยบันทึกเป็น addendum ลงวันที่ ซึ่งตรึง suite ฉบับ FROZEN ใหม่และ prompts ของ dry-run ก่อน call แรก (3) การเลือกใช้ข้อสำรองในตระกูลเดียวกันก่อน (F7: F7C-7, F7C-5, F7C-4; F10: FK4) ถ้าตระกูลนั้นไม่มีข้อสำรอง ใช้ตามลำดับ F7C-7, F7C-5, F7C-4, FK4 ข้อสำรองที่นำมาใช้ต้องแก้ TH ตามรายงานการตรวจคำแปลก่อนตรึง และรันครบทั้งหกโมเดล (2 ภาษา × 5 run แขน base) โดย FK4 ใช้ข้อยกเว้นลำดับคอลัมน์ที่มีทิศทางตาม brief 1.2 (4) หลัง call แรกของชุดขยายไม่มีการแทนหรือตัดข้อใด ข้อที่พบว่า gold ผิดแก้ด้วย R-v1.3 (D1/D2) และรายงานทั้งผลตาม key เดิมและ key ที่แก้ (5) การแทนที่ทุกครั้งรายงานในเล่ม",
+ "dropped": [
+  "X06",
+  "X15",
+  "X16",
+  "X22",
+  "X29",
+  "X30",
+  "X31",
+  "X32",
+  "X39",
+  "X40",
+  "R1",
+  "R2",
+  "R3",
+  "R4"
+ ],
+ "workbook_overrides": [
+  {
+   "id": "X30",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issues 3 and 7 (per recommendation: the F7C set replaces X30-X32); master log l.147"
+  },
+  {
+   "id": "X31",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issues 3 and 7 (per recommendation: the F7C set replaces X30-X32); master log l.147"
+  },
+  {
+   "id": "X32",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issues 3 and 7 (per recommendation: the F7C set replaces X30-X32); master log l.147"
+  },
+  {
+   "id": "X29",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "master log l.121 (issue 6 per recommendation: X29 out, R5 (#140) in)"
+  },
+  {
+   "id": "X15",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issue 12 (cut from the tail of the frozen fallback order: X40, X39, X16, X22, X06, X15); master log l.147"
+  },
+  {
+   "id": "X06",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issue 12 (cut from the tail of the frozen fallback order: X40, X39, X16, X22, X06, X15); master log l.147"
+  },
+  {
+   "id": "X22",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issue 12 (cut from the tail of the frozen fallback order: X40, X39, X16, X22, X06, X15); master log l.147"
+  },
+  {
+   "id": "X16",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issue 12 (cut from the tail of the frozen fallback order: X40, X39, X16, X22, X06, X15); master log l.147"
+  },
+  {
+   "id": "X39",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issue 12 (cut from the tail of the frozen fallback order: X40, X39, X16, X22, X06, X15); master log l.147"
+  },
+  {
+   "id": "X40",
+   "workbook_value": "อนุมัติ",
+   "status": "dropped",
+   "ref": "selection workbook issue 12 (cut from the tail of the frozen fallback order: X40, X39, X16, X22, X06, X15); master log l.147"
+  },
+  {
+   "id": "R1",
+   "workbook_value": "",
+   "status": "dropped",
+   "ref": "not in the decided set of 40 or the decided reserves (master log l.124-125 and l.147)"
+  },
+  {
+   "id": "R2",
+   "workbook_value": "",
+   "status": "dropped",
+   "ref": "not in the decided set of 40 or the decided reserves (master log l.124-125 and l.147)"
+  },
+  {
+   "id": "R3",
+   "workbook_value": "",
+   "status": "dropped",
+   "ref": "not in the decided set of 40 or the decided reserves (master log l.124-125 and l.147)"
+  },
+  {
+   "id": "R4",
+   "workbook_value": "",
+   "status": "dropped",
+   "ref": "not in the decided set of 40 or the decided reserves (master log l.124-125 and l.147)"
+  },
+  {
+   "id": "R5",
+   "workbook_value": "",
+   "status": "final",
+   "ref": "master log l.121 (issue 6 per recommendation: X29 out, R5 (#140) in)"
+  },
+  {
+   "id": "F7C-2",
+   "workbook_value": "ตัด",
+   "status": "final",
+   "ref": "master log l.124-125 (closing decisions of 13 Oct: F7 = F7C-6, F7C-2, F7C-8, F7C-1, F7C-3; reserves F7C-7, F7C-5, F7C-4)"
+  },
+  {
+   "id": "F7C-8",
+   "workbook_value": "ตัด",
+   "status": "final",
+   "ref": "master log l.124-125 (closing decisions of 13 Oct: F7 = F7C-6, F7C-2, F7C-8, F7C-1, F7C-3; reserves F7C-7, F7C-5, F7C-4)"
+  },
+  {
+   "id": "F7C-3",
+   "workbook_value": "ตัด",
+   "status": "final",
+   "ref": "master log l.124-125 (closing decisions of 13 Oct: F7 = F7C-6, F7C-2, F7C-8, F7C-1, F7C-3; reserves F7C-7, F7C-5, F7C-4)"
+  },
+  {
+   "id": "F7C-4",
+   "workbook_value": "",
+   "status": "reserve",
+   "ref": "master log l.121 and l.124-125 (approved beyond the recommendation -> reserve; reserves F7C-7, F7C-5, F7C-4)"
+  },
+  {
+   "id": "F7C-7",
+   "workbook_value": "อนุมัติ",
+   "status": "reserve",
+   "ref": "master log l.121 and l.124-125 (approved beyond the recommendation -> reserve; reserves F7C-7, F7C-5, F7C-4)"
+  },
+  {
+   "id": "F7C-5",
+   "workbook_value": "อนุมัติ",
+   "status": "reserve",
+   "ref": "master log l.121 and l.124-125 (approved beyond the recommendation -> reserve; reserves F7C-7, F7C-5, F7C-4)"
+  },
+  {
+   "id": "FK4",
+   "workbook_value": "อนุมัติ",
+   "status": "reserve",
+   "ref": "master log l.122 (FK1, FK2, FK3 used; FK4 reserve)"
+  }
+ ],
+ "directional": [
+  "X34",
+  "X37",
+  "F7C-6"
+ ],
+ "reserve_directional": [
+  "FK4"
+ ],
+ "directional_values_in": "suite_columns.json (keys directional and reserve_directional; OQ2)",
+ "mi_rule": "MI-1b",
+ "mi_items": [
+  "PK1",
+  "FK1",
+  "FK2"
+ ],
+ "single_instance_items": [
+  "FK3"
+ ],
+ "fk1_format": "list_violating_rows",
+ "x33_en": "keep",
+ "en_literal": {
+  "FK2": "Suppose President.PartyName is a foreign key that refers to Party.PartyName and is declared ON DELETE RESTRICT, so a party cannot be deleted while any president refers to it. List the parties that could be deleted from Party without violating this foreign key (show PartyName).",
+  "X19": "Find presidents whose total years served exceed the average of the presidents born in the same state (show president name and total years served, one row per president)."
+ },
+ "en_literal_note": "literal EN texts for the two rows whose proposal cell is not a usable EN text (OQ34.1; master log l.157: all 30 EN trims approved, X19 path (a)); the author sees them again when approving this file",
+ "other_decisions": {
+  "1": {
+   "topic": "X02, X04, X07: วลี 'ในแต่ละวาระ'",
+   "options": {
+    "ก": {
+     "forbid_th_change": [
+      "X02",
+      "X04",
+      "X07"
+     ]
+    },
+    "ข": {
+     "add_alt_gold_th": {
+      "X02": "X02__weak_every_own_term_longest.sql",
+      "X04": "X04__weak_every_own_term_shortest.sql",
+      "X07": "X07__weak_every_own_term_shorter.sql"
+     },
+     "forbid_th_change": [
+      "X02",
+      "X04",
+      "X07"
+     ]
+    },
+    "ค": {
+     "require_th_rows": [
+      "X02",
+      "X04",
+      "X07"
+     ],
+     "forbid_th_keep": [
+      "X02",
+      "X04",
+      "X07"
+     ]
+    }
+   }
+  },
+  "2": {
+   "topic": "X25: ทศนิยม 2 ตำแหน่ง",
+   "options": {
+    "ก": {
+     "forbid_th_change": [
+      "X25"
+     ]
+    },
+    "ข": {
+     "require_th_rows": [
+      "X25"
+     ],
+     "forbid_th_keep": [
+      "X25"
+     ]
+    }
+   }
+  },
+  "3": {
+   "topic": "X03: วงเล็บ",
+   "options": {
+    "ก": {
+     "forbid_th_change": [
+      "X03"
+     ]
+    },
+    "ข": {
+     "require_th_rows": [
+      "X03"
+     ],
+     "forbid_th_keep": [
+      "X03"
+     ]
+    }
+   }
+  },
+  "4": {
+   "topic": "X19: ฐานของค่าเฉลี่ย",
+   "options": {
+    "ก": {
+     "require_th_rows": [
+      "X19"
+     ],
+     "forbid_th_keep": [
+      "X19"
+     ]
+    },
+    "ข": {
+     "forbid_th_change": [
+      "X19"
+     ]
+    }
+   }
+  },
+  "5": {
+   "topic": "การเขียน 'Whig'",
+   "options": {
+    "ก": {}
+   }
+  },
+  "6": {
+   "topic": "FK1 รูปแบบใหม่",
+   "options": {
+    "อนุมัติ": {
+     "set_gold_from_sql": {
+      "FK1": "FK1__new_format_DRAFT.sql"
+     },
+     "require_th_rows": [
+      "FK1"
+     ],
+     "forbid_th_keep": [
+      "FK1"
+     ],
+     "require_en_rows": [
+      "FK1"
+     ],
+     "forbid_en_keep": [
+      "FK1"
+     ]
+    }
+   }
+  },
+  "7": {
+   "topic": "แผนสำรอง 75 ข้อ",
+   "options": {
+    "ก": {}
+   }
+  },
+  "8": {
+   "topic": "ความซ้ำของข้อ F7",
+   "options": {
+    "รับทราบ": {}
+   }
+  }
+ },
+ "conditional_alt_gold_th": [
+  {
+   "id": "X20",
+   "when_th_decision": "คงเดิม",
+   "sql": "X20__alt_exclude_self.sql",
+   "ref": "TRANSLATION_CHECK_2026-10-13 section 4"
+  },
+  {
+   "id": "X33",
+   "when_th_decision": "คงเดิม",
+   "sql": "X33__alt_runnerup_and_president.sql",
+   "ref": "TRANSLATION_CHECK_2026-10-13 section 4 (two columns: the column-count check rejects it)"
+  },
+  {
+   "id": "F7C-1",
+   "when_th_decision": "ใช้ถ้อยคำของฉัน",
+   "when_final_th_lacks": "นับรวมพรรควิกด้วย",
+   "sql": "F7C-1__alt_whig_excluded.sql",
+   "ref": "TRANSLATION_CHECK_2026-10-13 section 4"
+  }
+ ],
+ "th_keep_blockers": {
+  "F7C-1": "TH เดิมวัด 'มีบางรัฐ' (exists) แต่ gold วัด 'ทุกรัฐ' (for all) (TRANSLATION_CHECK section 2)"
+ },
+ "author_class_rule": [
+  {
+   "workbook_author_contains": "ชุด 200 ข้อ",
+   "class": "author"
+  },
+  {
+   "workbook_author_contains": "ดัดแปลงจากข้อสอบ",
+   "class": "assistant-drafted",
+   "source_note": "adapted from the author's exam item"
+  },
+  {
+   "workbook_author_contains": "ผู้ช่วย",
+   "class": "assistant-drafted"
+  }
+ ],
+ "author_class_note": "author = question written by the author (practice set, R5); assistant-drafted = EN drafted by the assistant (F7C, new F8/F9 items, PK1, FK1-FK3; PK1 and FK items are adapted from the author's exam item) (OQ34.6)",
+ "ai_drafted": {
+  "value": "yes",
+  "rationale": "the gold SQL of every extension item was drafted by the assistant and approved by the author (AI-use statement, decision of 13 Oct)",
+  "rationale_th": "ผู้ช่วยเป็นผู้ร่าง gold SQL ของทุกข้อในชุดขยาย และผู้เขียนเป็นผู้อนุมัติ (ถ้อยแถลงการใช้ AI ตามมติ 13 ต.ค.)"
+ },
+ "expected": {
+  "n": 40,
+  "family": {
+   "F1": 5,
+   "F2": 4,
+   "F3": 4,
+   "F4": 5,
+   "F5": 3,
+   "F6": 4,
+   "F7": 5,
+   "F8": 4,
+   "F9": 2,
+   "F10": 4
+  },
+  "tier": {
+   "2": 3,
+   "3": 3,
+   "4": 34
+  },
+  "vg": [
+   "X10",
+   "X26",
+   "X27",
+   "F7C-1",
+   "F7C-2",
+   "F7C-3"
+  ]
+ },
+ "refs": {
+  "brief": "kst_rev/gate0/GATE0_BRIEF_2026-10-14.md sections 1.2-1.4",
+  "design": "kst_rev/gate0/GATE0_DESIGN_2026-10-14.md section 2.8",
+  "triage": "kst_rev/gate0/TRIAGE_OQ_2026-10-14.md (OQ2, OQ5, OQ34, OQ38)",
+  "master_log": "KST_REVISION_2026-10-12.md (entries of 13-14 Oct)"
+ }
+}

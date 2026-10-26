@@ -1,0 +1,86 @@
+app	order	prompt_id	attempt	status	ts_sent_ict	ts_done_ict	ui_model_label	limit_banner	tools_visible	turn2_sent	raw_file	raw2_file	screenshot	note
+chatgpt	1	001_B_th_Q48	1	done	2026-10-21T10:43:23	2026-10-21T10:49:20	not shown		none	N	raw/chatgpt_001_B_th_Q48.md		chatgpt_001_B_th_Q48.png	ts_done = เวลาบันทึกไฟล์ raw; คำตอบครบก่อนหน้านั้นราว 5 นาที (หาปุ่ม copy)
+gemini	1	001_B_th_Q48	1	done	2026-10-21T11:00:09	2026-10-21T11:00:33	Gemini auto		none	N	raw/gemini_001_B_th_Q48.md		gemini_001_B_th_Q48.png	
+claude	1	001_B_th_Q48	1	done	2026-10-21T11:10:52	2026-10-21T11:11:09	Sonnet 5.5 medium		none	N	raw/claude_001_B_th_Q48.md		claude_001_B_th_Q48.png	
+chatgpt	2	002_A_th_Q21	1	void	2026-10-21T11:23:47	2026-10-21T11:23:56				N	raw/chatgpt_002_A_th_Q21.md		chatgpt_002_A_th_Q21.png	ส่งในแชตเดิมของ order 1 (ไม่ได้กด New chat); ทำใหม่ attempt 2
+chatgpt	2	002_A_th_Q21	2	done	2026-10-21T11:31:03	2026-10-21T11:31:12	not shown		none	N	raw/chatgpt_002_A_th_Q21_a2.md		chatgpt_002_A_th_Q21_a2.png	ts_sent = เวลาที่พิมพ์ csent หลังได้คำตอบแล้ว
+gemini	2	002_A_th_Q21	1	done	2026-10-21T11:40:16	2026-10-21T11:40:23	Gemini auto		none	N	raw/gemini_002_A_th_Q21.md		gemini_002_A_th_Q21.png	
+claude	2	002_A_th_Q21	1	done	2026-10-21T11:41:49	2026-10-21T11:41:59	Sonnet 5.5 medium		none	N	raw/claude_002_A_th_Q21.md		claude_002_A_th_Q21.png	
+chatgpt	3	003_B_th_Q42	1	done	2026-10-21T11:43:18	2026-10-21T11:43:24	not shown		none	N	raw/chatgpt_003_B_th_Q42.md		chatgpt_003_B_th_Q42.png	
+gemini	3	003_B_th_Q42	1	done	2026-10-21T11:44:57	2026-10-21T11:45:05	Gemini auto		none	N	raw/gemini_003_B_th_Q42.md		gemini_003_B_th_Q42.png	
+claude	3	003_B_th_Q42	1	done	2026-10-21T11:48:43	2026-10-21T11:50:11	Sonnet 5.5 medium		none	N	raw/claude_003_B_th_Q42.md		claude_003_B_th_Q42.png	"มี popup ชวน upgrade ""Use Opus 5.5 with Claude Pro"" ระหว่างแชต (ไม่ใช่ limit); กด Not now"
+chatgpt	4	004_B_th_Q01	1	done	2026-10-21T11:51:21	2026-10-21T11:51:30	not shown		none	N	raw/chatgpt_004_B_th_Q01.md		chatgpt_004_B_th_Q01.png	
+gemini	4	004_B_th_Q01	1	done	2026-10-21T11:52:27	2026-10-21T11:52:45	Gemini auto		none	N	raw/gemini_004_B_th_Q01.md		gemini_004_B_th_Q01.png	
+claude	4	004_B_th_Q01	1	done	2026-10-21T11:53:43	2026-10-21T11:53:52	Sonnet 5.5 medium		none	N	raw/claude_004_B_th_Q01.md		claude_004_B_th_Q01.png	
+chatgpt	5	005_A_th_Q14	1	done	2026-10-21T11:54:48	2026-10-21T11:54:56	not shown		none	N	raw/chatgpt_005_A_th_Q14.md		chatgpt_005_A_th_Q14.png	
+gemini	5	005_A_th_Q14	1	done	2026-10-21T11:56:16	2026-10-21T11:56:49	Gemini auto		none	N	raw/gemini_005_A_th_Q14.md		gemini_005_A_th_Q14.png	
+claude	5	005_A_th_Q14	1	done	2026-10-21T11:57:43	2026-10-21T11:57:49	Sonnet 5.5 medium		none	N	raw/claude_005_A_th_Q14.md		claude_005_A_th_Q14.png	
+chatgpt	6	006_B_th_Q43	1	done	2026-10-21T12:14:58	2026-10-21T12:15:05	not shown		none	N	raw/chatgpt_006_B_th_Q43.md		chatgpt_006_B_th_Q43.png	
+gemini	6	006_B_th_Q43	1	done	2026-10-21T12:15:58	2026-10-21T12:16:25	Gemini auto		none	N	raw/gemini_006_B_th_Q43.md		gemini_006_B_th_Q43.png	
+claude	6	006_B_th_Q43	1	done	2026-10-21T12:17:24	2026-10-21T12:17:31	Sonnet 5.5 medium		none	N	raw/claude_006_B_th_Q43.md		claude_006_B_th_Q43.png	
+chatgpt	7	007_B_th_Q07	1	done	2026-10-21T12:18:28	2026-10-21T12:18:47	not shown		none	N	raw/chatgpt_007_B_th_Q07.md		chatgpt_007_B_th_Q07.png	
+gemini	7	007_B_th_Q07	1	done	2026-10-21T12:19:36	2026-10-21T12:19:48	Gemini auto		none	N	raw/gemini_007_B_th_Q07.md		gemini_007_B_th_Q07.png	
+claude	7	007_B_th_Q07	1	done	2026-10-21T12:21:12	2026-10-21T12:21:15	Sonnet 5.5 medium		none	N	raw/claude_007_B_th_Q07.md		claude_007_B_th_Q07.png	
+chatgpt	8	008_B_th_Q15	1	done	2026-10-21T12:21:57	2026-10-21T12:22:07	not shown		none	N	raw/chatgpt_008_B_th_Q15.md		chatgpt_008_B_th_Q15.png	
+gemini	8	008_B_th_Q15	1	done	2026-10-21T12:22:53	2026-10-21T12:23:00	Gemini auto		none	N	raw/gemini_008_B_th_Q15.md		gemini_008_B_th_Q15.png	
+claude	8	008_B_th_Q15	1	done	2026-10-21T12:23:41	2026-10-21T12:23:49	Sonnet 5.5 medium		none	N	raw/claude_008_B_th_Q15.md		claude_008_B_th_Q15.png	
+chatgpt	9	009_B_th_Q50	1	done	2026-10-21T12:24:36	2026-10-21T12:24:39	not shown		none	N	raw/chatgpt_009_B_th_Q50.md		chatgpt_009_B_th_Q50.png	
+gemini	9	009_B_th_Q50	1	done	2026-10-21T12:25:19	2026-10-21T12:25:30	Gemini auto		none	N	raw/gemini_009_B_th_Q50.md		gemini_009_B_th_Q50.png	
+claude	9	009_B_th_Q50	1	done	2026-10-21T12:26:14	2026-10-21T12:26:25	Sonnet 5.5 medium		none	N	raw/claude_009_B_th_Q50.md		claude_009_B_th_Q50.png	
+chatgpt	10	010_A_th_Q48	1	done	2026-10-21T12:30:25	2026-10-21T12:30:48	not shown		none	N	raw/chatgpt_010_A_th_Q48.md		chatgpt_010_A_th_Q48.png	
+gemini	10	010_A_th_Q48	1	done	2026-10-21T12:31:24	2026-10-21T12:31:32	Gemini auto		none	N	raw/gemini_010_A_th_Q48.md		gemini_010_A_th_Q48.png	
+claude	10	010_A_th_Q48	1	done	2026-10-21T12:32:15	2026-10-21T12:32:22	Sonnet 5.5 medium		none	N	raw/claude_010_A_th_Q48.md		claude_010_A_th_Q48.png	
+chatgpt	11	011_B_th_Q41	1	done	2026-10-21T12:36:20	2026-10-21T12:36:26	not shown		none	N	raw/chatgpt_011_B_th_Q41.md		chatgpt_011_B_th_Q41.png	
+gemini	11	011_B_th_Q41	1	done	2026-10-21T12:37:14	2026-10-21T12:37:27	Gemini auto		none	N	raw/gemini_011_B_th_Q41.md		gemini_011_B_th_Q41.png	
+claude	11	011_B_th_Q41	1	done	2026-10-21T12:38:11	2026-10-21T12:38:17	Sonnet 5.5 medium		none	N	raw/claude_011_B_th_Q41.md		claude_011_B_th_Q41.png	
+chatgpt	12	012_B_th_Q14	1	done	2026-10-21T12:39:47	2026-10-21T12:39:52	not shown		none	N	raw/chatgpt_012_B_th_Q14.md		chatgpt_012_B_th_Q14.png	
+gemini	12	012_B_th_Q14	1	done	2026-10-21T12:40:24	2026-10-21T12:40:32	Gemini auto		none	N	raw/gemini_012_B_th_Q14.md		gemini_012_B_th_Q14.png	
+claude	12	012_B_th_Q14	1	done	2026-10-21T12:41:12	2026-10-21T12:41:20	Sonnet 5.5 medium		none	N	raw/claude_012_B_th_Q14.md		claude_012_B_th_Q14.png	
+chatgpt	13	013_B_th_Q55	1	done	2026-10-21T12:42:17	2026-10-21T12:42:26	not shown		none	N	raw/chatgpt_013_B_th_Q55.md		chatgpt_013_B_th_Q55.png	
+gemini	13	013_B_th_Q55	1	done	2026-10-21T12:43:06	2026-10-21T12:43:17	Gemini auto		none	N	raw/gemini_013_B_th_Q55.md		gemini_013_B_th_Q55.png	
+claude	13	013_B_th_Q55	1	done	2026-10-21T12:44:15	2026-10-21T12:44:31	Sonnet 5.5 medium		none	N	raw/claude_013_B_th_Q55.md		claude_013_B_th_Q55.png	
+chatgpt	14	014_A_th_Q42	1	done	2026-10-21T12:45:15	2026-10-21T12:45:22	not shown		none	N	raw/chatgpt_014_A_th_Q42.md		chatgpt_014_A_th_Q42.png	
+gemini	14	014_A_th_Q42	1	done	2026-10-21T12:46:02	2026-10-21T12:46:13	Gemini auto		none	N	raw/gemini_014_A_th_Q42.md		gemini_014_A_th_Q42.png	
+claude	14	014_A_th_Q42	1	done	2026-10-21T12:47:02	2026-10-21T12:47:13	Sonnet 5.5 medium		none	N	raw/claude_014_A_th_Q42.md		claude_014_A_th_Q42.png	
+chatgpt	15	015_A_th_Q13	1	done	2026-10-21T12:48:02	2026-10-21T12:48:11	not shown		none	N	raw/chatgpt_015_A_th_Q13.md		chatgpt_015_A_th_Q13.png	
+gemini	15	015_A_th_Q13	1	done	2026-10-21T12:48:47	2026-10-21T12:48:53	Gemini auto		none	N	raw/gemini_015_A_th_Q13.md		gemini_015_A_th_Q13.png	
+claude	15	015_A_th_Q13	1	done	2026-10-21T12:49:23	2026-10-21T12:49:29	Sonnet 5.5 medium		none	N	raw/claude_015_A_th_Q13.md		claude_015_A_th_Q13.png	
+chatgpt	16	016_A_th_Q15	1	done	2026-10-21T12:51:04	2026-10-21T12:51:10	not shown		none	N	raw/chatgpt_016_A_th_Q15.md		chatgpt_016_A_th_Q15.png	
+gemini	16	016_A_th_Q15	1	done	2026-10-21T12:51:58	2026-10-21T12:52:05	Gemini auto		none	N	raw/gemini_016_A_th_Q15.md		gemini_016_A_th_Q15.png	
+claude	16	016_A_th_Q15	1	done	2026-10-21T12:52:34	2026-10-21T12:52:40	Sonnet 5.5 medium		none	N	raw/claude_016_A_th_Q15.md		claude_016_A_th_Q15.png	
+chatgpt	17	017_B_th_Q25	1	done	2026-10-21T12:53:14	2026-10-21T12:53:20	not shown		none	N	raw/chatgpt_017_B_th_Q25.md		chatgpt_017_B_th_Q25.png	
+gemini	17	017_B_th_Q25	1	done	2026-10-21T12:54:07	2026-10-21T12:54:24	Gemini auto		none	N	raw/gemini_017_B_th_Q25.md		gemini_017_B_th_Q25.png	
+claude	17	017_B_th_Q25	1	done	2026-10-21T12:54:57	2026-10-21T12:55:10	Sonnet 5.5 medium		none	N	raw/claude_017_B_th_Q25.md		claude_017_B_th_Q25.png	
+chatgpt	18	018_B_th_Q09	1	done	2026-10-21T12:55:41	2026-10-21T12:55:50	not shown		none	N	raw/chatgpt_018_B_th_Q09.md		chatgpt_018_B_th_Q09.png	
+gemini	18	018_B_th_Q09	1	done	2026-10-21T12:56:21	2026-10-21T12:56:30	Gemini auto		none	N	raw/gemini_018_B_th_Q09.md		gemini_018_B_th_Q09.png	
+claude	18	018_B_th_Q09	1	done	2026-10-21T12:57:07	2026-10-21T12:57:16	Sonnet 5.5 medium		none	N	raw/claude_018_B_th_Q09.md		claude_018_B_th_Q09.png	
+chatgpt	19	019_A_th_Q30	1	done	2026-10-21T12:57:49	2026-10-21T12:57:58	not shown		none	N	raw/chatgpt_019_A_th_Q30.md		chatgpt_019_A_th_Q30.png	
+gemini	19	019_A_th_Q30	1	done	2026-10-21T12:59:05	2026-10-21T12:59:18	Gemini auto		none	N	raw/gemini_019_A_th_Q30.md		gemini_019_A_th_Q30.png	
+claude	19	019_A_th_Q30	1	done	2026-10-21T12:59:51	2026-10-21T12:59:56	Sonnet 5.5 medium		none	N	raw/claude_019_A_th_Q30.md		claude_019_A_th_Q30.png	
+chatgpt	20	020_A_th_Q09	1	done	2026-10-21T13:00:33	2026-10-21T13:00:40	not shown		none	N	raw/chatgpt_020_A_th_Q09.md		chatgpt_020_A_th_Q09.png	
+gemini	20	020_A_th_Q09	1	done	2026-10-21T13:01:13	2026-10-21T13:01:23	Gemini auto		none	N	raw/gemini_020_A_th_Q09.md		gemini_020_A_th_Q09.png	
+claude	20	020_A_th_Q09	1	done	2026-10-21T13:03:05	2026-10-21T13:03:15	Sonnet 5.5 medium		none	N	raw/claude_020_A_th_Q09.md		claude_020_A_th_Q09.png	
+chatgpt	21	021_B_th_Q21	1	done	2026-10-21T13:04:58	2026-10-21T13:05:05	not shown		none	N	raw/chatgpt_021_B_th_Q21.md		chatgpt_021_B_th_Q21.png	
+gemini	21	021_B_th_Q21	1	done	2026-10-21T13:05:50	2026-10-21T13:05:59	Gemini auto		none	N	raw/gemini_021_B_th_Q21.md		gemini_021_B_th_Q21.png	
+claude	21	021_B_th_Q21	1	done	2026-10-21T13:06:37	2026-10-21T13:06:43	Sonnet 5.5 medium		none	N	raw/claude_021_B_th_Q21.md		claude_021_B_th_Q21.png	
+chatgpt	22	022_B_th_Q30	1	done	2026-10-21T13:07:31	2026-10-21T13:07:33	not shown		none	N	raw/chatgpt_022_B_th_Q30.md		chatgpt_022_B_th_Q30.png	
+gemini	22	022_B_th_Q30	1	done	2026-10-21T13:08:01	2026-10-21T13:08:10	Gemini auto		none	N	raw/gemini_022_B_th_Q30.md		gemini_022_B_th_Q30.png	
+claude	22	022_B_th_Q30	1	done	2026-10-21T13:08:51	2026-10-21T13:09:03	Sonnet 5.5 medium		none	N	raw/claude_022_B_th_Q30.md		claude_022_B_th_Q30.png	
+chatgpt	23	023_B_th_Q35	1	done	2026-10-21T13:09:42	2026-10-21T13:09:49	not shown		none	N	raw/chatgpt_023_B_th_Q35.md		chatgpt_023_B_th_Q35.png	
+gemini	23	023_B_th_Q35	1	done	2026-10-21T13:10:41	2026-10-21T13:10:43	Gemini auto		none	N	raw/gemini_023_B_th_Q35.md		gemini_023_B_th_Q35.png	
+claude	23	023_B_th_Q35	1	done	2026-10-21T13:11:17	2026-10-21T13:11:26	Sonnet 5.5 medium		none	N	raw/claude_023_B_th_Q35.md		claude_023_B_th_Q35.png	
+chatgpt	24	024_B_th_Q02	1	done	2026-10-21T13:11:57	2026-10-21T13:12:03	not shown		none	N	raw/chatgpt_024_B_th_Q02.md		chatgpt_024_B_th_Q02.png	
+gemini	24	024_B_th_Q02	1	done	2026-10-21T13:12:40	2026-10-21T13:12:51	Gemini auto		none	N	raw/gemini_024_B_th_Q02.md		gemini_024_B_th_Q02.png	
+claude	24	024_B_th_Q02	1	done	2026-10-21T13:13:38	2026-10-21T13:13:40	Sonnet 5.5 medium		none	N	raw/claude_024_B_th_Q02.md		claude_024_B_th_Q02.png	
+chatgpt	25	025_A_th_Q07	1	done	2026-10-21T13:14:16	2026-10-21T13:14:21	not shown		none	N	raw/chatgpt_025_A_th_Q07.md		chatgpt_025_A_th_Q07.png	
+gemini	25	025_A_th_Q07	1	done	2026-10-21T13:14:58	2026-10-21T13:15:08	Gemini auto		none	N	raw/gemini_025_A_th_Q07.md		gemini_025_A_th_Q07.png	
+claude	25	025_A_th_Q07	1	done	2026-10-21T13:15:44	2026-10-21T13:15:49	Sonnet 5.5 medium		none	N	raw/claude_025_A_th_Q07.md		claude_025_A_th_Q07.png	
+chatgpt	26	026_B_th_Q18	1	done	2026-10-21T13:16:33	2026-10-21T13:16:39	not shown		none	N	raw/chatgpt_026_B_th_Q18.md		chatgpt_026_B_th_Q18.png	
+gemini	26	026_B_th_Q18	1	done	2026-10-21T13:17:12	2026-10-21T13:17:20	Gemini auto		none	N	raw/gemini_026_B_th_Q18.md		gemini_026_B_th_Q18.png	
+claude	26	026_B_th_Q18	1	done	2026-10-21T13:17:53	2026-10-21T13:18:00	Sonnet 5.5 medium		none	N	raw/claude_026_B_th_Q18.md		claude_026_B_th_Q18.png	
+chatgpt	27	027_A_th_Q01	1	done	2026-10-21T13:18:32	2026-10-21T13:18:37	not shown		none	N	raw/chatgpt_027_A_th_Q01.md		chatgpt_027_A_th_Q01.png	
+gemini	27	027_A_th_Q01	1	done	2026-10-21T13:19:08	2026-10-21T13:19:17	Gemini auto		none	N	raw/gemini_027_A_th_Q01.md		gemini_027_A_th_Q01.png	
+claude	27	027_A_th_Q01	1	done	2026-10-21T13:19:50	2026-10-21T13:19:57	Sonnet 5.5 medium		none	N	raw/claude_027_A_th_Q01.md		claude_027_A_th_Q01.png	
+chatgpt	28	028_B_th_Q13	1	done	2026-10-21T13:20:26	2026-10-21T13:20:33	not shown		none	N	raw/chatgpt_028_B_th_Q13.md		chatgpt_028_B_th_Q13.png	
+gemini	28	028_B_th_Q13	1	done	2026-10-21T13:21:04	2026-10-21T13:21:15	Gemini auto		none	N	raw/gemini_028_B_th_Q13.md		gemini_028_B_th_Q13.png	
+claude	28	028_B_th_Q13	1	done	2026-10-21T13:21:43	2026-10-21T13:21:48	Sonnet 5.5 medium		none	N	raw/claude_028_B_th_Q13.md		claude_028_B_th_Q13.png	

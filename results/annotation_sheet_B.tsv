@@ -1,0 +1,61 @@
+id	tier	question_en	question_th	clarity	vg_check	note
+Q01	1	List the names of all presidents born in Virginia.	หารายชื่อของประธานาธิบดีทุกคนที่เกิดในเวอร์จิเนีย		CHECK	
+Q02	1	Show the name and birth year of presidents born after 1850, newest first.	แสดงชื่อและปีเกิดของประธานาธิบดีที่เกิดหลังปี 1850 แสดงปีล่าสุดก่อน			
+Q03	1	List the distinct states in which presidents were born.	หารายชื่อที่ไม่ซ้ำกันของรัฐเกิดของประธานาธิบดี			
+Q04	1	Show the five earliest-born presidents with their birth years (break ties by name).	แสดงรายชื่อประธานาธิบดี 5 คนที่เกิดนานสุด พร้อมปีเกิด (ถ้าปีเกิดเท่ากันให้เรียงตามชื่อ)			
+Q05	1	List presidents whose party is 'Federalist'.	หารายชื่อของประธานาธิบดีที่สังกัดพรรค Federalist			
+Q06	1	List presidents whose name starts with 'J'.	"หารายชื่อของประธานาธิบดีทุกคนที่ขึ้นต้นด้วยตัวอักษร ""J"""			
+Q07	1	From the marriage records, list spouse names where the marriage status is 'Widowed'.	จากข้อมูลการสมรสให้หาขื่อคู่สมรสที่มีสถานะการสมรสเป็นหม้าย		CHECK	
+Q08	1	List presidencies (president name and start year) that began in the nineteenth century.	แสดงรายชื่อประธานาธิบดี และปีเริ่มต้นดำรงตำแหน่งช่วงศตวรรษที่ 19			
+Q09	1	Show all orders shipped to customers in Tokyo (OrderID, ProductName, CustomerCity).	แสดงรายการคำสั่งซื้อทั้งหมดที่ส่งให้กับลูกค้าในโตเกียว (OrderID, ProductName, CustomerCity)		CHECK	
+Q10	1	List orders with a final price above 1000, showing OrderID, ProductName, and FinalPrice.	แสดงรายการคำสั่งซื้อที่ราคาสุดท้ายมากกว่า 1000 ให้แสดง OrderID, ProductName, และ FinalPrice			
+Q11	1	List the distinct product categories.	แสดงรายการหมวดหมู่สินค้าที่ไม่ซ้ำกัน			
+Q12	1	Show the 10 most recent orders by order date, breaking ties by OrderID (OrderID, OrderDate).	แสดงรายการสั่งซื้อ 10 รายการล่าสุดตามวันที่ ถ้าวันที่เท่ากันให้เรียงตาม OrderID (OrderID, OrderDate)			
+Q13	1	List orders paid by 'Credit Card' with quantity of at least 5 (show OrderID, ProductName, Quantity).	แสดงรายการสั่งซื้อที่จ่ายเงินด้วยบัตรเครดิตและมีจำนวนอย่างน้อย 5 (แสดง OrderID, ProductName, Quantity)		CHECK	
+Q14	1	List orders that were neither returned nor exchanged and have a product rating of at least 4.5 (show OrderID, ProductName, ProductRating).	แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)		CHECK	
+Q15	1	Show orders in the 'Clothing' category placed by female customers (show OrderID, ProductName).	แสดงคำสั่งซื้อของสินค้าในกลุ่มเครื่องแต่งกายที่สั่งซื้อโดยผู้หญิง (แสดง OrderID, ProductName)		CHECK	
+Q16	2	List each president together with his spouse's name.	แสดงรายชื่อประธานาธิบดีแต่ละคนพร้อมชื่อคู่สมรส			
+Q17	2	Show each president with the years he held office (start and end).	แสดงรายชื่อประธานาธิบดีพร้อมกับช่วงปีที่ดำรงตำแหน่ง (ปีเริ่มต้น และปีสิ้นสุด)			
+Q18	2	List presidents who married after first taking office.	แสดงรายชื่อประธานาธิบดีที่สมรสหลังจากเข้ารับตำแหน่ง			
+Q19	2	List vice presidents who themselves later became president.	แสดงรายชื่อรองประธานาธิบดีที่ต่อมาได้เป็นประธานาธิบดี			
+Q20	2	For each presidential marriage, show the president's name, the spouse's name, and the president's party.	ในการสมรสแต่ละครั้งของประธานาธิบดี ให้แสดงชื่อประธานาธิบดี ชื่อคู่สมรส และพรรคที่ประธานาธิบดีสังกัด			
+Q21	2	List presidents from Virginia who began a term before 1850.	แสดงรายชื่อประธานาธิบดีจากรัฐเวอร์จิเนียที่เริ่มดำรงตำแหน่งก่อนปี 1850		CHECK	
+Q22	2	List elections (president, start year, runner-up) where the runner-up was himself a president at some time.	แสดงรายละเอียดการเลือกตั้ง (ชื่อประธานาธิบดี ปีเริ่มดำรงตำแหน่ง ชื่อผู้ได้คะแนนอันดับที่ 2) ที่ผู้ที่ได้คะแนนอันดับที่ 2 ก็ได้เป็นประธานาธิบดีด้วย			
+Q23	2	For presidents whose spouse was born before the president himself, show the president's name and that spouse's name.	สำหรับประธานาธิบดีที่คู่สมรสเกิดก่อนตัวประธานาธิบดีเอง ให้แสดงชื่อประธานาธิบดีและชื่อคู่สมรสคนนั้น			
+Q24	2	List presidents who never served as vice president.	แสดงรายชื่อประธานาธิบดีที่ไม่เคยดำรงตำแหน่งรองประธานาธิบดี			
+Q25	2	List presidents who held office in two non-consecutive periods (two records with different start years).	แสดงรายชื่อประธานาธิบดีที่ดำรงตำแหน่งครั้งที่สองแบบวาระการดำรงตำแหน่งไม่ต่อกัน			
+Q26	2	List customers (CustomerID) who have placed orders in at least two different categories.	แสดง CustomerID ของผู้ที่สั่งสินค้าอย่างน้อยสองหมวดสินค้าที่ต่างกัน			
+Q27	2	Find pairs of orders placed by the same customer on the same date (show CustomerID, both OrderIDs).	แสดง CustomerID และ OrderID ที่มีสองคำสั่งซื้อโดยลุกค้าคนเดียวกันภายในวันเดียวกัน			
+Q28	2	List president-and-vice-president pairs who were born in the same state.	แสดงชื่อประธานาธิบดีและรองประธานาธิบดีคู่กันที่ทั้งคู่เกิดในรัฐเดียวกัน			
+Q29	2	Show the marriage status of every president who began a term in the twentieth century (show president name and marriage status).	แสดงสถานะการสมรสของประธานาธิบดีทุกคนที่เริ่มดำรงตำแหน่งในศตวรรษที่ 20 (แสดงชื่อประธานาธิบดีและสถานะการสมรส)			
+Q30	2	List Democratic-Republican presidents whose marriage record shows status 'Widowed'.	แสดงรายชื่อประธานาธิบดีของพรรค Democratic-Republican ที่มีสถานะของการสมรสเป็นหม้าย		CHECK	
+Q31	3	Count the number of presidents in each party.	นับจำนวนของประธานาธิบดีของแต่ละพรรค			
+Q32	3	Which state has produced the most presidents? Show the state and the count (break ties alphabetically).	รัฐใดให้กำเนิดประธานาธิบดีมากที่สุด แสดงชื่อรัฐและจำนวน (ถ้าเท่ากันให้เรียงตามตัวอักษร)			
+Q33	3	What is the average length in years of a presidential term?	แสดงระยะเวลาดำรงตำแหน่งโดยฉลี่ยของประธานาธิบดี			
+Q34	3	List presidents who have more than one marriage record.	แสดงรายชื่อประธานาธิบดีที่สมรสมากกว่า 1 ครั้ง			
+Q35	3	For each president in the holding table, show his earliest start year and latest end year.	แสดงรายชื่อประธานาธิบดีที่อยู่ในตาราง President_Holding พร้อมกับปีของการเริ่มตำแหน่งที่เก่าสุดและปีสิ้นสุดการดำรงตำแหน่งล่าสุด			
+Q36	3	Compute the total revenue of each product category, highest first.	คำนวณรายรับรวมของสินค้าแต่ละหมวดให้เรียงลำดับค่าจากมากไปน้อย			
+Q37	3	What is the average customer satisfaction per membership tier?	แสดงจำนวนเฉลี่ยของค่าความพึงพอใจของลูกค้าแต่ละระดับ			
+Q38	3	Show the top 5 customer cities by number of orders (show city and order count; break ties alphabetically).	แสดง 5 เมืองของลูกค้าที่มีคำสั่งซื้อมากที่สุด (แสดงชื่อเมืองและจำนวนคำสั่งซื้อ; ถ้าเท่ากันให้เรียงตามตัวอักษร)			
+Q39	3	Show monthly total revenue for 2024 in month order.	แสดงผลรวมของรายรับแต่ละเดือนในปี 2024			
+Q40	3	List categories whose average product rating exceeds 3 (show category and average rating).	แสดงหมวดหมู่สินค้าที่มีเรตติ้งเฉลี่ยเกิน 3 (แสดงหมวดหมู่และเรตติ้งเฉลี่ย)			
+Q41	3	For marketing channels with more than 100 orders, show the channel and its total revenue.	แสดงช่องทางการตลาดและรายได้รวมของแต่ละช่องทางการตลาดที่มีจำนวนคำสั่งซื้อมากกว่า 100 คำสั่งซื้อ			
+Q42	3	For each brand, count returned-or-exchanged orders versus 'No Return' orders.	นับจำนวนการคืนหรือการเปลี่ยนสินค้าของคำสั่งซื้อเทียบกับคำสั่งซื้อที่ไม่มีการคืนสินค้าแยกตามยี่ห้อ		CHECK	
+Q43	3	Show the maximum order revenue for each payment method.	แสดงรายรับที่มากที่สุดของคำสั่งซื้อแยกตามประเภภของการจ่ายเงิน			
+Q44	3	List parties that have had at least three presidents (show party and president count).	แสดงชื่อพรรคที่มีประธานาธิบดีตั้งแต่ 3 คน (แสดงชื่อพรรคและจำนวนประธานาธิบดี)			
+Q45	3	Show the average delivery days per region, slowest region first.	แสดงค่าเฉลี่ยของระยะเวลาส่งสินค้าแยกตามภาค เรียงลำดับจากช้าสุดไปเร็วสุด			
+Q46	4	List presidents whose term length exceeded the average term length (show president and term length).	แสดงรายชื่อประธานาธิบดีที่มีระยะเวลาดำรงตำแหน่งเกินกว่าค่าเฉลี่ย (แสดงชื่อประธานาธิบดีและระยะเวลาดำรงตำแหน่ง)			
+Q47	4	For each party, show the earliest-born president and his birth year (break ties by name).	สำหรับแต่ละพรรค แสดงประธานาธิบดีที่เกิดก่อนใครที่สุดของพรรคนั้นพร้อมปีเกิด (ถ้าปีเกิดเท่ากันให้เอาชื่อที่มาก่อนตามตัวอักษร)			
+Q48	4	List presidents who never appear as a runner-up in any election record.	แสดงรายชื่อประธานาธิบดีที่ไม่เคยมีคะแนนการเลือกตั้งมาเป็นอันดับสอง		CHECK	
+Q49	4	Rank all presidencies by term length, longest first (show president, term length, and rank).	แสดงอันดับประธานาธิบดีตามระยะเวลาดำรงตำแหน่ง นานสุดก่อน (แสดงชื่อประธานาธิบดี ระยะเวลาดำรงตำแหน่ง และอันดับ)			
+Q50	4	Show the three presidents with the largest age gap between president and spouse (show president and age gap in years; break ties by president name).	แสดงประธานาธิบดี 3 คนที่อายุห่างจากคู่สมรสมากที่สุด (แสดงชื่อประธานาธิบดีและผลต่างอายุเป็นปี; ถ้าเท่ากันให้เรียงตามชื่อประธานาธิบดี)			
+Q51	4	For each customer, show only their most recent order, breaking date ties by OrderID (CustomerID, OrderID, OrderDate).	สำหรับลูกค้าแต่ละราย แสดงเฉพาะคำสั่งซื้อล่าสุด ถ้าวันที่เท่ากันให้ใช้ OrderID มากสุด (CustomerID, OrderID, OrderDate)			
+Q52	4	Show cumulative revenue over time ordered by order date.	แสดงผลรวมสะสมของรายรับตลอดระยะเวลาให้เรียงลำดับตามวันที่ของคำสั่งซื้อ			
+Q53	4	List orders whose final price is above the average final price of their own category (show OrderID, Category, FinalPrice).	แสดงรายการคำสั่งซื้อที่มีราคาสุดท้ายเหนือค่าเฉลี่ยของสินค้าในหมวดหมู่ตนเอง (แสดง OrderID, Category, FinalPrice)			
+Q54	4	Show month-over-month change in total revenue for 2024 (show month, monthly total, and change from previous month).	แสดงการเปลี่ยนแปลงของรายได้รวมรายเดือนเทียบกับเดือนก่อนหน้าของปี 2024 (แสดงเดือน รายได้รวมของเดือน และผลต่างจากเดือนก่อนหน้า)			
+Q55	4	For each category, show its top 3 products by total revenue (show product and total revenue; break ties by product name).	สำหรับแต่ละหมวดสินค้า แสดงสินค้า 3 อันดับแรกตามรายได้รวม (แสดงชื่อสินค้าและรายได้รวม; ถ้าเท่ากันให้เรียงตามชื่อสินค้า)			
+Q56	4	List customers whose total spending is above the 95th percentile of customer totals (show CustomerID and total spending).	แสดงรายชื่อลูกค้าที่มียอดใช้จ่ายรวมสูงกว่าเปอร์เซ็นไทล์ที่ 95 ของยอดรวมลูกค้าทั้งหมด (แสดง CustomerID และยอดใช้จ่ายรวม)			
+Q57	4	Show each marketing channel's share of total revenue as a percentage.	แสดงสัดส่วนรายได้จากแต่ละช่องทางการตลาดเป็นร้อยละของรายได้ทั้งหมด			
+Q58	4	For each customer with at least two orders, show the number of days between their first and second order (order ties broken by OrderID).	สำหรับลูกค้าที่มีคำสั่งซื้อตั้งแต่ 2 รายการ แสดงจำนวนวันระหว่างคำสั่งซื้อแรกและครั้งที่สอง (วันที่เท่ากันให้เรียงตาม OrderID)			
+Q59	4	Using a CTE, count how many presidents were born in each decade.	ให้ใช้ CTE (Common Table Expression) เพื่อนับจำนวนประธานาธิบดีที่เกิดในแต่ละทศวรรษ			
+Q60	4	Show the 7-day moving average of daily total revenue.	แสดงค่าเฉลี่ยเคลื่อนที่แบบ 7 วัน ของรายได้รวมรายวัน			

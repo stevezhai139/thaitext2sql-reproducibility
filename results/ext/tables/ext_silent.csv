@@ -1,0 +1,11 @@
+model,lang,loud,silent_empty,silent_nonempty,mi_wrong_runs_apart
+claude-sonnet,en,2,0,21,0
+claude-sonnet,th,12,0,28,0
+gpt-mini,en,6,11,25,4
+gpt-mini,th,2,0,55,0
+gemini-flash,en,1,0,10,0
+gemini-flash,th,1,0,17,0
+qwen25-coder-7b,en,70,20,65,10
+qwen25-coder-7b,th,65,15,85,15
+llama31-8b,en,105,15,50,10
+llama31-8b,th,75,25,76,10

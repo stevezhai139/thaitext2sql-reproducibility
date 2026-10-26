@@ -1,0 +1,20 @@
+audit_id	app	form	qid	classifier_class	author_class	gf_classifier	gf_author	class_agree	gf_agree
+V01	gemini	A	Q15	INVENTED	INVENTED	Y	Y	Y	Y
+V02	chatgpt	A	Q48	NO_PRED	INVENTED	N	Y	N	N
+V03	gemini	A	Q14	INVENTED	INVENTED	Y	Y	Y	Y
+V04	claude	B	Q42	NO_PRED	NO_PRED	N	N	Y	Y
+V05	claude	A	Q14	NO_PRED	INVENTED	N	Y	N	N
+V06	chatgpt	B	Q14	INVENTED	INVENTED	Y	Y	Y	Y
+V07	gemini	B	Q42	GROUNDED	NO_PRED	N	N	N	Y
+V08	chatgpt	A	Q42	INVENTED	NO_PRED	Y	N	N	N
+V09	claude	A	Q07	THAI_COPY	THAI_COPY	Y	Y	Y	Y
+V10	claude	A	Q15	INVENTED	INVENTED	Y	Y	Y	Y
+V11	claude	A	Q42	NO_PRED	INVENTED	N	Y	N	N
+V12	claude	B	Q14	NO_PRED	INVENTED	N	Y	N	N
+V13	chatgpt	A	Q14	INVENTED	INVENTED	Y	Y	Y	Y
+V14	gemini	B	Q15	INVENTED	INVENTED	Y	Y	Y	Y
+
+# n	14
+# percent_agreement	0.5714
+# cohen_kappa	0.2364
+# gf_verdict_differs	5

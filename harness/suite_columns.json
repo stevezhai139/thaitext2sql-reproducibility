@@ -1,0 +1,32 @@
+{
+ "version": 1,
+ "about": "Single source of the suite columns the grader enforces, their legal values, the registry of directional items (issue 11, col_roles), the multi-instance items, the size of the extension suite and the core items repaired for the October session (D11). Read by grade_v13n.py, selftest_v13n.py and build_ext_suite.py.",
+ "required": ["order_en", "order_th", "sort_keys", "norm", "alt_gold_en", "alt_gold_th", "v13_status"],
+ "optional": ["col_roles"],
+ "ext_required": ["family", "col_roles", "mi_instances", "vg", "vg_literals", "source", "author_class", "ai_drafted", "fallback_rank", "build_status"],
+ "legal": {
+  "order_en": ["yes", "no"],
+  "order_th": ["yes", "no"],
+  "v13_status": ["primary", "excluded"],
+  "build_status": ["FROZEN", "DRAFT"]
+ },
+ "col_roles_syntax": "'' = G1 (column order not graded); '*' = order of the whole projection graded; 'i,j;k,l' = groups of gold column indexes (from 0) whose order is graded inside each group",
+ "directional_status": "DEFAULT OQ2 (triage 14 Oct 2026): order graded only inside the group of role columns; the whole-projection reading '*' differs only for X34 (TEST-ONLY); positional comparison of the whole projection is reported as a sensitivity",
+ "directional": {"X34": "2,3", "X37": "0,1", "F7C-6": "0,1"},
+ "reserve_directional": {"FK4": "1,2"},
+ "core_directional": {
+  "status": "DECIDED (OQ35): option (a), author answer 14 Oct 2026 (triage answers, brief 1.0c; TRIAGE_OQ_2026-10-14.md); apply true with the 7 items below",
+  "options": "(a) apply true with the items below: inside each group the answer keeps the gold column order, other columns stay free (G1). (b) apply false: pure G1 for the core, as in the brief 1.2 list. (c) apply false, and the option (a) list graded as a sensitivity with grade_v13n.py --core-directional on. Recording the decision changes only this entry: set apply and replace the status text, for example 'DECIDED (OQ35): option (a)'. The grader and the self-test print the status from here; no code changes with the decision.",
+  "apply": true,
+  "items": {"Q17": "1,2", "Q22": "0,2", "Q28": "0,1", "Q35": "1,2", "Q42": "1,2", "Q49": "1,2", "Q54": "1,2"}
+ },
+ "core_repaired": {
+  "status": "DECIDED (D11): author decision 14 Oct 2026 (brief 1.0b); Q27 repaired in place for the October session",
+  "about": "Core items whose question was repaired after the August run. The August core suite (k3n_suite_v1.3n.tsv; Gate 2 re-grade) keeps each of them with the original text and v13_status excluded (D3). The October core suite (k3n_suite_v1.3n_oct.tsv, built by suite_tools/build_oct_core_suite.py from the August suite and Q27_REPAIR_2026-10-14.tsv) carries the repaired question_en, question_th and gold_sql_draft, v13_status primary, v13_rule D11 and an empty gold_sql_v12 (v1.2 has no gold for the repaired question). selftest_v13n.py check 2 lets only these items differ from v1.2, and only where they are primary; check 5 accepts a core suite with exactly these items excluded (August) or none excluded (October). The prompt-byte exception of the October base arm is declared once, in check_prompts_rc1.py (D11_PROMPT_EXCEPTION).",
+  "items": ["Q27"]
+ },
+ "mi_items": ["PK1", "FK1", "FK2"],
+ "single_instance_items": ["FK3"],
+ "reserve_items": ["FK4"],
+ "ext_item_count": 40
+}

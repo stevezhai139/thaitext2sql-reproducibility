@@ -1,0 +1,101 @@
+set	id	tier	schema	family	hardness	comp1	comp2	others	extensions_fired
+core	Q01	1	P		easy	1	0	0	none
+core	Q02	1	P		medium	2	0	1	none
+core	Q03	1	P		easy	0	0	0	none
+core	Q04	1	P		medium	2	0	1	none
+core	Q05	1	P		easy	1	0	0	none
+core	Q06	1	P		medium	2	0	0	none
+core	Q07	1	P		easy	1	0	0	none
+core	Q08	1	P		medium	1	0	1	none
+core	Q09	1	E		medium	1	0	1	none
+core	Q10	1	E		medium	1	0	1	none
+core	Q11	1	E		easy	0	0	0	none
+core	Q12	1	E		medium	2	0	1	none
+core	Q13	1	E		medium	1	0	2	none
+core	Q14	1	E		medium	1	0	2	none
+core	Q15	1	E		medium	1	0	2	none
+core	Q16	2	P		medium	1	0	1	none
+core	Q17	2	P		medium	1	0	1	none
+core	Q18	2	P		hard	3	0	0	none
+core	Q19	2	P		medium	2	0	0	none
+core	Q20	2	P		medium	1	0	1	none
+core	Q21	2	P		medium	2	0	1	none
+core	Q22	2	P		medium	1	0	1	none
+core	Q23	2	P		medium	2	0	1	none
+core	Q24	2	P		medium	2	0	0	map:outer_join(1);map:is_null(1)
+core	Q25	2	P		medium	2	0	0	none
+core	Q26	2	E		easy	1	0	0	none
+core	Q27	2	E		medium	1	0	1	none
+core	Q28	2	P		hard	3	0	1	none
+core	Q29	2	P		medium	2	0	1	none
+core	Q30	2	P		medium	2	0	1	none
+core	Q31	3	P		medium	1	0	1	none
+core	Q32	3	P		hard	3	0	2	map:order_alias_agg(1)
+core	Q33	3	P		easy	0	0	0	none
+core	Q34	3	P		easy	1	0	0	none
+core	Q35	3	P		medium	1	0	2	none
+core	Q36	3	E		extra	2	0	2	map:order_alias_agg(1)
+core	Q37	3	E		medium	1	0	1	none
+core	Q38	3	E		hard	3	0	2	map:order_alias_agg(1)
+core	Q39	3	E		hard	3	0	2	none
+core	Q40	3	E		medium	1	0	1	none
+core	Q41	3	E		medium	1	0	1	none
+core	Q42	3	E		medium	1	0	2	map:case(2)
+core	Q43	3	E		medium	1	0	1	none
+core	Q44	3	P		medium	1	0	1	none
+core	Q45	3	E		extra	2	0	2	map:order_alias_agg(1)
+core	Q46	4	P		extra	1	1	1	none
+core	Q47	4	P		medium	1	0	1	note:derived_table(1)
+core	Q48	4	P		hard	1	1	0	none
+core	Q49	4	P		medium	2	0	1	ext:window(comp1+1)
+core	Q50	4	P		extra	4	0	1	map:is_null(1)
+core	Q51	4	E		medium	1	0	1	note:derived_table(1)
+core	Q52	4	E		medium	2	0	1	ext:window(comp1+1)
+core	Q53	4	E		extra	1	1	1	none
+core	Q54	4	E		medium	1	0	1	ext:window(comp1+1);map:cte_inline(1)
+core	Q55	4	E		medium	1	0	1	note:derived_table(1)
+core	Q56	4	E		extra	1	1	1	map:cte_inline(1)
+core	Q57	4	E		medium	2	0	1	ext:window(comp1+1)
+core	Q58	4	E		medium	1	0	1	map:cte_inline(1)
+core	Q59	4	P		medium	1	0	1	map:cte_inline(1)
+core	Q60	4	E		medium	1	0	1	ext:window(comp1+1);map:cte_inline(1)
+ext	X01	4	P	F1	extra	2	1	2	none
+ext	X02	4	P	F1	extra	2	1	0	none
+ext	X03	4	P	F1	extra	2	1	0	none
+ext	X04	4	P	F1	extra	2	1	1	none
+ext	X05	4	P	F1	extra	1	2	2	ext:exists(comp2+1);map:cte_inline(1)
+ext	X07	4	P	F2	extra	2	1	1	ext:exists(comp2+1)
+ext	X08	4	P	F2	extra	2	1	1	ext:exists(comp2+1);map:is_null(1)
+ext	X09	4	P	F2	extra	2	1	1	ext:exists(comp2+1);map:is_null(1)
+ext	X10	4	P	F2	hard	1	1	0	ext:exists(comp2+1)
+ext	X11	2	P	F3	extra	4	0	1	none
+ext	X12	4	P	F3	hard	1	1	0	ext:exists(comp2+1)
+ext	X13	2	P	F3	medium	2	0	0	map:bool_group(1);map:de_morgan(1)
+ext	X14	2	P	F3	easy	1	0	0	none
+ext	X17	4	P	F4	extra	1	1	1	map:cte_inline(1)
+ext	X18	4	P	F4	extra	1	1	1	map:cte_inline(1)
+ext	X19	4	P	F4	extra	1	1	1	map:cte_inline(1)
+ext	X20	4	P	F4	extra	2	1	0	none
+ext	X21	4	P	F4	hard	1	1	0	map:cte_inline(1)
+ext	X23	4	P	F5	easy	0	0	0	note:derived_table(1)
+ext	X24	4	P	F5	easy	0	0	0	note:derived_table(1)
+ext	X25	4	P	F5	easy	0	0	0	note:derived_table(1)
+ext	X26	4	P	F6	hard	1	1	0	ext:exists(comp2+1)
+ext	X27	3	P	F6	medium	2	0	0	none
+ext	X28	4	P	F6	extra	1	1	1	none
+ext	R5	3	P	F6	medium	2	0	1	none
+ext	F7C-6	4	P	F7	extra	2	1	2	ext:exists(comp2+1);map:cte_inline(2);map:cross_join(1)
+ext	F7C-2	4	P	F7	hard	1	1	0	ext:exists(comp2+1)
+ext	F7C-8	4	P	F7	hard	1	1	0	ext:exists(comp2+1)
+ext	F7C-1	4	P	F7	hard	1	1	0	ext:exists(comp2+1)
+ext	F7C-3	3	P	F7	easy	1	0	0	map:case(1)
+ext	X33	4	P	F8	medium	2	0	1	map:cte_inline(1)
+ext	X34	4	P	F8	medium	1	0	1	map:cte_inline(1)
+ext	X35	4	P	F8	medium	1	0	1	ext:window(comp1+1)
+ext	X36	4	P	F8	extra	3	0	3	ext:window(comp1+1)
+ext	X37	4	P	F9	extra	0	1	1	ext:recursive_cte(comp2+1);map:cte_inline(1)
+ext	X38	4	P	F9	extra	2	1	1	ext:recursive_cte(comp2+1)
+ext	PK1	4	P	F10	extra	0	2	0	ext:expr_subquery(comp2+2);map:case(1);map:no_from(1)
+ext	FK1	4	P	F10	extra	1	1	2	ext:exists(comp2+1);map:is_null(1)
+ext	FK2	4	P	F10	hard	1	1	0	ext:exists(comp2+1)
+ext	FK3	4	P	F10	extra	0	2	1	ext:expr_subquery(comp2+1);map:cte_inline(2);map:union_all(1);map:no_from(1)

@@ -1,0 +1,19 @@
+{
+ "audit_rows_file": "vg_codes_chat_audit_rows.csv",
+ "audit_rows_sha256": "b07bf9bb4c7901ec758ff4e23f459d19c73eeae2842426075a300827b5b7dd63",
+ "graded_file": "graded_chat_k3n.csv",
+ "graded_sha256": "89ae8444752a2edc41b91800b26e22b417039d8a813989c8732901a8ed198f92",
+ "hints_sha256": "2ea5efb413182b7929310f30bb312175776e63ea18eec0616ac7bbd0cc38919c",
+ "n_cells": 84,
+ "q48_vocab_rule": "keep",
+ "results_file": "results_chat.jsonl",
+ "results_sha256": "8d74283af714cd757f64bb9c0c87dffa5bf22afdc9bc31d9cb06c5286b9725af",
+ "suite_file": "k3n_suite_v1.3n.tsv",
+ "suite_sha256": "195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366",
+ "tool": "vg_outcome.py",
+ "tool_sha256": "659dff5696df68a0fa4a7f673f5fce3d78b6bcebae07d13c0e7408298da7fc0d",
+ "vg_codes_file": "vg_codes_chat.tsv",
+ "vg_codes_sha256": "71958ceb40035a3296e5994060ef1552edff35341cabc1f3c390f44276961a77",
+ "vocab_db": "k3n",
+ "vocab_source": "vg_classifier.build_vocab (Q48 rule 'keep')"
+}

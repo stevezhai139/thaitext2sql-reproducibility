@@ -1,0 +1,1 @@
+SELECT Brand, SUM(CASE WHEN ReturnStatus IN ('Returned', 'Exchanged') THEN 1 ELSE 0 END) AS returned_or_exchanged, SUM(CASE WHEN ReturnStatus NOT IN ('Returned', 'Exchanged') THEN 1 ELSE 0 END) AS non_returned FROM Ecommerce GROUP BY Brand;

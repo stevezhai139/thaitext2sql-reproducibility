@@ -1,0 +1,50 @@
+PresidentName,YearHolding,YearEnd,VicePresidentName,RunnerUp
+George Washington,1789,1797,John Adams,None
+John Adams,1797,1801,Thomas Jefferson,Thomas Jefferson
+Thomas Jefferson,1801,1809,Aaron Burr,John Adams
+James Madison,1809,1817,George Clinton,Charles Pinckney
+James Monroe,1817,1825,Daniel Tompkins,John Quincy Adams
+John Quincy Adams,1825,1829,John Calhoun,Andrew Jackson
+Andrew Jackson,1829,1837,Martin Van Buren,John Quincy Adams
+Martin Van Buren,1837,1841,Richard Johnson,William Henry Harrison
+William Henry Harrison,1841,1841,John Tyler,Martin Van Buren
+John Tyler,1841,1845,None,Henry Clay
+James K Polk,1845,1849,George Dallas,Lewis Cass
+Zachary Taylor,1849,1850,Millard Fillmore,Martin Van Buren
+Millard Fillmore,1850,1853,None,Winfield Scott
+Franklin Pierce,1853,1857,William King,John Fremont
+James Buchanan,1857,1861,John Breckinridge,Abraham Lincoln
+Abraham Lincoln,1861,1865,Hannibal Hamlin,Stephen Douglas
+Abraham Lincoln,1865,1865,Andrew Johnson,George McClellan
+Andrew Johnson,1865,1869,None,Horatio Seymour
+Ulysses S Grant,1869,1877,Schuyler Colfax,Horace Greeley
+Rutherford B Hayes,1877,1881,William Wheeler,Samuel Tilden
+James A Garfield,1881,1881,Chester Arthur,Winfield Hancock
+Chester A Arthur,1881,1885,None,Grover Cleveland
+Grover Cleveland,1885,1889,Thomas Hendricks,James Blaine
+Benjamin Harrison,1889,1893,Levi Morton,Grover Cleveland
+Grover Cleveland,1893,1897,Adlai Stevenson,Benjamin Harrison
+William McKinley,1897,1901,Theodore Roosevelt,William Jennings Bryan
+Theodore Roosevelt,1901,1909,Charles Fairbanks,Alton Parker
+William Howard Taft,1909,1913,James Sherman,William Jennings Bryan
+Woodrow Wilson,1913,1921,Thomas Marshall,Theodore Roosevelt
+Warren G Harding,1921,1923,Calvin Coolidge,James Cox
+Calvin Coolidge,1923,1929,Charles Dawes,John Davis
+Herbert Hoover,1929,1933,Charles Curtis,Franklin Roosevelt
+Franklin D Roosevelt,1933,1945,John Garner,Herbert Hoover
+Franklin D Roosevelt,1945,1945,Harry Truman,Thomas Dewey
+Harry S Truman,1945,1953,Alben Barkley,Thomas Dewey
+Dwight D Eisenhower,1953,1961,Richard Nixon,Adlai Stevenson
+John F Kennedy,1961,1963,Lyndon Johnson,Richard Nixon
+Lyndon B Johnson,1963,1969,Lyndon Johnson,Barry Goldwater
+Richard Nixon,1969,1974,Spiro Agnew,Hubert Humphrey
+Gerald Ford,1974,1977,Nelson Rockefeller,Jimmy Carter
+Jimmy Carter,1977,1981,Walter Mondale,Ronald Reagan
+Ronald Reagan,1981,1989,George Bush,Jimmy Carter
+George H W Bush,1989,1993,Dan Quayle,Bill Clinton
+Bill Clinton,1993,2001,Al Gore,George Bush
+George W Bush,2001,2009,Dick Cheney,Al Gore
+Barack Obama,2009,2017,Joe Biden,John McCain
+Donald Trump,2017,2021,Mike Pence,Hillary Clinton
+Joe Biden,2021,2025,Kamala Harris,Donald Trump
+Donald Trump,2025,2029,JD Vance,Kamala Harris

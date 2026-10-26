@@ -1,0 +1,13 @@
+model,lang,submitted_v12_correct,submitted_v12_n,aug_v13n_correct,aug_v13n_n,oct_correct,oct_n
+claude-sonnet,en,56,60,58,59,58,60
+claude-sonnet,th,50,60,53,59,55,60
+gemini-flash,en,51,60,56,59,57,60
+gemini-flash,th,45,60,53,59,57,60
+gpt-mini,en,51,60,55,59,57,60
+gpt-mini,th,45,60,48,59,51,60
+llama31-8b,en,30,60,32,59,35,60
+llama31-8b,th,22,60,23,59,23,60
+qwen25-coder-7b,en,36,60,38,59,39,60
+qwen25-coder-7b,th,24,60,25,59,25,60
+typhoon2-8b,en,18,60,21,59,22,60
+typhoon2-8b,th,15,60,17,59,17,60

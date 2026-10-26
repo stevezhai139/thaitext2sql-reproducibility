@@ -1,0 +1,5 @@
+model,n_items,en_correct,th_correct,gap_items,gap_points,b_en_only,c_th_only,p_exact_exploratory
+claude-sonnet,49,48,44,4,+8.2,4,0,0.1250
+gpt-mini,49,45,43,2,+4.1,3,1,0.6250
+gemini-flash,49,46,47,-1,-2.0,0,1,1.0000
+frontier_pooled,147,139,134,5,+3.4,7,2,

@@ -1,0 +1,11 @@
+log,model,arm,calls,error_calls,calls_without_usage,tok_in,tok_out,tok_think,billed_out,price_in,price_out,cost,currency
+results_ext_api,claude-sonnet,base,405,5,5,159790,141880,0,141880,2.0,10.0,1.7384,USD
+results_ext_api,gemini-flash,base,401,1,1,73090,34679,552897,587576,0.75,3.75,2.2582,USD
+results_ext_api,gpt-mini,base,400,0,0,77685,44186,0,44186,0.75,4.5,0.2571,USD
+results_rc1_api,claude-sonnet,base,600,0,0,256570,63399,0,63399,2.0,10.0,1.1471,USD
+results_rc1_api,claude-sonnet,values,600,0,0,771550,62123,0,62123,2.0,10.0,2.1643,USD
+results_rc1_api,gemini-flash,base,600,0,0,109115,23217,394289,417506,0.75,3.75,1.6475,USD
+results_rc1_api,gemini-flash,values,600,0,0,381965,22470,401443,423913,0.75,3.75,1.8761,USD
+results_rc1_api,gpt-mini,base,600,0,0,114615,28247,0,28247,0.75,4.5,0.2131,USD
+results_rc1_api,gpt-mini,values,600,0,0,371625,30195,0,30195,0.75,4.5,0.4146,USD
+# list-price estimate; source: provider pricing page; accessed 2026-10-13; total 11.7165 USD

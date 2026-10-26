@@ -1,0 +1,6 @@
+```
+SELECT OrderID, ProductName, ProductRating
+FROM Ecommerce
+WHERE ReturnStatus = 'Not Returned'
+  AND ProductRating >= 4.5;
+```

@@ -1,0 +1,13 @@
+model,lang,items,items_differ,ror_correct,base_now_correct,exploratory
+claude-sonnet,en,59,1,58,57,False
+claude-sonnet,th,59,3,53,54,False
+gpt-mini,en,59,1,55,56,False
+gpt-mini,th,59,2,48,50,False
+gemini-flash,en,59,0,56,56,False
+gemini-flash,th,59,3,53,56,False
+qwen25-coder-7b,en,59,1,38,39,True
+qwen25-coder-7b,th,59,0,25,25,True
+llama31-8b,en,59,2,32,34,True
+llama31-8b,th,59,0,23,23,True
+typhoon2-8b,en,59,3,21,22,True
+typhoon2-8b,th,59,0,17,17,True

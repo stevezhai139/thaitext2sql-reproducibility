@@ -1,0 +1,32 @@
+# cell-by-cell diff: ref=k3 new=k3n (mode: rule None->NULL)
+settings k3: UTF8|C|C|c|
+settings k3n: UTF8|C|C|c|
+tables k3: party,president,presidentholding,presidentmarriage,ecommerce,ecommerce1m
+tables k3n: party,president,presidentholding,presidentmarriage,ecommerce,ecommerce1m
+party: rows k3=9 k3n=9
+president: rows k3=45 k3n=45
+presidentholding: rows k3=49 k3n=49
+presidentmarriage: rows k3=49 k3n=49
+ecommerce: rows k3=2390 k3n=2390
+ecommerce1m: rows k3=1000000 k3n=1000000 (compared by rows + rowhash_md5)
+
+cells that differ: 6
+'None' text cells in k3: 6; 'None' text cells left in k3n: 0
+other null-like text values in k3 (not touched by the rule): 0
+physical order of the cell-compared tables (the positional compare above already requires the same row order):
+  party: ctid sequence identical = True
+  president: ctid sequence identical = True
+  presidentholding: ctid sequence identical = True
+  presidentmarriage: ctid sequence identical = True
+  ecommerce: ctid sequence identical = True
+INFO ecommerce1m: ctid sequence identical = True (not a criterion; ecommerce1m is compared by rows + rowhash_md5, its physical order may differ)
+
+table	row_ordinal	csv_line	ctid_k3	ctid_k3n	row_id	column	type	k3_value	k3n_value	csv_field	explained_by_rule
+presidentholding	1		(0,1)	(0,1)	'George Washington' | '1789'	runnerup	text	'None'	NULL		yes
+presidentholding	10		(0,10)	(0,10)	'John Tyler' | '1841'	vicepresidentname	text	'None'	NULL		yes
+presidentholding	13		(0,13)	(0,13)	'Millard Fillmore' | '1850'	vicepresidentname	text	'None'	NULL		yes
+presidentholding	18		(0,18)	(0,18)	'Andrew Johnson' | '1865'	vicepresidentname	text	'None'	NULL		yes
+presidentholding	22		(0,22)	(0,22)	'Chester A Arthur' | '1881'	vicepresidentname	text	'None'	NULL		yes
+presidentmarriage	16		(0,16)	(0,16)	'James Buchanan'	spousename	text	'None'	NULL		yes
+
+RESULT: PASS

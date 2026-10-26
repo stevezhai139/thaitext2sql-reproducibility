@@ -1,0 +1,21 @@
+\begin{table}[t]
+\caption{Item-level accuracy (majority of 5 runs): correct items $n$
+out of 60 per language. Brackets: Wilson 95\% CI (\%). Engine of
+record: PostgreSQL.}
+\label{tab:headline}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{English} & \multicolumn{2}{c}{Thai} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Model & $n$ & \% [CI] & $n$ & \% [CI] \\
+\midrule
+claude-sonnet-5 & 56 & 93.3 [84,97] & 50 & 83.3 [72,91] \\
+gpt-5.4-mini & 51 & 85.0 [74,92] & 45 & 75.0 [63,84] \\
+gemini-3.6-flash & 51 & 85.0 [74,92] & 45 & 75.0 [63,84] \\
+qwen2.5-coder 7B & 36 & 60.0 [47,71] & 24 & 40.0 [29,53] \\
+llama3.1 8B & 30 & 50.0 [38,62] & 22 & 36.7 [26,49] \\
+typhoon2 8B (Thai) & 18 & 30.0 [20,42] & 15 & 25.0 [16,37] \\
+\bottomrule
+\end{tabular}
+\end{table}

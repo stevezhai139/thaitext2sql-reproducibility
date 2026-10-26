@@ -1,0 +1,22 @@
+\begin{table}[t]
+\caption{Stored-values condition (preregistered, Amendment 7): DDL-only
+prompt $\to$ DDL plus the stored values of every text column, asked
+concurrently. Thai correct items on the 9 value-grounding items whose
+target value the list shows (/9) and on the other items (/51); Thai grounding failures (a Thai word copied into, or an English value
+invented for, a filter; item majority) on the first set; EN$-$TH gap in
+items (/60). Pooled frontier row: share of the gap remaining with
+item-bootstrap 95\% CI.}
+\label{tab:valuehints}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lcccc}
+\toprule
+Model & TH VG & TH other & Ground.\ fail & Gap \\
+\midrule
+claude-sonnet-5 & 7$\to$9 & 48$\to$46 & 2$\to$0 & +3$\to$+4 \\
+gpt-5.4-mini & 5$\to$9 & 46$\to$47 & 3$\to$0 & +6$\to$+0 \\
+gemini-3.6-flash & 8$\to$9 & 49$\to$50 & 1$\to$0 & +0$\to$+0 \\
+\midrule
+Frontier pooled (3) & 20$\to$27 & 143$\to$143 & 6$\to$0 & +9$\to$+4; share 0.44 [-0.30, 2.00] \\
+\bottomrule
+\end{tabular}
+\end{table}

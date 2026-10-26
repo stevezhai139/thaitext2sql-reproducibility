@@ -1,0 +1,32 @@
+{
+  "gpt-mini": {
+    "provider": "openai",
+    "model": "gpt-5.4-mini-2026-03-17",
+    "sleep": 0.5
+  },
+  "gemini-flash": {
+    "provider": "google",
+    "model": "gemini-3.6-flash",
+    "sleep": 2
+  },
+  "claude-sonnet": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-5",
+    "sleep": 1.2
+  },
+  "llama31-8b": {
+    "provider": "ollama",
+    "model": "llama3.1:8b",
+    "sleep": 0
+  },
+  "qwen25-coder-7b": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:7b",
+    "sleep": 0
+  },
+  "typhoon2-8b": {
+    "provider": "ollama",
+    "model": "typhoon2-8b",
+    "sleep": 0
+  }
+}

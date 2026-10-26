@@ -1,0 +1,21 @@
+id	column	kind	before	after	computed	status
+X37	gold_shape_k3n	assert	15 rows (stale workbook column, renaming gold)	11x2	11x2	ok
+X37	vg_literals	assert	eight VP name variants (renaming gold)	[]	[]	ok
+X13	vg_literals	assert	'None' sentinel	[]	[]	ok
+X14	vg_literals	assert	'None' sentinel	[]	[]	ok
+X26	vg_literals	assert	'Widowed'; 'None'	"[""Widowed""]"	"[""Widowed""]"	ok
+X26	gold_shape_k3n	assert	1 row	1x1	1x1	ok
+X26	notes	note	gate text: COUNT(*) = 18 on k3	k3n: COUNT(*) without DISTINCT returns 19 (gold COUNT(DISTINCT RunnerUp) = 16)	k3n: COUNT(*) without DISTINCT returns 19 (gold COUNT(DISTINCT RunnerUp) = 16)	note added
+X34	notes	note	gate G8 without the 1841 tie	reversing the tie-break on YearEnd changes two rows on k3n (1841 W. H. Harrison / Tyler and 1865-1869 Lincoln / Grant)	reversing the tie-break on YearEnd changes two rows on k3n (1841 W. H. Harrison / Tyler and 1865-1869 Lincoln / Grant)	note added
+X34	order_en	assert	unset	no	no	ok
+X34	order_th	assert	unset	no	no	ok
+X36	order_en	assert	unset	no	no	ok
+X36	order_th	assert	unset	no	no	ok
+F7C-6	col_roles	assert	none (G1 grades the swapped pair correct)	<directional>	0,1	ok
+X34	col_roles	assert	none (G1 grades the swapped pair correct)	<directional>	2,3	ok
+X37	col_roles	assert	none (G1 grades the swapped pair correct)	<directional>	0,1	ok
+PK1	mi_instances	assert	3 instances built from k3	<manifest:5>	"[""k3n"", ""k3_pk_n_named"", ""k3_pk_n_dup"", ""k3_pk_n_pnull"", ""k3_pk_n_spdup""]"	ok
+FK1	mi_instances	assert	instances built from k3	<manifest:3>	"[""k3n"", ""k3_fk_i_null"", ""k3_fk_i_orphan""]"	ok
+FK2	mi_instances	assert	single instance	<manifest:2>	"[""k3n"", ""k3_fk_i_null""]"	ok
+FK1	v13_status	assert	excluded when gold is empty on the run DB (core rule)	primary	primary	ok
+FK1	gold_shape_k3n	assert	1 row x 3 (old format)	0x2	0x2	ok

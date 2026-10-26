@@ -1,0 +1,85 @@
+app	form	lang	qid	vg	correct	exec_ok	n_rows	fail_reason	exec_class	sql_present	vg_code	gf	clean	lit_elsewhere	extract_rule	attempt	class_extracted
+chatgpt	A	th	Q01	yes	Y	Y	8		correct	Y	CORRECT	N	Y	N	runner	1	
+chatgpt	A	th	Q07	yes	Y	Y	18		correct	Y	CORRECT	N	Y	N	runner	1	
+chatgpt	A	th	Q09	yes	Y	Y	187		correct	Y	CORRECT	N	Y	N	runner	1	
+chatgpt	A	th	Q13	yes	Y	Y	155		correct	Y	CORRECT	N	Y	N	runner	1	
+chatgpt	A	th	Q14	yes	N	Y	0	wrong-result	silent-empty	Y	INVENTED	Y	N	N	runner	1	INVENTED
+chatgpt	A	th	Q15	yes	Y	Y	76		correct	Y	CORRECT	N	Y	N	runner	1	
+chatgpt	A	th	Q21	yes	Y	Y	7		correct	Y	CORRECT	N	Y	N	runner	2	
+chatgpt	A	th	Q30	yes	Y	Y	2		correct	Y	CORRECT	N	Y	N	runner	1	
+chatgpt	A	th	Q42	yes	N	N		"exec-error: syntax error at or near ""\"""	loud	Y	INVENTED	Y	N	N	runner	1	INVENTED
+chatgpt	A	th	Q48	yes	N	Y	1	wrong-result	silent-non-empty	Y	NO_PRED	N	N	N	runner	1	NO_PRED
+chatgpt	B	th	Q01	yes	Y	Y	8		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+chatgpt	B	th	Q02	no	Y	Y	21		correct	Y	NA				prose-first-stmt	1	
+chatgpt	B	th	Q07	yes	Y	Y	18		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+chatgpt	B	th	Q09	yes	Y	Y	187		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+chatgpt	B	th	Q13	yes	Y	Y	155		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+chatgpt	B	th	Q14	yes	N	Y	0	wrong-result	silent-empty	Y	INVENTED	Y	N	N	first-block-first-stmt	1	INVENTED
+chatgpt	B	th	Q15	yes	Y	Y	76		correct	Y	CORRECT	N	Y	N	prose-first-stmt	1	
+chatgpt	B	th	Q18	no	Y	Y	4		correct	Y	NA				first-block-first-stmt	1	
+chatgpt	B	th	Q21	yes	Y	Y	7		correct	Y	CORRECT	N	Y	N	prose-first-stmt	1	
+chatgpt	B	th	Q25	no	Y	Y	2		correct	Y	NA				first-block-first-stmt	1	
+chatgpt	B	th	Q30	yes	Y	Y	2		correct	Y	CORRECT	N	Y	N	prose-first-stmt	1	
+chatgpt	B	th	Q35	no	Y	Y	45		correct	Y	NA				prose-first-stmt	1	
+chatgpt	B	th	Q41	no	Y	Y	8		correct	Y	NA				prose-first-stmt	1	
+chatgpt	B	th	Q42	yes	Y	Y	15		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+chatgpt	B	th	Q43	no	Y	Y	5		correct	Y	NA				prose-first-stmt	1	
+chatgpt	B	th	Q48	yes	Y	Y	29		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+chatgpt	B	th	Q50	no	Y	Y	3		correct	Y	NA				first-block-first-stmt	1	
+chatgpt	B	th	Q55	no	Y	Y	30		correct	Y	NA				prose-first-stmt	1	
+gemini	A	th	Q01	yes	Y	Y	8		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q07	yes	Y	Y	18		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q09	yes	Y	Y	187		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q13	yes	Y	Y	155		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q14	yes	N	Y	0	wrong-result	silent-empty	Y	INVENTED	Y	N	N	runner	1	INVENTED
+gemini	A	th	Q15	yes	N	Y	0	wrong-result	silent-empty	Y	INVENTED	Y	N	N	runner	1	INVENTED
+gemini	A	th	Q21	yes	Y	Y	7		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q30	yes	Y	Y	2		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q42	yes	Y	Y	15		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	A	th	Q48	yes	Y	Y	29		correct	Y	CORRECT	N	Y	N	runner	1	
+gemini	B	th	Q01	yes	Y	Y	8		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q02	no	Y	Y	21		correct	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q07	yes	Y	Y	18		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q09	yes	Y	Y	187		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q13	yes	Y	Y	155		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q14	yes	Y	Y	126		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q15	yes	N	Y	0	wrong-result	silent-empty	Y	INVENTED	Y	N	Y	first-block-first-stmt	1	INVENTED
+gemini	B	th	Q18	no	Y	Y	4		correct	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q21	yes	Y	Y	7		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q25	no	Y	Y	2		correct	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q30	yes	Y	Y	2		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q35	no	Y	Y	45		correct	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q41	no	N	Y	8	wrong-result	silent-non-empty	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q42	yes	N	Y	15	wrong-result	silent-non-empty	Y	GROUNDED	N	Y	N	first-block-first-stmt	1	GROUNDED
+gemini	B	th	Q43	no	Y	Y	5		correct	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q48	yes	Y	Y	29		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+gemini	B	th	Q50	no	Y	Y	3		correct	Y	NA				first-block-first-stmt	1	
+gemini	B	th	Q55	no	Y	Y	30		correct	Y	NA				first-block-first-stmt	1	
+claude	A	th	Q01	yes	Y	Y	8		correct	Y	CORRECT	N	Y	N	runner	1	
+claude	A	th	Q07	yes	N	Y	0	wrong-result	silent-empty	Y	THAI_COPY	Y	N	N	runner	1	THAI_COPY
+claude	A	th	Q09	yes	Y	Y	187		correct	Y	CORRECT	N	Y	N	runner	1	
+claude	A	th	Q13	yes	Y	Y	155		correct	Y	CORRECT	N	Y	N	runner	1	
+claude	A	th	Q14	yes	N	Y	0	wrong-result	silent-empty	Y	NO_PRED	N	N	N	runner	1	NO_PRED
+claude	A	th	Q15	yes	N	Y	0	wrong-result	silent-empty	Y	INVENTED	Y	N	N	runner	1	INVENTED
+claude	A	th	Q21	yes	Y	Y	7		correct	Y	CORRECT	N	Y	N	runner	1	
+claude	A	th	Q30	yes	Y	Y	2		correct	Y	CORRECT	N	Y	N	runner	1	
+claude	A	th	Q42	yes	N	Y	15	wrong-result	silent-non-empty	Y	NO_PRED	N	N	N	runner	1	NO_PRED
+claude	A	th	Q48	yes	Y	Y	29		correct	Y	CORRECT	N	Y	N	runner	1	
+claude	B	th	Q01	yes	Y	Y	8		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q02	no	Y	Y	21		correct	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q07	yes	Y	Y	18		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q09	yes	Y	Y	187		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q13	yes	Y	Y	155		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q14	yes	N	Y	0	wrong-result	silent-empty	Y	NO_PRED	N	N	N	first-block-first-stmt	1	NO_PRED
+claude	B	th	Q15	yes	Y	Y	76		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q18	no	Y	Y	4		correct	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q21	yes	Y	Y	7		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q25	no	Y	Y	2		correct	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q30	yes	Y	Y	2		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q35	no	Y	Y	45		correct	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q41	no	Y	Y	8		correct	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q42	yes	N	Y	3	wrong-result	silent-non-empty	Y	NO_PRED	N	N	N	first-block-first-stmt	1	NO_PRED
+claude	B	th	Q43	no	Y	Y	5		correct	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q48	yes	Y	Y	29		correct	Y	CORRECT	N	Y	N	first-block-first-stmt	1	
+claude	B	th	Q50	no	N	Y	3	wrong-result	silent-non-empty	Y	NA				first-block-first-stmt	1	
+claude	B	th	Q55	no	Y	Y	30		correct	Y	NA				first-block-first-stmt	1	

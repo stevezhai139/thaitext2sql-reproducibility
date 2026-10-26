@@ -1,0 +1,8 @@
+model,gap_base_all,gap_base_vg_cov,gap_base_rest,gap_values_all,gap_values_vg_cov,gap_values_rest,exploratory,sum_gap_base,sum_gap_values,share_remaining,ci_lo,ci_hi,n_boot,n_resample_den_le0,h2_band
+claude-sonnet,3,2,1,4,0,4,False,,,,,,,,
+gpt-mini,6,4,2,0,0,0,False,,,,,,,,
+gemini-flash,0,1,-1,0,0,0,False,,,,,,,,
+qwen25-coder-7b,14,4,10,9,0,9,True,,,,,,,,
+llama31-8b,12,2,10,11,2,9,True,,,,,,,,
+typhoon2-8b,5,1,4,8,1,7,True,,,,,,,,
+frontier_pooled,,,,,,,,9,4,0.4444,-0.3000,2.0000,10000,22,G-a

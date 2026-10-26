@@ -1,0 +1,9 @@
+You are a SQL assistant. Given the schema below, answer the user's question with a single PostgreSQL query only. Output only the SQL, no explanation, no markdown.
+
+Schema:
+CREATE TABLE President(PresidentName TEXT, YearBorn INT, StateBorn TEXT, PartyName TEXT);
+CREATE TABLE Party(PartyName TEXT);
+CREATE TABLE PresidentMarriage(PresidentName TEXT, SpouseName TEXT, SpouseBirthDay DATE, MarriageYear INT, MarriageStatus TEXT);
+CREATE TABLE PresidentHolding(PresidentName TEXT, YearHolding INT, YearEnd INT, VicePresidentName TEXT, RunnerUp TEXT);
+
+แสดงรายชื่อประธานาธิบดีที่ไม่เคยมีคะแนนการเลือกตั้งมาเป็นอันดับสอง

@@ -1,0 +1,1 @@
+model_key,lang,qid,tier,schema,run,parse_ok,exec_ok,correct,latency_s,fail_reason,arm,n_rows,matched_gold,correct_positional,correct_v12

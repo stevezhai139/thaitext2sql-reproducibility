@@ -1,0 +1,13 @@
+model,arm,subset,n_items,th_wrong_in_subset,gf,th_wrong_all,exploratory
+claude-sonnet,base,vg_cov,9,1,1,6,False
+claude-sonnet,base,vg_set,9,1,1,6,False
+gpt-mini,base,vg_cov,9,4,3,11,False
+gpt-mini,base,vg_set,9,4,3,11,False
+gemini-flash,base,vg_cov,9,4,4,6,False
+gemini-flash,base,vg_set,9,4,4,6,False
+qwen25-coder-7b,base,vg_cov,9,6,4,34,True
+qwen25-coder-7b,base,vg_set,9,6,4,34,True
+llama31-8b,base,vg_cov,9,5,2,36,True
+llama31-8b,base,vg_set,9,5,2,36,True
+typhoon2-8b,base,vg_cov,9,4,4,42,True
+typhoon2-8b,base,vg_set,9,4,4,42,True

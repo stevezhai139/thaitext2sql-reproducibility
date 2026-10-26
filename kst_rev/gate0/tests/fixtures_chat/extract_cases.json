@@ -1,0 +1,670 @@
+{
+ "_about": "TEST-ONLY frozen SQL extraction table of the chat check (design 5.5 CH-T5; OQ33.1-33.3 and the DEFAULT switch EXTRACT_DETAILS of make_chat_cells.py at its defaults: fences commonmark, prose_case upper-or-lower; A8-07 text). A = runner.extract_sql [sql, parse_ok, sql_present]; A_tags = pre-declared Form A tag sensitivity [sql, parse_ok, sql_present]; B = Form B rule [sql, parse_ok, extract_rule]. A runner exception is a declared parse failure with sql = the stripped reply. sql_present (the NO_SQL test of OQ33.3) is one rule for both forms: a line of the extracted text starts with SELECT, or WITH name AS (, in any letter case. Form B: a backtick run with another backtick later on its line opens an inline code span, not a fence (CommonMark); the rest of the opening line is the info string, whose first word is the tag. Expected values were written from the rules, not produced by the extractor; revised 14 Oct 2026 (one NO_SQL test, info string, inline span).",
+ "cases": [
+  {
+   "name": "fence_sql",
+   "raw": "```sql\nSELECT PresidentName FROM President;\n```",
+   "A": [
+    "SELECT PresidentName FROM President",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT PresidentName FROM President",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT PresidentName FROM President",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "fence_SQL_upper",
+   "raw": "```SQL\nSELECT 1\n```",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "fence_postgresql",
+   "raw": "```postgresql\nSELECT 1;\n```",
+   "A": [
+    "postgresql\nSELECT 1",
+    false,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "fence_pgsql",
+   "raw": "```pgsql\nSELECT 1\n```",
+   "A": [
+    "pgsql\nSELECT 1",
+    false,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "fence_space_sql",
+   "raw": "``` sql\nSELECT 1\n```",
+   "A": [
+    "sql\nSELECT 1",
+    false,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "no_fence_sql",
+   "raw": "SELECT PresidentName\nFROM President\nWHERE PartyName = 'Whig';",
+   "A": [
+    "SELECT PresidentName\nFROM President\nWHERE PartyName = 'Whig'",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT PresidentName\nFROM President\nWHERE PartyName = 'Whig'",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT PresidentName\nFROM President\nWHERE PartyName = 'Whig'",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "prose_then_fence",
+   "raw": "นี่คือคำสั่งที่ต้องการ:\n\n```sql\nSELECT 1;\n```\n\nคำอธิบาย: คำสั่งนี้คืนค่า 1",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "two_statements_one_block",
+   "raw": "```sql\nSELECT 1;\nSELECT 2;\n```",
+   "A": [
+    "SELECT 1;\nSELECT 2",
+    false,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1;\nSELECT 2",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "two_blocks",
+   "raw": "```sql\nSELECT 1;\n```\nหรือใช้\n```sql\nSELECT 2;\n```",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "cte_blank_lines_no_fence",
+   "raw": "WITH t AS (\n  SELECT 1 AS x\n),\n\nu AS (\n  SELECT 2 AS y\n)\n\nSELECT * FROM t, u;",
+   "A": [
+    "WITH t AS (\n  SELECT 1 AS x\n),\n\nu AS (\n  SELECT 2 AS y\n)\n\nSELECT * FROM t, u",
+    true,
+    true
+   ],
+   "A_tags": [
+    "WITH t AS (\n  SELECT 1 AS x\n),\n\nu AS (\n  SELECT 2 AS y\n)\n\nSELECT * FROM t, u",
+    true,
+    true
+   ],
+   "B": [
+    "WITH t AS (\n  SELECT 1 AS x\n),\n\nu AS (\n  SELECT 2 AS y\n)\n\nSELECT * FROM t, u",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "thai_prose_with_midline",
+   "raw": "ใช้ JOIN with ตาราง President ได้ดังนี้\nSELECT a FROM t",
+   "A": [
+    "ใช้ JOIN with ตาราง President ได้ดังนี้\nSELECT a FROM t",
+    false,
+    true
+   ],
+   "A_tags": [
+    "ใช้ JOIN with ตาราง President ได้ดังนี้\nSELECT a FROM t",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT a FROM t",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "english_prose_with_line_start",
+   "raw": "With this query you get the answer:\nSELECT a FROM t;",
+   "A": [
+    "With this query you get the answer:\nSELECT a FROM t",
+    true,
+    true
+   ],
+   "A_tags": [
+    "With this query you get the answer:\nSELECT a FROM t",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT a FROM t",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "ask_back",
+   "raw": "ขอทราบก่อนว่าคำว่า 'หม้าย' หมายถึงค่าใดในคอลัมน์ MarriageStatus ครับ",
+   "A": [
+    "ขอทราบก่อนว่าคำว่า 'หม้าย' หมายถึงค่าใดในคอลัมน์ MarriageStatus ครับ",
+    false,
+    false
+   ],
+   "A_tags": [
+    "ขอทราบก่อนว่าคำว่า 'หม้าย' หมายถึงค่าใดในคอลัมน์ MarriageStatus ครับ",
+    false,
+    false
+   ],
+   "B": [
+    "",
+    false,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "fence_no_tag",
+   "raw": "```\nSELECT 1\n```",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "leading_comment_in_block",
+   "raw": "```sql\n-- หาชื่อประธานาธิบดี\nSELECT 1;\n```",
+   "A": [
+    "-- หาชื่อประธานาธิบดี\nSELECT 1",
+    false,
+    true
+   ],
+   "A_tags": [
+    "-- หาชื่อประธานาธิบดี\nSELECT 1",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "semicolon_in_string",
+   "raw": "```sql\nSELECT 'a;b' AS x;\nSELECT 2;\n```",
+   "A": [
+    "SELECT 'a;b' AS x;\nSELECT 2",
+    false,
+    true
+   ],
+   "A_tags": [
+    "SELECT 'a;b' AS x;\nSELECT 2",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 'a;b' AS x",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "unclosed_fence",
+   "raw": "```sql\nSELECT 1",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "inline_backtick_only",
+   "raw": "ใช้คำสั่ง `SELECT 1` ได้เลย",
+   "A": [
+    "ใช้คำสั่ง `SELECT 1` ได้เลย",
+    false,
+    false
+   ],
+   "A_tags": [
+    "ใช้คำสั่ง `SELECT 1` ได้เลย",
+    false,
+    false
+   ],
+   "B": [
+    "",
+    false,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "no_fence_unterminated_then_prose",
+   "raw": "SELECT a FROM t\n\nคำอธิบาย: คำสั่งนี้เลือกคอลัมน์ a",
+   "A": [
+    "SELECT a FROM t\n\nคำอธิบาย: คำสั่งนี้เลือกคอลัมน์ a",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT a FROM t\n\nคำอธิบาย: คำสั่งนี้เลือกคอลัมน์ a",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT a FROM t\n\nคำอธิบาย: คำสั่งนี้เลือกคอลัมน์ a",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "one_line_fence",
+   "raw": "```sql SELECT PresidentName FROM President;```",
+   "A": [
+    "```sql SELECT PresidentName FROM President;```",
+    false,
+    false
+   ],
+   "A_tags": [
+    "```sql SELECT PresidentName FROM President;```",
+    false,
+    false
+   ],
+   "B": [
+    "",
+    false,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "empty_sql_fence",
+   "raw": "ตอบ:```sql```",
+   "A": [
+    "ตอบ:```sql```",
+    false,
+    false
+   ],
+   "A_tags": [
+    "ตอบ:```sql```",
+    false,
+    false
+   ],
+   "B": [
+    "",
+    false,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "english_select_prose",
+   "raw": "Select the rows where the status is widowed:\nSELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed';",
+   "A": [
+    "Select the rows where the status is widowed:\nSELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed'",
+    true,
+    true
+   ],
+   "A_tags": [
+    "Select the rows where the status is widowed:\nSELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed'",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT PresidentName FROM PresidentMarriage WHERE MarriageStatus = 'Widowed'",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "lowercase_select_no_fence",
+   "raw": "select PresidentName from President;",
+   "A": [
+    "select PresidentName from President",
+    true,
+    true
+   ],
+   "A_tags": [
+    "select PresidentName from President",
+    true,
+    true
+   ],
+   "B": [
+    "select PresidentName from President",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "four_backtick_fence",
+   "raw": "````sql\nSELECT PresidentName FROM President;\n````",
+   "A": [
+    "`sql\nSELECT PresidentName FROM President",
+    false,
+    true
+   ],
+   "A_tags": [
+    "`sql\nSELECT PresidentName FROM President",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT PresidentName FROM President",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "tilde_fence",
+   "raw": "~~~sql\nSELECT PresidentName FROM President;\n~~~",
+   "A": [
+    "~~~sql\nSELECT PresidentName FROM President;\n~~~",
+    false,
+    true
+   ],
+   "A_tags": [
+    "~~~sql\nSELECT PresidentName FROM President;\n~~~",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT PresidentName FROM President",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "first_block_is_output_table",
+   "raw": "ผลลัพธ์ตัวอย่าง:\n```\n| name |\n|---|\n```\n\n```sql\nSELECT 1;\n```",
+   "A": [
+    "| name |\n|---|",
+    false,
+    false
+   ],
+   "A_tags": [
+    "| name |\n|---|",
+    false,
+    false
+   ],
+   "B": [
+    "| name |\n|---|",
+    false,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "multiword_info_string",
+   "raw": "```sql title=\"q.sql\"\nSELECT 1;\n```",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "tag_then_code_on_opening_line",
+   "raw": "```sql SELECT 1\nFROM t;\n```",
+   "A": [
+    "FROM t",
+    false,
+    false
+   ],
+   "A_tags": [
+    "FROM t",
+    false,
+    false
+   ],
+   "B": [
+    "SELECT 1\nFROM t",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "select_as_info_string",
+   "raw": "```SELECT 1;\n```",
+   "A": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "A_tags": [
+    "SELECT 1",
+    true,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "label_line_no_fence",
+   "raw": "Query\nSELECT 1;",
+   "A": [
+    "Query\nSELECT 1",
+    false,
+    true
+   ],
+   "A_tags": [
+    "Query\nSELECT 1",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "label_colon_line_no_fence",
+   "raw": "Query:\nSELECT 1;",
+   "A": [
+    "Query:\nSELECT 1",
+    false,
+    true
+   ],
+   "A_tags": [
+    "Query:\nSELECT 1",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "inline_span_then_fence",
+   "raw": "ใช้ ```sql SELECT 0;``` หรือ\n```sql\nSELECT 1;\n```",
+   "A": [
+    "ใช้ ```sql SELECT 0;``` หรือ\n```sql\nSELECT 1;\n```",
+    false,
+    true
+   ],
+   "A_tags": [
+    "ใช้ ```sql SELECT 0;``` หรือ\n```sql\nSELECT 1;\n```",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 1",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "code_block_sentence_case",
+   "raw": "```sql\nSelect PresidentName From President;\n```",
+   "A": [
+    "Select PresidentName From President",
+    true,
+    true
+   ],
+   "A_tags": [
+    "Select PresidentName From President",
+    true,
+    true
+   ],
+   "B": [
+    "Select PresidentName From President",
+    true,
+    "first-block-first-stmt"
+   ]
+  },
+  {
+   "name": "english_select_prose_only",
+   "raw": "Select the status you mean first, please.",
+   "A": [
+    "Select the status you mean first, please.",
+    true,
+    true
+   ],
+   "A_tags": [
+    "Select the status you mean first, please.",
+    true,
+    true
+   ],
+   "B": [
+    "",
+    false,
+    "prose-first-stmt"
+   ]
+  },
+  {
+   "name": "e_string_backslash_quote",
+   "raw": "```sql\nSELECT 'a' FROM t WHERE x = E'it\\'s;';\nSELECT 2;\n```",
+   "A": [
+    "SELECT 'a' FROM t WHERE x = E'it\\'s;';\nSELECT 2",
+    false,
+    true
+   ],
+   "A_tags": [
+    "SELECT 'a' FROM t WHERE x = E'it\\'s;';\nSELECT 2",
+    false,
+    true
+   ],
+   "B": [
+    "SELECT 'a' FROM t WHERE x = E'it\\'s;'",
+    true,
+    "first-block-first-stmt"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+model,lang,placebo_items,flips,h3_pass,exploratory
+claude-sonnet,en,50,3,False,False
+claude-sonnet,th,50,4,False,False
+gpt-mini,en,50,1,True,False
+gpt-mini,th,50,4,False,False
+gemini-flash,en,50,2,True,False
+gemini-flash,th,50,1,True,False
+qwen25-coder-7b,en,50,4,False,True
+qwen25-coder-7b,th,50,3,False,True
+llama31-8b,en,50,11,False,True
+llama31-8b,th,50,8,False,True
+typhoon2-8b,en,50,6,False,True
+typhoon2-8b,th,50,3,False,True

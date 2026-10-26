@@ -1,0 +1,13 @@
+model,group,n_items,acc_th
+claude-sonnet,value_translated,10,1.000
+claude-sonnet,value_kept_or_none,50,0.900
+gemini-flash,value_translated,10,1.000
+gemini-flash,value_kept_or_none,50,0.980
+gpt-mini,value_translated,10,1.000
+gpt-mini,value_kept_or_none,50,0.920
+llama31-8b,value_translated,10,0.500
+llama31-8b,value_kept_or_none,50,0.400
+qwen25-coder-7b,value_translated,10,0.800
+qwen25-coder-7b,value_kept_or_none,50,0.500
+typhoon2-8b,value_translated,10,0.600
+typhoon2-8b,value_kept_or_none,50,0.220

@@ -1,0 +1,34 @@
+mode rc1; items 60; VG10 ['Q01', 'Q07', 'Q09', 'Q13', 'Q14', 'Q15', 'Q21', 'Q30', 'Q42', 'Q48']; VG set ['Q01', 'Q07', 'Q09', 'Q13', 'Q14', 'Q15', 'Q21', 'Q30', 'Q42']
+VG_cov (hint-covered) ['Q01', 'Q07', 'Q09', 'Q13', 'Q14', 'Q15', 'Q21', 'Q30', 'Q42']; PLACEBO 50 items; hints sha256 2ea5efb41318...; source_db k3n; Q48 vocabulary rule keep
+VG_cov equals the frozen list
+models ['claude-sonnet', 'gpt-mini', 'gemini-flash', 'qwen25-coder-7b', 'llama31-8b', 'typhoon2-8b']; frontier for H1-H4 ['claude-sonnet', 'gpt-mini', 'gemini-flash']
+--graded-ror: graded_v13n.csv (sha256 30d29a826b57..., arms in file: base); another session than --graded (59 of 59 shared items differ (first ['Q01', 'Q02', 'Q03']))
+[D11] drift on the 59 items shared by the two sessions (Q27 repaired for October only, left out)
+A7-39 (OQ6): Q48 runs whose SQL uses the literal 'None' (gold literal not stored on k3n): 0 of 120 runs (every analysed model, arm and language, any grade); compared with runnerup: 0; by arm|language base|en=0, base|th=0, values|en=0, values|th=0
+OQ6 diagnostic: no failing TH run is INVENTED only because of a non-stored gold literal
+
+B2 counts (TH, VG set; per model a of N, g of N, contrast):
+  claude-sonnet    base   a=2 of N=5; g=2 of N=5; contrast=2
+  gpt-mini         base   a=4 of N=9; g=3 of N=9; contrast=4
+  gemini-flash     base   a=1 of N=3; g=1 of N=3; contrast=1
+  qwen25-coder-7b  base   a=6 of N=35; g=4 of N=35; contrast=4
+  llama31-8b       base   a=5 of N=37; g=2 of N=37; contrast=3
+  typhoon2-8b      base   a=4 of N=43; g=4 of N=43; contrast=2
+  frontier_total   base   a=7 of N=17; g=6 of N=17; contrast=7
+  claude-sonnet    values a=0 of N=5; g=0 of N=5; contrast=0
+  gpt-mini         values a=0 of N=4; g=0 of N=4; contrast=0
+  gemini-flash     values a=0 of N=1; g=0 of N=1; contrast=0
+  qwen25-coder-7b  values a=2 of N=27; g=0 of N=27; contrast=1
+  llama31-8b       values a=4 of N=35; g=0 of N=35; contrast=2
+  typhoon2-8b      values a=3 of N=43; g=0 of N=43; contrast=2
+  frontier_total   values a=0 of N=10; g=0 of N=10; contrast=0
+
+drift (items whose base-arm majority differs from the August log on k3n): claude-sonnet en 1/59, claude-sonnet th 3/59, gpt-mini en 1/59, gpt-mini th 2/59, gemini-flash en 0/59, gemini-flash th 3/59, qwen25-coder-7b en 1/59, qwen25-coder-7b th 0/59, llama31-8b en 2/59, llama31-8b th 0/59, typhoon2-8b en 3/59, typhoon2-8b th 0/59
+
+audit rows (failing TH runs on VG items, scope all): 156
+
+H1 frontier pooled TH GF on VG_cov: B=6 V=0 (max 27) -> band S1 (all)
+H2 pooled gap B=+9 V=+4; share remaining 0.44 [bootstrap 95%: -0.30, 2.00]; resamples with sum Gap_B <= 0: 22 -> band G-a
+H3 placebo flips per frontier model x language (<= 2): claude-sonnet|en=3, claude-sonnet|th=4, gpt-mini|en=1, gpt-mini|th=4, gemini-flash|en=2, gemini-flash|th=1 -> M2 active (failing ['claude-sonnet', 'gpt-mini'])
+H4 exact McNemar V vs B (TH), Holm over the frontier: claude-sonnet b=3 c=3 p=1.0000 holm=1.0000, gpt-mini b=2 c=7 p=0.1797 holm=0.5391, gemini-flash b=0 c=2 p=0.5000 holm=1.0000 -> no M1
+abstract H2 clause (OQ18.1 answered by the author on 14 Oct 2026: option (b) = 'all_but_Gd'; rule all_but_Gd): True

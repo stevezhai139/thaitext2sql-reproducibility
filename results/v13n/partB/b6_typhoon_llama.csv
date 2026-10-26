@@ -1,0 +1,5 @@
+model,lang,wrong_runs,loud,silent_empty,silent_nonempty,loud_bad_column,loud_bad_function,loud_schema_shaped,loud_bad_operator_apart,vg_items_wrong,vg_items,exploratory
+typhoon2-8b,en,190,100,15,75,45,25,70,5,5,10,yes
+typhoon2-8b,th,210,110,30,70,35,20,55,5,5,10,yes
+llama31-8b,en,135,54,15,66,20,10,30,5,4,10,yes
+llama31-8b,th,180,85,30,65,25,20,45,5,6,10,yes

@@ -1,0 +1,3 @@
+step data (k3_v12 -> k3n_v12): runs compared 3600 (only in k3_v12 0, only in k3n_v12 0); runs w->c 0, c->w 10; majority cells on primary items w->c 0, c->w 2
+step key (k3n_v12 -> k3n_v13n): runs compared 3540 (only in k3n_v12 60, only in k3n_v13n 0); runs w->c 225, c->w 3; majority cells on primary items w->c 46, c->w 0
+excluded items (from the suite; not in the item-level counts): ['Q27']

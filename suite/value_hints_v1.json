@@ -1,0 +1,858 @@
+{
+ "version": "v1",
+ "source_db": "k3n",
+ "cap": 25,
+ "examples": 3,
+ "block_sha256": {
+  "P": "32e422929b84fa12ed45d0752e45f25c8ebaa2ae077adb17d95e8f2e7fb61713",
+  "E": "5a9fb96ffd03bf08cb723f5f4f1f87161aaf642f83faf015bab6852f3255987c"
+ },
+ "schemas": {
+  "P": {
+   "block": "Stored values of the text columns (SELECT DISTINCT; a column with more than 25 distinct values shows 3 examples):\nPresident.PresidentName: 45 distinct values, e.g. 'Abraham Lincoln', 'Andrew Jackson', 'Andrew Johnson'\nPresident.StateBorn: 'Arkansas', 'California', 'Connecticut', 'Georgia', 'Hawaii', 'Illinois', 'Iowa', 'Kentucky', 'Massachusetts', 'Missouri', 'Nebraska', 'New Hampshire', 'New Jersey', 'New York', 'North Carolina', 'Ohio', 'Pennsylvania', 'South Carolina', 'Texas', 'Vermont', 'Virginia'\nPresident.PartyName: 'Democratic', 'Democratic-Republican', 'Federalist', 'Independent', 'National Union', 'Republican', 'Whig'\nParty.PartyName: 'Democratic', 'Democratic-Republican', 'Federalist', 'Independent', 'National Union', 'Progressive', 'Republican', 'Union', 'Whig'\nPresidentMarriage.PresidentName: 45 distinct values, e.g. 'Abraham Lincoln', 'Andrew Jackson', 'Andrew Johnson'\nPresidentMarriage.SpouseName: 49 distinct values, e.g. 'Abigail Adams', 'Abigail Fillmore', 'Alice Roosevelt'\nPresidentMarriage.MarriageStatus: 'Married', 'Widowed', NULL\nPresidentHolding.PresidentName: 45 distinct values, e.g. 'Abraham Lincoln', 'Andrew Jackson', 'Andrew Johnson'\nPresidentHolding.VicePresidentName: 45 distinct values, e.g. 'Aaron Burr', 'Adlai Stevenson', 'Al Gore'\nPresidentHolding.RunnerUp: 43 distinct values, e.g. 'Abraham Lincoln', 'Adlai Stevenson', 'Al Gore'",
+   "columns": [
+    {
+     "table": "President",
+     "column": "PresidentName",
+     "n_distinct": 45,
+     "mode": "examples",
+     "values": [
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Andrew Johnson"
+     ],
+     "full_values": [
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Andrew Johnson",
+      "Barack Obama",
+      "Benjamin Harrison",
+      "Bill Clinton",
+      "Calvin Coolidge",
+      "Chester A Arthur",
+      "Donald Trump",
+      "Dwight D Eisenhower",
+      "Franklin D Roosevelt",
+      "Franklin Pierce",
+      "George H W Bush",
+      "George W Bush",
+      "George Washington",
+      "Gerald Ford",
+      "Grover Cleveland",
+      "Harry S Truman",
+      "Herbert Hoover",
+      "James A Garfield",
+      "James Buchanan",
+      "James K Polk",
+      "James Madison",
+      "James Monroe",
+      "Jimmy Carter",
+      "Joe Biden",
+      "John Adams",
+      "John F Kennedy",
+      "John Quincy Adams",
+      "John Tyler",
+      "Lyndon B Johnson",
+      "Martin Van Buren",
+      "Millard Fillmore",
+      "Richard Nixon",
+      "Ronald Reagan",
+      "Rutherford B Hayes",
+      "Theodore Roosevelt",
+      "Thomas Jefferson",
+      "Ulysses S Grant",
+      "Warren G Harding",
+      "William Henry Harrison",
+      "William Howard Taft",
+      "William McKinley",
+      "Woodrow Wilson",
+      "Zachary Taylor"
+     ]
+    },
+    {
+     "table": "President",
+     "column": "StateBorn",
+     "n_distinct": 21,
+     "mode": "full",
+     "values": [
+      "Arkansas",
+      "California",
+      "Connecticut",
+      "Georgia",
+      "Hawaii",
+      "Illinois",
+      "Iowa",
+      "Kentucky",
+      "Massachusetts",
+      "Missouri",
+      "Nebraska",
+      "New Hampshire",
+      "New Jersey",
+      "New York",
+      "North Carolina",
+      "Ohio",
+      "Pennsylvania",
+      "South Carolina",
+      "Texas",
+      "Vermont",
+      "Virginia"
+     ],
+     "full_values": [
+      "Arkansas",
+      "California",
+      "Connecticut",
+      "Georgia",
+      "Hawaii",
+      "Illinois",
+      "Iowa",
+      "Kentucky",
+      "Massachusetts",
+      "Missouri",
+      "Nebraska",
+      "New Hampshire",
+      "New Jersey",
+      "New York",
+      "North Carolina",
+      "Ohio",
+      "Pennsylvania",
+      "South Carolina",
+      "Texas",
+      "Vermont",
+      "Virginia"
+     ]
+    },
+    {
+     "table": "President",
+     "column": "PartyName",
+     "n_distinct": 7,
+     "mode": "full",
+     "values": [
+      "Democratic",
+      "Democratic-Republican",
+      "Federalist",
+      "Independent",
+      "National Union",
+      "Republican",
+      "Whig"
+     ],
+     "full_values": [
+      "Democratic",
+      "Democratic-Republican",
+      "Federalist",
+      "Independent",
+      "National Union",
+      "Republican",
+      "Whig"
+     ]
+    },
+    {
+     "table": "Party",
+     "column": "PartyName",
+     "n_distinct": 9,
+     "mode": "full",
+     "values": [
+      "Democratic",
+      "Democratic-Republican",
+      "Federalist",
+      "Independent",
+      "National Union",
+      "Progressive",
+      "Republican",
+      "Union",
+      "Whig"
+     ],
+     "full_values": [
+      "Democratic",
+      "Democratic-Republican",
+      "Federalist",
+      "Independent",
+      "National Union",
+      "Progressive",
+      "Republican",
+      "Union",
+      "Whig"
+     ]
+    },
+    {
+     "table": "PresidentMarriage",
+     "column": "PresidentName",
+     "n_distinct": 45,
+     "mode": "examples",
+     "values": [
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Andrew Johnson"
+     ],
+     "full_values": [
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Andrew Johnson",
+      "Barack Obama",
+      "Benjamin Harrison",
+      "Bill Clinton",
+      "Calvin Coolidge",
+      "Chester A Arthur",
+      "Donald Trump",
+      "Dwight D Eisenhower",
+      "Franklin D Roosevelt",
+      "Franklin Pierce",
+      "George H W Bush",
+      "George W Bush",
+      "George Washington",
+      "Gerald Ford",
+      "Grover Cleveland",
+      "Harry S Truman",
+      "Herbert Hoover",
+      "James A Garfield",
+      "James Buchanan",
+      "James K Polk",
+      "James Madison",
+      "James Monroe",
+      "Jimmy Carter",
+      "Joe Biden",
+      "John Adams",
+      "John F Kennedy",
+      "John Quincy Adams",
+      "John Tyler",
+      "Lyndon B Johnson",
+      "Martin Van Buren",
+      "Millard Fillmore",
+      "Richard Nixon",
+      "Ronald Reagan",
+      "Rutherford B Hayes",
+      "Theodore Roosevelt",
+      "Thomas Jefferson",
+      "Ulysses S Grant",
+      "Warren G Harding",
+      "William Henry Harrison",
+      "William Howard Taft",
+      "William McKinley",
+      "Woodrow Wilson",
+      "Zachary Taylor"
+     ]
+    },
+    {
+     "table": "PresidentMarriage",
+     "column": "SpouseName",
+     "n_distinct": 49,
+     "mode": "examples",
+     "values": [
+      "Abigail Adams",
+      "Abigail Fillmore",
+      "Alice Roosevelt"
+     ],
+     "full_values": [
+      "Abigail Adams",
+      "Abigail Fillmore",
+      "Alice Roosevelt",
+      "Anna Harrison",
+      "Barbara Bush",
+      "Bess Truman",
+      "Betty Ford",
+      "Caroline Harrison",
+      "Dolley Madison",
+      "Edith Roosevelt",
+      "Edith Wilson",
+      "Eleanor Roosevelt",
+      "Eliza Johnson",
+      "Elizabeth Monroe",
+      "Ellen Arthur",
+      "Ellen Wilson",
+      "Florence Harding",
+      "Frances Cleveland",
+      "Grace Coolidge",
+      "Hannah Van Buren",
+      "Helen Taft",
+      "Hillary Clinton",
+      "Ida McKinley",
+      "Jacqueline Kennedy",
+      "Jane Pierce",
+      "Jill Biden",
+      "Julia Grant",
+      "Julia Tyler",
+      "Lady Bird Johnson",
+      "Laura Bush",
+      "Letitia Tyler",
+      "Lou Herbert",
+      "Louisa Adams",
+      "Lucretia Garfield",
+      "Lucy Hayes",
+      "Mamie Eisenhower",
+      "Margaret Taylor",
+      "Martha Skelton",
+      "Martha Washington",
+      "Mary Harrison",
+      "Mary Todd",
+      "Melania Trump",
+      "Michelle Obama",
+      "Nancy Reagan",
+      "Pat Nixon",
+      "Rachel Jackson",
+      "Rosalynn Carter",
+      "Sarah Polk"
+     ]
+    },
+    {
+     "table": "PresidentMarriage",
+     "column": "MarriageStatus",
+     "n_distinct": 3,
+     "mode": "full",
+     "values": [
+      "Married",
+      "Widowed",
+      null
+     ],
+     "full_values": [
+      "Married",
+      "Widowed"
+     ]
+    },
+    {
+     "table": "PresidentHolding",
+     "column": "PresidentName",
+     "n_distinct": 45,
+     "mode": "examples",
+     "values": [
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Andrew Johnson"
+     ],
+     "full_values": [
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Andrew Johnson",
+      "Barack Obama",
+      "Benjamin Harrison",
+      "Bill Clinton",
+      "Calvin Coolidge",
+      "Chester A Arthur",
+      "Donald Trump",
+      "Dwight D Eisenhower",
+      "Franklin D Roosevelt",
+      "Franklin Pierce",
+      "George H W Bush",
+      "George W Bush",
+      "George Washington",
+      "Gerald Ford",
+      "Grover Cleveland",
+      "Harry S Truman",
+      "Herbert Hoover",
+      "James A Garfield",
+      "James Buchanan",
+      "James K Polk",
+      "James Madison",
+      "James Monroe",
+      "Jimmy Carter",
+      "Joe Biden",
+      "John Adams",
+      "John F Kennedy",
+      "John Quincy Adams",
+      "John Tyler",
+      "Lyndon B Johnson",
+      "Martin Van Buren",
+      "Millard Fillmore",
+      "Richard Nixon",
+      "Ronald Reagan",
+      "Rutherford B Hayes",
+      "Theodore Roosevelt",
+      "Thomas Jefferson",
+      "Ulysses S Grant",
+      "Warren G Harding",
+      "William Henry Harrison",
+      "William Howard Taft",
+      "William McKinley",
+      "Woodrow Wilson",
+      "Zachary Taylor"
+     ]
+    },
+    {
+     "table": "PresidentHolding",
+     "column": "VicePresidentName",
+     "n_distinct": 45,
+     "mode": "examples",
+     "values": [
+      "Aaron Burr",
+      "Adlai Stevenson",
+      "Al Gore"
+     ],
+     "full_values": [
+      "Aaron Burr",
+      "Adlai Stevenson",
+      "Al Gore",
+      "Alben Barkley",
+      "Andrew Johnson",
+      "Calvin Coolidge",
+      "Charles Curtis",
+      "Charles Dawes",
+      "Charles Fairbanks",
+      "Chester Arthur",
+      "Dan Quayle",
+      "Daniel Tompkins",
+      "Dick Cheney",
+      "George Bush",
+      "George Clinton",
+      "George Dallas",
+      "Hannibal Hamlin",
+      "Harry Truman",
+      "JD Vance",
+      "James Sherman",
+      "Joe Biden",
+      "John Adams",
+      "John Breckinridge",
+      "John Calhoun",
+      "John Garner",
+      "John Tyler",
+      "Kamala Harris",
+      "Levi Morton",
+      "Lyndon Johnson",
+      "Martin Van Buren",
+      "Mike Pence",
+      "Millard Fillmore",
+      "Nelson Rockefeller",
+      "Richard Johnson",
+      "Richard Nixon",
+      "Schuyler Colfax",
+      "Spiro Agnew",
+      "Theodore Roosevelt",
+      "Thomas Hendricks",
+      "Thomas Jefferson",
+      "Thomas Marshall",
+      "Walter Mondale",
+      "William King",
+      "William Wheeler"
+     ]
+    },
+    {
+     "table": "PresidentHolding",
+     "column": "RunnerUp",
+     "n_distinct": 43,
+     "mode": "examples",
+     "values": [
+      "Abraham Lincoln",
+      "Adlai Stevenson",
+      "Al Gore"
+     ],
+     "full_values": [
+      "Abraham Lincoln",
+      "Adlai Stevenson",
+      "Al Gore",
+      "Alton Parker",
+      "Andrew Jackson",
+      "Barry Goldwater",
+      "Benjamin Harrison",
+      "Bill Clinton",
+      "Charles Pinckney",
+      "Donald Trump",
+      "Franklin Roosevelt",
+      "George Bush",
+      "George McClellan",
+      "Grover Cleveland",
+      "Henry Clay",
+      "Herbert Hoover",
+      "Hillary Clinton",
+      "Horace Greeley",
+      "Horatio Seymour",
+      "Hubert Humphrey",
+      "James Blaine",
+      "James Cox",
+      "Jimmy Carter",
+      "John Adams",
+      "John Davis",
+      "John Fremont",
+      "John McCain",
+      "John Quincy Adams",
+      "Kamala Harris",
+      "Lewis Cass",
+      "Martin Van Buren",
+      "Richard Nixon",
+      "Ronald Reagan",
+      "Samuel Tilden",
+      "Stephen Douglas",
+      "Theodore Roosevelt",
+      "Thomas Dewey",
+      "Thomas Jefferson",
+      "William Henry Harrison",
+      "William Jennings Bryan",
+      "Winfield Hancock",
+      "Winfield Scott"
+     ]
+    }
+   ],
+   "sha256": "32e422929b84fa12ed45d0752e45f25c8ebaa2ae077adb17d95e8f2e7fb61713",
+   "chars": 1381
+  },
+  "E": {
+   "block": "Stored values of the text columns (SELECT DISTINCT; a column with more than 25 distinct values shows 3 examples):\nEcommerce.OrderID: 2387 distinct values, e.g. 'ORD100485', 'ORD100551', 'ORD101280'\nEcommerce.CustomerID: 2354 distinct values, e.g. 'CUS10013', 'CUS10079', 'CUS10166'\nEcommerce.ProductSKU: 2089 distinct values, e.g. 'SKU1015', 'SKU1016', 'SKU1019'\nEcommerce.ProductName: 2371 distinct values, e.g. 'Adidas Automotive 117', 'Adidas Automotive 178', 'Adidas Automotive 192'\nEcommerce.Category: 'Automotive', 'Beauty', 'Books', 'Clothing', 'Electronics', 'Food', 'Health', 'Home & Garden', 'Sports', 'Toys'\nEcommerce.Brand: 'Adidas', 'Amazon', 'Apple', 'Canon', 'Dell', 'H&M', 'HP', 'LG', 'Microsoft', 'Nike', 'Philips', 'Samsung', 'Sony', 'Unilever', 'Zara'\nEcommerce.Currency: 'USD'\nEcommerce.CustomerGender: 'Female', 'Male', 'Other'\nEcommerce.CustomerCity: 'Amsterdam', 'Berlin', 'Chicago', 'Dubai', 'London', 'Los Angeles', 'New York', 'Paris', 'Singapore', 'Sydney', 'Tokyo', 'Toronto'\nEcommerce.CustomerCountry: 'Australia', 'Canada', 'France', 'Germany', 'Japan', 'Netherlands', 'Singapore', 'UAE', 'UK', 'USA'\nEcommerce.Region: 'Asia Pacific', 'Europe', 'Middle East', 'North America'\nEcommerce.MembershipTier: 'Bronze', 'Diamond', 'Gold', 'Platinum', 'Silver'\nEcommerce.MarketingChannel: 'Affiliate', 'Direct', 'Display Ads', 'Email', 'Influencer', 'Referral', 'Search Engine', 'Social Media'\nEcommerce.CartAbandonment: 'No', 'Yes'\nEcommerce.ReturnStatus: 'Exchanged', 'No Return', 'Returned'\nEcommerce.RepeatCustomer: 'No', 'Yes'\nEcommerce.IsHighValue: 'No', 'Yes'\nEcommerce.IsWeekendOrder: 'No', 'Yes'\nEcommerce.PaymentMethod: 'Bank Transfer', 'Credit Card', 'Debit Card', 'Digital Wallet', 'PayPal'",
+   "columns": [
+    {
+     "table": "Ecommerce",
+     "column": "OrderID",
+     "n_distinct": 2387,
+     "mode": "examples",
+     "values": [
+      "ORD100485",
+      "ORD100551",
+      "ORD101280"
+     ],
+     "full_values": null
+    },
+    {
+     "table": "Ecommerce",
+     "column": "CustomerID",
+     "n_distinct": 2354,
+     "mode": "examples",
+     "values": [
+      "CUS10013",
+      "CUS10079",
+      "CUS10166"
+     ],
+     "full_values": null
+    },
+    {
+     "table": "Ecommerce",
+     "column": "ProductSKU",
+     "n_distinct": 2089,
+     "mode": "examples",
+     "values": [
+      "SKU1015",
+      "SKU1016",
+      "SKU1019"
+     ],
+     "full_values": null
+    },
+    {
+     "table": "Ecommerce",
+     "column": "ProductName",
+     "n_distinct": 2371,
+     "mode": "examples",
+     "values": [
+      "Adidas Automotive 117",
+      "Adidas Automotive 178",
+      "Adidas Automotive 192"
+     ],
+     "full_values": null
+    },
+    {
+     "table": "Ecommerce",
+     "column": "Category",
+     "n_distinct": 10,
+     "mode": "full",
+     "values": [
+      "Automotive",
+      "Beauty",
+      "Books",
+      "Clothing",
+      "Electronics",
+      "Food",
+      "Health",
+      "Home & Garden",
+      "Sports",
+      "Toys"
+     ],
+     "full_values": [
+      "Automotive",
+      "Beauty",
+      "Books",
+      "Clothing",
+      "Electronics",
+      "Food",
+      "Health",
+      "Home & Garden",
+      "Sports",
+      "Toys"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "Brand",
+     "n_distinct": 15,
+     "mode": "full",
+     "values": [
+      "Adidas",
+      "Amazon",
+      "Apple",
+      "Canon",
+      "Dell",
+      "H&M",
+      "HP",
+      "LG",
+      "Microsoft",
+      "Nike",
+      "Philips",
+      "Samsung",
+      "Sony",
+      "Unilever",
+      "Zara"
+     ],
+     "full_values": [
+      "Adidas",
+      "Amazon",
+      "Apple",
+      "Canon",
+      "Dell",
+      "H&M",
+      "HP",
+      "LG",
+      "Microsoft",
+      "Nike",
+      "Philips",
+      "Samsung",
+      "Sony",
+      "Unilever",
+      "Zara"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "Currency",
+     "n_distinct": 1,
+     "mode": "full",
+     "values": [
+      "USD"
+     ],
+     "full_values": [
+      "USD"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "CustomerGender",
+     "n_distinct": 3,
+     "mode": "full",
+     "values": [
+      "Female",
+      "Male",
+      "Other"
+     ],
+     "full_values": [
+      "Female",
+      "Male",
+      "Other"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "CustomerCity",
+     "n_distinct": 12,
+     "mode": "full",
+     "values": [
+      "Amsterdam",
+      "Berlin",
+      "Chicago",
+      "Dubai",
+      "London",
+      "Los Angeles",
+      "New York",
+      "Paris",
+      "Singapore",
+      "Sydney",
+      "Tokyo",
+      "Toronto"
+     ],
+     "full_values": [
+      "Amsterdam",
+      "Berlin",
+      "Chicago",
+      "Dubai",
+      "London",
+      "Los Angeles",
+      "New York",
+      "Paris",
+      "Singapore",
+      "Sydney",
+      "Tokyo",
+      "Toronto"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "CustomerCountry",
+     "n_distinct": 10,
+     "mode": "full",
+     "values": [
+      "Australia",
+      "Canada",
+      "France",
+      "Germany",
+      "Japan",
+      "Netherlands",
+      "Singapore",
+      "UAE",
+      "UK",
+      "USA"
+     ],
+     "full_values": [
+      "Australia",
+      "Canada",
+      "France",
+      "Germany",
+      "Japan",
+      "Netherlands",
+      "Singapore",
+      "UAE",
+      "UK",
+      "USA"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "Region",
+     "n_distinct": 4,
+     "mode": "full",
+     "values": [
+      "Asia Pacific",
+      "Europe",
+      "Middle East",
+      "North America"
+     ],
+     "full_values": [
+      "Asia Pacific",
+      "Europe",
+      "Middle East",
+      "North America"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "MembershipTier",
+     "n_distinct": 5,
+     "mode": "full",
+     "values": [
+      "Bronze",
+      "Diamond",
+      "Gold",
+      "Platinum",
+      "Silver"
+     ],
+     "full_values": [
+      "Bronze",
+      "Diamond",
+      "Gold",
+      "Platinum",
+      "Silver"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "MarketingChannel",
+     "n_distinct": 8,
+     "mode": "full",
+     "values": [
+      "Affiliate",
+      "Direct",
+      "Display Ads",
+      "Email",
+      "Influencer",
+      "Referral",
+      "Search Engine",
+      "Social Media"
+     ],
+     "full_values": [
+      "Affiliate",
+      "Direct",
+      "Display Ads",
+      "Email",
+      "Influencer",
+      "Referral",
+      "Search Engine",
+      "Social Media"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "CartAbandonment",
+     "n_distinct": 2,
+     "mode": "full",
+     "values": [
+      "No",
+      "Yes"
+     ],
+     "full_values": [
+      "No",
+      "Yes"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "ReturnStatus",
+     "n_distinct": 3,
+     "mode": "full",
+     "values": [
+      "Exchanged",
+      "No Return",
+      "Returned"
+     ],
+     "full_values": [
+      "Exchanged",
+      "No Return",
+      "Returned"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "RepeatCustomer",
+     "n_distinct": 2,
+     "mode": "full",
+     "values": [
+      "No",
+      "Yes"
+     ],
+     "full_values": [
+      "No",
+      "Yes"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "IsHighValue",
+     "n_distinct": 2,
+     "mode": "full",
+     "values": [
+      "No",
+      "Yes"
+     ],
+     "full_values": [
+      "No",
+      "Yes"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "IsWeekendOrder",
+     "n_distinct": 2,
+     "mode": "full",
+     "values": [
+      "No",
+      "Yes"
+     ],
+     "full_values": [
+      "No",
+      "Yes"
+     ]
+    },
+    {
+     "table": "Ecommerce",
+     "column": "PaymentMethod",
+     "n_distinct": 5,
+     "mode": "full",
+     "values": [
+      "Bank Transfer",
+      "Credit Card",
+      "Debit Card",
+      "Digital Wallet",
+      "PayPal"
+     ],
+     "full_values": [
+      "Bank Transfer",
+      "Credit Card",
+      "Debit Card",
+      "Digital Wallet",
+      "PayPal"
+     ]
+    }
+   ],
+   "sha256": "5a9fb96ffd03bf08cb723f5f4f1f87161aaf642f83faf015bab6852f3255987c",
+   "chars": 1723
+  }
+ }
+}

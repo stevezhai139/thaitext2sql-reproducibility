@@ -1,0 +1,3 @@
+model,lang,correct_items,n_items,runs,wilson_lo,wilson_hi,cells_lt5_runs
+typhoon2-8b,en,1,40,200,0.004,0.129,
+typhoon2-8b,th,1,40,198,0.004,0.129,X28:3

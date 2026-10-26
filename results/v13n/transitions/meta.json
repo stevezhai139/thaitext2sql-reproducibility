@@ -1,0 +1,29 @@
+{
+ "arm": "base",
+ "keep_excluded": false,
+ "n_items": 59,
+ "producers": {
+  "transitions_v13n.py": {
+   "excluded_items": [
+    "Q27"
+   ],
+   "excluded_models": [],
+   "inputs": {
+    "k3_v12": {
+     "basename": "graded.csv",
+     "sha256": "fe297596975af07f062d47479686970eeedc3532260bacf1bb1f361efcb65e77"
+    },
+    "k3n_v12": {
+     "basename": "graded_v12_on_k3n.csv",
+     "sha256": "e35b9d59e611072af3f0d9fd5541ca5e90fdbdfec67b6f4dd5e2166338e58dc8"
+    },
+    "k3n_v13n": {
+     "basename": "graded_v13n.csv",
+     "sha256": "30d29a826b57fcf3ff56e05241ad5c67656a1966b3538b16d4236bd7c54e46f8"
+    }
+   }
+  }
+ },
+ "suite_session": "august",
+ "suite_sha256": "195839ec46f902901f03e90965c00bb1b78b4ef6bc970f4cabb0ed0272997366"
+}

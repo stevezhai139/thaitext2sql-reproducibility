@@ -1,0 +1,21 @@
+Part B on arm base: 59 items, models ['claude-sonnet', 'gemini-flash', 'gpt-mini', 'llama31-8b', 'qwen25-coder-7b', 'typhoon2-8b']
+VG set (10): Q01 Q07 Q09 Q13 Q14 Q15 Q21 Q30 Q42 Q48; non-VG10 for B3: 49 items
+
+B1 frontier (run level): 151 error runs = loud 13 + silent-empty 36 + silent-non-empty 102 (silent 91.4%, non-empty 67.5%); wording flag most_nonempty (>50%): True
+
+B3 English-Thai gap outside VG10: claude-sonnet +8.2 pts, gpt-mini +4.1 pts, gemini-flash -2.0 pts, frontier_pooled +3.4 pts
+
+B4: api: byte-exact 154/354, text 173/354, grade 331/354; local: byte-exact 348/354, text 348/354, grade 353/354
+  wording: 'bit-stable' allowed for api: False
+  wording: 'bit-stable' allowed for local: False
+  'a differently graded answer in [x]% of API cells': x from 4.2 to 8.5 across the frontier models
+
+B5 indexed: plan csv and --graded from the same session (same file)
+
+B5 indexed: 2 model(s) beat gold on Q51 (min ratio 0.76, by 24%)
+
+B5 noindex: plan csv and --graded from the same session (same file)
+
+B5 noindex: 2 model(s) beat gold on Q51 (min ratio 0.84, by 16%)
+
+B6 (exploratory): TH VG items wrong typhoon 5 vs llama 6; 'no harder than the base' allowed: True

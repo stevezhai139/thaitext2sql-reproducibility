@@ -1,0 +1,19 @@
+{
+ "audit_rows_file": "vg_codes_chat_k3_audit_rows.csv",
+ "audit_rows_sha256": "b07bf9bb4c7901ec758ff4e23f459d19c73eeae2842426075a300827b5b7dd63",
+ "graded_file": "graded_chat_k3.csv",
+ "graded_sha256": "94fdbdc3f03c8557ed5901392b6733f5fe8d4eb4697b198ac52505009f55d95b",
+ "hints_sha256": "2ea5efb413182b7929310f30bb312175776e63ea18eec0616ac7bbd0cc38919c",
+ "n_cells": 84,
+ "q48_vocab_rule": "keep",
+ "results_file": "results_chat.jsonl",
+ "results_sha256": "8d74283af714cd757f64bb9c0c87dffa5bf22afdc9bc31d9cb06c5286b9725af",
+ "suite_file": "k3_suite_v1.3.tsv",
+ "suite_sha256": "7e46649c2bc65a22a7471bf1db3e8494d8354bda2e1f26fafe45d90434b96121",
+ "tool": "vg_outcome.py",
+ "tool_sha256": "659dff5696df68a0fa4a7f673f5fce3d78b6bcebae07d13c0e7408298da7fc0d",
+ "vg_codes_file": "vg_codes_chat_k3.tsv",
+ "vg_codes_sha256": "41f0d9dfdc50ab7bce6a140f212f527344b67d095d00723e33539dcd3790a3d2",
+ "vocab_db": "k3",
+ "vocab_source": "vg_classifier.build_vocab (Q48 rule 'keep'); k3 rule: stored 'None' added to spousename, vicepresidentname, runnerup"
+}

@@ -1,0 +1,8 @@
+model,lang,failed_single,loud,loud_truncated,silent_empty,silent_nonempty,failed_mi
+claude-sonnet,en,23,2,2,0,21,0
+claude-sonnet,th,40,12,12,0,28,0
+gemini-flash,en,11,1,0,0,10,0
+gemini-flash,th,18,1,0,0,17,0
+gpt-mini,en,42,6,0,11,25,4
+gpt-mini,th,57,2,0,0,55,0
+free-tier pooled,both,191,24,14,11,156,4

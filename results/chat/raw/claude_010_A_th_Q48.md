@@ -1,0 +1,1 @@
+SELECT PresidentName FROM President WHERE PresidentName NOT IN (SELECT RunnerUp FROM PresidentHolding WHERE RunnerUp IS NOT NULL);

@@ -1,0 +1,26 @@
+chat-app consistency check (AMENDMENT-8): mechanical report (OQ33.7 sensitivity on k3; artifact only)
+k = 10 (VG10; Q48 counted within k); comparator = TH base arm (B) of the paired proxy, majority of 5 runs; single shot per cell
+chat dates (all apps): 2026-10-21; 3-day window: PASS
+classifier vocabulary: vg_classifier.build_vocab (Q48 rule 'keep'); k3 rule: stored 'None' added to spousename, vicepresidentname, runnerup; database k3; hints sha256 2ea5efb413182b7929310f30bb312175776e63ea18eec0616ac7bbd0cc38919c
+DEFAULT switches: SILENCE_MOSTLY_SILENT_COUNT=s, FALLBACK_WINDOW_FAIL=oct-base
+AMENDMENT-8 sec.6 (turn 1 without SQL is coded ASKED): no override
+AMENDMENT-8 sec.6 deviation (turn 2 sent although turn 1 has SQL): none
+AMENDMENT-8 sec.5 deviation (cell started before the previous cell was done in all three apps): none
+
+[chatgpt] proxy gpt-mini (concurrent B arm; October base arm); chat 2026-10-21; B arm 2026-10-19
+  level: reproduced (GF Form A 2 of 10, Form B 1 of 10; clean Form A 7 of 10); proxy GF items: Q07,Q15,Q30
+  statement: the failure also appeared in the free ChatGPT (2 of 10 Form A cells; entered 2026-10-21; single shot)
+  silence (Form B): most wrong replies gave no warning (1 of 1)
+[gemini] proxy gemini-flash (concurrent B arm; October base arm); chat 2026-10-21; B arm 2026-10-19
+  level: reproduced (GF Form A 2 of 10, Form B 1 of 10; clean Form A 8 of 10); proxy GF items: Q14
+  statement: the failure also appeared in the free Gemini app (2 of 10 Form A cells; entered 2026-10-21; single shot)
+  silence (Form B): most wrong replies gave no warning (2 of 3)
+[claude] proxy claude-sonnet (concurrent B arm; October base arm); chat 2026-10-21; B arm 2026-10-20
+  level: reproduced (GF Form A 2 of 10, Form B 0 of 10; clean Form A 6 of 10); proxy GF items: Q14,Q42
+  statement: the failure also appeared in the free Claude.ai (2 of 10 Form A cells; entered 2026-10-21; single shot)
+  silence (Form B): flagged or asked in 2 of 3 wrong replies
+
+overall: at least one app reproduced the failure; the per-app statements apply
+
+summary per app x form x subset (ALL / VG / NONVG): see chat_summary.tsv; per-cell table: chat_cells.tsv; turn 2 is a secondary result
+diagnostic (not a rule): VG cells whose SQL failed to parse but would be GF on the extracted text: none

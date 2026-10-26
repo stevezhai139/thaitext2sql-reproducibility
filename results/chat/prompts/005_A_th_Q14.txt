@@ -1,0 +1,6 @@
+You are a SQL assistant. Given the schema below, answer the user's question with a single PostgreSQL query only. Output only the SQL, no explanation, no markdown.
+
+Schema:
+CREATE TABLE Ecommerce(OrderID TEXT, CustomerID TEXT, OrderDate DATE, ProductSKU TEXT, ProductName TEXT, Category TEXT, Brand TEXT, BasePrice NUMERIC, DiscountPercent NUMERIC, FinalPrice NUMERIC, Quantity INT, Revenue NUMERIC, Currency TEXT, CustomerAge INT, CustomerGender TEXT, CustomerCity TEXT, CustomerCountry TEXT, Region TEXT, MembershipTier TEXT, MarketingChannel TEXT, WebsiteVisits INT, TimeOnSite NUMERIC, CartAbandonment TEXT, ProductRating NUMERIC, CustomerSatisfaction NUMERIC, ShippingCost NUMERIC, DeliveryDays INT, ReturnStatus TEXT, RepeatCustomer TEXT, PurchaseFrequency INT, IsHighValue TEXT, SeasonalFactor NUMERIC, InventoryLevel INT, ConversionRate NUMERIC, CustomerLTV NUMERIC, AcquisitionCost NUMERIC, IsWeekendOrder TEXT, PaymentMethod TEXT);
+
+แสดงรายการคำสั่งซื้อที่ไม่มีการคืนหรือเปลี่ยนสินค้า โดยสินค้ามีเรตติ้งตั้งแต่ 4.5 (แสดง OrderID, ProductName, ProductRating)

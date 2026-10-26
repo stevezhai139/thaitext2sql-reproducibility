@@ -1,0 +1,114 @@
+{
+ "arm": "base",
+ "directional_items": [
+  "Q17",
+  "Q22",
+  "Q28",
+  "Q35",
+  "Q42",
+  "Q49",
+  "Q54"
+ ],
+ "engine": "PostgreSQL 16.9 (Homebrew) on aarch64-apple-darwin24.4.0",
+ "excluded_models": [],
+ "inputs": {
+  "graded": {
+   "arms_in_file": [
+    "base",
+    "values"
+   ],
+   "basename": "graded_rc1.csv",
+   "session_fp": {
+    "Q01": "400b149ba3b15fd0",
+    "Q02": "e84259f69bf0d37a",
+    "Q03": "948987ca233d5ae3",
+    "Q04": "47e42678bb5c97b3",
+    "Q05": "02cd5d451ddeb9ad",
+    "Q06": "89be30e517f64a27",
+    "Q07": "1b613dcb0a101d27",
+    "Q08": "d85dd3927aacab0a",
+    "Q09": "25717a0428e17fe6",
+    "Q10": "170526a300b07ffc",
+    "Q11": "f8d93a2877865278",
+    "Q12": "57b50283847bc384",
+    "Q13": "f9a37c698b94047b",
+    "Q14": "06a01d55408156d7",
+    "Q15": "0c85eac08e6265b6",
+    "Q16": "527422cc19b2c09b",
+    "Q17": "708887aa088e6671",
+    "Q18": "7f9805b945f8f2ea",
+    "Q19": "9df015f6aec7ce04",
+    "Q20": "1b9089f4b8f694aa",
+    "Q21": "1a6b89ecda347529",
+    "Q22": "e472c7e76bd01b65",
+    "Q23": "d1a5f7b568f25560",
+    "Q24": "a46b590e2e8ad8e0",
+    "Q25": "0e22ebdd523b2e7b",
+    "Q26": "1ce44f912be5a8bc",
+    "Q27": "89e9496a762f9888",
+    "Q28": "a13a267f72a5eb1d",
+    "Q29": "c274574b0582a99a",
+    "Q30": "b7c946b5c56f5176",
+    "Q31": "b7bd944f80e225bd",
+    "Q32": "dc9fc139fc67f4a7",
+    "Q33": "459fe623cde1944a",
+    "Q34": "14662811c05becb1",
+    "Q35": "dff9153b1897cf3a",
+    "Q36": "bc33af7ce5a7b9a9",
+    "Q37": "8ebef4b1dcd10f51",
+    "Q38": "63120860b8dc058e",
+    "Q39": "9b3e0a5d2f42ac91",
+    "Q40": "4e40f56111397aeb",
+    "Q41": "c285fb4ce8c18c7f",
+    "Q42": "01aaa9a25681b7c8",
+    "Q43": "a813c2843d2452e6",
+    "Q44": "47fb0b2c41398db8",
+    "Q45": "480fe8e647e3cef9",
+    "Q46": "5cbcf64d600155f6",
+    "Q47": "9dc7fca54503e61f",
+    "Q48": "e57973bfc232692d",
+    "Q49": "408ecc070e90dfa0",
+    "Q50": "1b356b01d1d51588",
+    "Q51": "920740d7fcc2abb7",
+    "Q52": "3ba29ec57cd52e7b",
+    "Q53": "3977ee1de8757a85",
+    "Q54": "3bb262aee0115f64",
+    "Q55": "482d6fd2a8182902",
+    "Q56": "24d4790ef7a4ddcb",
+    "Q57": "5c271eb946af5fc1",
+    "Q58": "f9707de1f3dd7fae",
+    "Q59": "daf0bbd6d02a7b70",
+    "Q60": "63dea4a40b341130"
+   },
+   "sha256": "74c5e9a63a70665172740da8beeb7352e2dc3664271b63c85d28f1716a2f03c1"
+  },
+  "grader": {
+   "basename": "grade_v13n.py",
+   "sha256": "e1dedbdced9035ecc1326339b3a1564e250fa746fda75dba79571d3c15d8b511"
+  },
+  "results": [
+   {
+    "basename": "results_rc1_api.jsonl",
+    "sha256": "18f88552513125ed970b3859977be21f820410cdd99331776c3bd84666fe448b"
+   },
+   {
+    "basename": "results_rc1_local.jsonl",
+    "sha256": "3ddbf313830d7471d14d87c731e7c895dc0aacba18c70d359581e6ead045ecdc"
+   }
+  ],
+  "vg_set": {
+   "basename": "vg_set_v13n.txt",
+   "sha256": "4685db6e818efd1bb2fb5447210f7085d385270cb91008edd84a2a7426bc6188"
+  }
+ },
+ "keep_excluded": false,
+ "label_mismatches": 0,
+ "mi_items_out": [],
+ "n_items": 60,
+ "producer": "empty_split_v13.py",
+ "roles_from": "grade_v13n.roles_by_item",
+ "rows_file": "silent_split_rows.csv",
+ "runs": 5,
+ "suite_session": "october",
+ "suite_sha256": "96b8e9f2e48398111aa6b2d555995a2b726a54e62efe1474668477dda7eed46b"
+}

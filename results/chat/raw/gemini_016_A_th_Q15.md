@@ -1,0 +1,1 @@
+SELECT OrderID, ProductName FROM Ecommerce WHERE Category = 'Apparel' AND CustomerGender = 'Female';
